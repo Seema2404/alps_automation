@@ -1,7 +1,7 @@
 import HTMLTestRunner
 import api_projectkeywordestimated
 import unittest
-
+import api_projectkeywordestimated_updated
 
 class TestRunner:
 
@@ -21,7 +21,7 @@ class TestRunner:
         suite = unittest.TestSuite()
 
         #suite.addTests(unittest.makeSuite(api_projectkeywordestimated.TestBoundaryValues))
-        suite.addTest(unittest.makeSuite(api_projectkeywordestimated.TestProjectKeywordEstimated))
+        suite.addTest(unittest.makeSuite(api_projectkeywordestimated_updated.TestAPIProjectKeywordEstimated))
 
         runner.run(suite)
 
