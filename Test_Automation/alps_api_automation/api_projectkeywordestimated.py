@@ -70,7 +70,7 @@ class TestProjectKeywordEstimated(BaseALPSAPIAutomation):
             actual = self.actual_lookup[keyword][field]
             estimated_traffic = values['estimated_traffic'] * utils.mtd_factor_calculator(current=True,previous=False)
             estimated_traffic_prev = values['estimated_traffic_prev'] * utils.mtd_factor_calculator(current=False,previous=True)
-            expected = ((estimated_traffic - estimated_traffic_prev)*estimated_traffic)*100
+            expected = ((estimated_traffic - estimated_traffic_prev)/estimated_traffic_prev)*100
             response = self.assert_actual_expected(keyword, field, actual, expected)
             if response['is_failed']:
                 failed_msg = 'actual: %s, expected: %s' % (actual, expected)
@@ -95,7 +95,7 @@ class TestProjectKeywordEstimated(BaseALPSAPIAutomation):
         field = 'search_volume_mom_percentage'
         for keyword, values in keyword_lookup.iteritems():
             actual = self.actual_lookup[keyword][field]
-            expected = ((values['search_volume']-values['search_volume_prev'])/values['search_volume'])*100
+            expected = ((values['search_volume']-values['search_volume_prev'])/values['search_volume_prev'])*100
             response = self.assert_actual_expected(keyword, field, actual, expected)
             if response['is_failed']:
                 failed_msg = 'actual: %s, expected: %s' % (actual, expected)
