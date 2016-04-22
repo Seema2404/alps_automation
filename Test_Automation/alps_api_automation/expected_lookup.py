@@ -33,3 +33,21 @@ keyword_lookup = {
         'estimated_traffic_prev':0
     }
 }
+
+# theme_lookup={
+#
+#             "aggregated_data":{
+#                 "weighted_rank": 1.0000201196881573,
+#                 "month": 4,
+#                 "year": 2016,
+#                 "total_monthly_search_volume": 2500053510123.53,
+#                 "total_traffic": 0.0
+#             },
+#             {
+#                 "weighted_rank": 4.0000000478603805,
+#                 "month": 3,
+#                 "year": 2016,
+#                 "total_monthly_search_volume": 978767685225292,
+#                 "total_traffic": 0
+#             }
+# }
