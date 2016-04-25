@@ -1,12 +1,12 @@
 keyword_rollup_lookup = {
     '__me__' : {
-        'search_volume' : 1260,
+        'search_volume' : 126,
         'share_of_search' : 9.920634920634921,
         'share_of_search_mom_percentage' : 9.920634920634921,
         'rank_distribution' : {
             '1' : 12,
             '2' : 0,
-            '3' : 0,
+            '3' : 1,
             '4' : 2
         }
     },
