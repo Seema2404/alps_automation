@@ -28,7 +28,7 @@ keyword_rollup_lookup = {
         'share_of_search_mom_percentage' : 0.0024801587301587213,
         'rank_distribution' : {
             '1' : 1,
-            '2' : 1,
+            '2' : 2,
             '3' : 1,
             '4' : 10
         }
