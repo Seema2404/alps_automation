@@ -1,16 +1,17 @@
 import HTMLTestRunner
 import api_projectkeywordestimated
 import unittest
-import api_projectkeywordestimated_updated
+import api_projectkeywordsrollup
+import api_projectpagecontentdetail_on_page
 
 class TestRunner:
 
     def __init__(self):
-        print "TestRunner.__INIT__"
+        print "api_test_runner.__INIT__"
     #This is to launch tests and run tests for the desired plan
     def test(args=None):
 
-        fp = file('/home/10613/Downloads/unittest-xml-reporting-2.1.0/test_result.html', 'wb')
+        fp = file('REPORT_FILE_NAME.html', 'wb')
         runner = HTMLTestRunner.HTMLTestRunner(
             stream=fp,
             title='API boundary tests',
@@ -21,7 +22,9 @@ class TestRunner:
         suite = unittest.TestSuite()
 
         #suite.addTests(unittest.makeSuite(api_projectkeywordestimated.TestBoundaryValues))
-        suite.addTest(unittest.makeSuite(api_projectkeywordestimated_updated.TestAPIProjectKeywordEstimated))
+        suite.addTest(unittest.makeSuite(api_projectkeywordsrollup.TestProjectKeywordRollup))
+        suite.addTest(unittest.makeSuite(api_projectpagecontentdetail_on_page.TestProjectPageContentDetails))
+
 
         runner.run(suite)
 

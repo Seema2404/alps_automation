@@ -15,8 +15,10 @@ class TestProjectPageContentDetails(BaseALPSPAGECONTENTAPIAutomation):
             response = self.assert_pagecontent_actual_expected(base_domain, field, actual, expected)
             if response['is_failed']:
                 failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                print failed_msg
                 self.write_to_csv([response['metric'], response['base_domain'], failed_msg, ''])
             elif response['is_error']:
+                print response['metric'] + response['base_domain'] + response['error_msg']
                 self.write_to_csv([response['metric'], response['base_domain'], '', response['error_msg']])
 
     def test_estimated_traffic(self):
@@ -27,8 +29,10 @@ class TestProjectPageContentDetails(BaseALPSPAGECONTENTAPIAutomation):
             response = self.assert_pagecontent_actual_expected(base_domain, field, actual, expected)
             if response['is_failed']:
                 failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                print failed_msg
                 self.write_to_csv([response['metric'], response['base_domain'], failed_msg, ''])
             elif response['is_error']:
+                print response['metric'] + response['base_domain'] + response['error_msg']
                 self.write_to_csv([response['metric'], response['base_domain'], '', response['error_msg']])
 
 if __name__ == '__main__':
