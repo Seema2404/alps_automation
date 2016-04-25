@@ -1,5 +1,5 @@
 import utils
-from expected_pagecontent_details import project_keyword_lookup
+from expected_pagecontent_details import project_pagecontent_lookup
 from base_api_pagecontent_automation import BaseALPSPAGECONTENTAPIAutomation
 import unittest
 

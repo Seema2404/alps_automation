@@ -1,4 +1,6 @@
 import utils
+from expected_rollup_lookup import keyword_rollup_lookup
+from base_api_rollup_automation import BaseALPSROLLUPAPIAutomation
 import unittest
 from base_api_automation import BaseALPSAPIAutomation
 from expected_lookup import keyword_lookup

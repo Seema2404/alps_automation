@@ -60,5 +60,3 @@ project_keyword_lookup = {
         }
     }
 }
-
-
