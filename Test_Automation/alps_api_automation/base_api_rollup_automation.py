@@ -35,24 +35,6 @@ class BaseALPSROLLUPAPIAutomation(TestCase):
         # print  log_msg % response_dict
         return response_dict
 
-    def check_actual_expected(self,alias_name,metric,actual,expected):
-        is_success, is_failed, is_error = True, False, False
-        error_msg = ''
-        if (actual == expected):
-            pass
-        else:
-            print 'expected is not matching with actual result '
-
-        response_dict = {
-                    'alias_name': alias_name,
-                    'metric': metric,
-                    'is_success': is_success,
-                    'is_failed': is_failed,
-                    'is_error': is_error,
-                    'error_msg': error_msg
-                }
-        log_msg = '%(alias_name)s %(metric)s %(is_success)d, %(is_failed)d,'
-        return response_dict
 
 
 
@@ -67,7 +49,6 @@ class BaseALPSROLLUPAPIAutomation(TestCase):
             cls.csv_writer.writerow(['Metric', 'alias_name', 'Failure', 'Error'])
             json_response =  utils.get_api_response(cls.API_URL)
             cls.actual_rollup_lookup = {k['alias_name']: k for k in json_response['data']}
-
         except Exception as e:
             cls.csv_writer.writerow(['API Failure'])
             print "API did not give any response: %s" % cls.API_URL
