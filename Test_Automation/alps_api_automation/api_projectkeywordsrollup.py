@@ -15,8 +15,10 @@ class TestProjectKeywordRollup(BaseALPSROLLUPAPIAutomation):
             response = self.assert_rollup_actual_expected(alias_name, field, actual, expected)
             if response['is_failed']:
                 failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                print failed_msg
                 self.write_to_csv([response['metric'], response['alias_name'], failed_msg, ''])
             elif response['is_error']:
+                print response['metric'] + response ['alias_name'] + response['error_msg']
                 self.write_to_csv([response['metric'], response['alias_name'], '', response['error_msg']])
 
 if __name__ == '__main__':
