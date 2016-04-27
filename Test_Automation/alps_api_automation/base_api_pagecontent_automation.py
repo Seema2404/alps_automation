@@ -43,10 +43,10 @@ class BaseALPSPAGECONTENTAPIAutomation(TestCase):
 
     @classmethod
     def setUpClass(cls):
+        cls.csv_file = open(cls.REPORT_FILE_NAME, 'wb')
+        cls.csv_writer = csv.writer(cls.csv_file, delimiter=',')
+        cls.csv_writer.writerow(['Metric', 'base_domain', 'Failure', 'Error'])
         try:
-            cls.csv_file = open(cls.REPORT_FILE_NAME, 'wb')
-            cls.csv_writer = csv.writer(cls.csv_file, delimiter=',')
-            cls.csv_writer.writerow(['Metric', 'base_domain', 'Failure', 'Error'])
             json_response =  utils.get_api_response(cls.API_URL)
             cls.actual_pagecontent_lookup = {k['base_domain']: k for k in json_response['data']}
         except Exception as e:
