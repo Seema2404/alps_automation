@@ -3,6 +3,7 @@ import api_projectkeywordestimated
 import unittest
 import api_projectkeywordsrollup
 import api_projectpagecontentdetail_on_page
+import test
 
 class TestRunner:
 
