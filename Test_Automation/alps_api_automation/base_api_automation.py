@@ -64,4 +64,3 @@ class BaseALPSAPIAutomation(TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    csv_file.close()
