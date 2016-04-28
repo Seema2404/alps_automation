@@ -13,3 +13,4 @@ def mtd_factor_calculator():
     total_days_month=monthrange(now.year, now.month)[1]
     r=time.strftime("%d")
     return ((int(r))/float(total_days_month))
+
