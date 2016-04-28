@@ -45,7 +45,7 @@ keyword_rollup_lookup = {
         }
     },
     'geico' : {
-        'search_volume' : 1260,
+        'search_volume' : 1324980,
         'share_of_search' : 6.031746031746032,
         'share_of_search_mom_percentage' : 1.8129960317460316,
         'rank_distribution' : {
