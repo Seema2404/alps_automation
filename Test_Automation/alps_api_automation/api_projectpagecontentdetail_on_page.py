@@ -18,12 +18,14 @@ class TestProjectPageContentDetails(BaseALPSPAGECONTENTAPIAutomation):
     def test_base_domain(self):
 
             def test_rank(self):
+                print "test_rank"
                 field = 'rank'
                 for keyword, values in project_keyword_lookup.iteritems():
                     for base_domain, metric in values['base_domains'].iteritems():
                         actual = self.actual_pagecontent_lookup[base_domain][field]
                         expected = metric[field]
                         response = self.assert_pagecontent_actual_expected(keyword.aliases, field, actual, expected)
+                        print 'actual value is %s and expected va;ue is %s' %(actual,expected)
                         if response['is_failed']:
                             failed_msg = 'actual: %s, expected: %s' % (actual, expected)
                             print failed_msg
@@ -33,12 +35,14 @@ class TestProjectPageContentDetails(BaseALPSPAGECONTENTAPIAutomation):
                             self.write_to_csv([response['metric'], response['base_domain'], '', response['error_msg']])
 
             def test_estimated_traffic(self):
+                print "test_estimated_traffic"
                 field = 'estimated_traffic'
                 for keyword, values in project_keyword_lookup.iteritems():
                         for base_domain, metric in values['base_domains'].iteritems():
                             actual = self.actual_pagecontent_lookup[base_domain][field]
                             expected = metric[field]
                             response = self.assert_pagecontent_actual_expected(keyword.aliases, field, actual, expected)
+                            print 'actual value is %s and expected va;ue is %s' %(actual,expected)
                             if response['is_failed']:
                                 failed_msg = 'actual: %s, expected: %s' % (actual, expected)
                                 print failed_msg
