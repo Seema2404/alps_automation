@@ -4,7 +4,6 @@ from base_api_pagecontent_automation import BaseALPSPAGECONTENTAPIAutomation
 import unittest
 
 
-
 class TestProjectPageContentDetails(BaseALPSPAGECONTENTAPIAutomation):
 
     field = 'keyword_id'
