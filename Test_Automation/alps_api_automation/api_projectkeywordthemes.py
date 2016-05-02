@@ -96,3 +96,6 @@ class TestProjectKeywordThemes(BaseALPSAPIAutomation):
                 self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
             elif response['is_error']:
                 self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+if __name__ == '__main__':
+    unittest.main()
