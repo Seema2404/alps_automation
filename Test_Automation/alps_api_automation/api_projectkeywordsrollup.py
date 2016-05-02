@@ -81,22 +81,6 @@ class TestProjectKeywordsRollup(BaseALPSAPIAutomation):
             elif response['is_error']:
                 print response['metric'] + response ['alias_name'] + response['error_msg']
                 self.write_to_csv([response['metric'], response['alias_name'], '', response['error_msg']])
-            if alias_name in  self.actual_rollup_lookup:
-                actual = self.actual_rollup_lookup[alias_name][field]
-                expected = values[field]
-                response = self.assert_rollup_actual_expected(alias_name,field,actual, expected)
-                print 'actual value is %s and expected va;ue is %s' %(actual,expected)
-                if response['is_failed']:
-                    failed_msg = 'actual: %s, expected: %s' % (actual, expected)
-                    print failed_msg
-                    self.write_to_csv([response['metric'], response['alias_name'], failed_msg, ''])
-                    #self.fail()
-                elif response['is_error']:
-                    print response['metric'] + response ['alias_name'] + response['error_msg']
-                    self.write_to_csv([response['metric'], response['alias_name'], '', response['error_msg']])
-            else:
-                    print alias_name + 'is not present in the actual lookup'
-                    self.write_to_csv(['alias:-']+[alias_name]+ ['is not present in the actual lookup'])
 
     def test_share_of_search(self):
         field = 'share_of_search'
@@ -113,22 +97,6 @@ class TestProjectKeywordsRollup(BaseALPSAPIAutomation):
             elif response['is_error']:
                 print response['metric'] + response ['alias_name'] + response['error_msg']
                 self.write_to_csv([response['metric'], response['alias_name'], '', response['error_msg']])
-            if alias_name in  self.actual_rollup_lookup:
-                actual = self.actual_rollup_lookup[alias_name][field]
-                expected = values[field]
-                response = self.assert_rollup_actual_expected(alias_name,field,actual, expected)
-                print 'actual value is %s and expected va;ue is %s' %(actual,expected)
-                if response['is_failed']:
-                    failed_msg = 'actual: %s, expected: %s' % (actual, expected)
-                    print failed_msg
-                    self.write_to_csv([response['metric'], response['alias_name'], failed_msg, ''])
-                    #self.fail()
-                elif response['is_error']:
-                    print response['metric'] + response ['alias_name'] + response['error_msg']
-                    self.write_to_csv([response['metric'], response['alias_name'], '', response['error_msg']])
-            else:
-                    print alias_name + 'is not present in the actual lookup'
-                    self.write_to_csv(['alias:-']+[alias_name]+ ['is not present in the actual lookup'])
 
     def test_share_of_search_mom_percentage(self):
         field = 'share_of_search_mom_percentage'
@@ -145,22 +113,6 @@ class TestProjectKeywordsRollup(BaseALPSAPIAutomation):
             elif response['is_error']:
                 print response['metric'] + response ['alias_name'] + response['error_msg']
                 self.write_to_csv([response['metric'], response['alias_name'], '', response['error_msg']])
-            if alias_name in  self.actual_rollup_lookup:
-                actual = self.actual_rollup_lookup[alias_name][field]
-                expected = values[field]
-                response = self.assert_rollup_actual_expected(alias_name,field,actual, expected)
-                print 'actual value is %s and expected va;ue is %s' %(actual,expected)
-                if response['is_failed']:
-                    failed_msg = 'actual: %s, expected: %s' % (actual, expected)
-                    print failed_msg
-                    self.write_to_csv([response['metric'], response['alias_name'], failed_msg, ''])
-                    #self.fail()
-                elif response['is_error']:
-                    print response['metric'] + response ['alias_name'] + response['error_msg']
-                    self.write_to_csv([response['metric'], response['alias_name'], '', response['error_msg']])
-            else:
-                    print alias_name + 'is not present in the actual lookup'
-                    self.write_to_csv(['alias:-']+[alias_name]+ ['is not present in the actual lookup'])
 
 
 
