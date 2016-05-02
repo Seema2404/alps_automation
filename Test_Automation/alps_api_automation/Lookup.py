@@ -1,8 +1,6 @@
 
 
 theme_lookup={
-
-
              "april":{
                        "weighted_rank":1.0000201196881573,
                        "month":4,
@@ -10,7 +8,6 @@ theme_lookup={
                        "total_monthly_search_volume": 2500053510123.53,
                        "total_traffic": 0.0
                      },
-
              "march":{
                         "weighted_rank": 4.0000000478603805,
                         "month": 3,
@@ -18,50 +15,33 @@ theme_lookup={
                         "total_monthly_search_volume": 978767685225292,
                         "total_traffic": 1
                     }
-
-
-
-
     }
 
 project_keyworddetail_lookup={
 
-	'all state': {
-
-
-
-			"month": "4",
-			"search_volume": "0",
-			"rank": "1",
-			"estimated_traffic": "0",
-			"estimated_traffic_day": "0"
-
-
-	},
-	'all state auto': {
-
-
-			"month": "4",
-			"search_volume": "100",
-			"rank": "2",
-			"estimated_traffic": "16",
-			"estimated_traffic_day": "0.533333333333"
-
+	        'all state':{
+                        "month": "4",
+                        "search_volume": "0",
+                        "rank": "1",
+                        "estimated_traffic": "0",
+                        "estimated_traffic_day": "0"
+                    	},
+	        'all state auto': {
+    			"month": "4",
+    			"search_volume": "100",
+	    		"rank": "2",
+		    	"estimated_traffic": "16",
+			    "estimated_traffic_day": "0.533333333333"
 		},
 
 
 	'all state car insurance': {
-
-
-
-			"month": "4",
-			"search_volume": "320",
-			"rank": "2",
-			"estimated_traffic": "16",
-			"estimated_traffic_day": "0.533333333333"
-
-
-	},
+                "month": "4",
+                "search_volume": "320",
+                "rank": "2",
+                "estimated_traffic": "16",
+                "estimated_traffic_day": "0.533333333333"
+            	},
 	'allstate car insurance quote': {
 
 
