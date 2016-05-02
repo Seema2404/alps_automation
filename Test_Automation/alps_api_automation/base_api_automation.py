@@ -2,11 +2,11 @@ import requests
 import json
 import csv
 import unittest
-import sys
-import time,calendar,datetime
-import data_collection_projectkeywordestimated
-
-
+# import sys
+# import time,calendar,datetime
+# import data_collection_projectkeywordestimated
+# import data_collection_sample
+#
 from expected_lookup import keyword_lookup
 from unittest import TestCase
 import utils
@@ -40,7 +40,7 @@ class BaseALPSAPIAutomation(TestCase):
                     'error_msg': error_msg
                 }
         log_msg = '%(keyword)s %(metric)s %(is_success)d, %(is_failed)d, %(is_error)d, %(error_msg)s'
-        # print  log_msg % response_dict 
+        # print  log_msg % response_dict
         return response_dict
 
     def write_to_csv(self, row):
@@ -64,4 +64,3 @@ class BaseALPSAPIAutomation(TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    csv_file.close()
