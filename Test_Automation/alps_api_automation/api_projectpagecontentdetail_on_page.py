@@ -10,7 +10,7 @@ class TestProjectPageContentDetails(BaseALPSPAGECONTENTAPIAutomation):
     for keyword, values in project_keyword_lookup.iteritems():
             keyword_id = values[field]
             API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/85/projectpagecontentdetail?keywords=%s' % (keyword_id) + '&sort_by=rank&limit=10&offset=0&format=json&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
-            #API_URL = 'http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/85/projectpagecontentdetail?keywords=%s' % (keyword_id) + '&sort_by=rank&limit=10&offset=0&format=json&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+            #API_URL = 'http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectpagecontentdetail?keywords=%s' % (keyword_id) + '&sort_by=rank&limit=10&offset=0&format=json&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
 
 #API_URL ='http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/85/projectpagecontentdetail?keywords='+'%s' %(a)+'&sort_by=rank&limit=10&offset=0&format=json&'+'%s' %(session_token)
     REPORT_FILE_NAME = 'project_page_content_details_api1.csv'
