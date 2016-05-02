@@ -13,6 +13,7 @@ class ProjectThemeGraphAPI(unittest.TestCase):
             cls.csv_writer.writerow(['Metric', 'Theme', 'Failure', 'Error'])
 
             api=requests.get('http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectthemesgraph?themes=674&month_range=13&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c')
+            #api=requests.get('http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectthemesgraph?themes=674&month_range=13&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c')
             cls.actual_response=api.json()['aggregated_data']
 
     except Exception as e:
