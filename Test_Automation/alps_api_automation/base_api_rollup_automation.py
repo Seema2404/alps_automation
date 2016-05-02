@@ -35,6 +35,24 @@ class BaseALPSROLLUPAPIAutomation(TestCase):
         # print  log_msg % response_dict
         return response_dict
 
+    def check_actual_expected(self,alias_name,metric,actual,expected):
+        is_success, is_failed, is_error = True, False, False
+        error_msg = ''
+        if (actual == expected):
+            pass
+        else:
+            print 'expected is not matching with actual result '
+
+        response_dict = {
+                    'alias_name': alias_name,
+                    'metric': metric,
+                    'is_success': is_success,
+                    'is_failed': is_failed,
+                    'is_error': is_error,
+                    'error_msg': error_msg
+                }
+        log_msg = '%(alias_name)s %(metric)s %(is_success)d, %(is_failed)d,'
+        return response_dict
 
 
 
