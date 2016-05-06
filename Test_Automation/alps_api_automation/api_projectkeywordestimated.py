@@ -6,8 +6,8 @@ from expected_lookup import keyword_lookup
 
 class TestProjectKeywordEstimated(BaseALPSAPIAutomation):
 
-    API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeywordestimated?alias=0&sort_by=-estimated_traffic_mom&offset=0&&rates=true&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
-    #API_URL = 'http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeywordestimated?alias=0&sort_by=-estimated_traffic_mom&offset=0&&rates=true&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+    #API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeywordestimated?alias=0&sort_by=-estimated_traffic_mom&offset=0&&rates=true&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+    API_URL = 'http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeywordestimated?alias=0&sort_by=-estimated_traffic_mom&format=json&offset=0&&rates=true&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
     REPORT_FILE_NAME = 'project_keyword_estimated_api.csv'
 
     def test_rank(self):
@@ -71,7 +71,11 @@ class TestProjectKeywordEstimated(BaseALPSAPIAutomation):
             actual = self.actual_lookup[keyword][field]
             estimated_traffic = values['estimated_traffic'] * utils.mtd_factor_calculator(current=True,previous=False)
             estimated_traffic_prev = values['estimated_traffic_prev'] * utils.mtd_factor_calculator(current=False,previous=True)
-            expected = ((estimated_traffic - estimated_traffic_prev)/estimated_traffic_prev)*100
+            expected = None
+            if estimated_traffic_prev == 0:
+                expected = 0
+            else:
+                expected = ((estimated_traffic - estimated_traffic_prev)/estimated_traffic_prev)*100
             response = self.assert_actual_expected(keyword, field, actual, expected)
             if response['is_failed']:
                 failed_msg = 'actual: %s, expected: %s' % (actual, expected)

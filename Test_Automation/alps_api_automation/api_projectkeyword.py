@@ -26,8 +26,8 @@ class ProjectKeywordAPI(unittest.TestCase):
 
     for kw in self.kw_list:
       try:
-        API_URL='http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeyword?alias=0&&keywords='+str(kw)+'&&offset=0&&month_range=13&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
-        #API_URL='http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeyword?alias=0&&keywords='+str(kw)+'&&offset=0&&month_range=13&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+        #API_URL='http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeyword?alias=0&&keywords='+str(kw)+'&&offset=0&&month_range=13&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+        API_URL='http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeyword?alias=0&&keywords='+str(kw)+'&&offset=0&&month_range=13&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
 
         api_call=requests.get(API_URL)
         m=0

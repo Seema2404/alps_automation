@@ -13,7 +13,7 @@ class ProjectKeywordDetailAPI(unittest.TestCase):
 
     try:
             cls.kw_list=[11757,11758,11760,11762,11759,11761,11763,11764,11766,11768,11765,11767,11769]
-            cls.csv_file = open('projectkeyworddetail.csv', 'wb')
+            cls.csv_file = open('projectkeyword.csv', 'wb')
             cls.csv_writer = csv.writer(cls.csv_file, delimiter=',')
             cls.csv_writer.writerow(['Metric', 'Keyword', 'Result', 'Failure Reason'])
 
@@ -25,8 +25,8 @@ class ProjectKeywordDetailAPI(unittest.TestCase):
 
     for kw in self.kw_list:
       try:
-        API_URL='http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeyworddetail?&alias=0&keywords='+str(kw)+'&limit=10&offset=0&&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
-        #API_URL='http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeyworddetail?&alias=0&keywords='+str(kw)+'&limit=10&offset=0&&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+        #API_URL='http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeyworddetail?&alias=0&keywords='+str(kw)+'&limit=10&offset=0&&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+        API_URL='http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeyworddetail?&alias=0&keywords='+str(kw)+'&limit=10&offset=0&&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
 
         api_call=requests.get(API_URL)
 
