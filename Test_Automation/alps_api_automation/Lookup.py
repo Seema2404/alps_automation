@@ -530,6 +530,21 @@ keyword_rollup={
 }
 
 
+lookup_account_planning_summary={
+
+	"traffic": {
+		"current": 157282.776,
+		"change_percentage": 0.3014951872415976,
+		"projected": 157756.976,
+		"change": 474.19999999998254
+	},
+	"rank": {
+		"current": 6.514999613079628,
+		"change_percentage": 0.0912786005180846,
+		"projected": 6.509058235815069,
+		"change": 0.005941377264559122
+	}
+}
 
 
 
