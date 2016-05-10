@@ -96,3 +96,38 @@ class TestProjectKeywordThemes(BaseALPSAPIAutomation):
                 self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
             elif response['is_error']:
                 self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+    def test_estimated_sales(self):
+        field = 'estimated_sales'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+
+
+    def test_estimated_sales_mom_percentage(self):
+        field = 'estimated_sales_mom_percentage'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+
+
+    def test_estimated_conversions_prev(self):
+        field = 'estimated_conversions_prev'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+            #need to update
+
+    def test_estimated_conversion(self):
+        field = 'estimated_conversion'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+            #need to update
+
+    def test_estimated_conversions(self):
+        field = 'estimated_conversions_mom'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+            #need to update
+
+
+
+
+
