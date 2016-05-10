@@ -33,3 +33,48 @@ keyword_lookup = {
         'estimated_traffic_prev':0
     }
 }
+theme_lookup = {
+    'auto': {
+        'theme_name':'auto',
+        'rank':1.00002012,
+        'search_volume':2500053510124,
+        'rank_mom':3,
+        'search_volume_mom':-976267631715169,
+        'traffic':502760760885.842,
+        'traffic_prev':100910948346728
+    },
+    'home': {
+        'theme_name':'home',
+        'rank':2.592169067,
+        'search_volume':1443353,
+        'rank_mom':2,
+        'search_volume_mom':1431719,
+        'traffic':578207.2118,
+        'traffic_prev':2341.9242
+    },
+    'life': {
+        'theme_name':'life',
+        'rank':3.999980811,
+        'search_volume':567648659.3434,
+        'rank_mom':-2,
+        'search_volume_mom':567414121.7084,
+        'traffic':113756791.332417,
+        'traffic_prev':23641.393608
+    }
+}
+theme_rollup_lookup = {
+    'april': {
+        'weighted_rank':1.0000201196881573,
+        'month':4,
+        'year': 2016,
+        'total_monthly_search_volume': 2500053510123.53,
+        'total_traffic': 0.0
+     },
+     'march': {
+        'weighted_rank': 4.0000000478603805,
+        'month': 3,
+        'year': 2016,
+        'total_monthly_search_volume': 978767685225292,
+        'total_traffic': 1
+     }
+}

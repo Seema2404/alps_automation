@@ -1,9 +1,12 @@
 import HTMLTestRunner
-import api_projectkeywordestimated
 import unittest
+import api_projectkeyword
+import api_projectkeyworddetail
+import api_projectkeywordestimated
 import api_projectkeywordsrollup
+import api_projectkeywordthemes
 import api_projectpagecontentdetail_on_page
-import test
+import api_projectthemegraph
 
 class TestRunner:
 
@@ -22,10 +25,13 @@ class TestRunner:
 
         suite = unittest.TestSuite()
 
-        #suite.addTests(unittest.makeSuite(api_projectkeywordestimated.TestBoundaryValues))
+        suite.addTests(unittest.makeSuite(api_projectkeyword.ProjectKeywordAPI))
+        suite.addTests(unittest.makeSuite(api_projectkeyworddetail.ProjectKeywordDetailAPI))
+        suite.addTests(unittest.makeSuite(api_projectkeywordestimated.TestProjectKeywordEstimated))
+        suite.addTests(unittest.makeSuite(api_projectkeywordthemes.TestProjectKeywordThemes))
         suite.addTest(unittest.makeSuite(api_projectkeywordsrollup.TestProjectKeywordRollup))
         suite.addTest(unittest.makeSuite(api_projectpagecontentdetail_on_page.TestProjectPageContentDetails))
-
+        suite.addTest(unittest.makeSuite(api_projectthemegraph.ProjectThemeGraphAPI))
 
         runner.run(suite)
 

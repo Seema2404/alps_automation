@@ -7,7 +7,7 @@ import unittest
 # import data_collection_projectkeywordestimated
 # import data_collection_sample
 #
-from expected_lookup import keyword_lookup
+from expected_lookup import theme_lookup
 from unittest import TestCase
 import utils
 
@@ -17,7 +17,7 @@ class BaseALPSAPIAutomation(TestCase):
     API_URL = None
     REPORT_FILE_NAME = None
 
-    def assert_actual_expected(self, keyword, metric, actual, expected):
+    def assert_actual_expected(self, theme_name, metric, actual, expected):
         is_success, is_failed, is_error = True, False, False
         error_msg = ''
         try:
@@ -32,15 +32,15 @@ class BaseALPSAPIAutomation(TestCase):
             is_success = not(is_failed or is_error)
 
         response_dict = {
-                    'keyword': keyword,
+                    'theme_name': theme_name,
                     'metric': metric,
                     'is_success': is_success,
                     'is_failed': is_failed,
                     'is_error': is_error,
                     'error_msg': error_msg
                 }
-        log_msg = '%(keyword)s %(metric)s %(is_success)d, %(is_failed)d, %(is_error)d, %(error_msg)s'
-        # print  log_msg % response_dict 
+        log_msg = '%(theme_name)s %(metric)s %(is_success)d, %(is_failed)d, %(is_error)d, %(error_msg)s'
+        # print  log_msg % response_dict
         return response_dict
 
     def write_to_csv(self, row):
@@ -51,9 +51,9 @@ class BaseALPSAPIAutomation(TestCase):
         try:
             cls.csv_file = open(cls.REPORT_FILE_NAME, 'wb')
             cls.csv_writer = csv.writer(cls.csv_file, delimiter=',')
-            cls.csv_writer.writerow(['Metric', 'keyword', 'Failure', 'Error'])
+            cls.csv_writer.writerow(['Metric', 'theme_name', 'Failure', 'Error'])
             json_response =  utils.get_api_response(cls.API_URL)
-            cls.actual_lookup = {k['keyword']: k for k in json_response['data']}
+            cls.actual_lookup = {t['theme_name']: t for t in json_response['data']}
         except Exception as e:
             cls.csv_writer.writerow(['API Failure'])
             print "API did not give any response: %s" % cls.API_URL
@@ -64,3 +64,4 @@ class BaseALPSAPIAutomation(TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    csv_file.close()

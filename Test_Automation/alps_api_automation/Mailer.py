@@ -14,10 +14,10 @@ msg['From'] = 'qa@iquanti.com'
 msg['To'] = ', '.join('parikshit.mukherjee@iquanti.com')
 
 part = MIMEBase('application', "octet-stream")
-part.set_payload(open("Metric_Test_Report.csv", "rb").read())
+part.set_payload(open("/home/10569/PycharmProjects/alps_automation/Test_Automation/alps_api_automation/project_keyword_estimated_api.csv", "rb").read())
 Encoders.encode_base64(part)
 
-part.add_header('Content-Disposition', 'attachment; filename="Metric_Test_Report.csv"')
+part.add_header('Content-Disposition', 'attachment; filename="project_keyword_estimated_api.csv"')
 
 msg.attach(part)
 

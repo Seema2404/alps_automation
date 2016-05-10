@@ -1,23 +1,13 @@
 
 __author__ = '10569'
 import requests
-import json
 import os
-#import xlsxwriter
-#import xlrd
-import subprocess
-import csv
-import pymongo
-from pymongo import MongoClient
-from pymongo import MongoClient
-from mongoengine import connect
 import csv
 import json
 from boto import s3
-from boto.s3.connection import S3Connection
+
 from boto.s3.key import Key
 import datetime
-# import Mailer_Reporter
 import itertools
 
 CONN = s3.connect_to_region(region_name='us-east-1', aws_access_key_id='AKIAIDIF4SRGVJGDDUOQ',
