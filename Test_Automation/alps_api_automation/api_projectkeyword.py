@@ -20,10 +20,10 @@ class ProjectKeywordAPI(unittest.TestCase):
 
     except Exception as e:
             cls.csv_writer.writerow(['API Failure'])
-            print "API did not give any response: %s" % cls.API_URL
+
 
  def comparator(self,metric):
-
+    actual_lookup={}
     for kw in self.kw_list:
       try:
         API_URL='http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeyword?alias=0&&keywords='+str(kw)+'&&offset=0&&month_range=13&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'

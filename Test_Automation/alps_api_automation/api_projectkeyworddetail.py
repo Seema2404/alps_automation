@@ -22,7 +22,7 @@ class ProjectKeywordDetailAPI(unittest.TestCase):
             print "API did not give any response: %s" % cls.API_URL
 
  def comparator(self,metric):
-
+    actual_lookup={}
     for kw in self.kw_list:
       try:
         API_URL='http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeyworddetail?&alias=0&keywords='+str(kw)+'&limit=10&offset=0&&sort_by=rank&query=&latest_only=1&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
