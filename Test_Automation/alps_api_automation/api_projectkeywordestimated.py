@@ -136,11 +136,26 @@ class TestProjectKeywordEstimated(BaseALPSAPIAutomation):
         field = 'sales_rate_prev'
         for keyword, values in keyword_lookup.iteritems():
             actual = self.actual_lookup[keyword][field]
+            expected = values[field]
+            response = self.assert_actual_expected(keyword, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['keyword'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['keyword'], '', response['error_msg']])
+
 
     def test_sales_rate(self):
         field = 'sales_rate'
         for keyword, values in keyword_lookup.iteritems():
             actual = self.actual_lookup[keyword][field]
+            expected = values[field]
+            response = self.assert_actual_expected(keyword, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['keyword'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['keyword'], '', response['error_msg']])
 
     def test_estimated_conversion_prev(self):
         field = 'estimated_conversion_prev'
@@ -176,6 +191,13 @@ class TestProjectKeywordEstimated(BaseALPSAPIAutomation):
         field = 'conversion_rate_prev'
         for keyword, values in keyword_lookup.iteritems():
             actual = self.actual_lookup[keyword][field]
+            expected = values[field]
+            response = self.assert_actual_expected(keyword, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['keyword'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['keyword'], '', response['error_msg']])
 
     def test_estimated_sales_mom(self):
         field = 'estimated_sales_mom'
