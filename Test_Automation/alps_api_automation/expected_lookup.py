@@ -40,8 +40,8 @@ theme_lookup = {
         'search_volume':2500053510124,
         'rank_mom':3,
         'search_volume_mom':-976267631715169,
-        'traffic':502760760885.842,
-        'traffic_prev':100910948346728
+        'traffic':11250415670778.6,
+        'traffic_prev':2858588938951690
     },
     'home': {
         'theme_name':'home',
@@ -49,8 +49,8 @@ theme_lookup = {
         'search_volume':1443353,
         'rank_mom':2,
         'search_volume_mom':1431719,
-        'traffic':578207.2118,
-        'traffic_prev':2341.9242
+        'traffic':4259704.7769,
+        'traffic_prev':45175.3359
     },
     'life': {
         'theme_name':'life',
@@ -58,8 +58,8 @@ theme_lookup = {
         'search_volume':567648659.3434,
         'rank_mom':-2,
         'search_volume_mom':567414121.7084,
-        'traffic':113756791.332417,
-        'traffic_prev':23641.393608
+        'traffic':1589701161.93841,
+        'traffic_prev':703843.2805771
     }
 }
 theme_rollup_lookup = {
