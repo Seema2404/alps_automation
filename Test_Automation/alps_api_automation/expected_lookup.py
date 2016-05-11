@@ -35,6 +35,7 @@ keyword_lookup = {
 }
 theme_lookup = {
     'auto': {
+        'id' : 674,
         'theme_name':'auto',
         'rank':1.00002012,
         'search_volume':2500053510124,
@@ -42,8 +43,16 @@ theme_lookup = {
         'search_volume_mom':-976267631715169,
         'traffic':11250415670778.6,
         'traffic_prev':2858588938951690
+        'traffic':502760760885.842,
+        'traffic_prev':100910948346728,
+        'target_url' : 'https://www.allstate.com/auto-insurance.aspx',
+        'conversion_rate' : 0.16417910447761194,
+        'conversion_rate_prev' : 'NA',
+        'sales_rate' : 'NA',
+        'sales_rate_prev' : 'NA'
     },
     'home': {
+        'id' : 675,
         'theme_name':'home',
         'rank':2.592169067,
         'search_volume':1443353,
@@ -51,8 +60,17 @@ theme_lookup = {
         'search_volume_mom':1431719,
         'traffic':4259704.7769,
         'traffic_prev':45175.3359
+        'traffic':578207.2118,
+        'traffic_prev':2341.9242,
+        'target_url' : 'https://www.allstate.com/home-insurance.aspx',
+        'conversion_rate' : 'NA',
+        'conversion_rate_prev' : 'NA',
+        'sales_rate' : 0.05806451612903226,
+        'sales_rate_prev' : 0.011904761904761904
+
     },
     'life': {
+        'id' : 676,
         'theme_name':'life',
         'rank':3.999980811,
         'search_volume':567648659.3434,
@@ -60,6 +78,13 @@ theme_lookup = {
         'search_volume_mom':567414121.7084,
         'traffic':1589701161.93841,
         'traffic_prev':703843.2805771
+        'traffic':113756791.332417,
+        'traffic_prev':23641.393608,
+        'target_url' : 'https://www.allstate.com/life-insurance.aspx',
+        'conversion_rate' : 0.09683098591549295,
+        'conversion_rate_prev' : 3.75,
+        'sales_rate' : 0.13636363636363635,
+        'sales_rate_prev' : 'NA'
     }
 }
 theme_rollup_lookup = {
