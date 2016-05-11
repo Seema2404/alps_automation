@@ -2,27 +2,6 @@ import utils
 from expected_pagecontent_details import project_keyword_lookup
 from base_api_pagecontent_automation import BaseALPSPAGECONTENTAPIAutomation
 import unittest
-import boto.s3
-import datetime
-from boto.s3.key import Key
-
-
-
-CONN = boto.s3.connect_to_region(region_name='us-east-1', aws_access_key_id='AKIAIDIF4SRGVJGDDUOQ',
-                                        aws_secret_access_key='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')
-print CONN
-BUCKET = 'qa.transform.test'
-S3_PATH = 'iquanti/downloads/'
-TAG = 'latest|en-us|google'
-TODAY = datetime.datetime.today()
-FILENAME = 'project_page_content_details_api'+TODAY.strftime('%d-%m-%Y')+'.csv'
-
-bucket = CONN.get_bucket(BUCKET)
-key = Key(bucket)
-key.key = S3_PATH+FILENAME
-key.set_contents_from_filename('/home/10613/alps_automation/Test_Automation/alps_api_automation/projectthemegraph.csv')
-
-
 
 
 
@@ -89,12 +68,6 @@ class TestProjectPageContentDetails(BaseALPSPAGECONTENTAPIAutomation):
                         print response['metric'] + response ['alias_name'] + response['error_msg']
                         self.write_to_csv([response['metric'], response['alias_name'], '', response['error_msg']])
 
-
-
-bucket = CONN.get_bucket(BUCKET)
-key = Key(bucket)
-key.key = S3_PATH+FILENAME
-key.set_contents_from_filename('/opt/Alps_Automation/All Keywords.csv')
 
 
 if __name__ == '__main__':
