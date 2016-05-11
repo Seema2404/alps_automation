@@ -144,21 +144,14 @@ class TestProjectKeywordThemes(BaseALPSAPIAutomation):
                 self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
 
 
-    def test_estimated_conversions(self):
-        field = 'estimated_conversions_mom'
-        for theme_name, values in theme_lookup.iteritems():
-            actual = self.actual_lookup[theme_name][field]
-            estimated_conversion_expected = values['conversion_rate']*values['traffic']
-            estimated_conversion_expected_prev = values['conversion_rate_prev']*values['traffic_prev']
-            estimated_conversions_mom_expected = (estimated_conversion_expected)-(estimated_conversion_expected_prev)
-            expected = estimated_conversions_mom_expected
-            response = self.assert_actual_expected(theme_name, field, actual, expected)
-            if response['is_failed']:
-                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
-                self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
-            elif response['is_error']:
-                self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
 
+
+
+
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 
