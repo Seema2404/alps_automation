@@ -105,6 +105,13 @@ class TestProjectKeywordThemes(BaseALPSAPIAutomation):
             actual = self.actual_lookup[theme_name][field]
             estimated_sales_conversion = values['sales_rate']*values['traffic']
             estimated_sales_conversion_prev = values['sales_rate_prev']*values['traffic_prev']
+            response = self.assert_actual_expected(theme_name, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
 
 
 
@@ -113,6 +120,13 @@ class TestProjectKeywordThemes(BaseALPSAPIAutomation):
         field = 'estimated_sales_mom_percentage'
         for theme_name, values in theme_lookup.iteritems():
             actual = self.actual_lookup[theme_name][field]
+            response = self.assert_actual_expected(theme_name, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
 
 
     def test_estimated_conversions_prev(self):
