@@ -12,7 +12,11 @@ keyword_lookup=    {
                                     'ctr_percentage':280.05,
                                     'estimated_traffic_mom':741535076.514021,
                                     'estimated_traffic_mom_percentage':233305.577081022,
-                                    'estimated_traffic_prev':317838.55567949
+                                    'estimated_traffic_prev':317838.55567949,
+                                    'conversion_rate' : 0.19900497512437812,
+                                    'conversion_rate_prev' : 0,
+                                    'sales_rate_prev' : 'NA',
+                                    'sales_rate' : 0.15
 
                             },
 
@@ -27,7 +31,12 @@ keyword_lookup=    {
                                     'ctr_percentage':300.09,
                                     'estimated_traffic_mom':17203957.1849871,
                                     'estimated_traffic_mom_percentage':32.5727383967,
-                                    'estimated_traffic_prev':52817042.8150129
+                                    'estimated_traffic_prev':52817042.8150129,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0.34285714285714286,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 0.041666666666666664
+
 
                             },
 
@@ -42,7 +51,11 @@ keyword_lookup=    {
                                     'ctr_percentage':300.09,
                                     'estimated_traffic_mom':1387142.33114258,
                                     'estimated_traffic_mom_percentage':10446.0809877798,
-                                    'estimated_traffic_prev':13279.069277419
+                                    'estimated_traffic_prev':13279.069277419,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 'NA'
 
                             },
 
@@ -57,7 +70,11 @@ keyword_lookup=    {
                                     'ctr_percentage':280.05,
                                     'estimated_traffic_mom':565043.4426,
                                     'estimated_traffic_mom_percentage':0,
-                                    'estimated_traffic_prev':0
+                                    'estimated_traffic_prev':0,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 'NA'
 
                             },
 
@@ -72,7 +89,11 @@ keyword_lookup=    {
                                     'ctr_percentage':450.01,
                                     'estimated_traffic_mom':15003.599587742,
                                     'estimated_traffic_mom_percentage':250.2782761533,
-                                    'estimated_traffic_prev':5994.767032258
+                                    'estimated_traffic_prev':5994.767032258,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0.34285714285714286,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 0.041666666666666664
 
                             },
 
@@ -87,7 +108,11 @@ keyword_lookup=    {
                                     'ctr_percentage':300.09,
                                     'estimated_traffic_mom':7601.016546319,
                                     'estimated_traffic_mom_percentage':29065.1199237321,
-                                    'estimated_traffic_prev':26.151677909
+                                    'estimated_traffic_prev':26.151677909,
+                                    'conversion_rate' : 0.19900497512437812,
+                                    'conversion_rate_prev' : 0,
+                                    'sales_rate' : 0.15,
+                                    'sales_rate_prev' : 'NA'
 
                             },
 
@@ -102,8 +127,11 @@ keyword_lookup=    {
                                     'ctr_percentage':300.09,
                                     'estimated_traffic_mom':271.091289678,
                                     'estimated_traffic_mom_percentage':24.0344436791,
-                                    'estimated_traffic_prev':1127.92890322
-
+                                    'estimated_traffic_prev':1127.92890322,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 'NA'
                             },
 
                                     'all state auto':{
@@ -117,7 +145,12 @@ keyword_lookup=    {
                                     'ctr_percentage':280.05,
                                     'estimated_traffic_mom':130.69,
                                     'estimated_traffic_mom_percentage':0,
-                                    'estimated_traffic_prev':0
+                                    'estimated_traffic_prev':0,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0.34285714285714286,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 0.041666666666666664
+
 
                             },
 
@@ -132,7 +165,12 @@ keyword_lookup=    {
                                     'ctr_percentage':450.01,
                                     'estimated_traffic_mom':-65.949032258,
                                     'estimated_traffic_mom_percentage':-100,
-                                    'estimated_traffic_prev':65.949032258
+                                    'estimated_traffic_prev':65.949032258,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 'NA'
+
 
 
 
@@ -150,7 +188,11 @@ keyword_lookup=    {
                                     'ctr_percentage':450.01,
                                     'estimated_traffic_mom':-131844.450324729,
                                     'estimated_traffic_mom_percentage':-99.9593517982,
-                                    'estimated_traffic_prev':131898.064516129
+                                    'estimated_traffic_prev':131898.064516129,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0.34285714285714286,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 0.0416666666666666646
 
                             },
 
@@ -165,7 +207,11 @@ keyword_lookup=    {
                                     'ctr_percentage':280.05,
                                     'estimated_traffic_mom':-3347770.27355806,
                                     'estimated_traffic_mom_percentage':-96.2429140504,
-                                    'estimated_traffic_prev':3478458.96665806
+                                    'estimated_traffic_prev':3478458.96665806,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0.34285714285714286,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 0.041666666666666664
 
                             },
 
@@ -182,17 +228,13 @@ keyword_lookup=    {
                                     'ctr_percentage':450.01,
                                     'estimated_traffic_mom':-1285725471312710,
                                     'estimated_traffic_mom_percentage':-99.5933212195,
-                                    'estimated_traffic_prev':1290975595119530
+                                    'estimated_traffic_prev':1290975595119530,
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0.34285714285714286,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 0.041666666666666664
                             },
-
-
-
-
-
-
-
-
-                                    'homeowners insurance florida':{
+                    'homeowners insurance florida':{
                                     'rank':1,
                                     'rank_mom':"NA",
                                     'rank_prev':"NA",
@@ -201,10 +243,13 @@ keyword_lookup=    {
                                     'search_volume_mom_percentage':"NA",
                                     'search_volume_mom':"NA",
                                     'ctr_percentage':450.01,
-                                    'estimated_traffic_mom':"NA",
+                                    'estimated_traffic_mom':'NA',
                                     'estimated_traffic_mom_percentage':"NA",
-                                    'estimated_traffic_prev':"NA"
-
+                                    'estimated_traffic_prev':"NA",
+                                    'conversion_rate' : 1.65,
+                                    'conversion_rate_prev' : 0.34285714285714286,
+                                    'sales_rate' : 0.16666666666666666,
+                                    'sales_rate_prev' : 0.041666666666666664
                             }
 
 }

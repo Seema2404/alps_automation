@@ -6,8 +6,7 @@ from expected_lookup import theme_lookup
 
 class TestProjectKeywordThemes(BaseALPSAPIAutomation):
 
-    #API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeywordthemes?sort_by=theme_name&&limit=10&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
-    API_URL = 'http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeywordthemes?sort_by=theme_name&format=json&&limit=10&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+    API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeywordthemes?sort_by=theme_name&&limit=10&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
     REPORT_FILE_NAME = 'project_keyword_themes_api.csv'
 
     def test_avg_rank(self):
@@ -98,5 +97,132 @@ class TestProjectKeywordThemes(BaseALPSAPIAutomation):
             elif response['is_error']:
                 self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
 
+    def test_estimated_conversion(self):
+        field = 'estimated_conversion'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup['theme_name'][field]
+            if (values['estimated_traffic_mom'] or values['conversion_rate'])!='NA':
+                estimated_conversion_expected = values['estimated_traffic_mom']*values['conversion_rate']
+            expected = estimated_conversion_expected
+            response = self.assert_actual_expected(theme_name, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+    def test_estimated_conversion_prev(self):
+        field = 'estimated_conversion_prev'
+        for theme_name, values in theme__lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+            if (values['estimated_traffic_prev'] or values['conversion_rate_prev'])!='NA':
+                estimated_conversion_prev_expected = values['estimated_traffic_prev']*values['conversion_rate_prev']
+            expected = estimated_conversion_prev_expected
+            response = self.assert_actual_expected(theme_name, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+    def test_estimated_sales(self):
+        field = 'estimated_sales'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+            if (values['estimated_traffic_mom'] or values['sales_rate'])!='NA':
+                estimated_sales_expected = values['estimated_traffic']*values['sales_rate']
+            expected = estimated_sales_expected
+            response = self.assert_actual_expected(theme_name, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+    def test_estimated_sales_prev(self):
+        field = 'estimated_sales_prev'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+            if (values['estimated_traffic_prev'] or values['estimated_sales_prev'])!='NA':
+                estimated_sales_prev_expected = values['estimated_traffic_prev']*values['sales_rate_prev']
+            expected = estimated_sales_prev_expected
+            response = self.assert_actual_expected(theme_name, field, actual, expected)
+            if response['is_failed']:
+                failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+                self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+            elif response['is_error']:
+                self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+    def test_estimated_conversion_mom(self):
+        field = 'estimated_conversion_prev'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+        if (values['estimated_traffic_prev'] or values['estimated_conversion_prev'] or values['estimated_traffic_mom'] or values['conversion_rate'])!='NA':
+                estimated_conversion = values['estimated_traffic']*values['conversion_rate']
+                estimated_conversion_prev = values['estimated_traffic_prev']*values['conversion_rate_prev']
+        estimated_conversion_mom_expected = estimated_conversion - estimated_conversion_prev
+        expected = estimated_conversion_mom_expected
+        response = self.assert_actual_expected(theme_name, field, actual, expected)
+        if response['is_failed']:
+            failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+            self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+        elif response['is_error']:
+            self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+    def test_estimated_conversion_mom_percentage(self):
+        field = 'estimated_conersions_prev'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+        if (values['estimated_traffic_prev'] or values['estimated_conersions_prev'] or values['estimated_traffic_mom'] or values['conersions_rate'])!='NA':
+                estimated_conversion = values['estimated_traffic']*values['conversion_rate']
+                estimated_conversion_prev = values['estimated_traffic_prev']*values['conversion_rate_prev']
+        estimated_conversion_mom = estimated_conversion - estimated_conversion_prev
+        estimated_conversion_mom_percentage_expected = (estimated_conversion_mom/estimated_conversion_prev)*100
+        expected = estimated_conversion_mom_percentage_expected
+        response = self.assert_actual_expected(theme_name, field, actual, expected)
+        if response['is_failed']:
+            failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+            self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+        elif response['is_error']:
+            self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+    def test_estimated_sales_mom(self):
+        field = 'estimated_sales_prev'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+        if (values['estimated_traffic_prev'] or values['estimated_sales_prev'] or values['estimated_traffic_mom'] or values['sales_rate'])!='NA':
+                estimated_sales = values['estimated_traffic']*values['sales_rate']
+                estimated_sales_prev = values['estimated_traffic_prev']*values['sales_rate_prev']
+        estimated_sales_mom_expected = estimated_sales - estimated_sales_prev
+        expected = estimated_sales_mom_expected
+        response = self.assert_actual_expected(theme_name, field, actual, expected)
+        if response['is_failed']:
+            failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+            self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+        elif response['is_error']:
+            self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+    def test_estimated_sales_mom_percentage(self):
+        field = 'estimated_sales_prev'
+        for theme_name, values in theme_lookup.iteritems():
+            actual = self.actual_lookup[theme_name][field]
+        if (values['estimated_traffic_prev'] or values['estimated_sales_prev'] or values['estimated_traffic_mom'] or values['sales_rate'])!='NA':
+                estimated_sales = values['estimated_traffic']*values['sales_rate']
+                estimated_sales_prev = values['estimated_traffic_prev']*values['sales_rate_prev']
+        estimated_sales_mom = estimated_sales - estimated_sales_prev
+        estimated_sales_mom_percentage_expected = (estimated_sales_mom/estimated_sales_prev)*100
+        expected = estimated_sales_mom_percentage_expected
+        response = self.assert_actual_expected(theme_name, field, actual, expected)
+        if response['is_failed']:
+            failed_msg = 'actual: %s, expected: %s' % (actual, expected)
+            self.write_to_csv([response['metric'], response['theme_name'], failed_msg, ''])
+        elif response['is_error']:
+            self.write_to_csv([response['metric'], response['theme_name'], '', response['error_msg']])
+
+
 if __name__ == '__main__':
     unittest.main()
+
+
+
+

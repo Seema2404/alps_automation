@@ -193,9 +193,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>API boundary tests</h1>
-<p class='attribute'><strong>Start Time:</strong> 2016-05-10 13:01:21</p>
-<p class='attribute'><strong>Duration:</strong> 0:01:11.700082</p>
-<p class='attribute'><strong>Status:</strong> Pass 26 Error 3</p>
+<p class='attribute'><strong>Start Time:</strong> 2016-05-13 15:18:24</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:08.372290</p>
+<p class='attribute'><strong>Status:</strong> Pass 14 Error 24</p>
 
 <p class='description'>This test result gives the details of the test runs of all the boundary value assertions.</p>
 </div>
@@ -225,92 +225,36 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='errorClass'>
     <td>api_projectkeyword.ProjectKeywordAPI</td>
     <td>4</td>
+    <td>0</td>
+    <td>0</td>
     <td>4</td>
-    <td>0</td>
-    <td>0</td>
     <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_estimated_traffic</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_estimated_traffic_day</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt1.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_rank</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt1.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_search_volume</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr class='passClass'>
-    <td>api_projectkeyworddetail.ProjectKeywordDetailAPI</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
-</tr>
-
-<tr id='pt2.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_rank</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt2.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_search_volume</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr class='errorClass'>
-    <td>api_projectkeywordestimated.TestProjectKeywordEstimated</td>
-    <td>8</td>
-    <td>5</td>
-    <td>0</td>
-    <td>3</td>
-    <td><a href="javascript:showClassDetail('c3',8)">Detail</a></td>
-</tr>
-
-<tr id='pt3.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_estimated_traffic</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt3.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_estimated_traffic_mom</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='ft3.3' class='none'>
-    <td class='errorCase'><div class='testcase'>test_estimated_traffic_mom_percentage</div></td>
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_traffic</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.3')" >
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
         error</a>
 
-    <div id='div_ft3.3' class="popup_window">
+    <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.3').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft3.3: Traceback (most recent call last):
-  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 73, in test_estimated_traffic_mom_percentage
-    expected = ((estimated_traffic - estimated_traffic_prev)/estimated_traffic_prev)*100
-ZeroDivisionError: float division by zero
+ft1.1: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyword.py", line 67, in test_estimated_traffic
+    self.comparator('estimated_traffic')
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyword.py", line 54, in comparator
+    self.csv_writer.writerow([metric,' Failed '+str(actual_lookup['4']['keyword']),exc_traceback,exc_type,exc_value])
+KeyError: '4'
 
 
         </pre>
@@ -320,23 +264,321 @@ ZeroDivisionError: float division by zero
     </td>
 </tr>
 
-<tr id='pt3.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_rank</div></td>
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_traffic_day</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyword.py", line 69, in test_estimated_traffic_day
+    self.comparator('estimated_traffic_day')
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyword.py", line 54, in comparator
+    self.csv_writer.writerow([metric,' Failed '+str(actual_lookup['4']['keyword']),exc_traceback,exc_type,exc_value])
+KeyError: '4'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_rank</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        error</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyword.py", line 63, in test_rank
+    self.comparator('rank')
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyword.py", line 54, in comparator
+    self.csv_writer.writerow([metric,' Failed '+str(actual_lookup['4']['keyword']),exc_traceback,exc_type,exc_value])
+KeyError: '4'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_search_volume</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        error</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyword.py", line 65, in test_search_volume
+    self.comparator('search_volume')
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyword.py", line 54, in comparator
+    self.csv_writer.writerow([metric,' Failed '+str(actual_lookup['4']['keyword']),exc_traceback,exc_type,exc_value])
+KeyError: '4'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>api_projectkeyworddetail.ProjectKeywordDetailAPI</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_rank</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyworddetail.py", line 47, in test_rank
+    self.comparator('rank')
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyworddetail.py", line 45, in comparator
+    self.csv_writer.writerow([metric,' Failed '+str(actual_lookup.values()[0]['keyword']),exc_traceback,exc_type,exc_value])
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_search_volume</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        error</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.2: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyworddetail.py", line 49, in test_search_volume
+    self.comparator('search_volume')
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeyworddetail.py", line 45, in comparator
+    self.csv_writer.writerow([metric,' Failed '+str(actual_lookup.values()[0]['keyword']),exc_traceback,exc_type,exc_value])
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>api_projectkeywordestimated.TestProjectKeywordEstimated</td>
+    <td>20</td>
+    <td>3</td>
+    <td>0</td>
+    <td>17</td>
+    <td><a href="javascript:showClassDetail('c3',20)">Detail</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_conversion_rate</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        error</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 123, in test_conversion_rate
+    expected = values[field]
+KeyError: 'conversion_rate'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_conversion_rate_prev</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.2')" >
+        error</a>
+
+    <div id='div_ft3.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.2: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 237, in test_conversion_rate_prev
+    expected = values[field]
+KeyError: 'conversion_rate_prev'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_estimated_conversion</div></td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='pt3.5' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_rank_mom</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft3.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_conversion_mom</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.4')" >
+        error</a>
+
+    <div id='div_ft3.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.4: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 189, in test_estimated_conversion_mom
+    response = self.assert_actual_expected(theme_name, field, actual, expected)
+NameError: global name 'theme_name' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt3.6' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_search_volume</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft3.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_conversion_mom_percentage</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.5')" >
+        error</a>
+
+    <div id='div_ft3.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.5: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 225, in test_estimated_conversion_mom_percentage
+    response = self.assert_actual_expected(theme_name, field, actual, expected)
+NameError: global name 'theme_name' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_conversion_prev</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.6')" >
+        error</a>
+
+    <div id='div_ft3.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.6: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 165, in test_estimated_conversion_prev
+    response = self.assert_actual_expected(theme_name, field, actual, expected)
+NameError: global name 'theme_name' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='ft3.7' class='none'>
-    <td class='errorCase'><div class='testcase'>test_search_volume_mom</div></td>
+    <td class='errorCase'><div class='testcase'>test_estimated_sales</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -351,9 +593,9 @@ ZeroDivisionError: float division by zero
         <pre>
         
 ft3.7: Traceback (most recent call last):
-  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 86, in test_search_volume_mom
-    expected = values['search_volume']-values['search_volume_prev']
-TypeError: unsupported operand type(s) for -: 'int' and 'str'
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 213, in test_estimated_sales
+    response = self.assert_actual_expected(theme_name, field, actual, expected)
+NameError: global name 'theme_name' is not defined
 
 
         </pre>
@@ -364,7 +606,7 @@ TypeError: unsupported operand type(s) for -: 'int' and 'str'
 </tr>
 
 <tr id='ft3.8' class='none'>
-    <td class='errorCase'><div class='testcase'>test_search_volume_mom_percentage</div></td>
+    <td class='errorCase'><div class='testcase'>test_estimated_sales_mom</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -379,9 +621,299 @@ TypeError: unsupported operand type(s) for -: 'int' and 'str'
         <pre>
         
 ft3.8: Traceback (most recent call last):
-  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 98, in test_search_volume_mom_percentage
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 249, in test_estimated_sales_mom
+    response = self.assert_actual_expected(theme_name, field, actual, expected)
+NameError: global name 'theme_name' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_sales_mom_percentage</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.9')" >
+        error</a>
+
+    <div id='div_ft3.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.9: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 177, in test_estimated_sales_mom_percentage
+    response = self.assert_actual_expected(theme_name, field, actual, expected)
+NameError: global name 'theme_name' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_sales_prev</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.10')" >
+        error</a>
+
+    <div id='div_ft3.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.10: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 201, in test_estimated_sales_prev
+    response = self.assert_actual_expected(theme_name, field, actual, expected)
+NameError: global name 'theme_name' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.11' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_traffic</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.11')" >
+        error</a>
+
+    <div id='div_ft3.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.11: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 44, in test_estimated_traffic
+    expected = values[field] * utils.mtd_factor_calculator(current=True,previous=False)
+KeyError: 'estimated_traffic'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.12' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_traffic_mom</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.12')" >
+        error</a>
+
+    <div id='div_ft3.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.12: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 57, in test_estimated_traffic_mom
+    estimated_traffic = values['estimated_traffic'] * utils.mtd_factor_calculator(current=True,previous=False)
+KeyError: 'estimated_traffic'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.13' class='none'>
+    <td class='errorCase'><div class='testcase'>test_estimated_traffic_mom_percentage</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.13')" >
+        error</a>
+
+    <div id='div_ft3.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.13: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 72, in test_estimated_traffic_mom_percentage
+    estimated_traffic = values['estimated_traffic'] * utils.mtd_factor_calculator(current=True,previous=False)
+KeyError: 'estimated_traffic'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_rank</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft3.15' class='none'>
+    <td class='errorCase'><div class='testcase'>test_rank_mom</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.15')" >
+        error</a>
+
+    <div id='div_ft3.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.15: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 111, in test_rank_mom
+    expected = values['rank_prev']-values['rank']
+TypeError: unsupported operand type(s) for -: 'str' and 'int'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.16' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sales_rate</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.16')" >
+        error</a>
+
+    <div id='div_ft3.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.16: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 153, in test_sales_rate
+    expected = values[field]
+KeyError: 'sales_rate'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.17' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sales_rate_prev</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.17')" >
+        error</a>
+
+    <div id='div_ft3.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.17: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 140, in test_sales_rate_prev
+    expected = values[field]
+KeyError: 'sales_rate_prev'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_volume</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft3.19' class='none'>
+    <td class='errorCase'><div class='testcase'>test_search_volume_mom</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.19')" >
+        error</a>
+
+    <div id='div_ft3.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.19: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 87, in test_search_volume_mom
+    expected = values['search_volume']-values['search_volume_prev']
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.20' class='none'>
+    <td class='errorCase'><div class='testcase'>test_search_volume_mom_percentage</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.20')" >
+        error</a>
+
+    <div id='div_ft3.20' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.20: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordestimated.py", line 99, in test_search_volume_mom_percentage
     expected = ((values['search_volume']-values['search_volume_prev'])/values['search_volume_prev'])*100
-TypeError: unsupported operand type(s) for -: 'int' and 'str'
+ZeroDivisionError: integer division or modulo by zero
 
 
         </pre>
@@ -435,106 +967,34 @@ TypeError: unsupported operand type(s) for -: 'int' and 'str'
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='errorClass'>
     <td>api_projectkeywordsrollup.TestProjectKeywordRollup</td>
-    <td>4</td>
-    <td>4</td>
+    <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c5',4)">Detail</a></td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
 </tr>
 
-<tr id='pt5.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_rank_distribution</div></td>
+<tr id='ft5.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_search_volume</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        error</a>
 
-    <div id='div_pt5.1' class="popup_window">
+    <div id='div_ft5.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt5.1: actual value is {u'1': 4, u'3': 0, u'2': 0, u'4': 0} and expected va;ue is {'1': 4, '3': 0, '2': 0, '4': 0}
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt5.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_search_volume</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.2')" >
-        pass</a>
-
-    <div id='div_pt5.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt5.2: actual value is 1100025.53 and expected va;ue is 1100025.53
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt5.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_share_of_search</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.3')" >
-        pass</a>
-
-    <div id='div_pt5.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt5.3: actual value is 0.0 and expected va;ue is 0
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt5.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_share_of_search_mom_percentage</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.4')" >
-        pass</a>
-
-    <div id='div_pt5.4' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.4').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt5.4: actual value is 0.0 and expected va;ue is 0
+ft5.1: Traceback (most recent call last):
+  File "/home/10613/alps_automation/Test_Automation/alps_api_automation/api_projectkeywordsrollup.py", line 16, in test_search_volume
+    actual = self.actual_rollup_lookup[alias_name][field]
+KeyError: '__me__'
 
 
         </pre>
@@ -584,10 +1044,10 @@ pt5.4: actual value is 0.0 and expected va;ue is 0
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>29</td>
-    <td>26</td>
+    <td>38</td>
+    <td>14</td>
     <td>0</td>
-    <td>3</td>
+    <td>24</td>
     <td>&nbsp;</td>
 </tr>
 </table>
