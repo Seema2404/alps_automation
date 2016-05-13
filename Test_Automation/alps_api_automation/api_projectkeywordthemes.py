@@ -6,7 +6,8 @@ from expected_lookup import theme_lookup
 
 class TestProjectKeywordThemes(BaseALPSAPIAutomation):
 
-    API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeywordthemes?sort_by=theme_name&&limit=10&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+    #API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeywordthemes?sort_by=theme_name&&limit=10&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+    API_URL = 'http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeywordthemes?sort_by=theme_name&format=json&&limit=10&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
     REPORT_FILE_NAME = 'project_keyword_themes_api.csv'
 
     def test_avg_rank(self):

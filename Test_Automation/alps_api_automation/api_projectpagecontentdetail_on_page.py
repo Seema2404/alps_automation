@@ -51,7 +51,7 @@ class TestProjectPageContentDetails(BaseALPSPAGECONTENTAPIAutomation):
                                 print response['metric'] + response['base_domain'] + response['error_msg']
                                 self.write_to_csv([response['metric'], response['base_domain'], '', response['error_msg']])
 
-            def test_project_conversion_sales_type(self):
+            def project_conversion_sales_type(self):
                 field = 'project_conversion_sales_type'
                 for base_domain, values in project_keyword_lookup.iteritems():
                     actual = self.actual_pagecontent_lookup[base_domain][field]

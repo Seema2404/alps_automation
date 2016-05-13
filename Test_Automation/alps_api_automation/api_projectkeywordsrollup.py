@@ -4,8 +4,8 @@ from base_api_rollup_automation import BaseALPSROLLUPAPIAutomation
 import unittest
 
 class TestProjectKeywordRollup(BaseALPSROLLUPAPIAutomation):
-    API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeywordsrollup?alias=0&month_range=2&keyword_types=non_branded&sort_by=alias_name&&&month=4&year=2016&limit=10&offset=0&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
-    #API_URL = 'http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeywordsrollup?alias=0&month_range=2&keyword_types=non_branded&sort_by=alias_name&&&month=4&year=2016&limit=10&offset=0&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+    #API_URL = 'http://qa5.smallbizvoices.com/alps/dashboard/iquanti/projects/224/projectkeywordsrollup?alias=0&month_range=2&keyword_types=non_branded&sort_by=alias_name&&&month=4&year=2016&limit=10&offset=0&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
+    API_URL = 'http://uat5.smallbizvoices.com/alps/dashboard/iquanti/projects/77/projectkeywordsrollup?alias=0&month_range=2&keyword_types=non_branded&sort_by=alias_name&&&month=4&year=2016&limit=10&offset=0&session_token=alps_st_018mh5zlp4srdum5zuzmu3onyrm9008c'
     REPORT_FILE_NAME = 'project_keyword_rollup_api.csv'
 
     def test_search_volume(self):
