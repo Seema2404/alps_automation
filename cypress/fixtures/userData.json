@@ -1,0 +1,10 @@
+{
+	"validUsername": "",
+	"invalidUsername": "xyz@abc.com",
+	"validPassword": "",
+	"invalidPassword": "wrongpassword",
+	"locale": "en-in",
+	"keyword": "credit card",
+	"url": "hdfcbank.com",
+	"searchVolume": "35.1M"
+}

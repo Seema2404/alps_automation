@@ -1,0 +1,6 @@
+cypress/examples
+cypress/videos
+cypress/screenshots
+cypress/reports
+node_modules
+.editorconfig
