@@ -16,7 +16,7 @@ npm install
 ```
 
 3. Add valid username and valid password for your ALPS QA account in the following file:
-cypress/fixtures/userData.json
+    `cypress/fixtures/userData.json`
 
 
 ## How to run tests
@@ -29,6 +29,29 @@ npx cypress open
 2. It will open the cypress dashboard. (wait for few minutes)
 
 3. Either select the individual spec file to run the tests for that module. Or click on "Run <x> integration specs" option to run all module tests.
+
+
+## Guidelines
+- ESLint plugin should be installed and activated on VS Code to follow best coding practices. 
+
+- Please make sure to use the existing `.eslintrc.js` configuration file for ESLint plugin. 
+
+- All test cases should be structured module wise and should be placed under the folder `/cypress/integration`. Example - `/cypress/integration/login.spec.js` 
+
+- All element locators (CSS Selectors preferred) should be structured module wise and should be placed under the folder `/cypress/pages/page-selectors`. Example - `/cypress/pages/page-selectors/LoginPage.js` 
+
+- All commands or actions should be defined module wise and should be placed under the folder `/cypress/pages/commands`. Example - `/cypress/pages/commands/login.js` 
+
+- All test data should be added to the file `userData.json` placed under the folder `/cypress/fixtures`. 
+
+- When creating new test file (spec.js), please make sure to add it to `cypress.json` under the `testFiles` section. 
+
+- Any changes in basic authentication or the base URL of the application should be accommodated in `cypress.json`. 
+
+- Please make sure to pull out your feature branch from `cypress_dev` branch before start working on your task. 
+
+- Any new commit/push should go through the PR review process and should be merged to `cypress-dev` branch once PR is approved. 
+
 
 
 ## Contributing
