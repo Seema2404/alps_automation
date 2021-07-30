@@ -15,7 +15,9 @@ Run the following command on terminal, in the root directory of the project-
 npm install
 ```
 
-3. Open file `cypress.env.json` and add the following values:
+3. Make a copy of file `test.cypress.env.json` and rename it to `cypress.env.json`.
+
+4. Add the following values to `cypress.env.json`:
 - baseUrl : Base URL of the environment where you want to run the tests, for example- http://alpsqa.smallbizvoices.com/
 - basicAuthLogin : Basic authentication username
 - basicAuthPassword : Basic authentication password
