@@ -1,3 +1,5 @@
+import * as iframe from 'cypress-iframe'
+
 import { prtKeywordExplorer } from '../page-selectors/PrtKeywordExplorerPage'
 
 export const clickPlanningAndResearch = () => {
@@ -13,7 +15,7 @@ export const waitForIframeLoad = () => {
 }
 
 export const verifySearchVolume = (sv) => {
-    cy.enter('.report-style-class iframe', { url: 'https://app.powerbi.com' }).then(getBody => {
+    cy.enter(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl).then(getBody => {
         getBody().find('.value title')
             .should('contains.text', sv)
     })

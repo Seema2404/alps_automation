@@ -1,4 +1,4 @@
-import * as kgaAction from '../pages/commands/kgahomepage'
+import * as kgaAction from '../../pages/commands/kgahomepage'
 
 describe('As a KGA user', () => {
     let kgaData

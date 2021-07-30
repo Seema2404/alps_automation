@@ -1,5 +1,4 @@
 {
-    "baseUrl": "http://alpsqa.smallbizvoices.com/",
     "numTestsKeptInMemory": 10,
     "chromeWebSecurity": false,
     "requestTimeout" :	5000,
@@ -26,15 +25,9 @@
           "mochaFile": "cypress/reports/mochareports/results-[hash].xml"
       }
   },
-    "env": {
-        "apiUrl": "",
-        "basicAuthHost": "",
-        "basicAuthLogin": "iQuanti",
-        "basicAuthPassword": "!qu@nt!DBP@##$"
-    },
     "testFiles": [
-        "login.spec.js",
-        "kgahomepage.spec.js",
-        "prtKeywordExplorer.spec.js"
+        "login/login.spec.js",
+        "kga/kgahomepage.spec.js",
+        "prt/prtKeywordExplorer.spec.js"
     ]
 }

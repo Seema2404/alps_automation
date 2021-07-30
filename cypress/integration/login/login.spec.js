@@ -1,6 +1,4 @@
-import * as iframe from 'cypress-iframe'
-
-import * as loginAction from '../pages/commands/login'
+import * as loginAction from '../../pages/commands/login'
 
 describe('SignIn as a user', () => {
     let login
@@ -33,8 +31,8 @@ describe('SignIn as a user', () => {
     })
     it('I should be able to login with valid username and Password', () => {
         loginAction.userLogin({
-            email: login.validUsername,
-            password: login.validPassword
+            email: Cypress.env('username'),
+            password: Cypress.env('password')
         })
         loginAction.validatingLogin()
     })
