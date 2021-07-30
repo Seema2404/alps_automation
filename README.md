@@ -47,11 +47,16 @@ npx cypress open
 - When creating new test file (spec.js), please make sure to add it to `cypress.json` under the `testFiles` section. 
 
 - Any changes in basic authentication or the base URL of the application should be accommodated in `cypress.json`. 
+    
 
-- Please make sure to pull out your feature branch from `cypress_dev` branch before start working on your task. 
+## GitHub Practices
+- If you are working on the test cases from any of the active feature from the sprint, please make sure that you fork out a new branch from `cypress_dev` branch with the name of your active feature (e.g. page_simulation). From this feature branch please fork out a new branch with the JIRA ID of the task for which you are developing the test cases.
 
-- Any new commit/push should go through the PR review process and should be merged to `cypress-dev` branch once PR is approved. 
+- If you are working on the test cases from the backlog, please make sure to fork out your feature branch from `cypress_dev` branch before start working on your test cases.
 
+- Once you are ready to commit your changes, please add the Test Case ID (from Zephyr) to the commit message.
+
+- Any new commit/push should go through the PR review process and should be merged to `cypress-dev` branch once PR is approved.
 
 
 ## Contributing
