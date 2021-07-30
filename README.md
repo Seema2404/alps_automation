@@ -15,8 +15,12 @@ Run the following command on terminal, in the root directory of the project-
 npm install
 ```
 
-3. Add valid username and valid password for your ALPS QA account in the following file:
-    `cypress/fixtures/userData.json`
+3. Open file `cypress.env.json` and add the following values:
+- baseUrl : Base URL of the environment where you want to run the tests, for example- http://alpsqa.smallbizvoices.com/
+- basicAuthLogin : Basic authentication username
+- basicAuthPassword : Basic authentication password
+- username : ALPS login username for the environment set above in baseUrl
+- password : ALPS login PASSWORD for the environment set above in baseUrl
 
 
 ## How to run tests
