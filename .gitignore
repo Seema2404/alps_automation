@@ -4,3 +4,4 @@ cypress/screenshots
 cypress/reports
 node_modules
 .editorconfig
+cypress.env.json
