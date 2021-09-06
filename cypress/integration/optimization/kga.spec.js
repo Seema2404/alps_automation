@@ -1,5 +1,4 @@
 describe('As a KGA user', () => {
-
     before(() => {
         cy.loginUser('Iquanti Training')
     })
@@ -16,7 +15,7 @@ describe('As a KGA user', () => {
     it('verify SERP page', () => {
         cy.get('#home_keywordSearch_keyword').type('Car Speed')
         cy.get('#home_keywordSearch_submit_button').click()
-        cy.get('#serpResult_metaInfo_keyword_for').should('have.text','RESULTS')
+        cy.get('#serpResult_metaInfo_keyword_for').should('have.text', 'RESULTS')
         cy.get('#serpResult_domainRank_wrapper').should('be.visible')
         cy.get('th').contains('TOP RANKING URLs').should('be.visible')
         cy.get('#serpResult_progress_keywordGapAnalysis_button').should('be.visible')
@@ -24,7 +23,7 @@ describe('As a KGA user', () => {
     })
     it('verify KGA page', () => {
         cy.get('#serpResult_progress_keywordGapAnalysis_button').click()
-        cy.get('#kwAnalysis_metaInfo_keyword_for').should('have.text','Keyword Gap Analysis')
+        cy.get('#kwAnalysis_metaInfo_keyword_for').should('have.text', 'Keyword Gap Analysis')
         cy.get('.comparision_section h1').should('have.text', 'Comparison')
         cy.get('#highest-rank-title').should('have.text', 'HIGHEST RANK')
         cy.get('#serp-packs-accordion-title').should('have.text', 'SERP PACKS')
@@ -33,7 +32,7 @@ describe('As a KGA user', () => {
         cy.get('#seo-parameters-label').should('have.text', 'SEO Parameters')
         cy.get('.paramenter_main_container').should('be.visible')
         cy.get('#kwAnalysis_comparision_viewTopCompetitorScores_link').should('be.visible')
-        cy.get('.download_btn').should('be.visible')
+        // cy.get('.download_btn').should('be.visible')
         cy.get('#kwAnalysis_comparision_viewTopCompetitorScores_link').click()
         cy.get('#comparator-modal-head-title').should('have.text', 'Top 10 Competitor Scores')
         cy.get('#comparator-modal-head-button').click()

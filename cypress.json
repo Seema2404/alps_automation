@@ -28,6 +28,10 @@
         "optimization/simulation.spec.js",
         "prt/keywordExplorer.spec.js",
         "prt/shareOfVoice.spec.js",
-        "prt/topicalAuthority.spec.js"
+        "prt/topicalAuthority.spec.js",
+        "project/reports.spec.js",
+        "project/audits.spec.js",
+        "project/oppurtunityPlanning.spec.js",
+        "project/mobileSeo.spec.js"
     ]
 }

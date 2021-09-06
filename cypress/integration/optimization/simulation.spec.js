@@ -1,5 +1,4 @@
 describe('As a Simulation user', () => {
-
     before(() => {
         cy.loginUser('Iquanti Training')
     })
@@ -12,7 +11,6 @@ describe('As a Simulation user', () => {
     it('verify Simulation homepage', () => {
         cy.get('div.active').click()
         cy.get('#page-optimizer-url').click()
-        // cy.get('#version_consnt_alert_footer_yes_button_button').click()
         cy.get('#home_keywordSearch_domain').should('be.visible')
         cy.get('#simulation-history-URL').should('be.visible')
         cy.get('#simulation-history-URL').should('be.visible')
@@ -26,7 +24,7 @@ describe('As a Simulation user', () => {
         cy.get('#kw_url_selection_i-have-a-live-url').should('be.visible')
         cy.get('#kw_url_tag_toggle').should('be.visible')
         cy.get('#kw_url_tag_toggle').click()
-        cy.get('#kw_url_checkbox_insurance-car').click({force: true})
+        cy.get('#kw_url_checkbox_insurance-car').click({ force: true })
         cy.get('#contentSimulation_multiKeyword_submit_button').click()
         cy.get('span').contains('SIMULATOR For URL').should('be.visible')
         cy.get('#kw_level_impact_link_button').should('be.visible')

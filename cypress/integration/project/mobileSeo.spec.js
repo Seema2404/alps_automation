@@ -1,0 +1,33 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
+describe('As a Project user', () => {
+    beforeEach(() => {
+        cy.loginUser('Iquanti Training')
+        cy.restoreLocalStorage()
+    })
+    afterEach(() => {
+        cy.saveLocalStorage()
+    })
+    it('verify Mobile SEO homepage', () => {
+        cy.wait(7000)
+        cy.get('div#root header div div:nth-child(2) nav div:nth-child(3)').click()
+        cy.wait(2000)
+        cy.get('div.showMenu nav a:nth-child(4)').click()
+        cy.get('div.top_title.pg_heading h2').should('have.text', 'Mobile SEO Overview')
+        cy.get('div.filter_left_coloum').should('be.visible')
+        cy.get('div.filter_right_coloum').should('be.visible')
+        cy.get('div.download_button.bottom').should('be.visible')
+        cy.get('div.top_title h3').contains('Mobile Contribution to Organic Search')
+        cy.get('div.impr-trend').should('be.visible')
+        cy.get('div.traffic-trend').should('be.visible')
+        cy.get('div.top_title h3').contains('Themes with High Mobile traffic')
+        cy.get('div.top_title h3').contains('Pages with High Mobile Traffic')
+        cy.get('div.top_title h3').contains('Themes with higher Mobile Ranking vs. Desktop')
+        cy.get('div.top_title h3').contains('Themes with lower Mobile Ranking vs. Desktop')
+        cy.get('li.mobile_insights').click()
+        cy.wait(5000)
+        cy.get('div.top_title h2').contains('Which Pages are people more likely to search on Mobile?')
+        cy.get('div.top_title h2').contains('Which Themes are people more likely to search on Mobile')
+        cy.get('div.top_title h2').contains('How do Brand / Non Brand searches on Mobile differ')
+        cy.get('div.top_title h2').contains('Which Search Intents are people more likely to search on Mobile')
+    })
+})
