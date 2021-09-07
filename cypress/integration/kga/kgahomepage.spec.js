@@ -1,3 +1,4 @@
+// This is a test comment
 import * as kgaAction from '../../pages/commands/kgahomepage'
 
 describe('As a KGA user', () => {
