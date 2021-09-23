@@ -26,5 +26,6 @@ describe('As an ALPS user', () => {
         kgaAction.enterURL(data.url)
         kgaAction.clickGo()
         kgaAction.validateResultsPage()
+        kgaAction.validateRankingURLs()
     })
 })

@@ -24,6 +24,7 @@
   },
     "testFiles": [
         "login/login.spec.js",
-        "kga/kgahomepage.spec.js"
+        "kga/kgahomepage.spec.js",
+        "sanity/sanity.spec.js"
     ]
 }

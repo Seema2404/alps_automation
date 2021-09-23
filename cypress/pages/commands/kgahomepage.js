@@ -24,5 +24,5 @@ export const validateResultsPage = () => {
 }
 
 export const validateRankingURLs = (rank) => {
-    kga.elements.rankingURLs().should('be.greaterThan', 9)
+    kga.elements.rankingURLs().should('have.length.greaterThan', 9)
 }
