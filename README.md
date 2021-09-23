@@ -23,6 +23,7 @@ npm install
 - basicAuthPassword : Basic authentication password
 - username : ALPS login username for the environment set above in baseUrl
 - password : ALPS login PASSWORD for the environment set above in baseUrl
+- tenant : ALPS TENANT that you want to work with.
 
 
 ## How to run tests
