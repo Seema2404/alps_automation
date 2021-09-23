@@ -1,7 +1,5 @@
 {
-	"validUsername": "",
 	"invalidUsername": "xyz@abc.com",
-	"validPassword": "",
 	"invalidPassword": "wrongpassword",
 	"locale": "en-in",
 	"keyword": "credit card",
