@@ -38,7 +38,7 @@ describe('SignIn as a user', () => {
     })
     it('I should be able to select the Tenant', () => {
         loginAction.clickSelectAccount()
-        loginAction.selectTenant('Prt')
+        loginAction.selectTenant(Cypress.env('tenant'))
         loginAction.clickContinue()
         loginAction.validateHomepage()
     })

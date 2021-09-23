@@ -13,21 +13,17 @@
     "viewportHeight": 768,
     "reporter": "cypress-multi-reporters",
     "reporterOptions": {
-      "reporterEnabled": "mochawesome, spec, mocha-junit-reporter",
+      "reporterEnabled": "mochawesome",
       "mochawesomeReporterOptions": {
           "reportDir": "cypress/reports/mocha",
           "quite": true,
           "overwrite": false,
           "html": false,
           "json": true
-      },
-      "mochaJunitReporterReporterOptions": {
-          "mochaFile": "cypress/reports/mochareports/results-[hash].xml"
       }
   },
     "testFiles": [
         "login/login.spec.js",
-        "kga/kgahomepage.spec.js",
-        "prt/prtKeywordExplorer.spec.js"
+        "kga/kgahomepage.spec.js"
     ]
 }

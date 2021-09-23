@@ -98,3 +98,18 @@ Cypress.Commands.add('restoreLocalStorage', () => {
         localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key])
     })
 })
+
+Cypress.Commands.add(
+    'loginUser',
+    () => {
+        cy.visitWithBaseAuth('')
+        cy.get('input[type="email"]').clear()
+        cy.get('input[type="email"]').type(Cypress.env('username'))
+        cy.get('input[type="password"]').clear()
+        cy.get('input[type="password"]').type(Cypress.env('password'))
+        cy.get('.btn-primary').click()
+        cy.get('#menu1').click()
+        cy.get('li').contains(Cypress.env('tenant')).click()
+        cy.get('.multiple_bttn').click()
+    }
+)

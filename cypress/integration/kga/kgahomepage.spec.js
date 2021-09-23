@@ -5,6 +5,7 @@ describe('As a KGA user', () => {
     let kgaData
 
     before(() => {
+        cy.loginUser()
         cy.fixture('userData').then((userData) => {
             kgaData = userData
         })

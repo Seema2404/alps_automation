@@ -4,6 +4,7 @@ describe('As a PRT user', () => {
     let prtData
 
     before(() => {
+        cy.loginUser()
         cy.fixture('userData').then((userData) => {
             prtData = userData
         })
