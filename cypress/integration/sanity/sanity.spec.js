@@ -5,7 +5,7 @@ describe('As an ALPS user', () => {
     let data
 
     before(() => {
-        cy.visitWithBaseAuth('')
+        // cy.visitWithBaseAuth('')
         cy.loginUser()
         cy.fixture('userData').then((userData) => {
             data = userData

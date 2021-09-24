@@ -102,7 +102,7 @@ Cypress.Commands.add('restoreLocalStorage', () => {
 Cypress.Commands.add(
     'loginUser',
     () => {
-        cy.visitWithBaseAuth('')
+        cy.visitWithBaseAuth()
         cy.get('input[type="email"]').clear()
         cy.get('input[type="email"]').type(Cypress.env('username'))
         cy.get('input[type="password"]').clear()

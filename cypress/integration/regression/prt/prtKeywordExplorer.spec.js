@@ -1,4 +1,4 @@
-import * as prtKA from '../../pages/commands/prtKeywordExplorer'
+import * as prtKA from '../../../pages/commands/prtKeywordExplorer'
 
 describe('As a PRT user', () => {
     let prtData

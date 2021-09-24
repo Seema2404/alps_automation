@@ -1,10 +1,11 @@
-import * as loginAction from '../../pages/commands/login'
+import * as loginAction from '../../../pages/commands/login'
 
 describe('SignIn as a user', () => {
     let login
 
     before(() => {
-        cy.visitWithBaseAuth('')
+        cy.log(Cypress.env('baseUrl'))
+        cy.visitWithBaseAuth()
         cy.fixture('userData').then((userData) => {
             login = userData
         })

@@ -8,7 +8,7 @@
     "pluginsFile": "cypress/plugins/index.js",
     "supportFile": "cypress/support/index.js",
     "retries": 0,
-    "video": false,
+    "video": true,
     "viewportWidth": 1366,
     "viewportHeight": 768,
     "reporter": "cypress-multi-reporters",
@@ -23,8 +23,8 @@
       }
   },
     "testFiles": [
-        "login/login.spec.js",
-        "kga/kgahomepage.spec.js",
-        "sanity/sanity.spec.js"
+        "regression/login/login.spec.js",
+        "regression/kga/kgahomepage.spec.js",
+        "sanity/*"
     ]
 }
