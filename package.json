@@ -64,7 +64,7 @@
     "cleanup": "rmdir /S /Q cypress\\reports",
     "merge_reports": "mochawesome-merge cypress\\reports\\mocha\\*.json > output.json",
     "mochawesome_report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
-    "test": "cypress run --spec cypress/integration/regression/**/* && npm run merge_reports && npm run mochawesome_report"
+    "test": "npm run cleanup && cypress run --spec cypress/integration/regression/**/* && npm run merge_reports && npm run mochawesome_report"
   },
   "name": "ui",
   "version": "1.0.0",
