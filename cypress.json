@@ -8,7 +8,7 @@
     "pluginsFile": "cypress/plugins/index.js",
     "supportFile": "cypress/support/index.js",
     "retries": 0,
-    "video": true,
+    "video": false,
     "viewportWidth": 1366,
     "viewportHeight": 768,
     "reporter": "cypress-multi-reporters",
