@@ -46,7 +46,7 @@
     "lint": "eslint --ext ts .",
     "lint:fix": "npm run lint -- --fix"
   },
-  "scripts": {
+  "scripts_old": {
     "clean:reports": "rmdir /S /Q cypress\\reports && mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
     "scripts": "cypress run --spec cypress/integration/regression/**/*",
     "script-sanity": "cypress run --spec cypress/integration/sanity/*",
@@ -59,6 +59,12 @@
     "sanity": "npm-run-all clean:reports script-sanity combine-reports generate-report report:copyScreenshots --continue-on-error",
     "lint": "eslint --ext ts .",
     "lint:fix": "npm run lint -- --fix"
+  },
+  "scripts": {
+    "cleanup": "rmdir /S /Q cypress\\reports",
+    "merge_reports": "mochawesome-merge cypress\\reports\\mocha\\*.json > output.json",
+    "mochawesome_report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
+    "test": "npm run cleanup && cypress run --spec cypress/integration/regression/**/* && npm run merge_reports && npm run mochawesome_report"
   },
   "name": "ui",
   "version": "1.0.0",
