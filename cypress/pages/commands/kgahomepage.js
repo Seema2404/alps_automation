@@ -20,7 +20,7 @@ export const clickGo = () => {
 }
 
 export const validateResultsPage = () => {
-    kga.elements.resultsTitle().should('contains.text', 'RESULTSSSSSSSSSS')
+    kga.elements.resultsTitle().should('contains.text', 'RESULTS')
 }
 
 export const validateRankingURLs = (rank) => {
