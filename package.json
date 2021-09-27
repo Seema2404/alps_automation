@@ -55,7 +55,7 @@
     "report:copyScreenshots": "xcopy cypress\\screenshots cypress\\reports\\mochareports\\screenshots /E /H /C /I /Y",
     "report:copyVideos": "xcopy cypress\\videos cypress\\reports\\mochareports\\videos /E /H /C /I /Y",
     "test": "npm-run-all clean:reports scripts --continue-on-error",
-    "post-run": "npm run all combine-reports generate-report report:copyScreenshots report:copyVideos --continue-on-error",
+    "post-run": "npm-run-all combine-reports generate-report report:copyScreenshots --continue-on-error",
     "sanity": "npm-run-all clean:reports script-sanity combine-reports generate-report report:copyScreenshots --continue-on-error",
     "lint": "eslint --ext ts .",
     "lint:fix": "npm run lint -- --fix"
