@@ -46,7 +46,7 @@ describe('Verfiy functionality at New Content Brief Page',()=>{
         NewCBaction.validate_removeall_isclickable()
     })
     it('verify validation is displayed when user adds more than 10 keywords',()=>{
-        NewCBaction.Addkeyword(['Credit card','test1','test2','test4','test5','test6','test7','test8','test9','test10','test11'])
+        NewCBaction.Addkeyword(['Credit card','test1','test2','test4','test5','test6','test7','test8','test9','test10','test1451'])
         NewCBaction.validation_error_check()
     })
     it('verify validation is displayed when user adds a keyword of more than 100 charcters',()=>{
