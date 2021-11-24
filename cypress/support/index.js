@@ -108,8 +108,24 @@ Cypress.Commands.add(
         cy.get('input[type="password"]').clear()
         cy.get('input[type="password"]').type(Cypress.env('password'))
         cy.get('.btn-primary').click()
-        cy.get('#menu1').click()
-        cy.get('li').contains(Cypress.env('tenant')).click()
-        cy.get('.multiple_bttn').click()
+        cy.get('body').then((body)=>{
+            if (body.find('#menu').length > 0){
+                cy.get('#menu1').click()
+                cy.get('li').contains(Cypress.env('tenant')).click()
+                cy.get('.multiple_bttn').click()
+            }
+            else{
+                cy.log('Demo tenant user')
+            }
+        })
+
+                
+        
     }
 )
+
+Cypress.Commands.add('logout',()=>{
+    cy.get('#profile-nav').click()
+    cy.get('#profile-logout-nav').click()
+
+})
