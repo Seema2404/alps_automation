@@ -11,6 +11,7 @@ export class PageSimulation {
             lableDummyUrl:()=>cy.contains('contains'),
             hAnalyse:()=>cy.contains('Enter a URL'),
             simPageId:()=>cy.get('#simulator'),
+            infoFetching:() =>cy.contains('Fetching data'),
             goButton:()=>cy.get('#home_keywordSearch_submit_button'),
             errMsgMaxKeywordLimit:()=>cy.get('#contentSimulation_multiKeyword_addKeyword_warning_text'),
             errMsgUpdatedKeywordUrl:()=>cy.get('#contentSimulation_multiKeyword_url_dropdown_inputError'),
@@ -36,6 +37,7 @@ export class PageSimulation {
             allLocale:()=>cy.get('##react-select-protocol-option-0'),
             popUpYes:()=>cy.contains('YES'),
             pageSimHeading:()=>cy.contains('Page Optimizer'),
+            tabOptimization:()=>cy.contains('OPTIMIZATION'),
             submit:()=>cy.get('#contentSimulation_multiKeyword_submit_button'),
             removeAll:()=>cy.get('#contentSimulation_multiKeyword_removeAllKeywords_button'),
             originalContentClose:()=>cy.get('#sim_editor_view_original_modal-head-button'),
@@ -88,8 +90,11 @@ export class PageSimulation {
             historyNoRecordFound:()=>cy.contains('No matching results found for search'),
             olderVersionNotification:()=>cy.get('#version_notification_message'),
             olderVersionCloseBtn:()=>cy.get('#notification_close_icon'),
+            liveFlowMessage:()=>cy.contains('The journey has been updated as live URL journey'),
+            nonLiveFlowMessage:() => cy.contains('The journey has been updated as Non live URL journey'),
+            projectRelateKeywords:()=> cy.get('#kw_url_tag_toggle')
         }
     }
 }
 
-export const pagesim = new PageSimulation()
+export const OptimizationPage = new PageSimulation()

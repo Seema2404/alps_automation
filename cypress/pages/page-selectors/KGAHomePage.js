@@ -19,7 +19,9 @@ export class KGAHomePage {
             sampleReportssnypidpopup: () => cy.get('#reports-grid-modal-head-title'),
             keyworderror: () => cy.get('home_keywordSearch_keyword_inputError'),
             urlerror: () => cy.get('#home_keywordSearch_domain_inputError'),
-            rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]')
+            rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]'),
+            kgabutton: () => cy.get('#serpResult_progress_keywordGapAnalysis_button'),
+            kgapagetitle: () =>cy.get('#kwAnalysis_metaInfo_title')
         }
     }
 }
