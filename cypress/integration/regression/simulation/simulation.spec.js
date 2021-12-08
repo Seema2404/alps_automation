@@ -25,7 +25,7 @@ describe('As an ALPS user', () => {
     })
 
     it('keyword max limit error validation',()=>{
-
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.url)
@@ -42,7 +42,8 @@ describe('As an ALPS user', () => {
     }) 
 
     it('Validate live and non live journey switch warning message',() =>
-    {
+    {   
+        loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.optimizationurl)
@@ -58,7 +59,7 @@ describe('As an ALPS user', () => {
 
     it('validate default keyword simulation page',() =>
     {
-
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.url)
@@ -72,6 +73,7 @@ describe('As an ALPS user', () => {
 
     it('Validate notification message for score and other section for empty KW',() =>
     {
+        loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.optimizationurl)
@@ -89,6 +91,7 @@ describe('As an ALPS user', () => {
 
     it('test verify simulation page heading',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -102,6 +105,7 @@ describe('As an ALPS user', () => {
 
     it('validate error msg of empty field add',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -116,6 +120,7 @@ describe('As an ALPS user', () => {
 
     it('verify remove button is displayed for newly added keyword',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -131,6 +136,7 @@ describe('As an ALPS user', () => {
 
     it('verify remove button behaviour of newly added keyword',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -153,6 +159,7 @@ describe('As an ALPS user', () => {
 
     it('verify submit enabled by default',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -168,6 +175,7 @@ describe('As an ALPS user', () => {
 
     it('verify run simulation enabled by default',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -184,6 +192,7 @@ describe('As an ALPS user', () => {
 
     it('verify behaviour of submit button loader',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -199,6 +208,7 @@ describe('As an ALPS user', () => {
 
     it('verify when URL Kw is changed',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -217,6 +227,7 @@ describe('As an ALPS user', () => {
 
     it('verify behaviour of run simulation without any change in sim page',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -236,6 +247,7 @@ describe('As an ALPS user', () => {
 
     it('verify behaviour of simulation in expand mode',()=>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)
@@ -260,8 +272,9 @@ describe('As an ALPS user', () => {
         
     })
 
-    it.only('verify content scores in zoom mode',() =>
+    it('verify content scores in zoom mode',() =>
     {
+        loginAction.clickAlpsLogo()
         kgaAction.selectLocale(data.locale)
         kgaAction.enterKeyword(data.keyword)
         kgaAction.enterURL(data.simHeadingValidationURl)

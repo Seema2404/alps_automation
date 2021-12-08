@@ -38,6 +38,7 @@ export class PageSimulation {
             popUpYes:()=>cy.contains('YES'),
             pageSimHeading:()=>cy.contains('Page Optimizer'),
             tabOptimization:()=>cy.contains('OPTIMIZATION'),
+            headingSimulationHistory:()=> cy.get('#simulation-history-heading'),
             submit:()=>cy.get('#contentSimulation_multiKeyword_submit_button'),
             removeAll:()=>cy.get('#contentSimulation_multiKeyword_removeAllKeywords_button'),
             originalContentClose:()=>cy.get('#sim_editor_view_original_modal-head-button'),
@@ -92,7 +93,13 @@ export class PageSimulation {
             olderVersionCloseBtn:()=>cy.get('#notification_close_icon'),
             liveFlowMessage:()=>cy.contains('The journey has been updated as live URL journey'),
             nonLiveFlowMessage:() => cy.contains('The journey has been updated as Non live URL journey'),
-            projectRelateKeywords:()=> cy.get('#kw_url_tag_toggle')
+            projectRelateKeywords:()=> cy.get('#kw_url_tag_toggle'),
+            headingKwRankAndPerf : () => cy.contains('Keyword Rank & Perfomance'),
+            headingKwGapAnalysis : () => cy.contains('Keyword Gap Analysis'),
+            headingContentSim : () => cy.contains('Content Simulation'),
+            headingContGapAnalysis : () => cy.contains('Content Gap Analysis'),
+            headingBlAnalysis : () => cy.contains('Backlink Analysis'),
+            headingTechAudit : () => cy.contains('Technical Audit')
         }
     }
 }

@@ -295,9 +295,36 @@ export const clickProjectAndRelatedKWToggle = () => {
     
 }
 
+export const disphHadingSimulationHistory =() => {
+    OptimizationPage.elements.headingSimulationHistory().should('be.visible')
+}
 
+export const dispHeadingKwRankAndPerf =() =>
+{
+    OptimizationPage.elements.headingKwRankAndPerf().should('be.visible')
+}
 
+export const dispHeadingKwGapAnalysis =() =>
+{
+    OptimizationPage.elements.headingKwGapAnalysis().should('be.visible')
+}
+export const dispHeadingContentSim =() =>
+{
+    OptimizationPage.elements.headingContentSim().should('be.visible')
+}
+export const dispHeadingContGapAnalysis =() =>
+{
+    OptimizationPage.elements.headingContGapAnalysis().should('be.visible')
+}
+export const dispHeadingBlAnalysis =() =>
+{
+    OptimizationPage.elements.headingBlAnalysis().should('be.visible')
+}
 
+export const dispHeadingTechAudit =() =>
+{
+    OptimizationPage.elements.headingTechAudit().should('be.visible')
+}
 
 export const dispKeywordTextIdentifier =(keyworddata) => {
 

@@ -6,6 +6,7 @@
     "axios": "^0.21.1",
     "cypress-file-upload": "^5.0.5",
     "cypress-iframe": "^1.0.1",
+    "cypress-xpath": "^1.6.2",
     "faker": "^4.1.0",
     "fs": "0.0.1-security",
     "mocha": "^8.4.0",
@@ -66,8 +67,16 @@
     "mochawesome_report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
     "test": "cypress run --spec cypress/integration/regression/**/* && npm run merge_reports && npm run mochawesome_report"
   },
-  "name": "ui",
+  "name": "alps_automation_cypress_oct11",
   "version": "1.0.0",
   "main": ".eslintrc.js",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iqproduct/alps_automation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iqproduct/alps_automation/issues"
+  },
+  "homepage": "https://github.com/iqproduct/alps_automation#readme"
 }
