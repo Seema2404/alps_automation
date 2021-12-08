@@ -1,5 +1,9 @@
 import addContext from 'mochawesome/addContext'
 
+import * as commands from './commands'
+
+require('cypress-xpath')
+
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })

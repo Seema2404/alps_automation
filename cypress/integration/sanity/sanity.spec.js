@@ -28,4 +28,21 @@ describe('As an ALPS user', () => {
         kgaAction.validateResultsPage()
         kgaAction.validateRankingURLs()
     })
+
+
+    it.only('I should be able to verify keyword gap analysis page',() =>
+    {
+        kgaAction.selectLocale(data.locale)
+        kgaAction.enterKeyword(data.keyword)
+        kgaAction.enterURL(data.url)
+        kgaAction.clickGo()
+        kgaAction.clickKgaButton()
+
+        // Assertion validation
+        kgaAction.validatingKgaPageTitle()
+    })
+
+
+
+
 })

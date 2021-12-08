@@ -8,7 +8,8 @@ export class LoginPage {
             errorMessage: () => cy.get('.login-err-msg').contains('Invalid credentials'),
             selectAccount: () => cy.get('#menu1'),
             continueButton: () => cy.get('.multiple_bttn'),
-            logo: () => cy.get('#logo')
+            logo: () => cy.get('#logo'),
+            
         }
     }
 }

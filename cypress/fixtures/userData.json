@@ -4,5 +4,16 @@
 	"locale": "en-in",
 	"keyword": "credit card",
 	"url": "hdfcbank.com",
-	"searchVolume": "35.1M"
+	"tenant":"Allstate",
+	"searchVolume": "35.1M",
+	"multipleKeywords": "credit cards,loans,debit cards,Insurance,car loans , bike loans,house loan,credit card loan, emi on credit card,silver credit,card, platinum card best offer",
+	"addionalKeyword":"car loans and bike loans with 0 percent EMI",
+	"mulipleKeywords1": "card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15,card16,card17,card18,card19,card20,card21,card22,card23,card24",
+	"optimizationurl":"www.allstate.com",
+	"NotificationMessageForEmptyKWInSimPage":"Input keywords to view this data",
+	"simHeadingValidationURl":"https://www.hdfcbank.com/personal/pay/cards/credit-cards",
+	"newURL":"www.statefarm.com/insurance/auto",
+	"newKW":"credit cards,loans,debit cards,Insurance",
+	"newStringToUpdate":"updating new string"
+
 }
