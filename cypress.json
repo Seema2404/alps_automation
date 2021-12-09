@@ -32,6 +32,9 @@
         "project/reports.spec.js",
         "project/audits.spec.js",
         "project/oppurtunityPlanning.spec.js",
-        "project/mobileSeo.spec.js"
+        "project/mobileSeo.spec.js",
+        "regression/login/login.spec.js",
+        "regression/kga/kgahomepage.spec.js",
+        "sanity/*"
     ]
 }

@@ -22,3 +22,7 @@ export const clickGo = () => {
 export const validateResultsPage = () => {
     kga.elements.resultsTitle().should('contains.text', 'RESULTS')
 }
+
+export const validateRankingURLs = (rank) => {
+    kga.elements.rankingURLs().should('have.length.greaterThan', 9)
+}

@@ -7,7 +7,7 @@ export const clickPlanningAndResearch = () => {
 }
 
 export const clickKeywordExplorer = () => {
-    prtKeywordExplorer.elements.keywordExplorer().click()
+    prtKeywordExplorer.elements.keywordExplorer().click({ force: true })
 }
 
 export const waitForIframeLoad = () => {

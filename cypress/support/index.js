@@ -1,14 +1,15 @@
 import addContext from 'mochawesome/addContext'
 
-import * as commands from './commands'
-
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-Object.keys(commands).forEach(command => {
-    Cypress.Commands.add(command, commands[command])
-})
+Cypress.Commands.add('visitWithBaseAuth', () => cy.visit('/', {
+    auth: {
+        username: Cypress.env('basicAuthLogin'),
+        password: Cypress.env('basicAuthPassword')
+    }
+}))
 
 Cypress.Commands.add(
     'iframeLoaded',
@@ -101,15 +102,15 @@ Cypress.Commands.add('restoreLocalStorage', () => {
 
 Cypress.Commands.add(
     'loginUser',
-    (tenant) => {
-        cy.visitWithBaseAuth('')
+    () => {
+        cy.visitWithBaseAuth()
         cy.get('input[type="email"]').clear()
         cy.get('input[type="email"]').type(Cypress.env('username'))
         cy.get('input[type="password"]').clear()
         cy.get('input[type="password"]').type(Cypress.env('password'))
         cy.get('.btn-primary').click()
         cy.get('#menu1').click()
-        cy.get('li').contains(tenant).click()
+        cy.get('li').contains(Cypress.env('tenant')).click()
         cy.get('.multiple_bttn').click()
     }
 )
