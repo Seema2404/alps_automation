@@ -37,5 +37,5 @@ export const validateHomepage = () => {
 }
 
 export const clickAlpsLogo =() => {
-    login.elements.logo().click()
+    login.elements.logo().click({force: true})
 }

@@ -1,6 +1,6 @@
 import addContext from 'mochawesome/addContext'
 
-import * as commands from './commands'
+// import * as commands from './commands'
 
 require('cypress-xpath')
 
@@ -8,7 +8,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-Cypress.Commands.add('visitWithBaseAuth', () => cy.visit('/', {
+// Cypress.Commands.add('visitWithBaseAuth', () => cy.visit('/', {
+Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('baseUrl'), {
     auth: {
         username: Cypress.env('basicAuthLogin'),
         password: Cypress.env('basicAuthPassword')
