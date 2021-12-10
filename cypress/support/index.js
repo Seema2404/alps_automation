@@ -1,10 +1,14 @@
+// / <reference types="cypress-xpath" />
+
 import addContext from 'mochawesome/addContext'
+
+require('cypress-xpath')
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-Cypress.Commands.add('visitWithBaseAuth', () => cy.visit('/', {
+Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('baseUrl'), {
     auth: {
         username: Cypress.env('basicAuthLogin'),
         password: Cypress.env('basicAuthPassword')
@@ -102,15 +106,16 @@ Cypress.Commands.add('restoreLocalStorage', () => {
 
 Cypress.Commands.add(
     'loginUser',
-    () => {
-        cy.visitWithBaseAuth()
+    (tenant = Cypress.env('tenant'), index = 1) => {
+        cy.visitWithBaseAuth('')
         cy.get('input[type="email"]').clear()
         cy.get('input[type="email"]').type(Cypress.env('username'))
         cy.get('input[type="password"]').clear()
         cy.get('input[type="password"]').type(Cypress.env('password'))
         cy.get('.btn-primary').click()
         cy.get('#menu1').click()
-        cy.get('li').contains(Cypress.env('tenant')).click()
+        // cy.get('li').contains(tenant).eq(index).click()
+        cy.xpath(`//li[contains(text(),'${tenant}')][${index}]`).click()
         cy.get('.multiple_bttn').click()
     }
 )

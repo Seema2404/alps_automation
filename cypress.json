@@ -23,18 +23,6 @@
       }
   },
     "testFiles": [
-        "login/login.spec.js",
-        "optimization/kga.spec.js",
-        "optimization/simulation.spec.js",
-        "prt/keywordExplorer.spec.js",
-        "prt/shareOfVoice.spec.js",
-        "prt/topicalAuthority.spec.js",
-        "project/reports.spec.js",
-        "project/audits.spec.js",
-        "project/oppurtunityPlanning.spec.js",
-        "project/mobileSeo.spec.js",
-        "regression/login/login.spec.js",
-        "regression/kga/kgahomepage.spec.js",
-        "sanity/*"
+        "sanity/user-flows/**/*"
     ]
 }

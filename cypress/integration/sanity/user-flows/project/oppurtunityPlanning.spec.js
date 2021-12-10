@@ -1,7 +1,7 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('As a Project user', () => {
     beforeEach(() => {
-        cy.loginUser('Iquanti Training')
+        cy.loginUser('Iquanti Inc')
         cy.restoreLocalStorage()
     })
     afterEach(() => {

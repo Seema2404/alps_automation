@@ -17,7 +17,24 @@ export class KGAHomePage {
             sampleReportssnypidpopup: () => cy.get('#reports-grid-modal-head-title'),
             keyworderror: () => cy.get('home_keywordSearch_keyword_inputError'),
             urlerror: () => cy.get('#home_keywordSearch_domain_inputError'),
-            rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]')
+            rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]'),
+            domainRankLabel: () => cy.get('#serpResult_domainRank_wrapper'),
+            serpTableHeaderTopRankingUrls: () => cy.get('th').contains('TOP RANKING URLs'),
+            serpKgaButton: () => cy.get('#serpResult_progress_keywordGapAnalysis_button'),
+            serpSimulationButton: () => cy.get('#serpResult_progress_contentSimulation_button'),
+            kgaTitle: () => cy.get('#kwAnalysis_metaInfo_keyword_for'),
+            kgaComparisonLabel: () => cy.get('.comparision_section h1'),
+            kgaHighestRankLabel: () => cy.get('#highest-rank-title'),
+            kgaSerpPacksLabel: () => cy.get('#serp-packs-accordion-title'),
+            kgaKeywordPerformanceLabel: () => cy.get('#keyword-performance-accordion-title'),
+            kgaContentScoreLabel: () => cy.get('#content-score-label'),
+            kgaSeoParameterLabel: () => cy.get('#seo-parameters-label'),
+            kgaParameterGroupsContainer: () => cy.get('.paramenter_main_container'),
+            kgaViewTop10CompetitorsLink: () => cy.get('#kwAnalysis_comparision_viewTopCompetitorScores_link'),
+            kgaModalTop10CompetitorScoresTitle: () => cy.get('#comparator-modal-head-title'),
+            kgaModalCloseButton: () => cy.get('#comparator-modal-head-button'),
+            optimizationTab: () => cy.get('#logo + div nav div').contains('OPTIMIZATION'),
+            pageSimulationMenuOption: () => cy.get('#page-optimizer-url')
         }
     }
 }

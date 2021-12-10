@@ -1,12 +1,12 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
 import * as iframe from 'cypress-iframe'
 
-import * as prtKA from '../../pages/commands/prtKeywordExplorer'
-import { prtKeywordExplorer } from '../../pages/page-selectors/PrtKeywordExplorerPage'
+import * as prtKA from '../../../../pages/commands/prtKeywordExplorer'
+import { prtKeywordExplorer } from '../../../../pages/page-selectors/PrtKeywordExplorerPage'
 
 describe('As a PRT user', () => {
     before(() => {
-        cy.loginUser('Testing')
+        cy.loginUser('Iquanti Inc', 2)
     })
     beforeEach(() => {
         cy.restoreLocalStorage()
@@ -25,7 +25,7 @@ describe('As a PRT user', () => {
             cy.wait(7000)
             getBody().find('.scrollWrapper div p span').contains('FILTERS')
                 .should('be.visible')
-            getBody().find('.scrollWrapper div p span').contains('Keyword Explorer')
+            getBody().find('h3.preTextWithEllipsis').contains('Keyword Explorer')
                 .should('be.visible')
             getBody().find('h3.preTextWithEllipsis').contains('Search Volume')
                 .should('be.visible')

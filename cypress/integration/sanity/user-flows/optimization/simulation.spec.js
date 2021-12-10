@@ -1,0 +1,51 @@
+import * as kgaAction from '../../../../pages/commands/kgahomepage'
+import * as simAction from '../../../../pages/commands/simulation'
+
+describe('As a Simulation user', () => {
+    before(() => {
+        cy.loginUser()
+    })
+    beforeEach(() => {
+        cy.restoreLocalStorage()
+    })
+    afterEach(() => {
+        cy.saveLocalStorage()
+    })
+    it('verify Simulation homepage', () => {
+        kgaAction.clickOptimizationTab()
+        kgaAction.clickPageSimulationMenuOption()
+        simAction.validateEnterUrlInput()
+        simAction.validateSimulationHistoryHeading()
+    })
+    it('verify Simulator page', () => {
+        simAction.enterUrlInput('https://www.allstate.com')
+        simAction.clickGoButton()
+        simAction.clickInputKeywordTab()
+        simAction.enterAddKeywordInput('Car Speed')
+        simAction.clickAddKeywordButton()
+        simAction.clickProceedToSimulationButton()
+        simAction.validateSimulationUrlLabel()
+        simAction.validateKeywordLevelImpactLink()
+        simAction.validateTrafficAndRankLink()
+        simAction.validateEditorContainer()
+        simAction.validateScoresContainer()
+        simAction.validateRunSimulationButton()
+        simAction.validateDownloadButton()
+        simAction.clickKeywordLevelImpactLink()
+        simAction.validateKeywordLevelImpactModalTitle()
+        simAction.validateKeywordLevelImpactModalTable()
+        simAction.validateDownloadButton()
+        simAction.clickKeywordLevelImpactModalCloseButton()
+        simAction.clickZoomModeButton()
+        simAction.validateEditorContainer()
+        simAction.validateZoomModeScoresContainer()
+        simAction.validatezoomModeKeywordImpactContainer()
+        simAction.validateViewOriginalButton()
+        simAction.clickZoomModeButton()
+        simAction.editTitle()
+        simAction.clickRunSimulationButton()
+        simAction.validateEditorContainer()
+        simAction.validateScoresContainer()
+        simAction.validateRunSimulationButton()
+    })
+})

@@ -1,12 +1,12 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
 import * as iframe from 'cypress-iframe'
 
-import * as prtKA from '../../pages/commands/prtKeywordExplorer'
-import { prtKeywordExplorer } from '../../pages/page-selectors/PrtKeywordExplorerPage'
+import * as prtKA from '../../../../pages/commands/prtKeywordExplorer'
+import { prtKeywordExplorer } from '../../../../pages/page-selectors/PrtKeywordExplorerPage'
 
 describe('As a PRT user', () => {
     before(() => {
-        cy.loginUser('Testing')
+        cy.loginUser('Iquanti Inc', 2)
     })
     beforeEach(() => {
         cy.restoreLocalStorage()

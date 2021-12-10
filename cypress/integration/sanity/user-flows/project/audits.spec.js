@@ -1,7 +1,7 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('As a Project user', () => {
     beforeEach(() => {
-        cy.loginUser('Iquanti Training')
+        cy.loginUser('Iquanti Inc', 2)
         cy.restoreLocalStorage()
     })
     afterEach(() => {
@@ -48,7 +48,6 @@ describe('As a Project user', () => {
         cy.get('h2').contains('Page Crawled')
         cy.get('h2').contains('Issues Found')
         cy.get('h2').contains('Issues Categories')
-        cy.get('div.highcharts-container').should('be.visible')
         cy.get('h2').contains('Most Occurring Issues')
         cy.get('h2').contains('IMPORTANT TECHNICAL CHECKS')
     })

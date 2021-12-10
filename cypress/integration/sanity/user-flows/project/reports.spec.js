@@ -1,7 +1,7 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('As a Project user', () => {
     beforeEach(() => {
-        cy.loginUser('Iquanti Training')
+        cy.loginUser('Iquanti Inc', 2)
         cy.restoreLocalStorage()
     })
     afterEach(() => {
@@ -18,17 +18,12 @@ describe('As a Project user', () => {
         cy.get('div.download_button.bottom').should('be.visible')
         cy.get('div.mainButton.pull-right.ng-scope').should('be.visible')
         cy.get('div.rank_distribution.clearfix h2').contains('Rank Distribution of Keywords').should('be.visible')
-        cy.get('div#rankDistribution div div svg').should('be.visible')
         cy.get('div.selection_button div:nth-child(2) button').click()
         cy.wait(2000)
-        cy.get('div#rankDistribution div div svg').should('be.visible')
         cy.get('div.selection_button div:nth-child(3) button').click()
         cy.wait(2000)
-        cy.get('div#rankDistribution div div svg').should('be.visible')
         cy.get('div.rank_distribution.shareOfSearch h2').should('have.text', 'Share of Search of Non-Branded Keywords')
-        cy.get('div.sos_chart div div svg').should('be.visible')
         cy.get('div.rank_distribution.traffic_report h2').should('have.text', 'Organic Keyword Traffic')
-        cy.get('div.traffic_chart div div svg').should('be.visible')
         cy.get('div.top_gainers').should('be.visible')
         cy.get('div.top_losers').should('be.visible')
         cy.get('div.perf-traf').should('be.visible')
