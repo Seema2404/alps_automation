@@ -99,7 +99,8 @@ export class PageSimulation {
             headingContentSim : () => cy.contains('Content Simulation'),
             headingContGapAnalysis : () => cy.contains('Content Gap Analysis'),
             headingBlAnalysis : () => cy.contains('Backlink Analysis'),
-            headingTechAudit : () => cy.contains('Technical Audit')
+            headingTechAudit : () => cy.contains('Technical Audit'),
+            errorMsgForInvalidUrl :() => cy.contains('Please enter a valid URL')
         }
     }
 }

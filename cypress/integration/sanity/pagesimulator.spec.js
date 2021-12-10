@@ -47,7 +47,34 @@ describe('As an ALPS user', () => {
 
     })
 
+    it ('AL-T18 : Verify user should able to enter Live URL',()=> {
 
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+
+        // Assertion validation 
+
+        simulationAction.dispSimpage(data.optimizationurl)
+        
+    })
+
+    it.only('AL-T20 : Verify when user enter a Valid URL',()=> {
+
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.InvalidaUrlFormat)
+        simulationAction.clickGoButton()
+
+        // Assertion validation 
+        simulationAction.validateErrorNotificationForInvalidURL()
+
+        
+        
+    })
 
     
 })

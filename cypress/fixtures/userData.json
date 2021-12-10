@@ -14,6 +14,7 @@
 	"simHeadingValidationURl":"https://www.hdfcbank.com/personal/pay/cards/credit-cards",
 	"newURL":"www.statefarm.com/insurance/auto",
 	"newKW":"credit cards,loans,debit cards,Insurance",
-	"newStringToUpdate":"updating new string"
+	"newStringToUpdate":"updating new string",
+	"InvalidaUrlFormat":"-----------------"
 
 }

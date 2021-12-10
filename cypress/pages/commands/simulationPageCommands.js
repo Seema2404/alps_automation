@@ -102,6 +102,11 @@ export const validateNotificationForSimulationWithOutAnyCHanges = () =>{
 }
 
 
+export const validateErrorNotificationForInvalidURL = () =>{
+
+    OptimizationPage.elements.errorMsgForInvalidUrl().should('be.visible')
+}
+
 export const validateZoomViewContentScore = () => {
     Simulation.elements.zoomViewContentScore().should('be.visible')
 }
