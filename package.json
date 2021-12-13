@@ -28,6 +28,7 @@
     "@typescript-eslint/parser": "^3.2.0",
     "cypress-multi-reporters": "^1.5.0",
     "cypress-select-tests": "^1.7.1",
+    "cypress-xpath": "^1.6.2",
     "eslint": "^7.2.0",
     "eslint-plugin-chai-friendly": "^0.6.0",
     "eslint-plugin-cypress": "^2.11.1",
@@ -65,7 +66,7 @@
     "cleanup": "rmdir /S /Q cypress\\reports",
     "merge_reports": "mochawesome-merge cypress\\reports\\mocha\\*.json > output.json",
     "mochawesome_report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
-    "test": "cypress run --spec cypress/integration/regression/**/* && npm run merge_reports && npm run mochawesome_report"
+    "test": "cypress run && npm run merge_reports && npm run mochawesome_report"
   },
   "name": "ui",
   "version": "1.0.0",

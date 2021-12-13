@@ -7,7 +7,7 @@
     "defaultCommandTimeout" : 30000,
     "pluginsFile": "cypress/plugins/index.js",
     "supportFile": "cypress/support/index.js",
-    "retries": 0,
+    "retries": 1,
     "video": false,
     "viewportWidth": 1366,
     "viewportHeight": 768,
@@ -23,8 +23,6 @@
       }
   },
     "testFiles": [
-        "regression/login/login.spec.js",
-        "regression/kga/kgahomepage.spec.js",
-        "sanity/*"
+        "sanity/user-flows/**/*"
     ]
 }

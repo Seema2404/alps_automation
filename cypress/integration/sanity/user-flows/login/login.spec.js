@@ -1,11 +1,8 @@
-import * as loginAction from '../../../pages/commands/login'
+import * as loginAction from '../../../../pages/commands/login'
 
 describe('SignIn as a user', () => {
     before(() => {
-        cy.visitWithBaseAuth()
-        cy.fixture('userData').then((userData) => {
-            login = userData
-        })
+        cy.visitWithBaseAuth('')
     })
     beforeEach(() => {
         cy.restoreLocalStorage()
