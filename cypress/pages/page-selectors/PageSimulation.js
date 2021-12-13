@@ -100,7 +100,18 @@ export class PageSimulation {
             headingContGapAnalysis : () => cy.contains('Content Gap Analysis'),
             headingBlAnalysis : () => cy.contains('Backlink Analysis'),
             headingTechAudit : () => cy.contains('Technical Audit'),
-            errorMsgForInvalidUrl :() => cy.contains('Please enter a valid URL')
+            errorMsgForInvalidUrl :() => cy.contains('Please enter a valid URL'),
+            authTab:()=> cy.get('#sim_left_pane_Authority_tab_title'),
+            technicalTab:() => cy.get('#sim_left_pane_Technical_tab_title_score_label'),
+            toggleButton :() => cy.get('#contentSimulation_multiKeyword_accordionToggle_button'),
+            // filterHighInTechParameter :() => cy.get('#sim_sub_cat_param_filter_high_checkbox'),
+            // filterLowIntechParameter :() => cy.get ('#sim_sub_cat_param_filter_very-low_checkbox'),
+            filterHighInTechParameter :() => cy.get('#cb1'),
+            filterLowIntechParameter :() => cy.get ('#sim_sub_cat_param_filter_very-low_checkbox'),
+
+
+            sortDropdownBox:() =>cy.get('#sim_sub_cat_param_filter_sort_dropdown')
+
         }
     }
 }

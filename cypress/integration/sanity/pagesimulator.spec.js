@@ -61,7 +61,7 @@ describe('As an ALPS user', () => {
         
     })
 
-    it.only('AL-T20 : Verify when user enter a Valid URL',()=> {
+    it('AL-T20 : Verify when user enter a Valid URL',()=> {
 
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -76,5 +76,34 @@ describe('As an ALPS user', () => {
         
     })
 
+
+    it('AL-T59 : Verify the default selected Sort field on page when user lands on page',()=> {
+
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickToggleButton()
+        simulationAction.clickTabtechnical()
+        
+        // Assertion validation 
+        simulationAction.dispDefaultSortValue(data.DefultSortValue)
+
+    })
+
+
+    it('AL-T62 : Verify the URL in the URL for simulation text field',()=> {
+
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        
+        // Assertion validation 
+        simulationAction.dispSimulationForUrlHeading(data.SimulationUrl)
+
+    })
     
 })

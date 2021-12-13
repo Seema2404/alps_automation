@@ -272,6 +272,47 @@ export const clickGoButton = () => {
     
 }
 
+export const clickTabtechnical = () => {
+
+    OptimizationPage.elements.technicalTab().click({force: true})
+}
+
+export const clickTabAuth = () => {
+
+    OptimizationPage.elements.authTab().click({force: true})
+}
+
+
+
+export const clickToggleButton = () => {
+
+    OptimizationPage.elements.toggleButton().click({force: true})
+}
+
+
+export const checkFilterHighInTechParameter = () => {
+
+    OptimizationPage.elements.filterHighInTechParameter().check({force: true})
+}
+
+export const checkFilterLowIntechParameter = () => {
+
+    OptimizationPage.elements.filterLowIntechParameter().check({force: true})
+}
+
+
+export const uncheckFilterHighInTechParameter = () => {
+
+    OptimizationPage.elements.filterHighInTechParameter().uncheck({force: true})
+}
+
+export const uncheckFilterLowIntechParameter = () => {
+
+    OptimizationPage.elements.filterLowIntechParameter().uncheck({force: true})
+}
+
+
+
 
 export const clickRadioIDoNotHaveLiveUrl = () => {
     OptimizationPage.elements.rdbIDoNotHaveLiveUrl().click()
@@ -303,6 +344,17 @@ export const clickProjectAndRelatedKWToggle = () => {
 export const disphHadingSimulationHistory =() => {
     OptimizationPage.elements.headingSimulationHistory().should('be.visible')
 }
+
+
+
+export const dispHeadingContentOptimalUsageHtmlAttributes = () => {
+    Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('be.visible')
+}
+
+export const dispNoneHeadingContentOptimalUsageHtmlAttributes = () => {
+    Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('not.be.visible')
+}
+
 
 export const dispHeadingKwRankAndPerf =() =>
 {
@@ -363,6 +415,16 @@ export const displblViewKWLevelImpactNotification =(nText) => {
     {
         var KWLevelImpactNotification=notificationText.text()
         expect (KWLevelImpactNotification).to.equals(nText)
+
+    })
+}
+
+export const dispDefaultSortValue =(nText) => {
+
+    OptimizationPage.elements.sortDropdownBox().then(function(defaultDropdownText)
+    {
+        var DefalutSortVisibleText=defaultDropdownText.text()
+        expect (DefalutSortVisibleText).to.equals(nText)
 
     })
 }
