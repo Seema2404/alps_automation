@@ -118,3 +118,19 @@ export const clickOptimizationTab = () => {
 export const clickPageSimulationMenuOption = () => {
     kga.elements.pageSimulationMenuOption().click()
 }
+
+export const clickProjectTab = () => {
+    kga.elements.projectTab().click()
+}
+
+export const clickAuditsMenuOption = () => {
+    kga.elements.auditsMenuOption().click()
+}
+
+export const clickOpMenuOption = () => {
+    kga.elements.opMenuOption().click()
+}
+
+export const clickReportsMenuOption = () => {
+    kga.elements.reportsMenuOption().click()
+}

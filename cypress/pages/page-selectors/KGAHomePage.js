@@ -34,7 +34,11 @@ export class KGAHomePage {
             kgaModalTop10CompetitorScoresTitle: () => cy.get('#comparator-modal-head-title'),
             kgaModalCloseButton: () => cy.get('#comparator-modal-head-button'),
             optimizationTab: () => cy.get('#logo + div nav div').contains('OPTIMIZATION'),
-            pageSimulationMenuOption: () => cy.get('#page-optimizer-url')
+            pageSimulationMenuOption: () => cy.get('#page-optimizer-url'),
+            projectTab: () => cy.get('#logo + div nav div').contains('PROJECT'),
+            auditsMenuOption: () => cy.get('nav a').contains('AUDITS'),
+            opMenuOption: () => cy.get('nav a').contains('OPPORTUNITY PLANNING'),
+            reportsMenuOption: () => cy.get('nav a').contains('REPORTS')
         }
     }
 }

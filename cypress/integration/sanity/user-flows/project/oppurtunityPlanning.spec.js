@@ -1,7 +1,10 @@
+import * as kgaAction from '../../../../pages/commands/kgahomepage'
+import * as opAction from '../../../../pages/commands/oppurtunityPlanning'
+
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('As a Project user', () => {
     beforeEach(() => {
-        cy.loginUser('Iquanti Inc')
+        cy.loginUser('Iquanti Inc', 2)
         cy.restoreLocalStorage()
     })
     afterEach(() => {
@@ -9,22 +12,22 @@ describe('As a Project user', () => {
     })
     it('verify Oppurtunity Planning homepage', () => {
         cy.wait(7000)
-        cy.get('div#root header div div:nth-child(2) nav div:nth-child(3)').click()
+        kgaAction.clickProjectTab()
         cy.wait(2000)
-        cy.get('div.showMenu nav a:nth-child(3)').click()
-        cy.get('div.top_title.pg_heading h2').should('have.text', 'Opportunity Summary')
-        cy.get('div.filter_left_coloum').should('be.visible')
-        cy.get('div.filter_right_coloum').should('be.visible')
-        cy.get('div.download_button.bottom').should('be.visible')
-        cy.get('div.mainButton.pull-right a').should('have.text', 'Edit Themes')
-        cy.get('div.tag_summ').should('have.length', 4)
-        cy.get('a[title="Reset"]').should('have.length', 2)
-        cy.get('a[title="Forecast"]').should('have.length', 2)
-        cy.get('div.main_tableHead').should('be.visible')
-        cy.get('div.main_table').should('be.visible')
-        cy.get('div.main_tableHead div.col_1 span').should('contain.text', 'Theme')
-        cy.get('div.main_tableHead div.col_2 span').contains('Target Rank')
-        cy.get('span[title="Conversions"]').should('contain.text', 'Conversions')
-        cy.get('div.main_tableHead div.col_4 span').should('contain.text', 'Difficulty')
+        kgaAction.clickOpMenuOption()
+        opAction.validateOpSummaryTitle()
+        opAction.validateOpLeftToolbar()
+        opAction.validateOpRightToolbar()
+        opAction.validateOpDownloadButton()
+        opAction.validateOpEditThemesButton()
+        opAction.validateOpSummaryContainers()
+        opAction.validateOpResetButtons()
+        opAction.validateOpForecastButtons()
+        opAction.validateOpTableHead()
+        opAction.validateOpMainTable()
+        opAction.validateOpTableColumn1()
+        opAction.validateOpTableColumn2()
+        opAction.validateOpTableColumn3()
+        opAction.validateOpTableColumn4()
     })
 })
