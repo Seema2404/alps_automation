@@ -325,6 +325,11 @@ export const clickRadiordbIHaveLiveUrl = () => {
     
 }
 
+export const clickTabInputKeywordsInSimPage = () => {
+
+    OptimizationPage.elements.tabInputKeywords().click()
+}
+
 
 
 export const validatenonLiveFlowMessage = () => {
@@ -383,6 +388,11 @@ export const dispHeadingTechAudit =() =>
     OptimizationPage.elements.headingTechAudit().should('be.visible')
 }
 
+export const DispKWcountInSimPage= () => {
+
+    OptimizationPage.elements.kwListInSimPage().should('eq',20)
+}
+
 export const dispKeywordTextIdentifier =(keyworddata) => {
 
     Simulation.elements.keywordTextIdentifier().then(function(fetchDispText)
@@ -394,6 +404,19 @@ export const dispKeywordTextIdentifier =(keyworddata) => {
 
     })
 }
+
+export const disperrorNotificationForEmptyKWSim =(errorText) => {
+
+    OptimizationPage.elements.errorNotificationForEmptyKWSim().then(function(fetchDispText)
+    {
+        var NotificationText=fetchDispText.text()
+
+        expect(NotificationText).to.include(errorText)
+        expect(NotificationText).to.contains(errorText)
+
+    })
+}
+
 
 
 
