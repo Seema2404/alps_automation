@@ -104,13 +104,13 @@ export class PageSimulation {
             authTab:()=> cy.get('#sim_left_pane_Authority_tab_title'),
             technicalTab:() => cy.get('#sim_left_pane_Technical_tab_title_score_label'),
             toggleButton :() => cy.get('#contentSimulation_multiKeyword_accordionToggle_button'),
-            // filterHighInTechParameter :() => cy.get('#sim_sub_cat_param_filter_high_checkbox'),
-            // filterLowIntechParameter :() => cy.get ('#sim_sub_cat_param_filter_very-low_checkbox'),
-            filterHighInTechParameter :() => cy.get('#cb1'),
+            filterHighInTechParameter :() => cy.get('#sim_sub_cat_param_filter_high_checkbox'),
             filterLowIntechParameter :() => cy.get ('#sim_sub_cat_param_filter_very-low_checkbox'),
+            sortDropdownBox:() =>cy.get('#sim_sub_cat_param_filter_sort_dropdown'),
+            errorNotificationForEmptyKWSim : () => cy.get('#contentSimulation_multiKeyword_addKeyword_error'),
+            kwListInSimPage :() => cy.get('*[class^="sc-eXfwOT"]'),
+            tabInputKeywords : () => cy.contains('Input Keywords')
 
-
-            sortDropdownBox:() =>cy.get('#sim_sub_cat_param_filter_sort_dropdown')
 
         }
     }
