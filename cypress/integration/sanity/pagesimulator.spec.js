@@ -163,7 +163,7 @@ describe('As an ALPS user', () => {
     })
 
 
-    it.only('AL-T67: Verify the keywords text fiels when keywords are added',()=>
+    it('AL-T67: Verify the keywords text fiels when keywords are added',()=>
     {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -173,16 +173,13 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabInputKeywordsInSimPage()
         simulationAction.enterAddKeyword(data.MultipleKeywordsForSimPage)
         simulationAction.clickAddKeywordButton()
-        // simulationAction.clicksubmitButton()
-        
+               
         // validating the updated URL which is added in sim page heading
         simulationAction.DispKWcountInSimPage()
-        // cy.log(cy.get('*[class^="sc-eXfwOT"]'))
-        // cy.get('#phillContainer').find('div').should('have.length', 20)
         
     })
 
-    it.only('AL-T94: Verify the URL in "URL for simulation" text field',()=>
+    it('AL-T94: Verify the URL in "URL for simulation" text field',()=>
     {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()

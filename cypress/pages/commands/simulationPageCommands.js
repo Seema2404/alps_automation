@@ -424,15 +424,9 @@ export const dispSimulationUrl =(simUrl) =>{
     {
 
         var simualtionURlText=urlSimulation.val()
-        cy.log(simualtionURlText)
-        cy.log(simUrl)
         simUrl=simUrl.replace('"', ' ')
         simualtionURlText=simualtionURlText.replace('‘‘', '')
         simualtionURlText=simualtionURlText.replace('’’', '')
-        // expect(simualtionURlText).to.include(simUrl)
-        // expect(simualtionURlText).to.contains(simUrl)
-
-        
         expect(simualtionURlText).to.equal(simUrl)
 
 
