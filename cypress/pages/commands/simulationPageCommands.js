@@ -388,9 +388,9 @@ export const dispHeadingTechAudit =() =>
     OptimizationPage.elements.headingTechAudit().should('be.visible')
 }
 
-export const DispKWcountInSimPage= () => {
+export const DispKWcountInSimPage =() => {
 
-    OptimizationPage.elements.kwListInSimPage().should('eq',20)
+    OptimizationPage.elements.totalNumberOfKW().find('div').should('have.length', 20)
 }
 
 export const dispKeywordTextIdentifier =(keyworddata) => {
@@ -405,6 +405,8 @@ export const dispKeywordTextIdentifier =(keyworddata) => {
     })
 }
 
+
+
 export const disperrorNotificationForEmptyKWSim =(errorText) => {
 
     OptimizationPage.elements.errorNotificationForEmptyKWSim().then(function(fetchDispText)
@@ -417,8 +419,20 @@ export const disperrorNotificationForEmptyKWSim =(errorText) => {
     })
 }
 
+export const dispSimulationUrl =(simUrl) =>{
+    OptimizationPage.elements.ddnAddKeywordUrl().then(function(urlSimulation)
+    {
+
+        var simualtionURlText=urlSimulation.val()
+        simUrl=simUrl.replace('"', ' ')
+        simualtionURlText=simualtionURlText.replace('‘‘', '')
+        simualtionURlText=simualtionURlText.replace('’’', '')
+        expect(simualtionURlText).to.equal(simUrl)
 
 
+    })
+
+}
 
 export const displblViewEmptyTrafficRankNotification =(nText) => {
 

@@ -163,6 +163,37 @@ describe('As an ALPS user', () => {
     })
 
 
+    it('AL-T67: Verify the keywords text fiels when keywords are added',()=>
+    {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.enterAddKeyword(data.MultipleKeywordsForSimPage)
+        simulationAction.clickAddKeywordButton()
+               
+        // validating the updated URL which is added in sim page heading
+        simulationAction.DispKWcountInSimPage()
+        
+    })
+
+    it('AL-T94: Verify the URL in "URL for simulation" text field',()=>
+    {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+                
+        // validating the updated URL in text field.
+        simulationAction.dispSimulationUrl(data.SimulationUrl)
+        
+    })
+
+   
+
    
 
 
