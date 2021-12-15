@@ -109,7 +109,8 @@ export class PageSimulation {
             sortDropdownBox:() =>cy.get('#sim_sub_cat_param_filter_sort_dropdown'),
             errorNotificationForEmptyKWSim : () => cy.get('#contentSimulation_multiKeyword_addKeyword_error'),
             kwListInSimPage :() => cy.get('*[class^="sc-eXfwOT"]'),
-            tabInputKeywords : () => cy.contains('Input Keywords')
+            tabInputKeywords : () => cy.contains('Input Keywords'),
+            totalNumberOfKW :() => cy.get('#phillContainer')
 
 
         }
