@@ -114,15 +114,10 @@ describe('As an ALPS user', () => {
         simulationAction.clickToggleButton()
         simulationAction.clickTabtechnical()
 
-        // Assertion validation 
-        // simulationAction.checkFilterHighInTechParameter()
-        // simulationAction.checkFilterLowIntechParameter()
+        // Assertion for validating the sort option
         simulationAction.dispHeadingContentOptimalUsageHtmlAttributes()
 
-        // Assertion validation 
-        cy.wait(1000)
-        simulationAction.clickTabAuth()
-        simulationAction.clickTabtechnical()
+        // Assertion for validating the sort option
         simulationAction.uncheckFilterHighInTechParameter()
         simulationAction.uncheckFilterLowIntechParameter()
         simulationAction.dispNoneHeadingContentOptimalUsageHtmlAttributes()
@@ -192,10 +187,33 @@ describe('As an ALPS user', () => {
         
     })
 
-   
 
-   
+    it('AL-T99:Verify the validation on the locale dropdown in the blue accordian section',()=>
+    {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.ClickSelectorLocaleDdn()
+        simulationAction.ClickSlectNewLocale()       
+        
+        // validating the updated Locale Notification message.
+        simulationAction.dispNotificationMessageForLocaleUpdate(data.EmprtyKWSimNotification)
+        
+    })
 
-
-    
+    it('AL-T100:Verify the validation on the keywords text box in the blue accordian section when no keywords are entered',()=>
+    {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clicksubmitButton()
+        
+        // validating the empty KW simulation Notification message.
+        simulationAction.dispNotifyMsgForEmptyKWProceed(data.NoftificationErrorMSgForEmptyKWSim)
+        
+    })
 })
