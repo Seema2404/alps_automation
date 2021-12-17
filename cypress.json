@@ -23,10 +23,6 @@
       }
   },
     "testFiles": [
-        "regression/login/login.spec.js",
-        "regression/kga/kgahomepage.spec.js",
-        "regression/simulation/simulation.spec.js",
         "sanity/*"
-        
     ]
 }
