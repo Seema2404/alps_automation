@@ -104,26 +104,7 @@ describe('As an ALPS user', () => {
 
     })
 
-    it('AL-T53 : Verify the behaviour of Filter button when user lands on simulation page for Technical Parameters',()=> {
-
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        simulationAction.clickToggleButton()
-        simulationAction.clickTabtechnical()
-
-        // Assertion for validating the sort option
-        simulationAction.dispHeadingContentOptimalUsageHtmlAttributes()
-
-        // Assertion for validating the sort option
-        simulationAction.uncheckFilterHighInTechParameter()
-        simulationAction.uncheckFilterLowIntechParameter()
-        simulationAction.dispNoneHeadingContentOptimalUsageHtmlAttributes()
-
-    })
-
+    
     it('AL-T63: Verify the URL for simulation text field when new URL is updated',()=>
     {
          loginAction.clickAlpsLogo()
