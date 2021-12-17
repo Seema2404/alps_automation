@@ -9,8 +9,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 // Cypress.Commands.add('visitWithBaseAuth', () => cy.visit('/', {
-cy.log('BaseUrl: ')
-cy.log(Cypress.env('baseUrl'))
+Cypress.log('BaseUrl: ')
+Cypress.log(Cypress.env('baseUrl'))
 Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('baseUrl'), {
     auth: {
         username: Cypress.env('basicAuthLogin'),
