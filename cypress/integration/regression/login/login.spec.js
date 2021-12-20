@@ -4,7 +4,7 @@ describe('SignIn as a user', () => {
     let login
 
     before(() => {
-        cy.log(Cypress.env('baseUrl'))
+        cy.log(Cypress.env('alpsUrl'))
         cy.visitWithBaseAuth()
         cy.fixture('userData').then((userData) => {
             login = userData
