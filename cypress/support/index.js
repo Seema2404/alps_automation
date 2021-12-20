@@ -9,7 +9,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 // Cypress.Commands.add('visitWithBaseAuth', () => cy.visit('/', {
-Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('baseUrl'), {
+Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('alpsUrl'), {
     auth: {
         username: Cypress.env('basicAuthLogin'),
         password: Cypress.env('basicAuthPassword')
