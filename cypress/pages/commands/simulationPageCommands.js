@@ -541,3 +541,11 @@ export const verifyDownloadButton = () => {
 export const waitForLoaderToDisappear = () => {
     Simulation.elements.runSimSpinner().should('not.be.visible')
 }
+
+export const clickDownloadButton = () => {
+    Simulation.elements.downloadButton().click()
+}
+
+export const verifyDownloadedFile = (fileName) => {
+    cy.verifyDownload(fileName)
+}

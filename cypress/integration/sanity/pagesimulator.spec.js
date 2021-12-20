@@ -7,7 +7,10 @@ describe('As an ALPS user', () => {
     let data
 
     before(() => {
-        // cy.visitWithBaseAuth('')
+        // Clear downloads folder
+        cy.exec('del /q "cypress\\downloads\\*.*"', { log: true, failOnNonZeroExit: false })
+        cy.exec('rm cypress/downloads/*', { log: true, failOnNonZeroExit: false })
+
         cy.loginUser()
         cy.fixture('userData').then((userData) => {
             data = userData
@@ -178,5 +181,22 @@ describe('As an ALPS user', () => {
 
         // validating the download button.
         simulationAction.verifyDownloadButton()
+    })
+
+    it('AL-T228: Verify the functionality of download icon when all the keywords are processed', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywords()
+        simulationAction.enterAddKeyword(data.SimulationKeyword)
+        simulationAction.clickAddKeywordButton()
+        simulationAction.clicksubmitButton()
+        simulationAction.verifyDownloadButton()
+        simulationAction.clickDownloadButton()
+
+        // validating the downloaded file.
+        simulationAction.verifyDownloadedFile(data.SimulationDownloadedFile)
     })
 })
