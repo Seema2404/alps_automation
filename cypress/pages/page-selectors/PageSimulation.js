@@ -110,7 +110,12 @@ export class PageSimulation {
             errorNotificationForEmptyKWSim : () => cy.get('#contentSimulation_multiKeyword_addKeyword_error'),
             kwListInSimPage :() => cy.get('*[class^="sc-eXfwOT"]'),
             tabInputKeywords : () => cy.contains('Input Keywords'),
-            totalNumberOfKW :() => cy.get('#phillContainer')
+            totalNumberOfKW :() => cy.get('#phillContainer'),
+            notificationMessageForLocaleUpdate :() => cy.get('#contentSimulation_multiKeyword_localeChange_warning_text'),
+            textBoxToUpdateLocaleInSim : () => cy.get('#react-select-protocol-input'),
+            slectNewLocale : () => cy.get('#react-select-protocol-option-1'),
+            NotifyMsgForEmptyKWProceed : () => cy.get('#contentSimulation_multiKeyword_addKeyword_error')
+             
 
 
         }

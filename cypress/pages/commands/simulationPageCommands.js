@@ -39,6 +39,11 @@ export const updatingNewStringToContext = (NewString) => {
     Simulation.elements.editorBodyText().type(NewString)
 }
 
+export const TextBoxToUpdateLocaleInSim = (NewString) => {
+    OptimizationPage.elements.textBoxToUpdateLocaleInSim().clear()
+    OptimizationPage.elements.textBoxToUpdateLocaleInSim().type(NewString)
+}
+
 export const textPageOptimizationUrl = (url) => {
     OptimizationPage.elements.txtBoxUrl().clear()
     OptimizationPage.elements.txtBoxUrl().type(url)
@@ -51,6 +56,15 @@ export const enterAddKeyword = (KW) => {
 
 export const clickAddKeywordButton = () => {
     Simulation.elements.addKeywordButton().click()
+}
+
+export const clickbuttonAddKeyword = () => {
+    OptimizationPage.elements.buttonAddKeyword().click()
+}
+
+export const txtAddKeywordSimPage = (KW) => {
+    OptimizationPage.elements.txtAddKeyword().clear()
+    OptimizationPage.elements.txtAddKeyword().type(KW)
 }
 
 export const clicksubmitButton = () => {
@@ -277,6 +291,14 @@ export const clickTabInputKeywordsInSimPage = () => {
     OptimizationPage.elements.tabInputKeywords().click()
 }
 
+export const ClickSelectorLocaleDdn = () => {
+    OptimizationPage.elements.selectorLocaleDdn().click()
+}
+
+export const ClickSlectNewLocale = () => {
+    OptimizationPage.elements.slectNewLocale().click()
+}
+
 export const validatenonLiveFlowMessage = () => {
     OptimizationPage.elements.nonLiveFlowMessage().should('contains.text', 'The journey has been updated as Non live URL journey')
 }
@@ -293,12 +315,16 @@ export const disphHadingSimulationHistory = () => {
     OptimizationPage.elements.headingSimulationHistory().should('be.visible')
 }
 
+export const dispNotificationMessageForLocaleUpdate = () => {
+    OptimizationPage.elements.notificationMessageForLocaleUpdate().should('be.visible')
+}
+
 export const dispHeadingContentOptimalUsageHtmlAttributes = () => {
     Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('be.visible')
 }
 
 export const dispNoneHeadingContentOptimalUsageHtmlAttributes = () => {
-    Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('not.be.visible')
+    Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('not.exist')
 }
 
 export const dispHeadingKwRankAndPerf = () => {
@@ -335,12 +361,31 @@ export const dispKeywordTextIdentifier = (keyworddata) => {
     })
 }
 
+export const dispNotifyMsgForEmptyKWProceed = (ErrorMsg) => {
+    OptimizationPage.elements.NotifyMsgForEmptyKWProceed().then(function (fetchDispText) {
+        const NotificationErrorMSg = fetchDispText.text()
+
+        expect(NotificationErrorMSg).to.include(ErrorMsg)
+        expect(NotificationErrorMSg).to.contains(ErrorMsg)
+    })
+}
+
 export const disperrorNotificationForEmptyKWSim = (errorText) => {
     OptimizationPage.elements.errorNotificationForEmptyKWSim().then(function (fetchDispText) {
         const NotificationText = fetchDispText.text()
 
         expect(NotificationText).to.include(errorText)
         expect(NotificationText).to.contains(errorText)
+    })
+}
+
+export const disperrorNotificationForDuplicateKWSim = (DuplicateText) => {
+    OptimizationPage.elements.errMsgEmptyKeywordAddNew().then(function (fetchDispText) {
+        const NotificationDuplicateText = fetchDispText.text()
+
+        // NotificationDuplicateText=NotificationDuplicateText.replace(' ', '')
+
+        expect(NotificationDuplicateText).to.equal(DuplicateText)
     })
 }
 

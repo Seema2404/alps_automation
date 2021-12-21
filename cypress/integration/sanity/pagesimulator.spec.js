@@ -92,6 +92,25 @@ describe('As an ALPS user', () => {
         simulationAction.dispSimulationForUrlHeading(data.SimulationUrl)
     })
 
+    it('AL-T63: Verify the URL for simulation text field when new URL is updated', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        // kgaSerpAction.clickSerpPageSimulation()
+        cy.wait(9000)
+        simulationAction.enterAddKeywordUrl(data.newURL)
+        cy.wait(9000)
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.clicksubmitButton()
+
+        // validating the updated URL which is added in sim page heading
+        simulationAction.dispSimpage(data.simHeadingValidationURl)
+    })
+
     it('AL-T53 : Verify the behaviour of Filter button when user lands on simulation page for Technical Parameters', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -102,8 +121,6 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabtechnical()
 
         // Assertion validation
-        // simulationAction.checkFilterHighInTechParameter()
-        // simulationAction.checkFilterLowIntechParameter()
         simulationAction.dispHeadingContentOptimalUsageHtmlAttributes()
 
         // Assertion validation
@@ -113,22 +130,6 @@ describe('As an ALPS user', () => {
         simulationAction.uncheckFilterHighInTechParameter()
         simulationAction.uncheckFilterLowIntechParameter()
         simulationAction.dispNoneHeadingContentOptimalUsageHtmlAttributes()
-    })
-
-    it('AL-T63: Verify the URL for simulation text field when new URL is updated', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        kgaSerpAction.clickSerpPageSimulation()
-        cy.wait(9000)
-        simulationAction.enterAddKeywordUrl(data.newURL)
-        cy.wait(9000)
-        simulationAction.clicksubmitButton()
-
-        // validating the updated URL which is added in sim page heading
-        simulationAction.dispSimpage(data.simHeadingValidationURl)
     })
 
     it('AL-T66: Verify the keywords text fields', () => {
@@ -166,6 +167,31 @@ describe('As an ALPS user', () => {
 
         // validating the updated URL in text field.
         simulationAction.dispSimulationUrl(data.SimulationUrl)
+    })
+
+    it('AL-T99:Verify the validation on the locale dropdown in the blue accordian section', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.ClickSelectorLocaleDdn()
+        simulationAction.ClickSlectNewLocale()
+
+        // validating the updated Locale Notification message.
+        simulationAction.dispNotificationMessageForLocaleUpdate(data.EmprtyKWSimNotification)
+    })
+
+    it('AL-T100:Verify the validation on the keywords text box in the blue accordian section when no keywords are entered', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clicksubmitButton()
+
+        // validating the empty KW simulation Notification message.
+        simulationAction.dispNotifyMsgForEmptyKWProceed(data.NoftificationErrorMSgForEmptyKWSim)
     })
 
     it('AL-T227: Verify the visibility of download icon', () => {
