@@ -107,15 +107,18 @@ describe('As an ALPS user', () => {
     
     it('AL-T63: Verify the URL for simulation text field when new URL is updated',()=>
     {
-         loginAction.clickAlpsLogo()
+        loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
-        kgaSerpAction.clickSerpPageSimulation()
+        // kgaSerpAction.clickSerpPageSimulation()
         cy.wait(9000)
         simulationAction.enterAddKeywordUrl(data.newURL)
         cy.wait(9000)
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
         simulationAction.clicksubmitButton()
 
         // validating the updated URL which is added in sim page heading
