@@ -9,12 +9,15 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 // Cypress.Commands.add('visitWithBaseAuth', () => cy.visit('/', {
-Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('baseUrl'), {
-    auth: {
-        username: Cypress.env('basicAuthLogin'),
-        password: Cypress.env('basicAuthPassword')
-    }
-}))
+Cypress.Commands.add('visitWithBaseAuth', () => {
+    // cy.visit(Cypress.env('baseUrl'), {
+    cy.visit('http://alpsqa.smallbizvoices.com/', {
+        auth: {
+            username: Cypress.env('basicAuthLogin'),
+            password: Cypress.env('basicAuthPassword')
+        }
+    })
+})
 
 Cypress.Commands.add(
     'iframeLoaded',

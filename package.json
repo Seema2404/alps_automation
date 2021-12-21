@@ -5,7 +5,7 @@
     "@types/cypress": "^1.1.3",
     "axios": "^0.21.1",
     "cypress-file-upload": "^5.0.5",
-    "cypress-iframe": "^1.0.1",  
+    "cypress-iframe": "^1.0.1",
     "cypress-xpath": "^1.6.2",
     "faker": "^4.1.0",
     "fs": "0.0.1-security",
@@ -66,7 +66,7 @@
     "cleanup": "rmdir /S /Q cypress\\reports",
     "merge_reports": "mochawesome-merge cypress\\reports\\mocha\\*.json > output.json",
     "mochawesome_report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
-    "test": "cypress run --spec cypress/integration/regression/**/* && npm run merge_reports && npm run mochawesome_report"
+    "test": "cypress run && npm run merge_reports && npm run mochawesome_report"
   },
   "name": "ui",
   "version": "1.0.0",
