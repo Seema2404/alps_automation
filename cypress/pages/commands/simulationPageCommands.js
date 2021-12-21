@@ -324,7 +324,7 @@ export const dispHeadingContentOptimalUsageHtmlAttributes = () => {
 }
 
 export const dispNoneHeadingContentOptimalUsageHtmlAttributes = () => {
-    Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('not.be.visible')
+    Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('not.exist')
 }
 
 export const dispHeadingKwRankAndPerf = () => {

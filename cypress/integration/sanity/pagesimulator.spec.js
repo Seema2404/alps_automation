@@ -121,8 +121,6 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabtechnical()
 
         // Assertion validation
-        // simulationAction.checkFilterHighInTechParameter()
-        // simulationAction.checkFilterLowIntechParameter()
         simulationAction.dispHeadingContentOptimalUsageHtmlAttributes()
 
         // Assertion validation
