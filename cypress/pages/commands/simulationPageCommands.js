@@ -1,69 +1,53 @@
 import { Simulation } from '../page-selectors/SimulationPage'
 import { OptimizationPage } from '../page-selectors/PageSimulation'
 
-
-
 export const enterKeyword = (editortext) => {
     Simulation.elements.editorBodyText().clear()
     Simulation.elements.editorBodyText().type(editortext)
 }
 
-
-
 export const clickHeaderChangeSelector = () => {
     Simulation.elements.headerChangeSelector().click()
 }
 
-
 export const clickkwRankAndPerformance = () => {
     Simulation.elements.kwRankAndPerformance().click()
-    
 }
 
-export const clickSimulationForUrl =() =>{
-    Simulation.elements.simulationForUrl().click({force: true})
+export const clickSimulationForUrl = () => {
+    Simulation.elements.simulationForUrl().click({ force: true })
 }
-
 
 export const enterMultiKeywordUrl = (KWURl) => {
     Simulation.elements.multiKeywordUrl().clear()
     Simulation.elements.multiKeywordUrl().type(KWURl)
 }
 
-
 export const dispSimulationForUrlHeading = (url) => {
-    
-    Simulation.elements.simulationForUrl().then(function(disptext)
-    {
-        var simHeadingtext=disptext.text()
-        url=url.replace('"', ' ')
-        simHeadingtext=simHeadingtext.replace('‘‘', '')
-        simHeadingtext=simHeadingtext.replace('’’', '')
+    Simulation.elements.simulationForUrl().then(function (disptext) {
+        let simHeadingtext = disptext.text()
+
+        url = url.replace('"', ' ')
+        simHeadingtext = simHeadingtext.replace('‘‘', '')
+        simHeadingtext = simHeadingtext.replace('’’', '')
         expect(simHeadingtext).to.equals(url)
     })
-    
-
 }
 
-export const updatingNewStringToContext =(NewString) => {
+export const updatingNewStringToContext = (NewString) => {
     Simulation.elements.editorBodyText().clear()
     Simulation.elements.editorBodyText().type(NewString)
 }
 
-
-export const TextBoxToUpdateLocaleInSim =(NewString) => {
+export const TextBoxToUpdateLocaleInSim = (NewString) => {
     OptimizationPage.elements.textBoxToUpdateLocaleInSim().clear()
     OptimizationPage.elements.textBoxToUpdateLocaleInSim().type(NewString)
 }
-
-
-
 
 export const textPageOptimizationUrl = (url) => {
     OptimizationPage.elements.txtBoxUrl().clear()
     OptimizationPage.elements.txtBoxUrl().type(url)
 }
-
 
 export const enterAddKeyword = (KW) => {
     Simulation.elements.addKeyword().clear()
@@ -78,24 +62,18 @@ export const clickbuttonAddKeyword = () => {
     OptimizationPage.elements.buttonAddKeyword().click()
 }
 
-
-
 export const txtAddKeywordSimPage = (KW) => {
     OptimizationPage.elements.txtAddKeyword().clear()
     OptimizationPage.elements.txtAddKeyword().type(KW)
 }
 
-
-
 export const clicksubmitButton = () => {
     Simulation.elements.submitButton().click()
 }
 
-
 export const clickRunSimulationButton = () => {
     Simulation.elements.runSimulationButton().click()
 }
-
 
 export const clickResetButton = () => {
     Simulation.elements.resetButton().click()
@@ -104,7 +82,6 @@ export const clickResetButton = () => {
 export const clickViewOriginalContent = () => {
     Simulation.elements.viewOriginalContent().click()
 }
-
 
 export const validatingKeywordMaxLimitErrorMessage = () => {
     Simulation.elements.keywordMaxLimitErrorMessage().should('be.visible')
@@ -118,14 +95,11 @@ export const validatingremoveAll = () => {
     OptimizationPage.elements.removeAll().should('be.visible')
 }
 
-export const validateNotificationForSimulationWithOutAnyCHanges = () =>{
-
+export const validateNotificationForSimulationWithOutAnyCHanges = () => {
     OptimizationPage.elements.errMsgRunSimWithOutChanges().should('be.visible')
 }
 
-
-export const validateErrorNotificationForInvalidURL = () =>{
-
+export const validateErrorNotificationForInvalidURL = () => {
     OptimizationPage.elements.errorMsgForInvalidUrl().should('be.visible')
 }
 
@@ -163,31 +137,25 @@ export const validateZoomContentTitleScore = () => {
     Simulation.elements.zoomContentTitleScore().should('be.visible')
 }
 
-
-export const clickRemoveAll = () =>{
-    OptimizationPage.elements.removeAll().click({force: true})
+export const clickRemoveAll = () => {
+    OptimizationPage.elements.removeAll().click({ force: true })
 }
 
 export const validateKWCount = () => {
     Simulation.elements.addedKeywordCount().should('have.length.greaterThan', 1)
 }
 
-
 export const validateKWCountAfterRemoveAll = () => {
     Simulation.elements.addedKeywordCount().should('have.length.lessThan', 1)
 }
-
 
 export const validateSubmitButtonEnabledByDefault = () => {
     Simulation.elements.submitButton().should('not.be.disabled')
 }
 
-
 export const validaterunSimulationButtonEnabledByDefault = () => {
     Simulation.elements.runSimulationButton().should('not.be.disabled')
 }
-
-
 
 export const enterUrlField = (url) => {
     Simulation.elements.urlField().clear()
@@ -199,23 +167,19 @@ export const enterAddKeywordUrl = (url) => {
     OptimizationPage.elements.ddnAddKeywordUrl().type(url)
 }
 
-
 export const clickZoomPage = () => {
     Simulation.elements.zoomPage().click()
 }
-
 
 export const enterTitleField = (titletext) => {
     Simulation.elements.titleField().clear()
     Simulation.elements.titleField().type(titletext)
 }
 
-
 export const enterMetaDescriptionField = (metatext) => {
     Simulation.elements.metaDescriptionField().clear()
     Simulation.elements.metaDescriptionField().type(metatext)
 }
-
 
 export const enterh1Field = (h1text) => {
     Simulation.elements.h1Field().clear()
@@ -226,7 +190,6 @@ export const enterh2Field = (h2text) => {
     Simulation.elements.h2Field().clear()
     Simulation.elements.h2Field().type(h2text)
 }
-
 
 export const clickAuthority = () => {
     Simulation.elements.authority().click()
@@ -278,82 +241,57 @@ export const clickprotocolSelectionSimPage = () => {
 
 export const clickTabOptimization = () => {
     OptimizationPage.elements.tabOptimization().click()
-    
 }
-
 
 export const clickTabPageSimulation = () => {
     OptimizationPage.elements.tabPageSimulation().click()
-    
 }
-
-
 
 export const clickGoButton = () => {
     OptimizationPage.elements.goButton().click()
-    
 }
 
 export const clickTabtechnical = () => {
-
-    OptimizationPage.elements.technicalTab().click({force: true})
+    OptimizationPage.elements.technicalTab().click({ force: true })
 }
 
 export const clickTabAuth = () => {
-
-    OptimizationPage.elements.authTab().click({force: true})
+    OptimizationPage.elements.authTab().click({ force: true })
 }
-
-
 
 export const clickToggleButton = () => {
-
-    OptimizationPage.elements.toggleButton().click({force: true})
+    OptimizationPage.elements.toggleButton().click({ force: true })
 }
 
-
 export const checkFilterHighInTechParameter = () => {
-
-    OptimizationPage.elements.filterHighInTechParameter().check({force: true})
+    OptimizationPage.elements.filterHighInTechParameter().check({ force: true })
 }
 
 export const checkFilterLowIntechParameter = () => {
-
-    OptimizationPage.elements.filterLowIntechParameter().check({force: true})
+    OptimizationPage.elements.filterLowIntechParameter().check({ force: true })
 }
 
-
 export const uncheckFilterHighInTechParameter = () => {
-
-    OptimizationPage.elements.filterHighInTechParameter().uncheck({force: true})
+    OptimizationPage.elements.filterHighInTechParameter().uncheck({ force: true })
 }
 
 export const uncheckFilterLowIntechParameter = () => {
-
-    OptimizationPage.elements.filterLowIntechParameter().uncheck({force: true})
+    OptimizationPage.elements.filterLowIntechParameter().uncheck({ force: true })
 }
-
-
-
 
 export const clickRadioIDoNotHaveLiveUrl = () => {
     OptimizationPage.elements.rdbIDoNotHaveLiveUrl().click()
-    
 }
-
 
 export const clickRadiordbIHaveLiveUrl = () => {
     OptimizationPage.elements.rdbIHaveLiveUrl().click()
-    
 }
 
 export const clickTabInputKeywordsInSimPage = () => {
-
     OptimizationPage.elements.tabInputKeywords().click()
 }
 
 export const ClickSelectorLocaleDdn = () => {
-
     OptimizationPage.elements.selectorLocaleDdn().click()
 }
 
@@ -369,16 +307,13 @@ export const validateLiveFlowMessage = () => {
     OptimizationPage.elements.liveFlowMessage().should('contains.text', 'The journey has been updated as live URL journey')
 }
 
-
 export const clickProjectAndRelatedKWToggle = () => {
     OptimizationPage.elements.projectRelateKeywords().click()
-    
 }
 
-export const disphHadingSimulationHistory =() => {
+export const disphHadingSimulationHistory = () => {
     OptimizationPage.elements.headingSimulationHistory().should('be.visible')
 }
-
 
 export const dispNotificationMessageForLocaleUpdate = () => {
     OptimizationPage.elements.notificationMessageForLocaleUpdate().should('be.visible')
@@ -392,188 +327,134 @@ export const dispNoneHeadingContentOptimalUsageHtmlAttributes = () => {
     Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('not.be.visible')
 }
 
-
-export const dispHeadingKwRankAndPerf =() =>
-{
+export const dispHeadingKwRankAndPerf = () => {
     OptimizationPage.elements.headingKwRankAndPerf().should('be.visible')
 }
 
-export const dispHeadingKwGapAnalysis =() =>
-{
+export const dispHeadingKwGapAnalysis = () => {
     OptimizationPage.elements.headingKwGapAnalysis().should('be.visible')
 }
-export const dispHeadingContentSim =() =>
-{
+export const dispHeadingContentSim = () => {
     OptimizationPage.elements.headingContentSim().should('be.visible')
 }
-export const dispHeadingContGapAnalysis =() =>
-{
+export const dispHeadingContGapAnalysis = () => {
     OptimizationPage.elements.headingContGapAnalysis().should('be.visible')
 }
-export const dispHeadingBlAnalysis =() =>
-{
+export const dispHeadingBlAnalysis = () => {
     OptimizationPage.elements.headingBlAnalysis().should('be.visible')
 }
 
-export const dispHeadingTechAudit =() =>
-{
+export const dispHeadingTechAudit = () => {
     OptimizationPage.elements.headingTechAudit().should('be.visible')
 }
 
-export const DispKWcountInSimPage =() => {
-
+export const DispKWcountInSimPage = () => {
     OptimizationPage.elements.totalNumberOfKW().find('div').should('have.length', 20)
 }
 
-export const dispKeywordTextIdentifier =(keyworddata) => {
-
-    Simulation.elements.keywordTextIdentifier().then(function(fetchDispText)
-    {
-        var defaultKWInSimPage=fetchDispText.text()
+export const dispKeywordTextIdentifier = (keyworddata) => {
+    Simulation.elements.keywordTextIdentifier().then(function (fetchDispText) {
+        const defaultKWInSimPage = fetchDispText.text()
 
         expect(defaultKWInSimPage).to.include(keyworddata)
         expect(defaultKWInSimPage).to.contains(keyworddata)
-
     })
 }
 
-
-
 export const dispNotifyMsgForEmptyKWProceed = (ErrorMsg) => {
-    OptimizationPage.elements.NotifyMsgForEmptyKWProceed().then (function(fetchDispText)
-    {
-        var NotificationErrorMSg=fetchDispText.text()
+    OptimizationPage.elements.NotifyMsgForEmptyKWProceed().then(function (fetchDispText) {
+        const NotificationErrorMSg = fetchDispText.text()
 
         expect(NotificationErrorMSg).to.include(ErrorMsg)
         expect(NotificationErrorMSg).to.contains(ErrorMsg)
     })
 }
 
-
-
-
-
-export const disperrorNotificationForEmptyKWSim =(errorText) => {
-
-    OptimizationPage.elements.errorNotificationForEmptyKWSim().then(function(fetchDispText)
-    {
-        var NotificationText=fetchDispText.text()
+export const disperrorNotificationForEmptyKWSim = (errorText) => {
+    OptimizationPage.elements.errorNotificationForEmptyKWSim().then(function (fetchDispText) {
+        const NotificationText = fetchDispText.text()
 
         expect(NotificationText).to.include(errorText)
         expect(NotificationText).to.contains(errorText)
-
     })
 }
 
+export const disperrorNotificationForDuplicateKWSim = (DuplicateText) => {
+    OptimizationPage.elements.errMsgEmptyKeywordAddNew().then(function (fetchDispText) {
+        const NotificationDuplicateText = fetchDispText.text()
 
-export const disperrorNotificationForDuplicateKWSim =(DuplicateText) => {
-
-    OptimizationPage.elements.errMsgEmptyKeywordAddNew().then(function(fetchDispText)
-    {
-        var NotificationDuplicateText=fetchDispText.text()
         // NotificationDuplicateText=NotificationDuplicateText.replace(' ', '')
+
         expect(NotificationDuplicateText).to.equal(DuplicateText)
-
     })
 }
 
+export const dispSimulationUrl = (simUrl) => {
+    OptimizationPage.elements.ddnAddKeywordUrl().then(function (urlSimulation) {
+        let simualtionURlText = urlSimulation.val()
 
-export const dispSimulationUrl =(simUrl) =>{
-    OptimizationPage.elements.ddnAddKeywordUrl().then(function(urlSimulation)
-    {
-
-        var simualtionURlText=urlSimulation.val()
-        simUrl=simUrl.replace('"', ' ')
-        simualtionURlText=simualtionURlText.replace('‘‘', '')
-        simualtionURlText=simualtionURlText.replace('’’', '')
+        simUrl = simUrl.replace('"', ' ')
+        simualtionURlText = simualtionURlText.replace('‘‘', '')
+        simualtionURlText = simualtionURlText.replace('’’', '')
         expect(simualtionURlText).to.equal(simUrl)
-
-
-    })
-
-}
-
-export const displblViewEmptyTrafficRankNotification =(nText) => {
-
-    Simulation.elements.lblViewEmptyTrafficRankNotification().then(function(notificationText)
-    {
-        var trafficAndRankNotification=notificationText.text()
-        expect (trafficAndRankNotification).to.equals(nText)
-
-
     })
 }
 
+export const displblViewEmptyTrafficRankNotification = (nText) => {
+    Simulation.elements.lblViewEmptyTrafficRankNotification().then(function (notificationText) {
+        const trafficAndRankNotification = notificationText.text()
 
-export const displblViewKWLevelImpactNotification =(nText) => {
-
-    Simulation.elements.lblViewKWLevelImpactNotification().then(function(notificationText)
-    {
-        var KWLevelImpactNotification=notificationText.text()
-        expect (KWLevelImpactNotification).to.equals(nText)
-
+        expect(trafficAndRankNotification).to.equals(nText)
     })
 }
 
-export const dispDefaultSortValue =(nText) => {
+export const displblViewKWLevelImpactNotification = (nText) => {
+    Simulation.elements.lblViewKWLevelImpactNotification().then(function (notificationText) {
+        const KWLevelImpactNotification = notificationText.text()
 
-    OptimizationPage.elements.sortDropdownBox().then(function(defaultDropdownText)
-    {
-        var DefalutSortVisibleText=defaultDropdownText.text()
-        expect (DefalutSortVisibleText).to.equals(nText)
-
+        expect(KWLevelImpactNotification).to.equals(nText)
     })
 }
 
+export const dispDefaultSortValue = (nText) => {
+    OptimizationPage.elements.sortDropdownBox().then(function (defaultDropdownText) {
+        const DefalutSortVisibleText = defaultDropdownText.text()
 
-export const displblViewContentNotification =(nText) => {
-
-    Simulation.elements.lblViewContentNotification().then(function(notificationText)
-    {
-        var ViewContentNotification=notificationText.text()
-        expect (ViewContentNotification).to.equals(nText)
-
-
+        expect(DefalutSortVisibleText).to.equals(nText)
     })
 }
 
-export const displblViewAuthorityNotification =(nText) => {
+export const displblViewContentNotification = (nText) => {
+    Simulation.elements.lblViewContentNotification().then(function (notificationText) {
+        const ViewContentNotification = notificationText.text()
 
-    Simulation.elements.lblViewAuthorityNotification().then(function(notificationText)
-    {
-        var ViewAuthorityNotification=notificationText.text()
-        expect (ViewAuthorityNotification).to.equals(nText)
-
-
+        expect(ViewContentNotification).to.equals(nText)
     })
 }
 
-export const displblViewTechNotification =(nText) => {
+export const displblViewAuthorityNotification = (nText) => {
+    Simulation.elements.lblViewAuthorityNotification().then(function (notificationText) {
+        const ViewAuthorityNotification = notificationText.text()
 
-    Simulation.elements.lblViewTechNotification().then(function(notificationText)
-    {
-        var ViewTechNotification=notificationText.text()
-        expect (ViewTechNotification).to.equals(nText)
-
-
+        expect(ViewAuthorityNotification).to.equals(nText)
     })
 }
 
+export const displblViewTechNotification = (nText) => {
+    Simulation.elements.lblViewTechNotification().then(function (notificationText) {
+        const ViewTechNotification = notificationText.text()
 
-export const dispSimpage =(nText) => {
-
-    OptimizationPage.elements.headingUrl().then(function(headingText)
-    {
-        var ViewheadingText=headingText.text()
-        expect (ViewheadingText).not.to.equals(nText)
+        expect(ViewTechNotification).to.equals(nText)
     })
-
 }
 
+export const dispSimpage = (nText) => {
+    OptimizationPage.elements.headingUrl().then(function (headingText) {
+        const ViewheadingText = headingText.text()
 
-
-
-
+        expect(ViewheadingText).not.to.equals(nText)
+    })
+}
 
 // export var dispKeywordTextIdentifier1 =() => {
 //     // debugger;
@@ -590,176 +471,126 @@ export const dispSimpage =(nText) => {
 //          //console.log(defaultKWInSimPage)
 //          return defaultKWInSimPage
 //          // expect(defaultKWInSimPage).to.include(keyworddata)
- 
+
 //      })
 //      console.log(text1)
 //      return text1
 //  }
- 
 
-
-
-
-export const dispZoomViewTechScore =() => {
-
-    Simulation.elements.zoomViewTechScore().then(function(fetchDispText)
-    {
-        const zoomViewTechScoreText=fetchDispText.text()
-
+export const dispZoomViewTechScore = () => {
+    Simulation.elements.zoomViewTechScore().then(function (fetchDispText) {
+        const zoomViewTechScoreText = fetchDispText.text()
     })
 }
 
-
-export const dispZoomViewAuthorityScore =() => {
-
-    Simulation.elements.zoomViewAuthorityScore().then(function(fetchDispText)
-    {
-        const zoomViewAuthorityScoreText=fetchDispText.text()
-
+export const dispZoomViewAuthorityScore = () => {
+    Simulation.elements.zoomViewAuthorityScore().then(function (fetchDispText) {
+        const zoomViewAuthorityScoreText = fetchDispText.text()
     })
 }
 
-
-export const dispZoomViewContentScore =() => {
-
-    Simulation.elements.zoomViewContentScore().then(function(fetchDispText)
-    {
-        const zoomViewContentScoreText=fetchDispText.text()
-
+export const dispZoomViewContentScore = () => {
+    Simulation.elements.zoomViewContentScore().then(function (fetchDispText) {
+        const zoomViewContentScoreText = fetchDispText.text()
     })
 }
 
-
-export const dispZoomContentUrl =() => {
-
-    Simulation.elements.zoomContentUrl().then(function(fetchDispText)
-    {
-        const zoomContentUrlText=fetchDispText.text()
-
+export const dispZoomContentUrl = () => {
+    Simulation.elements.zoomContentUrl().then(function (fetchDispText) {
+        const zoomContentUrlText = fetchDispText.text()
     })
 }
 
-
-export const dispZoomContentTitle =() => {
-
-    Simulation.elements.zoomContentTitle().then(function(fetchDispText)
-    {
-        const zoomContentTitleText=fetchDispText.text()
-
+export const dispZoomContentTitle = () => {
+    Simulation.elements.zoomContentTitle().then(function (fetchDispText) {
+        const zoomContentTitleText = fetchDispText.text()
     })
 }
 
-
-export const dispZoomContentMetaDescription =() => {
-
-    Simulation.elements.zoomContentMetaDescription().then(function(fetchDispText)
-    {
-        const zoomContentMetaDescriptionText=fetchDispText.text()
-
+export const dispZoomContentMetaDescription = () => {
+    Simulation.elements.zoomContentMetaDescription().then(function (fetchDispText) {
+        const zoomContentMetaDescriptionText = fetchDispText.text()
     })
 }
 
-
-export const dispZoomContentH1 =() => {
-
-    Simulation.elements.zoomContentH1().then(function(fetchDispText)
-    {
-        const zoomContentH1Text=fetchDispText.text()
-
+export const dispZoomContentH1 = () => {
+    Simulation.elements.zoomContentH1().then(function (fetchDispText) {
+        const zoomContentH1Text = fetchDispText.text()
     })
 }
 
-
-export const dispZoomContentH2 =() => {
-
-    Simulation.elements.zoomContentH2().then(function(fetchDispText)
-    {
-        const zoomContentH2Text=fetchDispText.text()
-
+export const dispZoomContentH2 = () => {
+    Simulation.elements.zoomContentH2().then(function (fetchDispText) {
+        const zoomContentH2Text = fetchDispText.text()
     })
 }
 
-
-export const dispZoomContentBodyContent =() => {
-
-    Simulation.elements.zoomContentBodyContent().then(function(fetchDispText)
-    {
-        const zoomContentBodyContentText=fetchDispText.text()
-
+export const dispZoomContentBodyContent = () => {
+    Simulation.elements.zoomContentBodyContent().then(function (fetchDispText) {
+        const zoomContentBodyContentText = fetchDispText.text()
     })
 }
 
-
-export const dispZoomContentTitleScore =() => {
-
-    Simulation.elements.zoomViewTechScore().then(function(fetchDispText)
-    {
-        const zoomViewTechScoreText=fetchDispText.text()
-
+export const dispZoomContentTitleScore = () => {
+    Simulation.elements.zoomViewTechScore().then(function (fetchDispText) {
+        const zoomViewTechScoreText = fetchDispText.text()
     })
 }
 
-
-export const dispViewTrafficRank =() => {
-
-    Simulation.elements.viewTrafficRank().then(function(fetchDispText)
-    {
-        const viewTrafficRankText=fetchDispText.text()
-
+export const dispViewTrafficRank = () => {
+    Simulation.elements.viewTrafficRank().then(function (fetchDispText) {
+        const viewTrafficRankText = fetchDispText.text()
     })
 }
 
-
-export const dispViewTrafficRankIcon =() => {
-
-    Simulation.elements.viewTrafficRankIcon().then(function(fetchDispText)
-    {
-        const viewTrafficRankIconText=fetchDispText.text()
-
+export const dispViewTrafficRankIcon = () => {
+    Simulation.elements.viewTrafficRankIcon().then(function (fetchDispText) {
+        const viewTrafficRankIconText = fetchDispText.text()
     })
 }
 
-
-export const dispViewTrafficScore =() => {
-
-    Simulation.elements.viewTrafficScore().then(function(fetchDispText)
-    {
-        const viewTrafficScoreText=fetchDispText.text()
-
+export const dispViewTrafficScore = () => {
+    Simulation.elements.viewTrafficScore().then(function (fetchDispText) {
+        const viewTrafficScoreText = fetchDispText.text()
     })
 }
 
-
-export const dispViewRankScore =() => {
-
-    Simulation.elements.viewRankScore().then(function(fetchDispText)
-    {
-        const viewRankScoreText=fetchDispText.text()
-
+export const dispViewRankScore = () => {
+    Simulation.elements.viewRankScore().then(function (fetchDispText) {
+        const viewRankScoreText = fetchDispText.text()
     })
 }
 
-
-export const dispViewContentUrlScore =() => {
-
-    Simulation.elements.viewContentUrlScore().then(function(fetchDispText)
-    {
-        const viewContentUrlScoreText=fetchDispText.text()
-
+export const dispViewContentUrlScore = () => {
+    Simulation.elements.viewContentUrlScore().then(function (fetchDispText) {
+        const viewContentUrlScoreText = fetchDispText.text()
     })
 }
 
-
-export const dispViewContentTitleScore =() => {
-
-    Simulation.elements.viewContentTitleScore().then(function(fetchDispText)
-    {
-        const viewContentTitleScoreText=fetchDispText.text()
-
+export const dispViewContentTitleScore = () => {
+    Simulation.elements.viewContentTitleScore().then(function (fetchDispText) {
+        const viewContentTitleScoreText = fetchDispText.text()
     })
 }
 
+export const clickTabInputKeywords = () => {
+    Simulation.elements.tabInputKeywords().click()
+}
 
+export const verifyDownloadButton = () => {
+    Simulation.elements.downloadButton().should('not.be.hidden')
+    Simulation.elements.downloadButton().should('be.visible')
+    Simulation.elements.downloadButton().should('be.enabled')
+}
 
+export const waitForLoaderToDisappear = () => {
+    Simulation.elements.runSimSpinner().should('not.be.visible')
+}
 
+export const clickDownloadButton = () => {
+    Simulation.elements.downloadButton().click()
+}
 
+export const verifyDownloadedFile = (fileName) => {
+    cy.verifyDownload(fileName)
+}

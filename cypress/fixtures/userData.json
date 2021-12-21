@@ -17,6 +17,8 @@
 	"newStringToUpdate":"updating new string",
 	"InvalidaUrlFormat":"-----------------",
 	"SimulationUrl" :"https://www.zomato.com",
+	"SimulationKeyword" :"Food Delivery",
+	"SimulationDownloadedFile": "Simulation-Changes.csv",
 	"DefultSortValue" : "Importance ( V High – V low)",
 	"EmprtyKWSimNotification" : "Select or add keywords to proceed to simulation",
 	"MultipleKeywordsForSimPage": "card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15,card16,card17,card18,card19,card20,card21,card22,card23,card24",

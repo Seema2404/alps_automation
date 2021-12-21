@@ -1,7 +1,10 @@
 import addContext from 'mochawesome/addContext'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('cy-verify-downloads').addCustomCommand()
 
 // import * as commands from './commands'
 
+// eslint-disable-next-line import/no-unassigned-import
 require('cypress-xpath')
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -9,15 +12,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 // Cypress.Commands.add('visitWithBaseAuth', () => cy.visit('/', {
-Cypress.Commands.add('visitWithBaseAuth', () => {
-    // cy.visit(Cypress.env('baseUrl'), {
-    cy.visit('http://alpsqa.smallbizvoices.com/', {
-        auth: {
-            username: Cypress.env('basicAuthLogin'),
-            password: Cypress.env('basicAuthPassword')
-        }
-    })
-})
+Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('alpsUrl'), {
+    auth: {
+        username: Cypress.env('basicAuthLogin'),
+        password: Cypress.env('basicAuthPassword')
+    }
+}))
 
 Cypress.Commands.add(
     'iframeLoaded',
