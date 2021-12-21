@@ -212,6 +212,11 @@ describe('As an ALPS user', () => {
     })
 
     it('AL-T228: Verify the functionality of download icon when all the keywords are processed', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
         simulationAction.clickTabInputKeywords()
         simulationAction.enterAddKeyword(data.SimulationKeyword)
         simulationAction.clickAddKeywordButton()
