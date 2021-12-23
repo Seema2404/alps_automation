@@ -225,4 +225,42 @@ describe('As an ALPS user', () => {
         // validating the downloaded file.
         simulationAction.verifyDownloadedFile(data.SimulationDownloadedFile)
     })
+
+    it('AL-T101:Verify the validation on the keywords text box in the blue accordian section when User tries to enter duplicate keywords', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        
+        // validating the Duplicate KW simulation Notification message.
+        simulationAction.disperrorNotificationForDuplicateKWSim(data.duplicateKWNotificationMsg)
+        
+    })
+
+    it('AL-T103:Verify if an inline warning message is displayed when the (keyword(s) on the textbox list + keyword(s) present in the textbox)> 20 and User clicks on the add keyword button', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.mulipleKeywords1)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        
+        // validating the max limit  KW simulation Notification message.
+        simulationAction.dispNotificationForMaxLimitKWSim(data.WarningMSgFoxMaxLimitKWAdd)
+        
+    })
+
+
+
+
 })

@@ -373,7 +373,6 @@ export const dispNotifyMsgForEmptyKWProceed = (ErrorMsg) => {
 export const disperrorNotificationForEmptyKWSim = (errorText) => {
     OptimizationPage.elements.errorNotificationForEmptyKWSim().then(function (fetchDispText) {
         const NotificationText = fetchDispText.text()
-
         expect(NotificationText).to.include(errorText)
         expect(NotificationText).to.contains(errorText)
     })
@@ -382,17 +381,20 @@ export const disperrorNotificationForEmptyKWSim = (errorText) => {
 export const disperrorNotificationForDuplicateKWSim = (DuplicateText) => {
     OptimizationPage.elements.errMsgEmptyKeywordAddNew().then(function (fetchDispText) {
         const NotificationDuplicateText = fetchDispText.text()
-
-        // NotificationDuplicateText=NotificationDuplicateText.replace(' ', '')
-
         expect(NotificationDuplicateText).to.equal(DuplicateText)
+    })
+}
+
+export const dispNotificationForMaxLimitKWSim = (MaxLimitNoftification) => {
+    OptimizationPage.elements.errMsgEmptyKeywordAddNew().then(function (fetchDispText) {
+        const NotificationMaxLimitText = fetchDispText.text()
+        expect(NotificationMaxLimitText).to.equal(MaxLimitNoftification)
     })
 }
 
 export const dispSimulationUrl = (simUrl) => {
     OptimizationPage.elements.ddnAddKeywordUrl().then(function (urlSimulation) {
         let simualtionURlText = urlSimulation.val()
-
         simUrl = simUrl.replace('"', ' ')
         simualtionURlText = simualtionURlText.replace('‘‘', '')
         simualtionURlText = simualtionURlText.replace('’’', '')
