@@ -24,6 +24,8 @@
 	"MultipleKeywordsForSimPage": "card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15,card16,card17,card18,card19,card20,card21,card22,card23,card24",
 	"NewLocale" : "en-in",
 	"NoftificationErrorMSgForEmptyKWSim" : "Select or add keywords to proceed to simulation",
-	"duplicateKWNotificationMsg" : "One or more keyword(s) is already present"
+	"duplicateKWNotificationMsg" : "One or more keyword(s) is already present",
+	"WarningMSgFoxMaxLimitKWAdd" : "Unable to add keyword as the limit is 20 keyword. Please try again by reducing the keyword(s)",
+	"NotificationForProjectKWSelection" : "You can add only up to 20 keywords for simulation. Please try again after deselecting some keywords."
 
 }
