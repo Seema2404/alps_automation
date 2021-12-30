@@ -2,7 +2,7 @@ import * as loginAction from '../../../../pages/commands/login'
 
 describe('SignIn as a user', () => {
     before(() => {
-        cy.visitWithBaseAuth('')
+        cy.visitWithBaseAuth()
     })
     beforeEach(() => {
         cy.restoreLocalStorage()

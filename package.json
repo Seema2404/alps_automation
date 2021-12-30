@@ -49,7 +49,7 @@
     "lint": "eslint --ext ts .",
     "lint:fix": "npm run lint -- --fix"
   },
-  "scripts": {
+  "scripts_old": {
     "clean:reports": "rmdir /S /Q cypress\\reports && mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
     "scripts": "cypress run",
     "script-sanity": "cypress run --spec cypress/integration/sanity/*",
@@ -63,12 +63,18 @@
     "lint": "eslint --ext ts .",
     "lint:fix": "npm run lint -- --fix"
   },
-  "scripts_old": {
+  "scripts": {
+    "clean:reports": "rmdir /S /Q cypress\\reports && mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
     "scripts": "cypress run",
-    "cleanup": "rmdir /S /Q cypress\\reports",
-    "merge_reports": "mochawesome-merge cypress\\reports\\mocha\\*.json > output.json",
-    "mochawesome_report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
-    "test": "npm-run-all cleanup scripts merge_reports mochawesome_report --continue-on-error"
+    "script-basic-sanity": "cypress run --spec cypress/integration/sanity/user-flows/**/*",
+    "combine-reports": "mochawesome-merge cypress\\reports\\mocha\\*.json > output.json",
+    "generate-report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
+    "report:copyScreenshots": "xcopy cypress\\screenshots cypress\\reports\\mochareports\\screenshots /E /H /C /I /Y",
+    "report:copyVideos": "xcopy cypress\\videos cypress\\reports\\mochareports\\videos /E /H /C /I /Y",
+    "test": "npm-run-all clean:reports scripts combine-reports generate-report report:copyScreenshots --continue-on-error",
+    "test-basic-sanity": "npm-run-all clean:reports script-basic-sanity combine-reports generate-report report:copyScreenshots --continue-on-error",
+    "lint": "eslint --ext ts .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "name": "ui",
   "version": "1.0.0",

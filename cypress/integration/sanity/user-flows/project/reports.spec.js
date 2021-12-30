@@ -4,7 +4,7 @@ import * as reportsAction from '../../../../pages/commands/reports'
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('As a Project user', () => {
     beforeEach(() => {
-        cy.loginUser('Iquanti Inc', 2)
+        cy.loginUser()
         cy.restoreLocalStorage()
     })
     afterEach(() => {

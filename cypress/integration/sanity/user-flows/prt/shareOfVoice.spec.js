@@ -6,7 +6,7 @@ import { prtShareOfVoice } from '../../../../pages/page-selectors/PrtShareOfVoic
 
 describe('As a PRT user', () => {
     before(() => {
-        cy.loginUser('Iquanti Inc', 2)
+        cy.loginUser()
     })
     beforeEach(() => {
         cy.restoreLocalStorage()

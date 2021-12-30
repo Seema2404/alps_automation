@@ -6,7 +6,7 @@ import { prtTopicalAuthority } from '../../../../pages/page-selectors/PrtTopical
 
 describe('As a PRT user', () => {
     before(() => {
-        cy.loginUser('Iquanti Inc', 2)
+        cy.loginUser()
     })
     beforeEach(() => {
         cy.restoreLocalStorage()
