@@ -6,3 +6,6 @@ node_modules
 .editorconfig
 cypress.env.json
 output.json
+log
+results
+cypress.env.*.json

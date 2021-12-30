@@ -30,7 +30,7 @@ export class KGAHomePage {
             kgaContentScoreLabel: () => cy.get('#content-score-label'),
             kgaSeoParameterLabel: () => cy.get('#seo-parameters-label'),
             kgaParameterGroupsContainer: () => cy.get('.paramenter_main_container'),
-            kgaViewTop10CompetitorsLink: () => cy.get('#kwAnalysis_comparision_viewTopCompetitorScores_link'),
+            kgaViewTop10CompetitorsLink: () => cy.get('.link_alps_score', { timeout: 90000 }),
             kgaModalTop10CompetitorScoresTitle: () => cy.get('#comparator-modal-head-title'),
             kgaModalCloseButton: () => cy.get('#comparator-modal-head-button'),
             optimizationTab: () => cy.get('#logo + div nav div').contains('OPTIMIZATION'),

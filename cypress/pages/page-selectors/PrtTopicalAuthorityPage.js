@@ -9,7 +9,7 @@ export class PrtTopicalAuthorityPage {
             filtersContainer: (getBody) => getBody().find('.scrollWrapper div p span').contains('FILTERS'),
             domainTab: () => cy.get('#topical-authority-domain-tab'),
             tableContainer: (getBody) => getBody().find('div.tableExContainer'),
-            tableTitleCategory: (getBody) => getBody().find('h3.preTextWithEllipsis').contains("Topical Authority report for category 'Balance Transfer'"),
+            tableTitleCategory: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Topical Authority report for category'),
             tableTitleDomain: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Topical Authority report for domain')
         }
     }

@@ -11,7 +11,7 @@ declare global {
     }
 }
 
-export const visitWithBaseAuth = (): Cypress.Chainable<Window> => cy.visit('/', {
+export const visitWithBaseAuth = (): Cypress.Chainable<Window> => cy.visit(Cypress.env('alpsUrl'), {
     auth: {
         username: Cypress.env('basicAuthLogin'),
         password: Cypress.env('basicAuthPassword')
