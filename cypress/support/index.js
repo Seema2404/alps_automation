@@ -8,12 +8,19 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('alpsUrl'), {
-    auth: {
-        username: Cypress.env('basicAuthLogin'),
-        password: Cypress.env('basicAuthPassword')
+Cypress.Commands.add('visitWithBaseAuth', () => {
+    if (Cypress.env('alpsUrl').includes('alps.iquanti.com')) {
+        cy.visit(Cypress.env('alpsUrl'))
     }
-}))
+    else {
+        cy.visit(Cypress.env('alpsUrl'), {
+            auth: {
+                username: Cypress.env('basicAuthLogin'),
+                password: Cypress.env('basicAuthPassword')
+            }
+        })
+    }
+})
 
 Cypress.Commands.add(
     'iframeLoaded',
