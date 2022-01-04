@@ -20,6 +20,7 @@ describe('As a PRT user', () => {
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
         prtSOF.validateSearchEngineLabel()
+        cy.wait(5000)
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
             prtSOF.validateFiltersContainer(getBody)
