@@ -278,7 +278,7 @@ describe('As an ALPS user', () => {
         simulationAction.dispNotificationSelectingKWMoreThanALimit(data.NotificationForProjectKWSelection)
     })
 	
-    it.only('AL-T105: Verify if an inline error message is displayed when all the keywords are removed an User clicks on submit button', () => {
+    it('AL-T105: Verify if an inline error message is displayed when all the keywords are removed an User clicks on submit button', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
