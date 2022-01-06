@@ -296,7 +296,7 @@ describe('As an ALPS user', () => {
         simulationAction.disperrorNotificationForEmptyKWSim(data.EmprtyKWSimNotification)
     })
 	
-    it.only('AL-T106,AL-T07,AL-T08: Verify if an inline error message is displayed under ‘View Keyword Level Impact data’ on the left pane when no keywords are submitted', () => {
+    it('AL-T106,AL-T07,AL-T08: Verify if an inline error message is displayed under ‘View Keyword Level Impact data’ on the left pane when no keywords are submitted', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -309,7 +309,7 @@ describe('As an ALPS user', () => {
         simulationAction.displblViewEmptyTrafficRankNotification(data.NotificationMessageForEmptyKWInSimPage)
     })
 
-    it.only('AL-T134: Verify if the user is able to view the search volume', () => {
+    it('AL-T134: Verify if the user is able to view the search volume', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
