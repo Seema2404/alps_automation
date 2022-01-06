@@ -300,6 +300,11 @@ export const clickTabProjectKeywordInSimPage = () => {
 }
 
 
+export const verifySearchVolumeSection = () => {
+    OptimizationPage.elements.searchVolume().should('be.visible')
+
+}
+
 export const ClickSelectorLocaleDdn = () => {
     OptimizationPage.elements.selectorLocaleDdn().click()
 }

@@ -111,6 +111,7 @@ export class PageSimulation {
             kwListInSimPage :() => cy.get('*[class^="sc-eXfwOT"]'),
             tabInputKeywords : () => cy.contains('Input Keywords'),
             tabProjectKeyword : () => cy.contains('Project Keywords'),
+            searchVolume : () => cy.contains('Search Volume'),
             selectAllFromProKW : () => cy.get('#kw_url_project_filter_select_all'),
             totalNumberOfKW :() => cy.get('#phillContainer'),
             notificationMessageForLocaleUpdate :() => cy.get('#contentSimulation_multiKeyword_localeChange_warning_text'),
