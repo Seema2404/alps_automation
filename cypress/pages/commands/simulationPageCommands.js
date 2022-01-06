@@ -235,6 +235,10 @@ export const checkChBoxListKeyword = () => {
     Simulation.elements.chBoxListKeyword().check()
 }
 
+export const checkSelectALlKW  = () => {
+    OptimizationPage.elements.selectAllFromProKW().click({force: true})
+}
+
 export const clickprotocolSelectionSimPage = () => {
     Simulation.elements.protocolSelectionSimPage().click()
 }
@@ -290,6 +294,11 @@ export const clickRadiordbIHaveLiveUrl = () => {
 export const clickTabInputKeywordsInSimPage = () => {
     OptimizationPage.elements.tabInputKeywords().click()
 }
+
+export const clickTabProjectKeywordInSimPage = () => {
+    OptimizationPage.elements.tabProjectKeyword().click()
+}
+
 
 export const ClickSelectorLocaleDdn = () => {
     OptimizationPage.elements.selectorLocaleDdn().click()
@@ -425,6 +434,15 @@ export const dispDefaultSortValue = (nText) => {
         expect(DefalutSortVisibleText).to.equals(nText)
     })
 }
+
+export const dispNotificationSelectingKWMoreThanALimit = (nText) => {
+    OptimizationPage.elements.olderVersionNotification().then(function (OverKWLimitNotify) {
+        const KWLimitNotificationText = OverKWLimitNotify.text()
+
+        expect(KWLimitNotificationText).to.equals(nText)
+    })
+}
+
 
 export const displblViewContentNotification = (nText) => {
     Simulation.elements.lblViewContentNotification().then(function (notificationText) {

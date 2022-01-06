@@ -261,6 +261,43 @@ describe('As an ALPS user', () => {
     })
 
 
+    it('AL-T104: Verify if an inline warning message is displayed when the number of keywords selected from the project is more than 20', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()        
+        cy.wait(9000)
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.multipleKeywords)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.clickTabProjectKeywordInSimPage()
+        simulationAction.checkSelectALlKW()
+
+        // validating the notification message for selection more than 20 KW from project KW section
+        simulationAction.dispNotificationSelectingKWMoreThanALimit(data.NotificationForProjectKWSelection)
+    })
+	
+    it('AL-T105: Verify if an inline error message is displayed when all the keywords are removed an User clicks on submit button', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()        
+        cy.wait(9000)
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.multipleKeywords)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.clickRemoveAll()
+        simulationAction.clicksubmitButton()
+
+
+        // validating the notification message when remove all and proceed simulation
+        simulationAction.disperrorNotificationForEmptyKWSim(data.EmprtyKWSimNotification)
+    })
+	
+
+
 
 
 })
