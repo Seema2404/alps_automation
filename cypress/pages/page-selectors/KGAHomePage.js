@@ -18,7 +18,7 @@ export class KGAHomePage {
             keyworderror: () => cy.get('home_keywordSearch_keyword_inputError'),
             urlerror: () => cy.get('#home_keywordSearch_domain_inputError'),
             rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]'),
-            domainRankLabel: () => cy.get('#serpResult_domainRank_wrapper'),
+            domainRankLabel: () => cy.get('#serpResult_domainRank_wrapper', { timeout: 120000 }),
             serpTableHeaderTopRankingUrls: () => cy.get('th').contains('TOP RANKING URLs'),
             serpKgaButton: () => cy.get('#serpResult_progress_keywordGapAnalysis_button'),
             serpSimulationButton: () => cy.get('#serpResult_progress_contentSimulation_button'),
