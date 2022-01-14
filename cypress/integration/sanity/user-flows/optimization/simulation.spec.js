@@ -20,7 +20,7 @@ describe('As a Simulation user', () => {
     it('verify Simulator page', () => {
         simAction.enterUrlInput('https://www.allstate.com')
         simAction.clickGoButton()
-        // simAction.clickInputKeywordTab()
+        simAction.clickInputKeywordTab()
         simAction.enterAddKeywordInput('Car Speed')
         simAction.clickAddKeywordButton()
         simAction.clickProceedToSimulationButton()

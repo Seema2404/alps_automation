@@ -3,8 +3,8 @@ export class SimulationPage {
         this.elements = {
             simulationTitle: () => cy.get('#kw_url_simulation_title'),
             proceedToSimulationButton: () => cy.get('#contentSimulation_multiKeyword_submit_button'),
-            simulationUrlLabel: () => cy.get('span').contains('SIMULATOR For URL'),
-            // simulationUrlLabel: () => cy.get('span').contains('Simulation URL'),
+            // simulationUrlLabel: () => cy.get('span').contains('SIMULATOR For URL'),
+            simulationUrlLabel: () => cy.get('span').contains('Simulation URL'),
             keywordLevelImpactLink: () => cy.get('#kw_level_impact_link_button'),
             trafficAndRankLink: () => cy.get('#sim_left_traffic_rank_accordion_title_text'),
             editorContainer: () => cy.get('#sim_editor'),
