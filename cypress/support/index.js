@@ -1,4 +1,5 @@
 import addContext from 'mochawesome/addContext'
+import 'cypress-file-upload'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('cy-verify-downloads').addCustomCommand()
 

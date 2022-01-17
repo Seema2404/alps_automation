@@ -26,6 +26,8 @@
 	"NoftificationErrorMSgForEmptyKWSim" : "Select or add keywords to proceed to simulation",
 	"duplicateKWNotificationMsg" : "One or more keyword(s) is already present",
 	"WarningMSgFoxMaxLimitKWAdd" : "Unable to add keyword as the limit is 20 keyword. Please try again by reducing the keyword(s)",
-	"NotificationForProjectKWSelection" : "You can add only up to 20 keywords for simulation. Please try again after deselecting some keywords."
+	"NotificationForProjectKWSelection" : "You can add only up to 20 keywords for simulation. Please try again after deselecting some keywords.",
+	"SimURL" : "https://www.allstate.com",
+	"NonLiveKW" : "allstate"
 
 }

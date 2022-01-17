@@ -1,5 +1,6 @@
 import { Simulation } from '../page-selectors/SimulationPage'
 import { OptimizationPage } from '../page-selectors/PageSimulation'
+import exp from 'constants'
 
 export const enterKeyword = (editortext) => {
     Simulation.elements.editorBodyText().clear()
@@ -71,8 +72,16 @@ export const clicksubmitButton = () => {
     Simulation.elements.submitButton().click()
 }
 
+export const clickzoomPage = () => {
+    Simulation.elements.zoompage().click({ force: true })
+}
+
 export const clickRunSimulationButton = () => {
     Simulation.elements.runSimulationButton().click()
+}
+
+export const clickArticleViewToggele = () => {
+    Simulation.elements.ArticleViewToggele().click ()
 }
 
 export const clickResetButton = () => {
@@ -299,6 +308,9 @@ export const clickTabProjectKeywordInSimPage = () => {
     OptimizationPage.elements.tabProjectKeyword().click()
 }
 
+export const clickThemeSimulation = () => {
+    OptimizationPage.elements.ThemeInSimulation().click()
+}
 
 export const verifySearchVolumeSection = () => {
     OptimizationPage.elements.searchVolume().should('be.visible')
@@ -327,6 +339,10 @@ export const clickProjectAndRelatedKWToggle = () => {
 
 export const disphHadingSimulationHistory = () => {
     OptimizationPage.elements.headingSimulationHistory().should('be.visible')
+}
+
+export const dispInlineNoTheme = () => {
+    OptimizationPage.elements.NoTheme().should('be.visible')
 }
 
 export const dispNotificationMessageForLocaleUpdate = () => {
@@ -362,8 +378,20 @@ export const dispHeadingTechAudit = () => {
     OptimizationPage.elements.headingTechAudit().should('be.visible')
 }
 
-export const DispKWcountInSimPage = () => {
+export const dispContentScore = () => {
+    OptimizationPage.elements.contentScoreValue().should('be.visible')
+}
+
+export const dispKWcountInSimPage = () => {
     OptimizationPage.elements.totalNumberOfKW().find('div').should('have.length', 20)
+}
+
+export const dishowEditorWords = () => {
+    OptimizationPage.elements.howEditorWords().should('be.visible')
+}
+
+export const shouldNotDisphowEditorWords = () => {
+    OptimizationPage.elements.howEditorWords().should('not.be.visible')
 }
 
 export const dispKeywordTextIdentifier = (keyworddata) => {
@@ -456,6 +484,16 @@ export const displblViewContentNotification = (nText) => {
         expect(ViewContentNotification).to.equals(nText)
     })
 }
+
+export const dispUploadedHtmlFileName = (nText) => {
+    OptimizationPage.elements.getTextBrowser().then(function (UploadedFileName) {
+        const ViewUploadedFileName = UploadedFileName.text()
+
+        expect(ViewUploadedFileName).to.equals(nText)
+    })
+}
+
+
 
 export const displblViewAuthorityNotification = (nText) => {
     Simulation.elements.lblViewAuthorityNotification().then(function (notificationText) {
@@ -602,15 +640,43 @@ export const clickTabInputKeywords = () => {
     Simulation.elements.tabInputKeywords().click()
 }
 
+export const clickButtonIDNotHaveLiveUrl = () => {
+    OptimizationPage.elements.buttonIDNotHaveLiveUrl().click()
+}
+
+export const clickFileUpload = () => {
+    OptimizationPage.elements.FileUpload().click()
+}
+
+
+
 export const verifyDownloadButton = () => {
     Simulation.elements.downloadButton().should('not.be.hidden')
     Simulation.elements.downloadButton().should('be.visible')
     Simulation.elements.downloadButton().should('be.enabled')
 }
 
+export const dispFileUpload = () => {
+    OptimizationPage.elements.FileUpload().should('be.visible')
+}
+
+
+export const uploadeFileSimPageForNonLiveFlow = (filepath) => {
+    OptimizationPage.elements.BrowserButton().attachFile(filepath)
+}
+
+export const dispBrowserButton = () => {
+    OptimizationPage.elements.BrowserButton().should('be.visible')
+}
+
 export const waitForLoaderToDisappear = () => {
     Simulation.elements.runSimSpinner().should('not.be.visible')
 }
+
+export const dispDisabledFileUpload = () => {
+    OptimizationPage.elements.FileUpload().should('be.disabled')
+}
+
 
 export const clickDownloadButton = () => {
     Simulation.elements.downloadButton().click()
@@ -618,4 +684,8 @@ export const clickDownloadButton = () => {
 
 export const verifyDownloadedFile = (fileName) => {
     cy.verifyDownload(fileName)
+}
+
+export const fileUploadToNonLiveFlow = (FilePath) => {
+    OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }

@@ -117,7 +117,14 @@ export class PageSimulation {
             notificationMessageForLocaleUpdate :() => cy.get('#contentSimulation_multiKeyword_localeChange_warning_text'),
             textBoxToUpdateLocaleInSim : () => cy.get('#react-select-protocol-input'),
             slectNewLocale : () => cy.get('#react-select-protocol-option-1'),
-            NotifyMsgForEmptyKWProceed : () => cy.get('#contentSimulation_multiKeyword_addKeyword_error')
+            NotifyMsgForEmptyKWProceed : () => cy.get('#contentSimulation_multiKeyword_addKeyword_error'),
+            ThemeInSimulation : () => cy.get('#kw_url_theme_title'),
+            NoTheme : () => cy.contains('No Theme'),
+            FileUpload : () => cy.get('#file_upload_button'),
+            BrowserButton : () => cy.get('#FileUpload'),
+            getTextBrowser : () => cy.contains('Browse').contains('.html'),
+            contentScoreValue : () => cy.get('#sim_left_pane_Content_tab_title_score_value-hyphen'),
+            howEditorWords : () => cy.contains('How the editor works')
              
 
 
