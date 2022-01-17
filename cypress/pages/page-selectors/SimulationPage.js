@@ -40,7 +40,6 @@ export class SimulationPage {
             zoomViewTechScore: () => cy.get('#score_detail_technical-score_list_label'),
             zoomViewAuthorityScore: () => cy.get('#score_detail_authority-score_list_label'),
             zoomViewContentScore: () => cy.get('#score_detail_content-score_list_label'),
-
             zoomContentUrl: () => cy.get('#contentSimulation_leftSection_url_accordionTitle'),
             zoomContentTitle: () => cy.get('#contentSimulation_leftSection_title_accordionTitle_label'),
             zoomContentMetaDescription: () => cy.get('#contentSimulation_leftSection_meta-description_accordionTitle_label'),
@@ -54,8 +53,6 @@ export class SimulationPage {
             viewContentTitleScore: () => cy.get('#sim_left_pane_TITLE_tab_body_score_value'),
             viewTrafficScore: () => cy.get('#sim_left_traffic_rank_accordion_traffic_score_value'),
             viewRankScore: () => cy.get('#sim_left_traffic_rank_accordion_rank_score_value'),
-
-            // Need to convert the below into commands
             kliToolTipIcon: () => cy.get('#kw_level_impact_tooltip_wrapper'),
             viewNotificationTrafficRank: () => cy.get('#sim_left_traffic_rank_accordion_title_tooltip_text'),
             viewKeywordLevelImpactNotification: () => cy.get('#kw_level_impact_tooltip_text'),
@@ -80,7 +77,8 @@ export class SimulationPage {
             keywordDuplicateErrorMessage: () => cy.get('#contentSimulation_multiKeyword_addKeyword_warning_text'),
             keyMaxLmtErrMsg: () => cy.get('#contentSimulation_multiKeyword_addKeyword_warning_text'),
             // zoomPage:() =>cy.xpath("//button[@id='contentSimulation_editor_simulateScores_button']//preceding-sibling::button[@id='zoom-selector_button']"),
-            zoomPage: () => cy.get('#kw_level_impact_tooltip span #zoom-selector_button'),
+            // zoompage: () => cy.get('#kw_level_impact_tooltip span #zoom-selector_button'),
+            zoompage : () => cy.contains('View full screen mode'),
             zoomContentScore: () => cy.get('#score_detail_content-score_list_value'),
             zoomAuthScore: () => cy.get('#score_detail_authority-score_list_value'),
             zoomTechScore: () => cy.get('#score_detail_technical-score_list_value'),
@@ -130,7 +128,6 @@ export class SimulationPage {
             pageSpeedRelAttriDefi: () => cy.get('#sim_sub_cat_param_content_optimal-usage-of-html_accordion_body_acc_param_body_info_definition_def'),
             optimalUsageHtmlDefi: () => cy.get('#sim_sub_cat_param_content_optimal-usage-of-html_accordion_body_acc_param_body_info_definition_def'),
             trafficAndRank: () => cy.get('#contentSimulation_leftSection_traffic-rank_accordionTitle_label'),
-            // -------------------------------------------------------------
             lblUserLogin: () => cy.get('.top_login_txt'),
             lblViewEmptyTrafficRankNotification: () => cy.get('#sim_left_traffic_rank_accordion_title_loading_text'),
             lblViewKWLevelImpactNotification: () => cy.get('#kw_level_impact_warning_text_text'),
@@ -138,7 +135,8 @@ export class SimulationPage {
             lblViewAuthorityNotification: () => cy.get('#sim_left_pane_Authority_tab_title_warning_text_text'),
             lblViewTechNotification: () => cy.get('#sim_left_pane_Technical_tab_title_warning_text_text'),
             tabInputKeywords: () => cy.get('#kw_url_project div div div').contains('Input Keywords'),
-            downloadButton: () => cy.get('#catDashboardDowload_button', { timeout: 60000 })
+            downloadButton: () => cy.get('#catDashboardDowload_button', { timeout: 60000 }),
+            ArticleViewToggele: () => cy.contains('Article view').next('#zoom-selector_button'),
         }
     }
 }

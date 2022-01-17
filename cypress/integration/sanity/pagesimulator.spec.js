@@ -2,6 +2,8 @@ import * as loginAction from '../../pages/commands/login'
 import * as kgaAction from '../../pages/commands/kgahomepage'
 import * as kgaSerpAction from '../../pages/commands/kgaserpage'
 import * as simulationAction from '../../pages/commands/simulationPageCommands'
+import * as projectAction from '../../pages/commands/projectflowcommands'
+
 
 describe('As an ALPS user', () => {
     let data
@@ -57,7 +59,8 @@ describe('As an ALPS user', () => {
         simulationAction.dispSimpage(data.optimizationurl)
     })
 
-    it('AL-T20 : Verify when user enter a Valid URL', () => {
+    // Functinality is depricated
+    it.skip('AL-T20 : Verify when user enter a Valid URL', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -81,7 +84,8 @@ describe('As an ALPS user', () => {
         simulationAction.dispDefaultSortValue(data.DefultSortValue)
     })
 
-    it('AL-T62 : Verify the URL in the URL for simulation text field', () => {
+    // Functinality is depricated
+    it.skip('AL-T62 : Verify the URL in the URL for simulation text field', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -92,7 +96,8 @@ describe('As an ALPS user', () => {
         simulationAction.dispSimulationForUrlHeading(data.SimulationUrl)
     })
 
-    it('AL-T63: Verify the URL for simulation text field when new URL is updated', () => {
+    // Functinality is depricated
+    it.skip('AL-T63: Verify the URL for simulation text field when new URL is updated', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -155,10 +160,11 @@ describe('As an ALPS user', () => {
         simulationAction.clickAddKeywordButton()
 
         // validating the updated URL which is added in sim page heading
-        simulationAction.DispKWcountInSimPage()
+        simulationAction.dispKWcountInSimPage()
     })
 
-    it('AL-T94: Verify the URL in "URL for simulation" text field', () => {
+    // Functinality is depricated
+    it.skip('AL-T94: Verify the URL in "URL for simulation" text field', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -275,7 +281,7 @@ describe('As an ALPS user', () => {
         simulationAction.checkSelectALlKW()
 
         // validating the notification message for selection more than 20 KW from project KW section
-        simulationAction.dispNotificationSelectingKWMoreThanALimit(data.NotificationForProjectKWSelection)
+        simulationAction.dispNotificationSelectingKWMoreThanALimit(data.WarningMSgFoxMaxLimitKWAdd)
     })
 	
     it('AL-T105: Verify if an inline error message is displayed when all the keywords are removed an User clicks on submit button', () => {
@@ -322,8 +328,103 @@ describe('As an ALPS user', () => {
         simulationAction.verifySearchVolumeSection()
     })
 	
+
+    it('AL-T214:Verify the presence of the ‘Upload file’ textbox in the URL & KEYWORDS Editor section’ of the non-live url flow of page simulation', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+
+        // validating the browser and upload button
+        simulationAction.dispFileUpload()
+        simulationAction.dispBrowserButton()
+
+    })
 	
 
+    it('AL-T219:Verify upload button should be disabled state when user try to click on that with out selecting any file.', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+
+        // Functinality Assertion
+        simulationAction.dispDisabledFileUpload()
+
+    })
+	
+	it('AL-T215:Verify the functionality of the ‘Browse’ button in the URL & KEYWORDS Editor section’ in the non-live url flow of page simulation', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        const filepath='sample1.html'
+        simulationAction.uploadeFileSimPageForNonLiveFlow(filepath)
+        simulationAction.clickFileUpload()
+        
+        // Uploaded File name in browser section
+        simulationAction.dispUploadedHtmlFileName(filepath)
+
+
+
+    })
+
+    it('AL-T225:Verify that the content is updated in the editor section on simulation page only after the user uploads a valid html file clicks on Submit button', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        const filepath='sample1.html'
+        simulationAction.uploadeFileSimPageForNonLiveFlow(filepath)
+        simulationAction.clickFileUpload()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.NonLiveKW)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.clicksubmitButton()
+        
+        // Content Score value in non live flow after simulation
+        simulationAction.dispContentScore()
+
+    })
+
+
+    it('AL-T236: Verify the download icon in Zoom mode', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()        
+        cy.wait(9000)
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.clicksubmitButton()
+        simulationAction.clickzoomPage()
+
+        // Download button in zoom page
+        simulationAction.verifyDownloadButton()
+    })
+
+    
+    it('AL-T236: Verify the functionality of View Switch on new editor', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimURL)
+        simulationAction.clickGoButton()        
+        cy.wait(9000)
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.clicksubmitButton()
+
+        // validation of article and tag view 
+        simulationAction.dishowEditorWords()
+        simulationAction.clickArticleViewToggele()
+        simulationAction.shouldNotDisphowEditorWords()
+
+        
+    })
 
 
 })

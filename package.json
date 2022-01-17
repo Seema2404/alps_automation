@@ -4,7 +4,6 @@
   "dependencies": {
     "@types/cypress": "^1.1.3",
     "axios": "^0.21.1",
-    "cypress-file-upload": "^5.0.5",
     "cypress-iframe": "^1.0.1",
     "cypress-xpath": "^1.6.2",
     "faker": "^4.1.0",
@@ -28,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^3.2.0",
     "@typescript-eslint/parser": "^3.2.0",
     "cy-verify-downloads": "0.0.5",
+    "cypress-file-upload": "^5.0.8",
     "cypress-multi-reporters": "^1.5.0",
     "cypress-select-tests": "^1.7.1",
     "eslint": "^7.2.0",
