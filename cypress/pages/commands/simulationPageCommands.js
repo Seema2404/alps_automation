@@ -390,9 +390,15 @@ export const dishowEditorWords = () => {
     OptimizationPage.elements.howEditorWords().should('be.visible')
 }
 
+export const dispInvalidUrlErrMsg = () => {
+    Simulation.elements.invalidUrlErrMsg().should('be.visible')
+}
+
 export const shouldNotDisphowEditorWords = () => {
     OptimizationPage.elements.howEditorWords().should('not.be.visible')
 }
+
+
 
 export const dispKeywordTextIdentifier = (keyworddata) => {
     Simulation.elements.keywordTextIdentifier().then(function (fetchDispText) {
@@ -431,6 +437,14 @@ export const dispNotificationForMaxLimitKWSim = (MaxLimitNoftification) => {
     OptimizationPage.elements.errMsgEmptyKeywordAddNew().then(function (fetchDispText) {
         const NotificationMaxLimitText = fetchDispText.text()
         expect(NotificationMaxLimitText).to.equal(MaxLimitNoftification)
+    })
+}
+
+
+export const dispNotificationForInvalidFileUpload = (InvalidFileNoftification) => {
+    Simulation.elements.invalidUrlErrMsg().then(function (fetchDispText) {
+        const NotificationForInvalidFileUpload = fetchDispText.text()
+        expect(NotificationForInvalidFileUpload).to.equal(InvalidFileNoftification)
     })
 }
 
