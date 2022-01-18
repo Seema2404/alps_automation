@@ -426,5 +426,35 @@ describe('As an ALPS user', () => {
         
     })
 
+    it('AL-T358:Verify if user uploads a non-html file as an html file on page optimizer page, error notification is displayed', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        const filepath='Screenshot from 2022-01-12 19-53-10.html'
+        simulationAction.uploadeFileSimPageForNonLiveFlow(filepath)
+        cy.wait(9000)
+        simulationAction.clickFileUpload()
+
+        // Notification message for invalid file upload in non live flow simulation
+        simulationAction.dispInvalidUrlErrMsg()
+
+    })
+
+    it('AL-T509: Verify the functionality of View Switch on new editor non live flow', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickToggleButton()
+
+        // validation of article and tag view 
+        simulationAction.dishowEditorWords()
+        simulationAction.clickArticleViewToggele()
+        simulationAction.shouldNotDisphowEditorWords()
+
+        
+    })
+
 
 })
