@@ -10,6 +10,7 @@ export class SimulationPage {
             editorContainer: () => cy.get('#sim_editor'),
             scoresContainer: () => cy.get('#sim_left_pane_Content_tab_title'),
             runSimulationButton: () => cy.get('#contentSimulation_editor_simulateScores_button'),
+            successSimulationNotification: () => cy.get('#SUCCESS_toast'),
             downloadButton: () => cy.get('#catDashboardDowload_button'),
             keywordLevelImpactModalTitle: () => cy.get('#kw_level_impact_modal-head'),
             keywordLevelImpactModalTable: () => cy.get('#kw_level_impact_modal_table'),

@@ -76,6 +76,10 @@ export const clickRunSimulationButton = () => {
     simulation.elements.runSimulationButton().click()
 }
 
+export const validateSuccessfulSimulation = () => {
+    simulation.elements.successSimulationNotification().should('be.visible')
+}
+
 export const validateEnterUrlInput = () => {
     simulation.elements.enterUrlInput().should('be.visible')
 }
