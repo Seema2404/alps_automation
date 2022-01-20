@@ -89,6 +89,7 @@ export const validateSimulationHistoryHeading = () => {
 }
 
 export const enterUrlInput = (url) => {
+    simulation.elements.enterUrlInput().clear()
     simulation.elements.enterUrlInput().type(url)
 }
 
