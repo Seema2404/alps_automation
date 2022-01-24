@@ -29,6 +29,9 @@
 	"NotificationForProjectKWSelection" : "You can add only up to 20 keywords for simulation. Please try again after deselecting some keywords.",
 	"SimURL" : "https://www.allstate.com",
 	"NonLiveKW" : "allstate",
-	"NotificationInvalidFileUpload" : "As this is not a HTML file content, please upload a valid file to proceed"
-
+	"NotificationInvalidFileUpload" : "As this is not a HTML file content, please upload a valid file to proceed",
+	"NotificationMsgInitiateApiFails" : "Server is unable to process your request at this moment. We are looking into it.",
+	"TrackRequestAPIfailNotification" :"Some of the data could not be fetched for this page. You can proceed with available data or click on submit again to retry.",
+	"TextToUpdateForContent" :"A hacker is a person who breaks into a computer system. The reasons for hacking can be many: installing malware, stealing or destroying data, disrupting service, and more. Hacking can also be done for ethical reasons, such as trying to find software vulnerabilities so they can be fixed.",
+	"NonLiveInitiatefailNotifcation":"here is a problem with the page you are trying to reach and it cannot be reached at this point"
 }

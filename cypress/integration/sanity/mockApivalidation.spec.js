@@ -1,0 +1,167 @@
+import * as loginAction from '../../pages/commands/login'
+import * as kgaAction from '../../pages/commands/kgahomepage'
+import * as kgaSerpAction from '../../pages/commands/kgaserpage'
+import * as simulationAction from '../../pages/commands/simulationPageCommands'
+import * as projectAction from '../../pages/commands/projectflowcommands'
+import * as mockAction from '../../pages/commands/mockApiCommands'
+
+
+describe('As an ALPS user', () => {
+    let data
+    let alpsapiendpoints
+
+    before(() => {
+        // Clear downloads folder
+        cy.exec('del /q "cypress\\downloads\\*.*"', { log: true, failOnNonZeroExit: false })
+        cy.exec('rm cypress/downloads/*', { log: true, failOnNonZeroExit: false })
+
+        cy.loginUser()
+        cy.fixture('userData').then((userData) => {
+            data = userData
+        })
+
+        cy.fixture('apiEndPoints').then((apiEndPoints) => {
+            alpsapiendpoints = apiEndPoints
+        })
+    })
+    beforeEach(() => {
+        cy.restoreLocalStorage()
+    })
+    afterEach(() => {
+        cy.saveLocalStorage()
+    })
+    it.only('AL-T361,AL-362:Verify if initiate request fails at URL-KW accordion section through Serp results page, error notification is displayed', () => {
+        // loginAction.clickAlpsLogo()
+
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshMultipleKeywordInitiateAPi)
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        cy.wait(9000)
+        simulationAction.clicksubmitButton()
+        
+
+        // Asserting the notification message.
+        simulationAction.dispNotificationMsgInitiateApiFails(data.NotificationMsgInitiateApiFails)
+
+        
+    })
+
+    it('AL-T363:Verify if initiate request fails at URL-KW accordion section on serp results page, error notification is displayed', () => {
+        loginAction.clickAlpsLogo()
+        loginAction.TxtBoxKeywordLandingPage(data.keyword)
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshKeywordInitiateApi)
+        kgaSerpAction.clickSerpPageMultikeyWordToggleButton()
+        kgaSerpAction.txtSerpKWBox(data.keyword)
+        kgaSerpAction.clickSubmit()
+
+        //Notification for Initiate API failure
+        simulationAction.dispNotificationMsgInitiateApiFails(data.NotificationMsgInitiateApiFails)  
+    })
+
+    it('AL-T364:Verify if initiate request fails at URL-KW accordion section on keyword analysis page, error notification is displayed', () => {
+        loginAction.clickAlpsLogo()
+        
+        
+        loginAction.clickAlpsLogo()
+        loginAction.TxtBoxKeywordLandingPage(data.keyword)
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        kgaAction.clickKgaButton()
+        kgaAction.clickKgaAccordion()
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshKeywordInitiateApi)
+        kgaAction.clickKgaSubmit()
+        
+
+        //Notification for Initiate API failure
+        simulationAction.dispNotificationMsgInitiateApiFails(data.NotificationMsgInitiateApiFails)
+        
+    })
+
+
+    it('AL-T365:Verify if initiate request fails at URL-KW accordion section through Serp results page, error notification is displayed', () => {
+        loginAction.clickAlpsLogo()
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshKeywordInitiateApi)
+        
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+
+        //Notification for Initiate API failure
+        simulationAction.dispNotificationMsgInitiateApiFails(data.NotificationMsgInitiateApiFails) 
+
+    })
+
+    it('AL-T387:Verify that floating error notification is displayed if track-request API fails on Page Simulation homepage', () => {
+        loginAction.clickAlpsLogo()
+        
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshMultipleKeywordTrackApi)
+        cy.wait(9000)
+        simulationAction.clicksubmitButton()
+        
+
+        // Asserting the notification message.
+        simulationAction.dispNotificationMsgInitiateApiFails(data.TrackRequestAPIfailNotification)
+
+        
+    })
+
+    it('AL-T399:Verify that floating error notification is displayed if run-scenario-overall API fails on Run Simulation page', () => {
+        loginAction.clickAlpsLogo()
+        
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.clicksubmitButton()
+        cy.wait(9000)
+        simulationAction.updateBodyContentInSim(data.TextToUpdateForContent)
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RunScenarioOverall)
+        cy.wait(9000)
+        simulationAction.clickRunSimulationButton()
+        
+        // Asserting the notification message.
+        simulationAction.dispNotificationRunSinarioApiFailure()
+
+        
+    })
+
+    it('AL-T403: Verify that floating error notification is displayed if initiate-request API fails on Simulation page accordion (non-live)', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshMultipleKeywordInitiateAPi)
+        cy.wait(9000)
+        simulationAction.clicksubmitButton()
+
+        // Asserting the notification message.
+        simulationAction.dispNotificationMsgInitiateApiFails(data.NonLiveInitiatefailNotifcation)
+
+        
+    })
+
+})
+
+
+
