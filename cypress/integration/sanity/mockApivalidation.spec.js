@@ -30,7 +30,7 @@ describe('As an ALPS user', () => {
     afterEach(() => {
         cy.saveLocalStorage()
     })
-    it.only('AL-T361,AL-362:Verify if initiate request fails at URL-KW accordion section through Serp results page, error notification is displayed', () => {
+    it('AL-T361,AL-362:Verify if initiate request fails at URL-KW accordion section through Serp results page, error notification is displayed', () => {
         // loginAction.clickAlpsLogo()
 
         mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshMultipleKeywordInitiateAPi)
@@ -41,7 +41,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabInputKeywordsInSimPage()
         simulationAction.txtAddKeywordSimPage(data.keyword)
         simulationAction.clickbuttonAddKeyword()
-        cy.wait(9000)
+        cy.wait(2000)
         simulationAction.clicksubmitButton()
         
 
@@ -110,7 +110,7 @@ describe('As an ALPS user', () => {
         simulationAction.txtAddKeywordSimPage(data.keyword)
         simulationAction.clickbuttonAddKeyword()
         mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshMultipleKeywordTrackApi)
-        cy.wait(9000)
+        cy.wait(2000)
         simulationAction.clicksubmitButton()
         
 
@@ -131,10 +131,10 @@ describe('As an ALPS user', () => {
         simulationAction.txtAddKeywordSimPage(data.keyword)
         simulationAction.clickbuttonAddKeyword()
         simulationAction.clicksubmitButton()
-        cy.wait(9000)
+        cy.wait(2000)
         simulationAction.updateBodyContentInSim(data.TextToUpdateForContent)
         mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RunScenarioOverall)
-        cy.wait(9000)
+        cy.wait(2000)
         simulationAction.clickRunSimulationButton()
         
         // Asserting the notification message.
@@ -161,6 +161,29 @@ describe('As an ALPS user', () => {
         
     })
 
+
+    it('AL-T404: Verify that floating error notification is displayed if track-request API fails on Simulation page accordion (non-live)', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        const filepath='Screenshot from 2022-01-12 19-53-10.html'
+        simulationAction.uploadeFileSimPageForNonLiveFlow(filepath)
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshMultipleKeywordTrackApi)
+        cy.wait(9000)
+        simulationAction.clicksubmitButton()
+
+        // Asserting the notification message.
+        simulationAction.dispNotificationMsgInitiateApiFails(data.NonLiveInitiatefailNotifcation)
+
+
+        
+    })
+
+   
 })
 
 
