@@ -10,7 +10,7 @@ export const clickSerpPageKGA = () => {
 
 
 export const clickSerpPageSimulation = () => {
-    KGASerp.elements.serpPageSimulation().click()
+    KGASerp.elements.serpPageSimulation().click({ force: true })
 }
 
 

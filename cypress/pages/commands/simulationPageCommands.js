@@ -87,7 +87,7 @@ export const clickzoomPage = () => {
 }
 
 export const clickRunSimulationButton = () => {
-    Simulation.elements.runSimulationButton().click()
+    Simulation.elements.runSimulationButton().click({ force: true })
 }
 
 export const clickArticleViewToggele = () => {
@@ -100,6 +100,10 @@ export const clickResetButton = () => {
 
 export const clickViewOriginalContent = () => {
     Simulation.elements.viewOriginalContent().click()
+}
+
+export const clicksiMulationMultiKeywordToggleButton = () => {
+    Simulation.elements.simulationMultiKeywordToggleButton().click({ force: true })
 }
 
 export const validatingKeywordMaxLimitErrorMessage = () => {
@@ -448,6 +452,22 @@ export const dispNotificationForMaxLimitKWSim = (MaxLimitNoftification) => {
         const NotificationMaxLimitText = fetchDispText.text()
         expect(NotificationMaxLimitText).to.equal(MaxLimitNoftification)
     })
+}
+
+export const verifyViewOriginalContent = () => {
+    
+    let contentEditorText=Simulation.elements.simContentEditor().then(function (fetchDispText) {
+        const NotificationMaxLimitText = fetchDispText.text()
+        return NotificationMaxLimitText
+    })
+
+    Simulation.elements.viewOriginalContent().click({ force: true })
+
+    let contentViewOriginalText=Simulation.elements.simViewOriginalContent().then(function (fetchDispText) {
+        const NotificationMaxLimitText = fetchDispText.text()
+        return NotificationMaxLimitText
+    })
+    expect(contentEditorText).not.to.equal(contentViewOriginalText)
 }
 
 

@@ -30,8 +30,10 @@ describe('As an ALPS user', () => {
     afterEach(() => {
         cy.saveLocalStorage()
     })
+
+    // Test cases is failing due to following bug AL-5240
     it('AL-T361,AL-362:Verify if initiate request fails at URL-KW accordion section through Serp results page, error notification is displayed', () => {
-        // loginAction.clickAlpsLogo()
+        loginAction.clickAlpsLogo()
 
         mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshMultipleKeywordInitiateAPi)
         simulationAction.clickTabOptimization()
@@ -51,6 +53,7 @@ describe('As an ALPS user', () => {
         
     })
 
+// Test cases is failing due to following bug AL-5240
     it('AL-T363:Verify if initiate request fails at URL-KW accordion section on serp results page, error notification is displayed', () => {
         loginAction.clickAlpsLogo()
         loginAction.TxtBoxKeywordLandingPage(data.keyword)
@@ -65,6 +68,7 @@ describe('As an ALPS user', () => {
         simulationAction.dispNotificationMsgInitiateApiFails(data.NotificationMsgInitiateApiFails)  
     })
 
+    // Test cases is failing due to following bug AL-5240
     it('AL-T364:Verify if initiate request fails at URL-KW accordion section on keyword analysis page, error notification is displayed', () => {
         loginAction.clickAlpsLogo()
         
@@ -85,6 +89,7 @@ describe('As an ALPS user', () => {
     })
 
 
+    // Test cases is failing due to following bug AL-5240
     it('AL-T365:Verify if initiate request fails at URL-KW accordion section through Serp results page, error notification is displayed', () => {
         loginAction.clickAlpsLogo()
         mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshKeywordInitiateApi)
@@ -99,6 +104,7 @@ describe('As an ALPS user', () => {
 
     })
 
+    // Test cases is failing due to following bug AL-5240
     it('AL-T387:Verify that floating error notification is displayed if track-request API fails on Page Simulation homepage', () => {
         loginAction.clickAlpsLogo()
         
@@ -120,6 +126,7 @@ describe('As an ALPS user', () => {
         
     })
 
+    // Test cases is failing due to following bug AL-5240
     it('AL-T399:Verify that floating error notification is displayed if run-scenario-overall API fails on Run Simulation page', () => {
         loginAction.clickAlpsLogo()
         
@@ -142,6 +149,7 @@ describe('As an ALPS user', () => {
 
         
     })
+    // Test cases is failing due to following bug AL-5240
 
     it('AL-T403: Verify that floating error notification is displayed if initiate-request API fails on Simulation page accordion (non-live)', () => {
         loginAction.clickAlpsLogo()
@@ -161,7 +169,7 @@ describe('As an ALPS user', () => {
         
     })
 
-
+    // Test cases is failing due to following bug AL-5240
     it('AL-T404: Verify that floating error notification is displayed if track-request API fails on Simulation page accordion (non-live)', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
