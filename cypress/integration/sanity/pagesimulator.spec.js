@@ -451,9 +451,7 @@ describe('As an ALPS user', () => {
         // validation of article and tag view 
         simulationAction.dishowEditorWords()
         simulationAction.clickArticleViewToggele()
-        simulationAction.shouldNotDisphowEditorWords()
-
-        
+        simulationAction.shouldNotDisphowEditorWords()      
     })
 
     it.only('AL-T141: Verify Themes section in the select kw from project list when we do not have any themes', () => {
