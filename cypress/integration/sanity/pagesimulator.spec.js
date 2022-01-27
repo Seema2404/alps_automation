@@ -456,5 +456,14 @@ describe('As an ALPS user', () => {
         
     })
 
-
+    it.only('AL-T1319: verify the related kw In simulation page only for Live flow', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
+        simulationAction.clickFetchKeyword()
+        
+    })
 })
