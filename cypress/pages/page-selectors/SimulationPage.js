@@ -137,6 +137,8 @@ export class SimulationPage {
             tabInputKeywords: () => cy.get('#kw_url_project div div div').contains('Input Keywords'),
             downloadButton: () => cy.get('#catDashboardDowload_button', { timeout: 60000 }),
             ArticleViewToggele: () => cy.contains('Article view').next('#zoom-selector_button'),
+            simContentEditor : () => cy.get('#content-editor_html-editor-container'),
+            simViewOriginalContent : () => cy.get('#modal_content-editor_html-editor-container-wrapper')
         }
     }
 }
