@@ -456,10 +456,10 @@ describe('As an ALPS user', () => {
         
     })
 
-    it('AL-T141: Verify Themes section in the select kw from project list when we do not have any themes', () => {
+    it.only('AL-T141: Verify Themes section in the select kw from project list when we do not have any themes', () => {
         loginAction.clickAlpsLogo()
         projectAction.clickProjectNavTitle()
-        projectAction.clickProjectChange()
+        projectAction.clickChangeProject()
         projectAction.enterProjectNameToSearch(data.projectName)
         projectAction.clickGoToDashboard()
         projectAction.clickAlpsLogo()

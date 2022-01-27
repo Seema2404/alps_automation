@@ -4,6 +4,7 @@ export class PageSimulation {
             //Locators for page simulation
             
             tabPageSimulation:()=>cy.get('#page-optimizer-url'),
+            pageSimulation: ()=>cy.get('#page-simulation-br'),
             txtBoxUrl:()=>cy.get('#home_keywordSearch_domain'),
             txtDummyUrl:()=>cy.get('#non_live_url_dropdown'),
             headingUrl:()=>cy.get('#contentSimulation_metaInfo_url_text'),

@@ -703,3 +703,7 @@ export const verifyDownloadedFile = (fileName) => {
 export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }
+
+export const verifyPageSimulation = () => {
+    OptimizationPage.elements.pageSimulation().should('be.visible')
+}

@@ -29,6 +29,7 @@
 	"NotificationForProjectKWSelection" : "You can add only up to 20 keywords for simulation. Please try again after deselecting some keywords.",
 	"SimURL" : "https://www.allstate.com",
 	"NonLiveKW" : "allstate",
-	"NotificationInvalidFileUpload" : "As this is not a HTML file content, please upload a valid file to proceed"
+	"NotificationInvalidFileUpload" : "As this is not a HTML file content, please upload a valid file to proceed",
+	"projectName" : "test-3"
 
 }
