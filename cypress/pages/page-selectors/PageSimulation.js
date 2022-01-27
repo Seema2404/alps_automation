@@ -14,6 +14,7 @@ export class PageSimulation {
             infoFetching:() =>cy.contains('Fetching data'),
             goButton:()=>cy.get('#home_keywordSearch_submit_button'),
             errMsgMaxKeywordLimit:()=>cy.get('#contentSimulation_multiKeyword_addKeyword_warning_text'),
+            errMsgValidKeyword:()=>cy.get('#contentSimulation_multiKeyword_addKeyword_warning_text'),
             errMsgUpdatedKeywordUrl:()=>cy.get('#contentSimulation_multiKeyword_url_dropdown_inputError'),
             errMsgUpdatedLocale:()=>cy.contains('Locale has been updated for the simulation'),
             errMsgEmptyKeywordAdd:()=>cy.contains('Please enter keyword(s) to proceed'),
@@ -125,6 +126,8 @@ export class PageSimulation {
             getTextBrowser : () => cy.contains('Browse').contains('.html'),
             contentScoreValue : () => cy.get('#sim_left_pane_Content_tab_title_score_value-hyphen'),
             howEditorWords : () => cy.contains('How the editor works')
+
+            
              
 
 

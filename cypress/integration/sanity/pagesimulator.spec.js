@@ -456,5 +456,19 @@ describe('As an ALPS user', () => {
         
     })
 
+    it.only('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
+        loginAction.clickAlpsLogo()
+        projectAction.clickProjectNavTitle()
+        projectAction.clickProjectChange()
+        projectAction.enterProjectNameToSearch(data.projectName)
+        projectAction.clickGoToDashboard()
+        projectAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.SimulationKeyword)
+        kgaAction.enterURL(data.SimulationUrl)
+        kgaAction.clickGo()
+        kgaSerpAction.clickSerpPageSimulation()
+        simulationAction.clickTabProjectKeywordInSimPage()
+    })
+
 
 })

@@ -7,7 +7,8 @@ export class CreateEditProject {
             ProjectNavTitle : () => cy.get('#project-nav_title'),
             ChangeProject : () => cy.get('#project-change-nav'),
             ChangeAccount : () => cy.get('#project-account-nav'),
-            
+            ClickGoToDashboard : () => cy.contains('Go to Dashboard'),
+            ALPSLogo : () => cy.get('#logo>img')
         }
     }
 }
