@@ -456,5 +456,22 @@ describe('As an ALPS user', () => {
         
     })
 
+    it('AL-T141: Verify Themes section in the select kw from project list when we do not have any themes', () => {
+        loginAction.clickAlpsLogo()
+        projectAction.clickProjectNavTitle()
+        projectAction.clickProjectChange()
+        projectAction.enterProjectNameToSearch(data.projectName)
+        projectAction.clickGoToDashboard()
+        projectAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.verifyPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        cy.wait(9000)
+        simulationAction.clickTabProjectKeywordInSimPage()
+        simulationAction.clickThemeSimulation()
+        simulationAction.dispInlineNoTheme()
+    })
 
 })
