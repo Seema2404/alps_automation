@@ -32,7 +32,18 @@ export const clickKgaButton = () => {
     kga.elements.kgabutton().click()
     
 }
+export const clickKgaAccordion = () => {
+    kga.elements.kgaAccordion().click()
+    
+}
+
+export const clickKgaSubmit = () => {
+    kga.elements.kgaSubmit().click()
+    
+}
+
 
 export const validatingKgaPageTitle = () => {
     kga.elements.kgapagetitle().should('be.visible')
 }
+
