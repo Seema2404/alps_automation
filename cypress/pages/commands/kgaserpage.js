@@ -10,7 +10,7 @@ export const clickSerpPageKGA = () => {
 
 
 export const clickSerpPageSimulation = () => {
-    KGASerp.elements.serpPageSimulation().click()
+    KGASerp.elements.serpPageSimulation().click({ force: true })
 }
 
 
@@ -23,6 +23,12 @@ export const clickSubmit = () => {
 }
 
 
+
+export const txtSerpKWBox = (SerpKw) => {
+    KGASerp.elements.MultiKeyword().clear()
+    KGASerp.elements.MultiKeyword().type(SerpKw)
+    
+}
 
 
 // ======================== Need to work on for fetching the text from application=============
@@ -52,69 +58,8 @@ export const writeDispSerpUrlheading =() => {
 }
 
 
-// export const writeDispSerpUrlheading1 =() => {
-
-//     KGASerp.elements.serpUrlheading().then((elem) => {
-//     const txt = elem.text()
-
-//     cy.log(txt)
-
-//     cy.writeFile(filename, { newScore: txt })
-//     // })
-
-//     // KGASerp.elements.serpUrlheading().then((elem) => {
-//     //     const txt = elem.text()
- 
-//     //     cy.log(txt)
-
-//     cy.readFile(filename).then((obj) => {
-//         obj.newScore2 = txt
-//         // write the merged object
-//         cy.writeFile(filename, newScore2)
-//     })
-// })
-// }
 
 
-//     KGASerp.elements.serpUrlheading().then(function(fetchDispText)
-//      {
-//          const readSerpUrlheadingText=fetchDispText.text()
-//          cy.log(serpUrlheadingText)
-//          cy.writeFile(filename, { newScore: txt })
-//      })
-//  }
-
-//     cy.readFile(filename).then((obj) => {
-//         obj.newScore2 = txt
-//         // write the merged object
-//         cy.writeFile(filename, obj)
-//     })
-// })
-
-
-
-// Cypress.Commands.add("dispSerpUrlheading", () => {
-//     cy.get('#serpResult_metaInfo_url_text').invoke('text').then((text1) => {
-//        const isHidden = text1
-//        console.log(isHidden); // This returns either true or false and that is good  
-//        return isHidden; // this returns $chainer but I want to return either true or false 
-//     })
- 
-//  })
- 
-
-// export const dispSerpUrlheading =() => {
-//     let pin = ""
-    
-//     cy.get('#serpResult_metaInfo_url_text').invoke('text').then((text1) => {
-//         pin = text1; //assign text1 value to global pin variable, does not work
-    
-//         cy.log(text1) // this works and logs the value of text1
-//     })
-    
-//      cy.log(pin) //this just logs an empty
-//     return pin
-// }
 
 
 export const dispSerpUrlheading =() => {
@@ -128,17 +73,6 @@ export const dispSerpUrlheading =() => {
  }
  
  
-//  export const dispserpKeywordheading =() => {
- 
-//      const kw =KGASerp.elements.serpKeywordheading().then(function(fetchDispText)
-//      {
-//          const serpKeywordheadingText=fetchDispText.text()
- 
-//          return serpKeywordheadingText
- 
-//      })
-//      return kw
-//  }
 
 
 
