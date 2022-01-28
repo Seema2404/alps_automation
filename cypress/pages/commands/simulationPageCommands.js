@@ -716,5 +716,7 @@ export const clickFetchKeywordButton = () => {
     OptimizationPage.elements.fetchKeywordButton().click()
 }
 export const clickRelatedCheckbox = () => {
-    OptimizationPage.elements.relatedCheckbox()
+    OptimizationPage.elements.relatedCheckbox().then( (el)=> {
+        el.check()
+    })
 }
