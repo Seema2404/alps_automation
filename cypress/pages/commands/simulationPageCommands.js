@@ -1,6 +1,7 @@
 import { Simulation } from '../page-selectors/SimulationPage'
 import { OptimizationPage } from '../page-selectors/PageSimulation'
 import exp from 'constants'
+import { clear } from 'console'
 
 export const enterKeyword = (editortext) => {
     Simulation.elements.editorBodyText().clear()
@@ -306,6 +307,10 @@ export const clickTabInputKeywordsInSimPage = () => {
 
 export const clickTabProjectKeywordInSimPage = () => {
     OptimizationPage.elements.tabProjectKeyword().click()
+}
+
+export const clickTabKeywordSuggestion = () => {
+    OptimizationPage.elements.tabKeywordSuggestion().click()
 }
 
 export const clickThemeSimulation = () => {
@@ -702,4 +707,14 @@ export const verifyDownloadedFile = (fileName) => {
 
 export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
+}
+
+export const enterRelatedKeyword = (KW) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear().type(KW)
+}
+export const clickFetchKeywordButton = () => {
+    OptimizationPage.elements.fetchKeywordButton().click()
+}
+export const clickRelatedCheckbox = () => {
+    OptimizationPage.elements.relatedCheckbox()
 }

@@ -455,6 +455,18 @@ describe('As an ALPS user', () => {
 
         
     })
+    it.only('AL-T1322: Verify relative KW should able to select for the simulation', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        simulationAction.clickRelatedCheckbox()
+
+    })
 
 
 })

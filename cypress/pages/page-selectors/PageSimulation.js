@@ -111,6 +111,7 @@ export class PageSimulation {
             kwListInSimPage :() => cy.get('*[class^="sc-eXfwOT"]'),
             tabInputKeywords : () => cy.contains('Input Keywords'),
             tabProjectKeyword : () => cy.contains('Project Keywords'),
+            tabKeywordSuggestion : () => cy.contains('Keyword Suggestions'),
             searchVolume : () => cy.contains('Search Volume'),
             selectAllFromProKW : () => cy.get('#kw_url_project_filter_select_all'),
             totalNumberOfKW :() => cy.get('#phillContainer'),
@@ -124,9 +125,9 @@ export class PageSimulation {
             BrowserButton : () => cy.get('#FileUpload'),
             getTextBrowser : () => cy.contains('Browse').contains('.html'),
             contentScoreValue : () => cy.get('#sim_left_pane_Content_tab_title_score_value-hyphen'),
-            howEditorWords : () => cy.contains('How the editor works')
-             
-
+            howEditorWords : () => cy.contains('How the editor works'),
+            fetchKeywordButton : () => cy.get('#fetchKeyword_submit'), 
+            relatedCheckbox : () => cy.get('.sc-RbTVP.fFsjWg .sc-drlKqa.gnFsnY'),
 
         }
     }
