@@ -712,3 +712,16 @@ export const clickHistoryUrlSearchBox = (keyword) => {
 export const clickFetchKeyword = () => {
     OptimizationPage.elements.fetchKeyword().click()
 }
+
+export const verifyCountKeyword = () => {
+    const arr1=[]
+    OptimizationPage.elements.countKeyword().each((item, index, list) => {
+        arr1.push(item)
+    }).then(()=>{
+        for (let i = 0; i < arr1.length; i++) {
+            cy.log(arr1[i])
+        }
+    })
+    
+    // expect(arr1.length).to.be.greaterThan(1)
+}

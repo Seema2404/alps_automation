@@ -464,6 +464,6 @@ describe('As an ALPS user', () => {
         simulationAction.clickGoButton()
         simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
         simulationAction.clickFetchKeyword()
-        
+        simulationAction.verifyCountKeyword()  
     })
 })
