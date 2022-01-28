@@ -716,7 +716,13 @@ export const clickFetchKeywordButton = () => {
     OptimizationPage.elements.fetchKeywordButton().click()
 }
 export const clickRelatedCheckbox = () => {
-    OptimizationPage.elements.relatedCheckbox().then( (el)=> {
-        el.check()
+    cy.wait(6000)
+    OptimizationPage.elements.relatedCheckbox().then(($ele) => {
+        for (let index = 0; index < $ele.length; index++) {
+            OptimizationPage.elements.relatedCheckbox().eq(index).click({force:true})
+            if(index==10){
+                break;
+            }
+        }
     })
 }

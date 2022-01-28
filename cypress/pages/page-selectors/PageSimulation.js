@@ -127,7 +127,7 @@ export class PageSimulation {
             contentScoreValue : () => cy.get('#sim_left_pane_Content_tab_title_score_value-hyphen'),
             howEditorWords : () => cy.contains('How the editor works'),
             fetchKeywordButton : () => cy.get('#fetchKeyword_submit'), 
-            relatedCheckbox : () => cy.get('input[id*=kw_url_checkbox]'),
+            relatedCheckbox : () => cy.get('input[id*=kw_url_checkbox]',{timeout:60000}),
 
         }
     }
