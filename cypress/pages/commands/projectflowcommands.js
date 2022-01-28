@@ -22,3 +22,12 @@ export const clickAlpsLogo = () => {
 export const clickChangeAccountTab = () => {
     ProjectFlow.elements.ChangeAccount().click({force : true})
 }
+
+export const verifyChangedProject = (project) => {
+    
+    ProjectFlow.elements.ProjectNavTitle().then((proj) => {
+        const expectProject = proj.text();
+        expect(expectProject).to.eq(project)
+    })
+
+}

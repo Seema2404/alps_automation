@@ -463,6 +463,8 @@ describe('As an ALPS user', () => {
         projectAction.enterProjectNameToSearch(data.projectName)
         projectAction.clickGoToDashboard()
         projectAction.clickAlpsLogo()
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.projectName)
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
