@@ -464,7 +464,10 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabKeywordSuggestion()
         simulationAction.enterRelatedKeyword(data.SimulationKeyword)
         simulationAction.clickFetchKeywordButton()
-        simulationAction.clickRelatedCheckbox()
+        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
+
+        //validatation of related KW is selected
+        simulationAction.verifyCheckboxSelection(data.NoOfCheckbox)
         
     })
 

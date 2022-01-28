@@ -712,17 +712,37 @@ export const fileUploadToNonLiveFlow = (FilePath) => {
 export const enterRelatedKeyword = (KW) => {
     OptimizationPage.elements.historyUrlSearchBox().clear().type(KW)
 }
+
 export const clickFetchKeywordButton = () => {
     OptimizationPage.elements.fetchKeywordButton().click()
 }
-export const clickRelatedCheckbox = () => {
+
+export const clickRelatedCheckbox = (noOfcheckbox) => {
     cy.wait(6000)
     OptimizationPage.elements.relatedCheckbox().then(($ele) => {
         for (let index = 0; index < $ele.length; index++) {
-            OptimizationPage.elements.relatedCheckbox().eq(index).click({force:true})
-            if(index==10){
+
+            if(index < noOfcheckbox) {
+                OptimizationPage.elements.relatedCheckbox().eq(index).click({force:true})
+            }
+            else{
                 break;
             }
         }
     })
 }
+
+export const verifyCheckboxSelection = (noOfcheckbox) => {
+
+    OptimizationPage.elements.relatedCheckbox().then(($ele) => {
+        for (let index = 0; index < $ele.length; index++){
+            
+            if(index < noOfcheckbox) {
+                OptimizationPage.elements.relatedCheckbox().eq(index).should('be.checked')
+            }
+            else{
+                break;
+            }
+        }
+    })
+} 
