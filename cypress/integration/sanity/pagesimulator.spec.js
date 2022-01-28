@@ -449,6 +449,7 @@ describe('As an ALPS user', () => {
         kgaAction.enterKeyword(data.SimulationKeyword)
         kgaAction.enterURL(data.SimulationUrl)
         kgaAction.clickGo()
+        cy.wait(60000)
         kgaSerpAction.clickSerpPageSimulation()
         simulationAction.clickTabProjectKeywordInSimPage()
     })
