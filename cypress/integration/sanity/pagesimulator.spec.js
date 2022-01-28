@@ -456,6 +456,7 @@ describe('As an ALPS user', () => {
 
     it('AL-T141: Verify Themes section in the select kw from project list when we do not have any themes', () => {
         cy.loginUser()
+        cy.wait(9000)
         projectAction.clickProjectNavTitle()
         projectAction.clickChangeProject()
         projectAction.enterProjectNameToSearch(data.projectName)
