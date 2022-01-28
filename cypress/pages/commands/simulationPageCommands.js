@@ -714,10 +714,10 @@ export const clickFetchKeyword = () => {
 }
 
 export const verifyCountKeyword = () => {
-    const arr1=[]
+    const keywordlist=[]
     OptimizationPage.elements.countKeyword().each((item, index, list) => {
-        arr1.push(item)
+        keywordlist.push(item)
     }).then(()=>{
-        expect(arr1.length).to.be.greaterThan(1)
+        expect(keywordlist.length).to.be.greaterThan(1)
     })   
 }
