@@ -20,9 +20,19 @@ export const clickSimulationForUrl = () => {
     Simulation.elements.simulationForUrl().click({ force: true })
 }
 
+export const dispNotificationRunSinarioApiFailure = () => {
+
+    OptimizationPage.elements.simulationFailure().should('be.visible')
+}
+
 export const enterMultiKeywordUrl = (KWURl) => {
     Simulation.elements.multiKeywordUrl().clear()
     Simulation.elements.multiKeywordUrl().type(KWURl)
+}
+
+export const updateBodyContentInSim = (ntxt) => {
+    OptimizationPage.elements.contentBodySim().clear()
+    OptimizationPage.elements.contentBodySim().type(ntxt)
 }
 
 export const dispSimulationForUrlHeading = (url) => {
@@ -78,7 +88,7 @@ export const clickzoomPage = () => {
 }
 
 export const clickRunSimulationButton = () => {
-    Simulation.elements.runSimulationButton().click()
+    Simulation.elements.runSimulationButton().click({ force: true })
 }
 
 export const clickArticleViewToggele = () => {
@@ -91,6 +101,10 @@ export const clickResetButton = () => {
 
 export const clickViewOriginalContent = () => {
     Simulation.elements.viewOriginalContent().click()
+}
+
+export const clicksiMulationMultiKeywordToggleButton = () => {
+    Simulation.elements.simulationMultiKeywordToggleButton().click({ force: true })
 }
 
 export const validatingKeywordMaxLimitErrorMessage = () => {
@@ -445,11 +459,34 @@ export const dispNotificationForMaxLimitKWSim = (MaxLimitNoftification) => {
     })
 }
 
+export const verifyViewOriginalContent = () => {
+    
+    let contentEditorText=Simulation.elements.simContentEditor().then(function (fetchDispText) {
+        const NotificationMaxLimitText = fetchDispText.text()
+        return NotificationMaxLimitText
+    })
+
+    Simulation.elements.viewOriginalContent().click({ force: true })
+
+    let contentViewOriginalText=Simulation.elements.simViewOriginalContent().then(function (fetchDispText) {
+        const NotificationMaxLimitText = fetchDispText.text()
+        return NotificationMaxLimitText
+    })
+    expect(contentEditorText).not.to.equal(contentViewOriginalText)
+}
+
 
 export const dispNotificationForInvalidFileUpload = (InvalidFileNoftification) => {
     Simulation.elements.invalidUrlErrMsg().then(function (fetchDispText) {
         const NotificationForInvalidFileUpload = fetchDispText.text()
         expect(NotificationForInvalidFileUpload).to.equal(InvalidFileNoftification)
+    })
+}
+
+export const dispNotificationMsgInitiateApiFails = (APIFailureNoftification) => {
+    Simulation.elements.invalidUrlErrMsg().then(function (fetchDispText) {
+        const NotificationForAPIFailur = fetchDispText.text()
+        expect(NotificationForAPIFailur).to.equal(APIFailureNoftification)
     })
 }
 
@@ -537,28 +574,6 @@ export const dispSimpage = (nText) => {
         expect(ViewheadingText).not.to.equals(nText)
     })
 }
-
-// export var dispKeywordTextIdentifier1 =() => {
-//     // debugger;
-//     var typecheck = Simulation.elements.lblUserLogin;
-//     var typecheck2 = Simulation.elements.lblUserLogin();
-//     console.log("checking first console"+typecheck);
-//     console.log("checking second console"+typecheck2);
-//     console.log(Simulation.elements);
-
-//     var text1= Simulation.elements.lblUserLogin().then(function(fetchDispText)
-//      {
-//          // cy.debug()
-//          var defaultKWInSimPage=fetchDispText.text()
-//          //console.log(defaultKWInSimPage)
-//          return defaultKWInSimPage
-//          // expect(defaultKWInSimPage).to.include(keyworddata)
-
-//      })
-//      console.log(text1)
-//      return text1
-//  }
-
 export const dispZoomViewTechScore = () => {
     Simulation.elements.zoomViewTechScore().then(function (fetchDispText) {
         const zoomViewTechScoreText = fetchDispText.text()

@@ -9,6 +9,7 @@ export class LoginPage {
             selectAccount: () => cy.get('#menu1'),
             continueButton: () => cy.get('.multiple_bttn'),
             logo: () => cy.get('#logo'),
+            kwLandingPage : () => cy.get('#home_keywordSearch_keyword')
             
         }
     }
