@@ -465,7 +465,7 @@ describe('As an ALPS user', () => {
         simulationAction.enterRelatedKeyword(data.SimulationKeyword)
         simulationAction.clickFetchKeywordButton()
         simulationAction.clickRelatedCheckbox()
-
+        
     })
 
 
