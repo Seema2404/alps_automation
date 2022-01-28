@@ -455,12 +455,11 @@ describe('As an ALPS user', () => {
 
     })
 
-    it.only('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
+    it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
+        cy.loginUser()
         loginAction.clickAlpsLogo()
         projectAction.clickProjectNavTitle()
-        cy.wait(4000)
         projectAction.clickChangeProjectTab()
-        cy.wait(4000)
         projectAction.enterProjectNameToSearch(data.projectName)
         projectAction.clickGoToDashboard()
         projectAction.clickAlpsLogo()
