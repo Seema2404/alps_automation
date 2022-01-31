@@ -737,10 +737,6 @@ export const clickRelatedCheckbox = () => {
     })
 }
 
-export const visibleRelatedKeyword = () => {
-    OptimizationPage.elements.RelatedKeyword().should('be.visible')
-}
-
 export const verifyCheckboxSelection = () => {
     OptimizationPage.elements.relatedCheckbox().then(($ele) => {
         for (let index = 0; index < $ele.length; index++){
@@ -755,10 +751,6 @@ export const clickSelectAllKeyword = () => {
 
 export const verifyLimitKeyword = (limit) => {
     OptimizationPage.elements.keywordLimitError().should('be.visible')
-    OptimizationPage.elements.keywordLimitError().then((KwLimit) => {
-        const expectKwLimit=KwLimit.text();
-        expect(expectKwLimit).to.eq(limit)
-    })
-    OptimizationPage.elements.keywordLimitError().should('contains.text', 'limit is 20 keyword.')
+    OptimizationPage.elements.keywordLimitError().contains(limit)
 }
 
