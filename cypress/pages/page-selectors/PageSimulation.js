@@ -128,6 +128,8 @@ export class PageSimulation {
             howEditorWords : () => cy.contains('How the editor works'),
             fetchKeywordButton : () => cy.get('#fetchKeyword_submit'), 
             relatedCheckbox : () => cy.get('input[id*=kw_url_checkbox]',{timeout:60000}),
+            contentBodySim: () => cy.get('.ql-editor'),
+            simulationFailure: () => cy.contains('Simulation failed')
 
         }
     }
