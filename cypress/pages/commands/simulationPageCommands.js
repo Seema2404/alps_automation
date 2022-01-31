@@ -731,3 +731,12 @@ export const clickFetchKeywords = () => {
 export const verifyLoaderKW = () => {
     OptimizationPage.elements.loaderKW().should('be.visible')
 }
+
+export const verifyCountKeyword = () => {
+    const keywordlist=[]
+    OptimizationPage.elements.countKeyword().each((item, index, list) => {
+        keywordlist.push(item)
+    }).then(()=>{
+        expect(keywordlist.length).to.be.greaterThan(1)
+    })   
+}

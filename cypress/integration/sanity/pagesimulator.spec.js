@@ -468,7 +468,7 @@ describe('As an ALPS user', () => {
         //incomplete test case because bug reorted
     })
 
-    it('AL-T1321: verify are we able to see all Related KW in that section', () => {
+    it.only('AL-T1321: verify are we able to see all Related KW in that section', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -477,8 +477,8 @@ describe('As an ALPS user', () => {
         simulationAction.clickSearchBox(data.NonLiveKW)
         simulationAction.clickFetchKeywords()
         
-        //verify the loader, when we search any keyword on page simulation
-        simulationAction.verifyLoaderKW()
+        //verify the related keyword visible on page simulation
+        simulationAction.verifyCountKeyword()
         
     })
 })

@@ -130,6 +130,8 @@ export class PageSimulation {
             simulationFailure: () => cy.contains('Simulation failed'),
             fetchKeywordButton : () => cy.get('#fetchKeyword_submit'),
             loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp'),
+            visibleKeyword : () => cy.get('#kw_url_checkbox_all-state-insurance'),
+            countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
 
         }
     }
