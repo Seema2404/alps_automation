@@ -131,7 +131,6 @@ export class PageSimulation {
             simulationFailure :() => cy.contains('Simulation failed')
              
 
-
         }
     }
 }
