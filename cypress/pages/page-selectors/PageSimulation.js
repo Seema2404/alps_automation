@@ -128,6 +128,7 @@ export class PageSimulation {
             tabKeywordSuggestion : () => cy.contains('Keyword Suggestions'),
             fetchKeywordButton : () => cy.get('#fetchKeyword_submit'), 
             relatedCheckbox : () => cy.get('input[id*=kw_url_checkbox]',{timeout:60000}),
+            RelatedKeyword : () => cy.get('*[class^="sc-hMrMfs diCZyP"]',{timeout : 60000}),
             selectAllKeyword : () => cy.get('#kw_url_project_filter_select_all'),
             keywordLimitError : () => cy.get('.sc-fPEBxH.jFaknk'),
 

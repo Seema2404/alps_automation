@@ -674,7 +674,6 @@ export const dispFileUpload = () => {
     OptimizationPage.elements.FileUpload().should('be.visible')
 }
 
-
 export const uploadeFileSimPageForNonLiveFlow = (filepath) => {
     OptimizationPage.elements.BrowserButton().attachFile(filepath)
 }
@@ -690,7 +689,6 @@ export const waitForLoaderToDisappear = () => {
 export const dispDisabledFileUpload = () => {
     OptimizationPage.elements.FileUpload().should('be.disabled')
 }
-
 
 export const clickDownloadButton = () => {
     Simulation.elements.downloadButton().click()
@@ -716,9 +714,7 @@ export const clickFetchKeywordButton = () => {
     OptimizationPage.elements.fetchKeywordButton().click()
 }
 
-
-export const clickRelatedCheckbox = (noOfcheckbox) => {
-    cy.wait(6000)
+export const clickRelatedCheckbox = () => {
     OptimizationPage.elements.relatedCheckbox().then(($ele) => {
         for (let index = 0; index < $ele.length; index++) {
             OptimizationPage.elements.relatedCheckbox().eq(index).click({force:true})
@@ -726,20 +722,28 @@ export const clickRelatedCheckbox = (noOfcheckbox) => {
     })
 }
 
-export const verifyCheckboxSelection = (noOfcheckbox) => {
+export const visibleRelatedKeyword = () => {
+    OptimizationPage.elements.RelatedKeyword().should('be.visible')
+}
 
+export const verifyCheckboxSelection = () => {
     OptimizationPage.elements.relatedCheckbox().then(($ele) => {
         for (let index = 0; index < $ele.length; index++){
-            
             OptimizationPage.elements.relatedCheckbox().eq(index).should('be.checked')
         }
     })
 } 
+
 export const clickSelectAllKeyword = () => {
     OptimizationPage.elements.selectAllKeyword().click({force : true})
 }
 
-export const verifyLimitKeyword = () => {
+export const verifyLimitKeyword = (limit) => {
     OptimizationPage.elements.keywordLimitError().should('be.visible')
+    OptimizationPage.elements.keywordLimitError().then((KwLimit) => {
+        const expectKwLimit=KwLimit.text();
+        expect(expectKwLimit).to.eq(limit)
+    })
+    OptimizationPage.elements.keywordLimitError().should('contains.text', 'limit is 20 keyword.')
 }
 

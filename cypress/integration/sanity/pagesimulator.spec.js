@@ -455,7 +455,7 @@ describe('As an ALPS user', () => {
 
         
     })
-    it.only('AL-T1323: Verify the limit for selecting keywords', () => {
+    it('AL-T1323: Verify the limit for selecting keywords', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -464,12 +464,13 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabKeywordSuggestion()
         simulationAction.enterRelatedKeyword(data.SimulationKeyword)
         simulationAction.clickFetchKeywordButton()
-        //simulationAction.clickRelatedCheckbox(data.maxCheckbox) //text visible
+        simulationAction.visibleRelatedKeyword()
+        simulationAction.clickRelatedCheckbox()
         simulationAction.clickSelectAllKeyword()
 
         //validatation of related KW is selected
-        //simulationAction.verifyCheckboxSelection(data.maxCheckbox)
-        simulationAction.verifyLimitKeyword()
+        simulationAction.verifyCheckboxSelection()
+        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
 
         
     })
