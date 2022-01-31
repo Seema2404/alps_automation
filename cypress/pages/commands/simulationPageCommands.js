@@ -761,3 +761,15 @@ export const verifyCheckboxSelection = (noOfcheckbox) => {
         }
     })
 } 
+export const clickSearchBox = (kw) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear()
+    OptimizationPage.elements.historyUrlSearchBox().type(kw)
+}
+
+export const clickFetchKeywords = () => {
+    OptimizationPage.elements.fetchKeywords().click()
+}
+
+export const verifyLoaderKW = () => {
+    OptimizationPage.elements.loaderKW().should('be.visible')
+}
