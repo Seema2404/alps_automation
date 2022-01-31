@@ -458,6 +458,42 @@ describe('As an ALPS user', () => {
 
     })
 
+    it('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.SimulationKeyword)
+        kgaAction.enterURL(data.SimulationUrl)
+        kgaAction.clickGo()
+        cy.wait(9000)
+        kgaSerpAction.clickSerpPageSimulation()
+        simulationAction.clickTabProjectKeywordInSimPage()
+        //incomplete test case because bug reorted
+    })
+
+    it('AL-T1319: verify the related kw In simulation page only for Live flow', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
+        simulationAction.clickFetchKeyword()
+        cy.wait(9000)
+
+        // validation of keywords are available or not
+        simulationAction.verifyCountKeyword()
+    })
+
+    it('AL-T1320: verify are we able to see all Related KW in that section', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickSearchBox(data.NonLiveKW)
+        simulationAction.clickFetchKeywords()
+        simulationAction.verifyLoaderKW()
+        
+    })
+
     it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
         cy.loginUser()
         loginAction.clickAlpsLogo()
@@ -478,16 +514,5 @@ describe('As an ALPS user', () => {
         //validation of No Keyword found message
         simulationAction.NoKWFoundMessage(data.NoKWFoundMsg)
 
-    })
-
-    it('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
-        loginAction.clickAlpsLogo()
-        kgaAction.enterKeyword(data.SimulationKeyword)
-        kgaAction.enterURL(data.SimulationUrl)
-        kgaAction.clickGo()
-        cy.wait(9000)
-        kgaSerpAction.clickSerpPageSimulation()
-        simulationAction.clickTabProjectKeywordInSimPage()
-        //incomplete test case because bug reorted
     })
 })

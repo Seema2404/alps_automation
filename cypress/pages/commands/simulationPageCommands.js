@@ -726,3 +726,32 @@ export const NoKWFoundMessage = (NoKWFound) => {
         expect(NoKWFound).to.equals(disMsg)
     })
 }
+export const clickHistoryUrlSearchBox = (keyword) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear()
+    OptimizationPage.elements.historyUrlSearchBox().type(keyword)
+}
+
+export const clickFetchKeyword = () => {
+    OptimizationPage.elements.fetchKeyword().click()
+}
+
+export const verifyCountKeyword = () => {
+    const keywordlist=[]
+    OptimizationPage.elements.countKeyword().each((item, index, list) => {
+        keywordlist.push(item)
+    }).then(()=>{
+        expect(keywordlist.length).to.be.greaterThan(1)
+    }) 
+}
+export const clickSearchBox = (kw) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear()
+    OptimizationPage.elements.historyUrlSearchBox().type(kw)
+}
+
+export const clickFetchKeywords = () => {
+    OptimizationPage.elements.fetchKeywords().click()
+}
+
+export const verifyLoaderKW = () => {
+    OptimizationPage.elements.loaderKW().should('be.visible')
+}
