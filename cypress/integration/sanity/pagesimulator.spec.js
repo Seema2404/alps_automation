@@ -479,7 +479,9 @@ describe('As an ALPS user', () => {
         cy.wait(9000)
 
         // validation of keywords are available or not
-        simulationAction.verifyCountKeyword()  
+        simulationAction.verifyCountKeyword()
+    })
+
     it('AL-T1320: verify are we able to see all Related KW in that section', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()

@@ -734,7 +734,8 @@ export const verifyCountKeyword = () => {
         keywordlist.push(item)
     }).then(()=>{
         expect(keywordlist.length).to.be.greaterThan(1)
-    })   
+    }) 
+}
 export const clickSearchBox = (kw) => {
     OptimizationPage.elements.historyUrlSearchBox().clear()
     OptimizationPage.elements.historyUrlSearchBox().type(kw)
