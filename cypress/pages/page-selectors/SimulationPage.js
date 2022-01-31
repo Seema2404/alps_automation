@@ -7,6 +7,7 @@ export class SimulationPage {
             headerChangeSelector: () => cy.get('.ql-header'),
             kwRankAndPerformance: () => cy.get('#reports-grid-keyword-rank-perfomance-item'),
             breadCrumb: () => cy.get('#breadcrumb'),
+            breadCrumbPageSimulation: () => cy.get('#page-simulation-br'),
             multiKeywordUrl: () => cy.get('#contentSimulation_multiKeyword_url_dropdown'),
             simulationForUrl: () => cy.get('#contentSimulation_metaInfo_url_text'),
             addKeyword: () => cy.get('#contentSimulation_multiKeyword_keyword'),
@@ -137,6 +138,8 @@ export class SimulationPage {
             tabInputKeywords: () => cy.get('#kw_url_project div div div').contains('Input Keywords'),
             downloadButton: () => cy.get('#catDashboardDowload_button', { timeout: 60000 }),
             ArticleViewToggele: () => cy.contains('Article view').next('#zoom-selector_button'),
+            simContentEditor : () => cy.get('#content-editor_html-editor-container'),
+            simViewOriginalContent : () => cy.get('#modal_content-editor_html-editor-container-wrapper')
         }
     }
 }

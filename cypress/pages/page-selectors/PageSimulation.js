@@ -131,6 +131,8 @@ export class PageSimulation {
             RelatedKeyword : () => cy.get('*[class^="sc-hMrMfs diCZyP"]',{timeout : 60000}),
             selectAllKeyword : () => cy.get('#kw_url_project_filter_select_all'),
             keywordLimitError : () => cy.get('.sc-fPEBxH.jFaknk'),
+            contentBodySim: () => cy.get('.ql-editor'),
+            simulationFailure: () => cy.contains('Simulation failed')
 
         }
     }
