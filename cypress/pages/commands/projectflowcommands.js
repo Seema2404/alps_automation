@@ -17,7 +17,7 @@ export const clickGoToDashboard = () => {
     ProjectFlow.elements.GoToDashboard().click()
 }
 export const clickApplyFilter =() => {
-    ProjectFlow.elements.ApplyFilter().click()
+    ProjectFlow.elements.ApplyFilter().click({force : true})
 }
 export const clickAlpsLogo = () => {
     ProjectFlow.elements.ALPSLogo().click()

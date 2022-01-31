@@ -503,6 +503,7 @@ describe('As an ALPS user', () => {
         projectAction.clickGoToDashboard()
         projectAction.clickApplyFilter()
         projectAction.clickAlpsLogo()
+        cy.wait(9000)
         //verify project changed with 'no KW'
         projectAction.verifyChangedProject(data.project)
         simulationAction.clickTabOptimization()
