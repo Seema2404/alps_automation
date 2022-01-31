@@ -456,25 +456,6 @@ describe('As an ALPS user', () => {
         simulationAction.clickArticleViewToggele()
         simulationAction.shouldNotDisphowEditorWords()
     })
-    it('AL-T1323: Verify the limit for selecting keywords', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        simulationAction.clickTabKeywordSuggestion()
-        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
-        simulationAction.clickFetchKeywordButton()
-        cy.wait(9000)
-        simulationAction.clickRelatedCheckbox()
-        simulationAction.clickSelectAllKeyword()
-
-        //validatation of related KW is selected
-        simulationAction.verifyCheckboxSelection()
-        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
-
-        
-    })
 
     it('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
         loginAction.clickAlpsLogo()
@@ -495,6 +476,26 @@ describe('As an ALPS user', () => {
         simulationAction.clickSearchBox(data.NonLiveKW)
         simulationAction.clickFetchKeywords()
         simulationAction.verifyLoaderKW()
+        
+    })
+
+    it('AL-T1323: Verify the limit for selecting keywords', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox()
+        simulationAction.clickSelectAllKeyword()
+
+        //validatation of related KW is selected
+        simulationAction.verifyCheckboxSelection()
+        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
+
         
     })
 })
