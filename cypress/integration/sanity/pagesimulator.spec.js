@@ -468,6 +468,20 @@ describe('As an ALPS user', () => {
         //incomplete test case because bug reorted
     })
 
+    it('AL-T1319: verify the related kw In simulation page only for Live flow', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
+        simulationAction.clickFetchKeyword()
+        cy.wait(9000)
+
+        // validation of keywords are available or not
+        simulationAction.verifyCountKeyword()
+    })
+
     it('AL-T1320: verify are we able to see all Related KW in that section', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
