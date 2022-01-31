@@ -719,6 +719,23 @@ export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }
 
+export const clickHistoryUrlSearchBox = (keyword) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear()
+    OptimizationPage.elements.historyUrlSearchBox().type(keyword)
+}
+
+export const clickFetchKeyword = () => {
+    OptimizationPage.elements.fetchKeyword().click()
+}
+
+export const verifyCountKeyword = () => {
+    const keywordlist=[]
+    OptimizationPage.elements.countKeyword().each((item, index, list) => {
+        keywordlist.push(item)
+    }).then(()=>{
+        expect(keywordlist.length).to.be.greaterThan(1)
+    }) 
+}
 export const clickSearchBox = (kw) => {
     OptimizationPage.elements.historyUrlSearchBox().clear()
     OptimizationPage.elements.historyUrlSearchBox().type(kw)
