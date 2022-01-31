@@ -31,7 +31,6 @@
 	"NonLiveKW" : "allstate",
 	"NotificationInvalidFileUpload" : "As this is not a HTML file content, please upload a valid file to proceed",
 	"NoOfCheckbox" : "5",
-	"MaxNoOfCheckbox" : "21",
 	"projectName" : "test-3",
 	"NotificationMsgInitiateApiFails" : "Server is unable to process your request at this moment. We are looking into it.",
 	"TrackRequestAPIfailNotification" :"Some of the data could not be fetched for this page. You can proceed with available data or click on submit again to retry.",

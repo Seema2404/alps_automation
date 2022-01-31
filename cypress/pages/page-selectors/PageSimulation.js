@@ -130,7 +130,7 @@ export class PageSimulation {
             relatedCheckbox : () => cy.get('input[id*=kw_url_checkbox]'),
             contentBodySim: () => cy.get('.ql-editor'),
             simulationFailure: () => cy.contains('Simulation failed'),
-            RelatedKeyword : () => cy.get('.sc-hMrMfs.diCZyP', {timeout : 60000}), 
+            RelatedKeyword : () => cy.get('*[class^="sc-hMrMfs diCZyP"]', {timeout : 60000}), 
 
         }
     }
