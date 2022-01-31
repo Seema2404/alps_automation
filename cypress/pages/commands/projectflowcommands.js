@@ -16,8 +16,11 @@ export const clickChangeProjectTab = () => {
 export const clickGoToDashboard = () => {
     ProjectFlow.elements.GoToDashboard().click()
 }
+export const clickApplyFilter =() => {
+    ProjectFlow.elements.ApplyFilter().click()
+}
 export const clickAlpsLogo = () => {
-    ProjectFlow.elements.AlpsLogo().click()
+    ProjectFlow.elements.ALPSLogo().click()
 }
 export const clickChangeAccountTab = () => {
     ProjectFlow.elements.ChangeAccount().click({force : true})
@@ -29,5 +32,8 @@ export const verifyChangedProject = (project) => {
         const expectProject = proj.text();
         expect(expectProject).to.eq(project)
     })
+}
 
+export const clickProjectChange = () => {
+    ProjectFlow.elements.ChangeProject().click()
 }

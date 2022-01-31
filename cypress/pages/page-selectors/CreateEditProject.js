@@ -8,7 +8,9 @@ export class CreateEditProject {
             ChangeProject : () => cy.get('#project-change-nav'),
             ChangeAccount : () => cy.get('#project-account-nav'),
             GoToDashboard : () => cy.contains('Go to Dashboard'),
-            AlpsLogo : () => cy.get('#logo.logo')
+            ClickGoToDashboard : () => cy.contains('Go to Dashboard'),
+            ALPSLogo : () => cy.get('#logo>img'),
+            ApplyFilter : () => cy.get('[title="Apply"]',{timeout : 60000}),
         }
     }
 }
