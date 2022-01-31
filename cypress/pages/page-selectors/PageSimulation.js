@@ -131,7 +131,9 @@ export class PageSimulation {
             selectAllKeyword : () => cy.get('#kw_url_project_filter_select_all'),
             keywordLimitError : () => cy.contains('Unable to add keyword as the limit is 20 keyword. Please try again by reducing the keyword(s)'),
             contentBodySim: () => cy.get('.ql-editor'),
-            simulationFailure: () => cy.contains('Simulation failed')
+            simulationFailure: () => cy.contains('Simulation failed'),
+            fetchKeywords : () => cy.get('#fetchKeyword_submit'),
+            loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp'),
 
         }
     }
