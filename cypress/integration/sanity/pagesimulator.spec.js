@@ -480,5 +480,14 @@ describe('As an ALPS user', () => {
 
         // validation of keywords are available or not
         simulationAction.verifyCountKeyword()  
+    it('AL-T1320: verify are we able to see all Related KW in that section', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickSearchBox(data.NonLiveKW)
+        simulationAction.clickFetchKeywords()
+        simulationAction.verifyLoaderKW()
+        
     })
 })

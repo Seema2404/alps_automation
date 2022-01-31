@@ -735,4 +735,15 @@ export const verifyCountKeyword = () => {
     }).then(()=>{
         expect(keywordlist.length).to.be.greaterThan(1)
     })   
+export const clickSearchBox = (kw) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear()
+    OptimizationPage.elements.historyUrlSearchBox().type(kw)
+}
+
+export const clickFetchKeywords = () => {
+    OptimizationPage.elements.fetchKeywords().click()
+}
+
+export const verifyLoaderKW = () => {
+    OptimizationPage.elements.loaderKW().should('be.visible')
 }

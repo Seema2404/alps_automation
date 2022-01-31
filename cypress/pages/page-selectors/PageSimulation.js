@@ -128,8 +128,9 @@ export class PageSimulation {
             fetchKeyword : () => cy.get('#fetchKeyword_submit'),
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
             contentBodySim : () => cy.get('.ql-editor'),
-            simulationFailure :() => cy.contains('Simulation failed')
-             
+            simulationFailure :() => cy.contains('Simulation failed'),
+            fetchKeywords : () => cy.get('#fetchKeyword_submit'),
+            loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp'),
 
         }
     }
