@@ -728,14 +728,12 @@ export const enterRelatedKeyword = (KW) => {
     OptimizationPage.elements.historyUrlSearchBox().clear().type(KW)
 }
 
-export const visibleRelatedKeyword = () => {
-    OptimizationPage.elements.RelatedKeyword().should('be.visible')
-}
 export const clickFetchKeywordButton = () => {
     OptimizationPage.elements.fetchKeywordButton().click()
 }
 
 export const clickRelatedCheckbox = (noOfcheckbox) => {
+    
     OptimizationPage.elements.relatedCheckbox().then(($ele) => {
         for (let index = 0; index < $ele.length; index++) {
 
