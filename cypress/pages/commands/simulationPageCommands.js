@@ -725,7 +725,7 @@ export const clickSearchBox = (kw) => {
 }
 
 export const clickFetchKeywords = () => {
-    OptimizationPage.elements.fetchKeywordButton().click()
+    OptimizationPage.elements.fetchKeywords().click()
 }
 
 export const verifyLoaderKW = () => {

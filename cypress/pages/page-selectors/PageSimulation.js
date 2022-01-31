@@ -128,7 +128,7 @@ export class PageSimulation {
             howEditorWords: () => cy.contains('How the editor works'),
             contentBodySim: () => cy.get('.ql-editor'),
             simulationFailure: () => cy.contains('Simulation failed'),
-            fetchKeywordButton : () => cy.get('#fetchKeyword_submit'),
+            fetchKeywords : () => cy.get('#fetchKeyword_submit'),
             loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp'),
             visibleKeyword : () => cy.get('#kw_url_checkbox_all-state-insurance'),
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
