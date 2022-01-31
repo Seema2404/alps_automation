@@ -456,22 +456,6 @@ describe('As an ALPS user', () => {
         simulationAction.clickArticleViewToggele()
         simulationAction.shouldNotDisphowEditorWords()
     })
-    it('AL-T1322: Verify relative KW should able to select for the simulation', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        simulationAction.clickTabKeywordSuggestion()
-        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
-        simulationAction.clickFetchKeywordButton()
-        cy.wait(9000)
-        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
-
-        //validatation of related KW is selected
-        simulationAction.verifyCheckboxSelection(data.NoOfCheckbox)
-        
-    })
 
     it('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
         loginAction.clickAlpsLogo()
@@ -506,6 +490,23 @@ describe('As an ALPS user', () => {
         simulationAction.clickSearchBox(data.NonLiveKW)
         simulationAction.clickFetchKeywords()
         simulationAction.verifyLoaderKW()
+        
+    })
+
+    it('AL-T1322: Verify relative KW should able to select for the simulation', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
+
+        //validatation of related KW is selected
+        simulationAction.verifyCheckboxSelection(data.NoOfCheckbox)
         
     })
 })
