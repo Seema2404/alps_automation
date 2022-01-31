@@ -468,7 +468,7 @@ describe('As an ALPS user', () => {
         //incomplete test case because bug reorted
     })
 
-    it.only('AL-T1321: verify are we able to see all Related KW in that section', () => {
+    it('AL-T1321: verify are we able to see all Related KW in that section', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
