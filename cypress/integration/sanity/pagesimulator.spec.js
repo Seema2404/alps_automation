@@ -457,6 +457,17 @@ describe('As an ALPS user', () => {
         simulationAction.shouldNotDisphowEditorWords()
     })
 
+    it('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.SimulationKeyword)
+        kgaAction.enterURL(data.SimulationUrl)
+        kgaAction.clickGo()
+        cy.wait(9000)
+        kgaSerpAction.clickSerpPageSimulation()
+        simulationAction.clickTabProjectKeywordInSimPage()
+        //incomplete test case because bug reorted
+    })
+
     it('AL-T1319: verify the related kw In simulation page only for Live flow', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
