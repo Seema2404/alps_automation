@@ -703,3 +703,43 @@ export const verifyDownloadedFile = (fileName) => {
 export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }
+
+export const clickTabKeywordSuggestion = () => {
+    OptimizationPage.elements.tabKeywordSuggestion().click()
+} 
+
+export const enterRelatedKeyword = (KW) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear().type(KW)
+}
+
+export const clickFetchKeywordButton = () => {
+    OptimizationPage.elements.fetchKeywordButton().click()
+}
+
+
+export const clickRelatedCheckbox = (noOfcheckbox) => {
+    cy.wait(6000)
+    OptimizationPage.elements.relatedCheckbox().then(($ele) => {
+        for (let index = 0; index < $ele.length; index++) {
+            OptimizationPage.elements.relatedCheckbox().eq(index).click({force:true})
+        }
+    })
+}
+
+export const verifyCheckboxSelection = (noOfcheckbox) => {
+
+    OptimizationPage.elements.relatedCheckbox().then(($ele) => {
+        for (let index = 0; index < $ele.length; index++){
+            
+            OptimizationPage.elements.relatedCheckbox().eq(index).should('be.checked')
+        }
+    })
+} 
+export const clickSelectAllKeyword = () => {
+    OptimizationPage.elements.selectAllKeyword().click({force : true})
+}
+
+export const verifyLimitKeyword = () => {
+    OptimizationPage.elements.keywordLimitError().should('be.visible')
+}
+

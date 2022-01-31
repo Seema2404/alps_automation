@@ -124,9 +124,12 @@ export class PageSimulation {
             BrowserButton : () => cy.get('#FileUpload'),
             getTextBrowser : () => cy.contains('Browse').contains('.html'),
             contentScoreValue : () => cy.get('#sim_left_pane_Content_tab_title_score_value-hyphen'),
-            howEditorWords : () => cy.contains('How the editor works')
-             
-
+            howEditorWords : () => cy.contains('How the editor works'),
+            tabKeywordSuggestion : () => cy.contains('Keyword Suggestions'),
+            fetchKeywordButton : () => cy.get('#fetchKeyword_submit'), 
+            relatedCheckbox : () => cy.get('input[id*=kw_url_checkbox]',{timeout:60000}),
+            selectAllKeyword : () => cy.get('#kw_url_project_filter_select_all'),
+            keywordLimitError : () => cy.get('.sc-fPEBxH.jFaknk'),
 
         }
     }

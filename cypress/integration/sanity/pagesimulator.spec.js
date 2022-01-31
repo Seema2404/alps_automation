@@ -455,6 +455,24 @@ describe('As an ALPS user', () => {
 
         
     })
+    it.only('AL-T1323: Verify the limit for selecting keywords', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        //simulationAction.clickRelatedCheckbox(data.maxCheckbox) //text visible
+        simulationAction.clickSelectAllKeyword()
+
+        //validatation of related KW is selected
+        //simulationAction.verifyCheckboxSelection(data.maxCheckbox)
+        simulationAction.verifyLimitKeyword()
+
+        
+    })
 
 
 })
