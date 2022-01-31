@@ -718,3 +718,16 @@ export const verifyDownloadedFile = (fileName) => {
 export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }
+
+export const clickSearchBox = (kw) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear()
+    OptimizationPage.elements.historyUrlSearchBox().type(kw)
+}
+
+export const clickFetchKeywords = () => {
+    OptimizationPage.elements.fetchKeywords().click()
+}
+
+export const verifyLoaderKW = () => {
+    OptimizationPage.elements.loaderKW().should('be.visible')
+}
