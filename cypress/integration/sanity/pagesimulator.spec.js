@@ -243,7 +243,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickbuttonAddKeyword()
         simulationAction.txtAddKeywordSimPage(data.keyword)
         simulationAction.clickbuttonAddKeyword()
-        
+
         // validating the Duplicate KW simulation Notification message.
         simulationAction.disperrorNotificationForDuplicateKWSim(data.duplicateKWNotificationMsg)
         
@@ -260,7 +260,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickbuttonAddKeyword()
         simulationAction.txtAddKeywordSimPage(data.keyword)
         simulationAction.clickbuttonAddKeyword()
-        
+
         // validating the max limit  KW simulation Notification message.
         simulationAction.dispNotificationForMaxLimitKWSim(data.WarningMSgFoxMaxLimitKWAdd)
         
@@ -272,7 +272,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()        
+        simulationAction.clickGoButton()
         cy.wait(9000)
         simulationAction.clickTabInputKeywordsInSimPage()
         simulationAction.txtAddKeywordSimPage(data.multipleKeywords)
@@ -283,13 +283,13 @@ describe('As an ALPS user', () => {
         // validating the notification message for selection more than 20 KW from project KW section
         simulationAction.dispNotificationSelectingKWMoreThanALimit(data.WarningMSgFoxMaxLimitKWAdd)
     })
-	
+
     it('AL-T105: Verify if an inline error message is displayed when all the keywords are removed an User clicks on submit button', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()        
+        simulationAction.clickGoButton()
         cy.wait(9000)
         simulationAction.clickTabInputKeywordsInSimPage()
         simulationAction.txtAddKeywordSimPage(data.multipleKeywords)
@@ -301,13 +301,13 @@ describe('As an ALPS user', () => {
         // validating the notification message when remove all and proceed simulation
         simulationAction.disperrorNotificationForEmptyKWSim(data.EmprtyKWSimNotification)
     })
-	
+
     it('AL-T106,AL-T07,AL-T08: Verify if an inline error message is displayed under ‘View Keyword Level Impact data’ on the left pane when no keywords are submitted', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()        
+        simulationAction.clickGoButton()
         cy.wait(9000)
         simulationAction.clickToggleButton()
 
@@ -320,7 +320,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()        
+        simulationAction.clickGoButton()
         cy.wait(9000)
         simulationAction.clickTabProjectKeywordInSimPage()
 
@@ -352,16 +352,17 @@ describe('As an ALPS user', () => {
         simulationAction.dispDisabledFileUpload()
 
     })
-	
-	it('AL-T215:Verify the functionality of the ‘Browse’ button in the URL & KEYWORDS Editor section’ in the non-live url flow of page simulation', () => {
+
+    it('AL-T215:Verify the functionality of the ‘Browse’ button in the URL & KEYWORDS Editor section’ in the non-live url flow of page simulation', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
-        const filepath='sample1.html'
+        const filepath = 'sample1.html'
+
         simulationAction.uploadeFileSimPageForNonLiveFlow(filepath)
         simulationAction.clickFileUpload()
-        
+
         // Uploaded File name in browser section
         simulationAction.dispUploadedHtmlFileName(filepath)
 
@@ -374,14 +375,15 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
-        const filepath='sample1.html'
+        const filepath = 'sample1.html'
+
         simulationAction.uploadeFileSimPageForNonLiveFlow(filepath)
         simulationAction.clickFileUpload()
         simulationAction.clickTabInputKeywordsInSimPage()
         simulationAction.txtAddKeywordSimPage(data.NonLiveKW)
         simulationAction.clickbuttonAddKeyword()
         simulationAction.clicksubmitButton()
-        
+
         // Content Score value in non live flow after simulation
         simulationAction.dispContentScore()
 
@@ -393,7 +395,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()        
+        simulationAction.clickGoButton()
         cy.wait(9000)
         simulationAction.clickTabInputKeywordsInSimPage()
         simulationAction.txtAddKeywordSimPage(data.keyword)
@@ -411,14 +413,14 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimURL)
-        simulationAction.clickGoButton()        
+        simulationAction.clickGoButton()
         cy.wait(9000)
         simulationAction.clickTabInputKeywordsInSimPage()
         simulationAction.txtAddKeywordSimPage(data.keyword)
         simulationAction.clickbuttonAddKeyword()
         simulationAction.clicksubmitButton()
 
-        // validation of article and tag view 
+        // validation of article and tag view
         simulationAction.dishowEditorWords()
         simulationAction.clickArticleViewToggele()
         simulationAction.shouldNotDisphowEditorWords()
@@ -431,7 +433,8 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
-        const filepath='Screenshot from 2022-01-12 19-53-10.html'
+        const filepath = 'Screenshot from 2022-01-12 19-53-10.html'
+
         simulationAction.uploadeFileSimPageForNonLiveFlow(filepath)
         cy.wait(9000)
         simulationAction.clickFileUpload()
@@ -448,12 +451,10 @@ describe('As an ALPS user', () => {
         simulationAction.clickButtonIDNotHaveLiveUrl()
         simulationAction.clickToggleButton()
 
-        // validation of article and tag view 
+        // validation of article and tag view
         simulationAction.dishowEditorWords()
         simulationAction.clickArticleViewToggele()
         simulationAction.shouldNotDisphowEditorWords()
-
-        
     })
 
     it('AL-T1320: verify are we able to see all Related KW in that section', () => {
