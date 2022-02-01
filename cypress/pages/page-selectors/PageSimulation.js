@@ -267,9 +267,9 @@ export class PageSimulation {
             simulationFailure :() => cy.contains('Simulation failed'),
             fetchKeywords : () => cy.get('#fetchKeyword_submit'),
             loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp'),
-            visibleKeyword : () => cy.get('#kw_url_checkbox_all-state-insurance'),
+            keywordSearch :() => cy.get('kw_url_project_filter_search_input'),
+            checkBoxClick : () => cy.get('input[id*=kw_url_checkbox]'),
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
-
         }
     }
 }

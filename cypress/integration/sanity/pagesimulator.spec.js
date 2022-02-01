@@ -517,6 +517,22 @@ describe('As an ALPS user', () => {
         
     })
 
+    it('AL-T1324: verify keyword is already selected from Keyword input or Project Keyword section then it should be selected in related Keywords section as well', () => {
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimURL)
+        simulationAction.clickGoButton()
+        simulationAction.clickHistoryUrlSearchBox(data.KeywordRelated)
+        simulationAction.clickFetchKeyword()
+        cy.wait(9000)
+        //select any one KW
+        simulationAction.clickCheckBox()
+        simulationAction.clickTabProjectKeywordInSimPage()
+        //Verify project Keyword section then it should be selected in related Keywords section as well
+        simulationAction.verifyKWAlreadySelected()
+    })
     it('AL-T1321: verify are we able to see all Related KW in that section', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
