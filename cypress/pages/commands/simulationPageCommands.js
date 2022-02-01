@@ -722,10 +722,6 @@ export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }
 
-export const enterRelatedKeyword = (KW) => {
-    OptimizationPage.elements.historyUrlSearchBox().clear().type(KW)
-}
-
 export const clickFetchKeywordButton = () => {
     OptimizationPage.elements.fetchKeywordButton().click()
 }
@@ -774,16 +770,9 @@ export const clickHistoryUrlSearchBox = (keyword) => {
     OptimizationPage.elements.historyUrlSearchBox().type(keyword)
 }
 
-export const clickTabKeywordSuggestion = () => {
-    OptimizationPage.elements.tabKeywordSuggestion().click()
-}
-
 export const enterRelatedKeyword = (KW) => {
-    OptimizationPage.elements.historyUrlSearchBox().clear().type(KW)
-}
-
-export const clickFetchKeywordButton = () => {
-    OptimizationPage.elements.fetchKeywordButton().click()
+    OptimizationPage.elements.historyUrlSearchBox().clear()
+    OptimizationPage.elements.historyUrlSearchBox().type(KW)
 }
 
 export const verifyFetchKwBtnEnable = () => {

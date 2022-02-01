@@ -504,32 +504,32 @@ describe('As an ALPS user', () => {
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
         simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
-        simulationAction.clickFetchKeyword()
+        simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
 
         // validation of keywords are available or not
         simulationAction.verifyCountKeyword()
     })
 
-    it('AL-T1320: verify are we able to see all Related KW in that section', () => {
+    it('AL-T1320: verify are we able to see all Related KW in that section for non-live flow', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
         simulationAction.clickSearchBox(data.NonLiveKW)
-        simulationAction.clickFetchKeywords()
+        simulationAction.clickFetchKeywordButton
         simulationAction.verifyLoaderKW()
         
     })
 
-    it('AL-T1321: verify are we able to see all Related KW in that section', () => {
+    it('AL-T1321: verify are we able to see all Related KW in that section for live flow', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.optimizationurl)
         simulationAction.clickGoButton()
         simulationAction.clickSearchBox(data.NonLiveKW)
-        simulationAction.clickFetchKeywords()
+        simulationAction.clickFetchKeywordButton()
         
         //verify the related keyword visible on page simulation
         simulationAction.verifyCountKeyword()
@@ -553,7 +553,8 @@ describe('As an ALPS user', () => {
         
   
     })
-    it('AL-T1323: Verify the limit for selecting keywords', () => {
+
+    it('AL-T1323: Verify the limit for selecting keywords for live flow', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -561,6 +562,23 @@ describe('As an ALPS user', () => {
         simulationAction.clickGoButton()
         simulationAction.clickTabKeywordSuggestion()
         simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.maxCheckbox)
+        simulationAction.clickSelectAllKeyword()
+
+        //validation the notification message for selection more than 20 KW
+        simulationAction.verifyCheckboxSelection(data.maxCheckbox)
+        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
+    })
+
+    it('AL-T1335: Verify the limit for selecting keywords for non-live flow', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.NonLiveKW)
         simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
         simulationAction.clickRelatedCheckbox(data.maxCheckbox)
