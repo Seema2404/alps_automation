@@ -493,6 +493,21 @@ describe('As an ALPS user', () => {
         simulationAction.verifyLoaderKW()
         
     })
+        
+    it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        projectAction.clickProjectNavTitle()
+        projectAction.clickChangeProjectTab()
+        projectAction.enterProjectNameToSearch(data.project)
+        projectAction.clickGoToDashboard()
+        projectAction.clickApplyFilter()
+        projectAction.clickAlpsLogo()
+        cy.wait(9000)
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.project)
+    
+    })
 
     it('AL-T1323: Verify the limit for selecting keywords', () => {
         loginAction.clickAlpsLogo()
@@ -510,20 +525,5 @@ describe('As an ALPS user', () => {
         //validatation of related KW is selected
         simulationAction.verifyCheckboxSelection()
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
-    })
-        
-    it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
-        cy.loginUser()
-        loginAction.clickAlpsLogo()
-        projectAction.clickProjectNavTitle()
-        projectAction.clickChangeProjectTab()
-        projectAction.enterProjectNameToSearch(data.project)
-        projectAction.clickGoToDashboard()
-        projectAction.clickApplyFilter()
-        projectAction.clickAlpsLogo()
-        cy.wait(9000)
-        //verify project changed with 'no KW'
-        projectAction.verifyChangedProject(data.project)
-    
     })
 })
