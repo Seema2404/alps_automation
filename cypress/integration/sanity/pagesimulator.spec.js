@@ -514,6 +514,7 @@ describe('As an ALPS user', () => {
         projectAction.enterProjectNameToSearch(data.project)
         projectAction.clickGoToDashboard()
         projectAction.clickApplyFilter()
+        cy.wait(5000)
         projectAction.clickAlpsLogo()
         cy.wait(9000)
         //verify project changed with 'no KW'
