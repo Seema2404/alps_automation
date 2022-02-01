@@ -468,7 +468,6 @@ describe('As an ALPS user', () => {
         projectAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
-        simulationAction.verifyPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
         cy.wait(9000)

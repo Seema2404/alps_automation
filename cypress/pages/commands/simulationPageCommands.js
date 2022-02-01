@@ -719,9 +719,6 @@ export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }
 
-export const verifyPageSimulation = () => {
-    OptimizationPage.elements.pageSimulation().should('be.visible')
-}
 export const NoKWFoundMessage = (NoKWFound) => {
     OptimizationPage.elements.NoKeywordsFound().should('be.visible')
     OptimizationPage.elements.NoKeywordsFound().then(function(msg){
