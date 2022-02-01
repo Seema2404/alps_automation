@@ -457,7 +457,7 @@ describe('As an ALPS user', () => {
         simulationAction.shouldNotDisphowEditorWords()
 
     })
-
+    
     it('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
         loginAction.clickAlpsLogo()
         kgaAction.enterKeyword(data.SimulationKeyword)
@@ -467,6 +467,29 @@ describe('As an ALPS user', () => {
         kgaSerpAction.clickSerpPageSimulation()
         simulationAction.clickTabProjectKeywordInSimPage()
         //incomplete test case because bug reorted
+    })
+
+    it('AL-T141: Verify Themes section in the select kw from project list when we do not have any themes', () => {
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        projectAction.clickProjectNavTitle()
+        projectAction.clickChangeProjectTab()
+        projectAction.enterProjectNameToSearch(data.projectName)
+        projectAction.clickGoToDashboard()
+        cy.wait(9000)
+        projectAction.clickAlpsLogo()
+        cy.wait(9000)
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.projectName)
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        cy.wait(9000)
+        simulationAction.clickTabProjectKeywordInSimPage()
+        simulationAction.clickThemeSimulation()
+        //verify no theme available in page simulation page
+        simulationAction.dispInlineNoTheme()
     })
 
     it('AL-T1319: verify the related kw In simulation page only for Live flow', () => {
@@ -502,6 +525,7 @@ describe('As an ALPS user', () => {
         projectAction.enterProjectNameToSearch(data.project)
         projectAction.clickGoToDashboard()
         projectAction.clickApplyFilter()
+        cy.wait(5000)
         projectAction.clickAlpsLogo()
         cy.wait(9000)
         //verify project changed with 'no KW'
