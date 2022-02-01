@@ -728,6 +728,10 @@ export const clickFetchKeyword = () => {
     OptimizationPage.elements.fetchKeyword().click()
 }
 
+export const DisablefetchKeywordButton = () => {
+    OptimizationPage.elements.fetchKeywordButton().should('not.be.visible')
+}
+
 export const verifyCountKeyword = () => {
     const keywordlist=[]
     OptimizationPage.elements.countKeyword().each((item, index, list) => {

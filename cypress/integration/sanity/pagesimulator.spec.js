@@ -492,4 +492,13 @@ describe('As an ALPS user', () => {
         simulationAction.verifyLoaderKW()
         
     })
+
+    it('AL-T1328: verify the behaviour of Fetch keyword button', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.DisablefetchKeywordButton()
+    })
 })

@@ -126,6 +126,7 @@ export class PageSimulation {
             contentScoreValue : () => cy.get('#sim_left_pane_Content_tab_title_score_value-hyphen'),
             howEditorWords : () => cy.contains('How the editor works'),
             fetchKeyword : () => cy.get('#fetchKeyword_submit'),
+            fetchKeywordButton : () => cy.get('#fetchKeyword_submit_button'),
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
             contentBodySim : () => cy.get('.ql-editor'),
             simulationFailure :() => cy.contains('Simulation failed'),
