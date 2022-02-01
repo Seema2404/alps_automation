@@ -493,7 +493,7 @@ describe('As an ALPS user', () => {
         
     })
 
-    it.only('AL-T1324: verify keyword is already selected from Keyword input or Project Keyword section then it should be selected in related Keywords section as well', () => {
+    it('AL-T1324: verify keyword is already selected from Keyword input or Project Keyword section then it should be selected in related Keywords section as well', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -505,6 +505,7 @@ describe('As an ALPS user', () => {
         //select any one KW
         simulationAction.clickCheckBox()
         simulationAction.clickTabProjectKeywordInSimPage()
+        //Verify project Keyword section then it should be selected in related Keywords section as well
         simulationAction.verifyKWAlreadySelected()
         
     })
