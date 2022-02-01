@@ -267,7 +267,7 @@ export class PageSimulation {
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
             contentBodySim : () => cy.get('.ql-editor'),
             simulationFailure :() => cy.contains('Simulation failed'),
-            loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp'),
+            loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp',{timeout : 60000}),
             keywordSearch :() => cy.get('kw_url_project_filter_search_input'),
             checkBoxClick : () => cy.get('input[id*=kw_url_checkbox]'),
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
