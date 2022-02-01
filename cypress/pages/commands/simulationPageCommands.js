@@ -719,6 +719,13 @@ export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }
 
+export const NoKWFoundMessage = (NoKWFound) => {
+    OptimizationPage.elements.NoKeywordsFound().should('be.visible')
+    OptimizationPage.elements.NoKeywordsFound().then(function(msg){
+        let disMsg =msg.text();
+        expect(NoKWFound).to.equals(disMsg)
+    })
+}
 export const clickHistoryUrlSearchBox = (keyword) => {
     OptimizationPage.elements.historyUrlSearchBox().clear()
     OptimizationPage.elements.historyUrlSearchBox().type(keyword)
