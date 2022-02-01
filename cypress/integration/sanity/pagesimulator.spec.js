@@ -543,16 +543,9 @@ describe('As an ALPS user', () => {
         cy.wait(9000)
         //verify project changed with 'no KW'
         projectAction.verifyChangedProject(data.project)
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        simulationAction.clickTabProjectKeywordInSimPage()
-
-        //validation of No Keyword found message
-        simulationAction.NoKWFoundMessage(data.NoKWFoundMsg)
+    
     })
-        
+
     it('AL-T1322: Verify relative KW should able to select for the simulation', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -569,5 +562,22 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCheckboxSelection(data.NoOfCheckbox)
         
   
+    })
+    it('AL-T1323: Verify the limit for selecting keywords', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.maxCheckbox)
+        simulationAction.clickSelectAllKeyword()
+
+        //validation the notification message for selection more than 20 KW
+        simulationAction.verifyCheckboxSelection(data.maxCheckbox)
+        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
     })
 })

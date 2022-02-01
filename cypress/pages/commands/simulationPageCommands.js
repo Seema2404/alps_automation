@@ -694,7 +694,6 @@ export const dispFileUpload = () => {
     OptimizationPage.elements.FileUpload().should('be.visible')
 }
 
-
 export const uploadeFileSimPageForNonLiveFlow = (filepath) => {
     OptimizationPage.elements.BrowserButton().attachFile(filepath)
 }
@@ -710,7 +709,6 @@ export const waitForLoaderToDisappear = () => {
 export const dispDisabledFileUpload = () => {
     OptimizationPage.elements.FileUpload().should('be.disabled')
 }
-
 
 export const clickDownloadButton = () => {
     Simulation.elements.downloadButton().click()
@@ -740,11 +738,17 @@ export const clickRelatedCheckbox = (noOfcheckbox) => {
             if(index < noOfcheckbox) {
                 OptimizationPage.elements.relatedCheckbox().eq(index).click({force:true})
             }
-            else{
-                break;
-            }
         }
     })
+}
+
+export const clickSelectAllKeyword = () => {
+    OptimizationPage.elements.selectAllKeyword().click({force : true})
+}
+
+export const verifyLimitKeyword = (limit) => {
+    OptimizationPage.elements.keywordLimitError().should('be.visible')
+    OptimizationPage.elements.keywordLimitError().contains(limit)
 }
 
 export const verifyCheckboxSelection = (noOfcheckbox) => {
@@ -754,9 +758,6 @@ export const verifyCheckboxSelection = (noOfcheckbox) => {
             
             if(index < noOfcheckbox) {
                 OptimizationPage.elements.relatedCheckbox().eq(index).should('be.checked')
-            }
-            else{
-                break;
             }
         }
     })

@@ -30,6 +30,8 @@
 	"NonLiveKW" : "allstate",
 	"NotificationInvalidFileUpload" : "As this is not a HTML file content, please upload a valid file to proceed",
 	"NoOfCheckbox" : "5",
+	"maxCheckbox" : "24",
+	"RelatedKWLimit" : "Unable to add keyword as the limit is 20 keyword. Please try again by reducing the keyword(s)",
 	"project" : "Iquanti-Test",
 	"NoKWFoundMsg" : "No Keywords Found",
 	"projectName" : "test-3",
