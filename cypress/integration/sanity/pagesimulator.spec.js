@@ -518,6 +518,7 @@ describe('As an ALPS user', () => {
     })
 
     it('AL-T1324: verify keyword is already selected from Keyword input or Project Keyword section then it should be selected in related Keywords section as well', () => {
+        cy.loginUser()
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
