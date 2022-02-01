@@ -29,6 +29,7 @@
 	"SimURL" : "https://www.allstate.com",
 	"NonLiveKW" : "allstate",
 	"NotificationInvalidFileUpload" : "As this is not a HTML file content, please upload a valid file to proceed",
+	"NoOfCheckbox" : "5",
 	"project" : "Iquanti-Test",
 	"NoKWFoundMsg" : "No Keywords Found",
 	"projectName" : "test-3",
