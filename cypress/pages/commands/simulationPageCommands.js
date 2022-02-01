@@ -1,6 +1,7 @@
 import { Simulation } from '../page-selectors/SimulationPage'
 import { OptimizationPage } from '../page-selectors/PageSimulation'
 import exp from 'constants'
+import { clear } from 'console'
 
 export const enterKeyword = (editortext) => {
     Simulation.elements.editorBodyText().clear()
@@ -320,6 +321,10 @@ export const clickTabInputKeywordsInSimPage = () => {
 
 export const clickTabProjectKeywordInSimPage = () => {
     OptimizationPage.elements.tabProjectKeyword().click()
+}
+
+export const clickTabKeywordSuggestion = () => {
+    OptimizationPage.elements.tabKeywordSuggestion().click()
 }
 
 export const clickThemeSimulation = () => {
@@ -689,7 +694,6 @@ export const dispFileUpload = () => {
     OptimizationPage.elements.FileUpload().should('be.visible')
 }
 
-
 export const uploadeFileSimPageForNonLiveFlow = (filepath) => {
     OptimizationPage.elements.BrowserButton().attachFile(filepath)
 }
@@ -706,7 +710,6 @@ export const dispDisabledFileUpload = () => {
     OptimizationPage.elements.FileUpload().should('be.disabled')
 }
 
-
 export const clickDownloadButton = () => {
     Simulation.elements.downloadButton().click()
 }
@@ -719,6 +722,46 @@ export const fileUploadToNonLiveFlow = (FilePath) => {
     OptimizationPage.elements.BrowserButton().attachFile(FilePath)
 }
 
+export const enterRelatedKeyword = (KW) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear().type(KW)
+}
+
+export const clickFetchKeywordButton = () => {
+    OptimizationPage.elements.fetchKeywordButton().click()
+}
+
+export const clickRelatedCheckbox = (noOfcheckbox) => {
+    
+    OptimizationPage.elements.relatedCheckbox().then(($ele) => {
+        for (let index = 0; index < $ele.length; index++) {
+
+            if(index < noOfcheckbox) {
+                OptimizationPage.elements.relatedCheckbox().eq(index).click({force:true})
+            }
+        }
+    })
+}
+
+export const clickSelectAllKeyword = () => {
+    OptimizationPage.elements.selectAllKeyword().click({force : true})
+}
+
+export const verifyLimitKeyword = (limit) => {
+    OptimizationPage.elements.keywordLimitError().should('be.visible')
+    OptimizationPage.elements.keywordLimitError().contains(limit)
+}
+
+export const verifyCheckboxSelection = (noOfcheckbox) => {
+
+    OptimizationPage.elements.relatedCheckbox().then(($ele) => {
+        for (let index = 0; index < $ele.length; index++){
+            
+            if(index < noOfcheckbox) {
+                OptimizationPage.elements.relatedCheckbox().eq(index).should('be.checked')
+            }
+        }
+    })
+} 
 export const NoKWFoundMessage = (NoKWFound) => {
     OptimizationPage.elements.NoKeywordsFound().should('be.visible')
     OptimizationPage.elements.NoKeywordsFound().then(function(msg){
@@ -766,4 +809,12 @@ export const clickSearchBox = (kw) => {
 
 export const verifyLoaderKW = () => {
     OptimizationPage.elements.loaderKW().should('be.visible')
+}
+
+export const clickCheckBox = () => {
+    OptimizationPage.elements.checkBoxClick().first().click({force:true})
+}
+
+export const verifyKWAlreadySelected = () =>{
+    OptimizationPage.elements.checkBoxClick().first().should('be.checked')
 }

@@ -71,6 +71,27 @@ describe('As an ALPS user', () => {
         simulationAction.validateErrorNotificationForInvalidURL()
     })
 
+    it('AL-T53 : Verify the behaviour of Filter button when user lands on simulation page for Technical Parameters', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickToggleButton()
+        simulationAction.clickTabtechnical()
+
+        // Assertion validation
+        simulationAction.dispHeadingContentOptimalUsageHtmlAttributes()
+
+        // Assertion validation
+        cy.wait(1000)
+        simulationAction.clickTabAuth()
+        simulationAction.clickTabtechnical()
+        simulationAction.uncheckFilterHighInTechParameter()
+        simulationAction.uncheckFilterLowIntechParameter()
+        simulationAction.dispNoneHeadingContentOptimalUsageHtmlAttributes()
+    })
+
     it('AL-T59 : Verify the default selected Sort field on page when user lands on page', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -114,27 +135,6 @@ describe('As an ALPS user', () => {
 
         // validating the updated URL which is added in sim page heading
         simulationAction.dispSimpage(data.simHeadingValidationURl)
-    })
-
-    it('AL-T53 : Verify the behaviour of Filter button when user lands on simulation page for Technical Parameters', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        simulationAction.clickToggleButton()
-        simulationAction.clickTabtechnical()
-
-        // Assertion validation
-        simulationAction.dispHeadingContentOptimalUsageHtmlAttributes()
-
-        // Assertion validation
-        cy.wait(1000)
-        simulationAction.clickTabAuth()
-        simulationAction.clickTabtechnical()
-        simulationAction.uncheckFilterHighInTechParameter()
-        simulationAction.uncheckFilterLowIntechParameter()
-        simulationAction.dispNoneHeadingContentOptimalUsageHtmlAttributes()
     })
 
     it('AL-T66: Verify the keywords text fields', () => {
@@ -198,38 +198,6 @@ describe('As an ALPS user', () => {
 
         // validating the empty KW simulation Notification message.
         simulationAction.dispNotifyMsgForEmptyKWProceed(data.NoftificationErrorMSgForEmptyKWSim)
-    })
-
-    it('AL-T227: Verify the visibility of download icon', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        simulationAction.clickTabInputKeywords()
-        simulationAction.enterAddKeyword(data.SimulationKeyword)
-        simulationAction.clickAddKeywordButton()
-        simulationAction.clicksubmitButton()
-
-        // validating the download button.
-        simulationAction.verifyDownloadButton()
-    })
-
-    it('AL-T228: Verify the functionality of download icon when all the keywords are processed', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        simulationAction.clickTabInputKeywords()
-        simulationAction.enterAddKeyword(data.SimulationKeyword)
-        simulationAction.clickAddKeywordButton()
-        simulationAction.clicksubmitButton()
-        simulationAction.verifyDownloadButton()
-        simulationAction.clickDownloadButton()
-
-        // validating the downloaded file.
-        simulationAction.verifyDownloadedFile(data.SimulationDownloadedFile)
     })
 
     it('AL-T101:Verify the validation on the keywords text box in the blue accordian section when User tries to enter duplicate keywords', () => {
@@ -297,7 +265,6 @@ describe('As an ALPS user', () => {
         simulationAction.clickRemoveAll()
         simulationAction.clicksubmitButton()
 
-
         // validating the notification message when remove all and proceed simulation
         simulationAction.disperrorNotificationForEmptyKWSim(data.NoftificationErrorMSgForEmptyKWSim)
     })
@@ -328,6 +295,55 @@ describe('As an ALPS user', () => {
         simulationAction.verifySearchVolumeSection()
     })
 	
+    it('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.SimulationKeyword)
+        kgaAction.enterURL(data.SimulationUrl)
+        kgaAction.clickGo()
+        cy.wait(9000)
+        kgaSerpAction.clickSerpPageSimulation()
+        simulationAction.clickTabProjectKeywordInSimPage()
+        //incomplete test case because bug reorted
+    })
+
+    it('AL-T141: Verify Themes section in the select kw from project list when we do not have any themes', () => {
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        projectAction.clickProjectNavTitle()
+        projectAction.clickChangeProjectTab()
+        projectAction.enterProjectNameToSearch(data.projectName)
+        projectAction.clickGoToDashboard()
+        cy.wait(9000)
+        projectAction.clickAlpsLogo()
+        cy.wait(9000)
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.projectName)
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        cy.wait(9000)
+        simulationAction.clickTabProjectKeywordInSimPage()
+        simulationAction.clickThemeSimulation()
+        //verify no theme available in page simulation page
+        simulationAction.dispInlineNoTheme()
+    })
+
+    it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        projectAction.clickProjectNavTitle()
+        projectAction.clickChangeProjectTab()
+        projectAction.enterProjectNameToSearch(data.project)
+        projectAction.clickGoToDashboard()
+        projectAction.clickApplyFilter()
+        cy.wait(5000)
+        projectAction.clickAlpsLogo()
+        cy.wait(9000)
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.project)
+    
+    })
 
     it('AL-T214:Verify the presence of the ‘Upload file’ textbox in the URL & KEYWORDS Editor section’ of the non-live url flow of page simulation', () => {
         loginAction.clickAlpsLogo()
@@ -338,18 +354,6 @@ describe('As an ALPS user', () => {
         // validating the browser and upload button
         simulationAction.dispFileUpload()
         simulationAction.dispBrowserButton()
-
-    })
-	
-
-    it('AL-T219:Verify upload button should be disabled state when user try to click on that with out selecting any file.', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.clickButtonIDNotHaveLiveUrl()
-
-        // Functinality Assertion
-        simulationAction.dispDisabledFileUpload()
 
     })
 
@@ -365,8 +369,16 @@ describe('As an ALPS user', () => {
 
         // Uploaded File name in browser section
         simulationAction.dispUploadedHtmlFileName(filepath)
+    })
 
+    it('AL-T219:Verify upload button should be disabled state when user try to click on that with out selecting any file.', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
 
+        // Functinality Assertion
+        simulationAction.dispDisabledFileUpload()
 
     })
 
@@ -389,6 +401,37 @@ describe('As an ALPS user', () => {
 
     })
 
+    it('AL-T227: Verify the visibility of download icon', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywords()
+        simulationAction.enterAddKeyword(data.SimulationKeyword)
+        simulationAction.clickAddKeywordButton()
+        simulationAction.clicksubmitButton()
+
+        // validating the download button.
+        simulationAction.verifyDownloadButton()
+    })
+
+    it('AL-T228: Verify the functionality of download icon when all the keywords are processed', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabInputKeywords()
+        simulationAction.enterAddKeyword(data.SimulationKeyword)
+        simulationAction.clickAddKeywordButton()
+        simulationAction.clicksubmitButton()
+        simulationAction.verifyDownloadButton()
+        simulationAction.clickDownloadButton()
+
+        // validating the downloaded file.
+        simulationAction.verifyDownloadedFile(data.SimulationDownloadedFile)
+    })
 
     it('AL-T236: Verify the download icon in Zoom mode', () => {
         loginAction.clickAlpsLogo()
@@ -407,27 +450,6 @@ describe('As an ALPS user', () => {
         simulationAction.verifyDownloadButton()
     })
 
-    
-    it('AL-T236: Verify the functionality of View Switch on new editor', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimURL)
-        simulationAction.clickGoButton()
-        cy.wait(9000)
-        simulationAction.clickTabInputKeywordsInSimPage()
-        simulationAction.txtAddKeywordSimPage(data.keyword)
-        simulationAction.clickbuttonAddKeyword()
-        simulationAction.clicksubmitButton()
-
-        // validation of article and tag view
-        simulationAction.dishowEditorWords()
-        simulationAction.clickArticleViewToggele()
-        simulationAction.shouldNotDisphowEditorWords()
-
-        
-    })
-
     it('AL-T358:Verify if user uploads a non-html file as an html file on page optimizer page, error notification is displayed', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -444,6 +466,24 @@ describe('As an ALPS user', () => {
 
     })
 
+    it('AL-T509: Verify the functionality of View Switch on new editor', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimURL)
+        simulationAction.clickGoButton()
+        cy.wait(9000)
+        simulationAction.clickTabInputKeywordsInSimPage()
+        simulationAction.txtAddKeywordSimPage(data.keyword)
+        simulationAction.clickbuttonAddKeyword()
+        simulationAction.clicksubmitButton()
+
+        // validation of article and tag view
+        simulationAction.dishowEditorWords()
+        simulationAction.clickArticleViewToggele()
+        simulationAction.shouldNotDisphowEditorWords()
+    })
+    
     it('AL-T509: Verify the functionality of View Switch on new editor non live flow', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -455,18 +495,6 @@ describe('As an ALPS user', () => {
         simulationAction.dishowEditorWords()
         simulationAction.clickArticleViewToggele()
         simulationAction.shouldNotDisphowEditorWords()
-
-    })
-
-    it('AL-T137: all the keywords of a project,sorted in the descending order of search volumes by default when user clicks on “Select from Project"', () => {
-        loginAction.clickAlpsLogo()
-        kgaAction.enterKeyword(data.SimulationKeyword)
-        kgaAction.enterURL(data.SimulationUrl)
-        kgaAction.clickGo()
-        cy.wait(9000)
-        kgaSerpAction.clickSerpPageSimulation()
-        simulationAction.clickTabProjectKeywordInSimPage()
-        //incomplete test case because bug reorted
     })
 
     it('AL-T1319: verify the related kw In simulation page only for Live flow', () => {
@@ -476,7 +504,7 @@ describe('As an ALPS user', () => {
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
         simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
-        simulationAction.clickFetchKeywordButton()
+        simulationAction.clickFetchKeyword()
         cy.wait(9000)
 
         // validation of keywords are available or not
@@ -489,45 +517,57 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
         simulationAction.clickSearchBox(data.NonLiveKW)
-        simulationAction.clickFetchKeywordButton()
+        simulationAction.clickFetchKeywords()
         simulationAction.verifyLoaderKW()
         
     })
 
-    it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
-        cy.loginUser()
+    it('AL-T1321: verify are we able to see all Related KW in that section', () => {
         loginAction.clickAlpsLogo()
-        projectAction.clickProjectNavTitle()
-        projectAction.clickChangeProjectTab()
-        projectAction.enterProjectNameToSearch(data.project)
-        projectAction.clickGoToDashboard()
-        projectAction.clickApplyFilter()
-        projectAction.clickAlpsLogo()
-        cy.wait(9000)
-        //verify project changed with 'no KW'
-        projectAction.verifyChangedProject(data.project)
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
         simulationAction.clickGoButton()
-        simulationAction.clickTabProjectKeywordInSimPage()
+        simulationAction.clickSearchBox(data.NonLiveKW)
+        simulationAction.clickFetchKeywords()
+        
+        //verify the related keyword visible on page simulation
+        simulationAction.verifyCountKeyword()
 
-        //validation of No Keyword found message
-        simulationAction.NoKWFoundMessage(data.NoKWFoundMsg)
     })
-    it.only('AL-T1328: verify the behaviour of Fetch keyword button', () => {
+
+    it('AL-T1322: Verify relative KW should able to select for the simulation', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
         simulationAction.clickTabKeywordSuggestion()
-        //
-        simulationAction.verifyFetchKwBtnDisable()
         simulationAction.enterRelatedKeyword(data.SimulationKeyword)
-        simulationAction.verifyFetchKwBtnEnable()
         simulationAction.clickFetchKeywordButton()
-        simulationAction.verifyFetchKwBtnDisable()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
 
+        //validatation of related KW is selected
+        simulationAction.verifyCheckboxSelection(data.NoOfCheckbox)
+        
+  
+    })
+    it('AL-T1323: Verify the limit for selecting keywords', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.maxCheckbox)
+        simulationAction.clickSelectAllKeyword()
+
+        //validation the notification message for selection more than 20 KW
+        simulationAction.verifyCheckboxSelection(data.maxCheckbox)
+        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
     })
 })

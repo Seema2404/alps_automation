@@ -111,6 +111,7 @@ export class PageSimulation {
             kwListInSimPage :() => cy.get('*[class^="sc-eXfwOT"]'),
             tabInputKeywords : () => cy.contains('Input Keywords'),
             tabProjectKeyword : () => cy.contains('Project Keywords'),
+            tabKeywordSuggestion : () => cy.contains('Keyword Suggestions'),
             searchVolume : () => cy.contains('Search Volume'),
             selectAllFromProKW : () => cy.get('#kw_url_project_filter_select_all'),
             totalNumberOfKW :() => cy.get('#phillContainer'),
@@ -125,6 +126,13 @@ export class PageSimulation {
             getTextBrowser : () => cy.contains('Browse').contains('.html'),
             contentScoreValue : () => cy.get('#sim_left_pane_Content_tab_title_score_value-hyphen'),
             howEditorWords : () => cy.contains('How the editor works'),
+            tabKeywordSuggestion : () => cy.contains('Keyword Suggestions'),
+            fetchKeywordButton : () => cy.get('#fetchKeyword_submit'), 
+            relatedCheckbox : () => cy.get('input[id*=kw_url_checkbox]',{timeout:60000}),
+            selectAllKeyword : () => cy.get('#kw_url_project_filter_select_all'),
+            keywordLimitError : () => cy.contains('Unable to add keyword as the limit is 20 keyword. Please try again by reducing the keyword(s)'),
+            fetchKeywordButton : () => cy.get('#fetchKeyword_submit'), 
+            relatedCheckbox : () => cy.get('input[id*=kw_url_checkbox]'),
             NoKeywordsFound: () => cy.get('#kw_url_filter_no_keywords'),
             contentBodySim : () => cy.get('.ql-editor'),
             simulationFailure :() => cy.contains('Simulation failed'),
@@ -260,7 +268,9 @@ export class PageSimulation {
             contentBodySim : () => cy.get('.ql-editor'),
             simulationFailure :() => cy.contains('Simulation failed'),
             loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp'),
-
+            keywordSearch :() => cy.get('kw_url_project_filter_search_input'),
+            checkBoxClick : () => cy.get('input[id*=kw_url_checkbox]'),
+            countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
         }
     }
 }
