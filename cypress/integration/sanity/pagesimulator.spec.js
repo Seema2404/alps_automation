@@ -492,4 +492,15 @@ describe('As an ALPS user', () => {
         simulationAction.verifyLoaderKW()
         
     })
+
+    it.only('AL-T1324: verify keyword is already selected from Keyword input or Project Keyword section then it should be selected in related Keywords section as well', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickSearchBox(data.NonLiveKW)
+        simulationAction.clickFetchKeywords()
+        simulationAction.verifyLoaderKW()
+        
+    })
 })
