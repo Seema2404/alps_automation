@@ -748,3 +748,11 @@ export const clickFetchKeywords = () => {
 export const verifyLoaderKW = () => {
     OptimizationPage.elements.loaderKW().should('be.visible')
 }
+
+export const clickCheckBox = () => {
+    OptimizationPage.elements.checkBoxClick().first().click({force:true})
+}
+
+export const verifyKWAlreadySelected = () =>{
+    OptimizationPage.elements.checkBoxClick().first().should('be.checked')
+}
