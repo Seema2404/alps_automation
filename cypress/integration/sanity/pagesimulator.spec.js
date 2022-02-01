@@ -517,6 +517,7 @@ describe('As an ALPS user', () => {
         
     })
 
+   
     it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
         cy.loginUser()
         loginAction.clickAlpsLogo()
@@ -538,6 +539,23 @@ describe('As an ALPS user', () => {
 
         //validation of No Keyword found message
         simulationAction.NoKWFoundMessage(data.NoKWFoundMsg)
+    })
+        
+    it('AL-T1322: Verify relative KW should able to select for the simulation', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
 
+        //validatation of related KW is selected
+        simulationAction.verifyCheckboxSelection(data.NoOfCheckbox)
+        
+  
     })
 })
