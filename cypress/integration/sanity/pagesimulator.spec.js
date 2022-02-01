@@ -505,6 +505,8 @@ describe('As an ALPS user', () => {
         
         //verify the related keyword visible on page simulation
         simulationAction.verifyCountKeyword()
+
+    })
     it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
         cy.loginUser()
         loginAction.clickAlpsLogo()
