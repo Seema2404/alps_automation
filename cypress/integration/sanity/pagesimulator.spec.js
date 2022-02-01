@@ -465,14 +465,16 @@ describe('As an ALPS user', () => {
         projectAction.clickChangeProjectTab()
         projectAction.enterProjectNameToSearch(data.projectName)
         projectAction.clickGoToDashboard()
+        cy.wait(9000)
         projectAction.clickAlpsLogo()
+        cy.wait(9000)
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.projectName)
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
         cy.wait(9000)
-        //verify project changed with 'no KW'
-        projectAction.verifyChangedProject(data.projectName)
         simulationAction.clickTabProjectKeywordInSimPage()
         simulationAction.clickThemeSimulation()
         //verify no theme available in page simulation page
