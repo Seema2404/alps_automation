@@ -516,7 +516,20 @@ describe('As an ALPS user', () => {
         simulationAction.verifyLoaderKW()
         
     })
+
+    it('AL-T1321: verify are we able to see all Related KW in that section', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        simulationAction.clickSearchBox(data.NonLiveKW)
+        simulationAction.clickFetchKeywords()
         
+        //verify the related keyword visible on page simulation
+        simulationAction.verifyCountKeyword()
+
+    })
     it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
         cy.loginUser()
         loginAction.clickAlpsLogo()
@@ -563,7 +576,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickRelatedCheckbox(data.maxCheckbox)
         simulationAction.clickSelectAllKeyword()
 
-        //validatation of mlimit
+        //validation the notification message for selection more than 20 KW
         simulationAction.verifyCheckboxSelection(data.maxCheckbox)
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
     })
