@@ -731,12 +731,24 @@ export const clickHistoryUrlSearchBox = (keyword) => {
     OptimizationPage.elements.historyUrlSearchBox().type(keyword)
 }
 
-export const clickFetchKeyword = () => {
-    OptimizationPage.elements.fetchKeyword().click()
+export const clickTabKeywordSuggestion = () => {
+    OptimizationPage.elements.tabKeywordSuggestion().click()
 }
 
-export const DisablefetchKeywordButton = () => {
-    OptimizationPage.elements.fetchKeywordButton().should('not.be.visible')
+export const enterRelatedKeyword = (KW) => {
+    OptimizationPage.elements.historyUrlSearchBox().clear().type(KW)
+}
+
+export const clickFetchKeywordButton = () => {
+    OptimizationPage.elements.fetchKeywordButton().click()
+}
+
+export const verifyFetchKwBtnEnable = () => {
+    OptimizationPage.elements.fetchKeywordButton().should('be.visible')
+}
+
+export const verifyFetchKwBtnDisable = () => {
+    OptimizationPage.elements.fetchKeyword()
 }
 
 export const verifyCountKeyword = () => {
@@ -750,10 +762,6 @@ export const verifyCountKeyword = () => {
 export const clickSearchBox = (kw) => {
     OptimizationPage.elements.historyUrlSearchBox().clear()
     OptimizationPage.elements.historyUrlSearchBox().type(kw)
-}
-
-export const clickFetchKeywords = () => {
-    OptimizationPage.elements.fetchKeywords().click()
 }
 
 export const verifyLoaderKW = () => {

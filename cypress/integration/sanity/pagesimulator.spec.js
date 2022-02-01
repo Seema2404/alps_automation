@@ -476,7 +476,7 @@ describe('As an ALPS user', () => {
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
         simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
-        simulationAction.clickFetchKeyword()
+        simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
 
         // validation of keywords are available or not
@@ -489,7 +489,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
         simulationAction.clickSearchBox(data.NonLiveKW)
-        simulationAction.clickFetchKeywords()
+        simulationAction.clickFetchKeywordButton()
         simulationAction.verifyLoaderKW()
         
     })
@@ -515,13 +515,19 @@ describe('As an ALPS user', () => {
         //validation of No Keyword found message
         simulationAction.NoKWFoundMessage(data.NoKWFoundMsg)
     })
-    it('AL-T1328: verify the behaviour of Fetch keyword button', () => {
+    it.only('AL-T1328: verify the behaviour of Fetch keyword button', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
-        simulationAction.DisablefetchKeywordButton()
+        simulationAction.clickTabKeywordSuggestion()
+        //
+        simulationAction.verifyFetchKwBtnDisable()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.verifyFetchKwBtnEnable()
+        simulationAction.clickFetchKeywordButton()
+        simulationAction.verifyFetchKwBtnDisable()
 
     })
 })

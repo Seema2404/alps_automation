@@ -235,6 +235,7 @@ export class PageSimulation {
             sortDropdownBox: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown'),
             errorNotificationForEmptyKWSim: () => cy.get('#contentSimulation_multiKeyword_addKeyword_error'),
             kwListInSimPage: () => cy.get('*[class^="sc-eXfwOT"]'),
+            tabKeywordSuggestion : () => cy.contains('Keyword Suggestions'),
             tabInputKeywords: () => cy.contains('Input Keywords'),
             tabProjectKeyword: () => cy.contains('Project Keywords'),
             searchVolume: () => cy.contains('Search Volume'),
@@ -258,7 +259,6 @@ export class PageSimulation {
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
             contentBodySim : () => cy.get('.ql-editor'),
             simulationFailure :() => cy.contains('Simulation failed'),
-            fetchKeywords : () => cy.get('#fetchKeyword_submit'),
             loaderKW : () => cy.get('.sc-lmrgJh.jjWdRp'),
 
         }
