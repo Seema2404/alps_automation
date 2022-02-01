@@ -744,11 +744,11 @@ export const clickFetchKeywordButton = () => {
 }
 
 export const verifyFetchKwBtnEnable = () => {
-    OptimizationPage.elements.fetchKeywordButton().should('be.visible')
+    OptimizationPage.elements.fetchKeywordButton().should('not.be.disabled')
 }
 
 export const verifyFetchKwBtnDisable = () => {
-    OptimizationPage.elements.fetchKeyword()
+    OptimizationPage.elements.fetchKeywordButton().should('be.disabled')
 }
 
 export const verifyCountKeyword = () => {
