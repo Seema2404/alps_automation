@@ -145,11 +145,11 @@ describe('As an ALPS user', () => {
         simulationAction.clickGoButton()
         simulationAction.clicksubmitButton()
 
-        // validating the updated URL which is added in sim page heading
-        simulationAction.disperrorNotificationForEmptyKWSim(data.EmprtyKWSimNotification)
+        // validating when textfield added KW 
+        simulationAction.disperrorNotificationForEmptyKWSim(data.NoftificationErrorMSgForEmptyKWSim)
     })
 
-    it('AL-T67: Verify the keywords text fiels when keywords are added', () => {
+    it('AL-T67: Verify the keywords text fields when keywords are added', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -159,7 +159,7 @@ describe('As an ALPS user', () => {
         simulationAction.enterAddKeyword(data.MultipleKeywordsForSimPage)
         simulationAction.clickAddKeywordButton()
 
-        // validating the updated URL which is added in sim page heading
+        // validating when text field added multiple KW 
         simulationAction.dispKWcountInSimPage()
     })
 
@@ -185,7 +185,7 @@ describe('As an ALPS user', () => {
         simulationAction.ClickSlectNewLocale()
 
         // validating the updated Locale Notification message.
-        simulationAction.dispNotificationMessageForLocaleUpdate(data.EmprtyKWSimNotification)
+        simulationAction.dispNotificationMessageForLocaleUpdate()
     })
 
     it('AL-T100:Verify the validation on the keywords text box in the blue accordian section when no keywords are entered', () => {
@@ -299,7 +299,7 @@ describe('As an ALPS user', () => {
 
 
         // validating the notification message when remove all and proceed simulation
-        simulationAction.disperrorNotificationForEmptyKWSim(data.EmprtyKWSimNotification)
+        simulationAction.disperrorNotificationForEmptyKWSim(data.NoftificationErrorMSgForEmptyKWSim)
     })
 
     it('AL-T106,AL-T07,AL-T08: Verify if an inline error message is displayed under ‘View Keyword Level Impact data’ on the left pane when no keywords are submitted', () => {
@@ -454,14 +454,15 @@ describe('As an ALPS user', () => {
         // validation of article and tag view
         simulationAction.dishowEditorWords()
         simulationAction.clickArticleViewToggele()
-        simulationAction.shouldNotDisphowEditorWords()      
+        simulationAction.shouldNotDisphowEditorWords()
+
     })
 
     it('AL-T141: Verify Themes section in the select kw from project list when we do not have any themes', () => {
         cy.loginUser()
-        cy.wait(9000)
+        loginAction.clickAlpsLogo()
         projectAction.clickProjectNavTitle()
-        projectAction.clickChangeProject()
+        projectAction.clickChangeProjectTab()
         projectAction.enterProjectNameToSearch(data.projectName)
         projectAction.clickGoToDashboard()
         projectAction.clickAlpsLogo()
@@ -471,9 +472,59 @@ describe('As an ALPS user', () => {
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
         cy.wait(9000)
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.projectName)
         simulationAction.clickTabProjectKeywordInSimPage()
         simulationAction.clickThemeSimulation()
+        //verify no theme available in page simulation page
         simulationAction.dispInlineNoTheme()
     })
 
+    it('AL-T1319: verify the related kw In simulation page only for Live flow', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
+        simulationAction.clickFetchKeyword()
+        cy.wait(9000)
+
+        // validation of keywords are available or not
+        simulationAction.verifyCountKeyword()
+    })
+
+    it('AL-T1320: verify are we able to see all Related KW in that section', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickSearchBox(data.NonLiveKW)
+        simulationAction.clickFetchKeywords()
+        simulationAction.verifyLoaderKW()
+        
+    })
+
+    it('AL-T142: Verify if the user is able to see the message ‘No keywords found’ in the select from project section when  there are no keywords in a project', () => {
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        projectAction.clickProjectNavTitle()
+        projectAction.clickChangeProjectTab()
+        projectAction.enterProjectNameToSearch(data.project)
+        projectAction.clickGoToDashboard()
+        projectAction.clickApplyFilter()
+        projectAction.clickAlpsLogo()
+        cy.wait(9000)
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.project)
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabProjectKeywordInSimPage()
+
+        //validation of No Keyword found message
+        simulationAction.NoKWFoundMessage(data.NoKWFoundMsg)
+
+    })
 })
