@@ -610,7 +610,7 @@ describe('As an ALPS user', () => {
 
     })
 
-})
+
     it('AL-T1335: Verify the limit for selecting keywords for non-live flow', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
