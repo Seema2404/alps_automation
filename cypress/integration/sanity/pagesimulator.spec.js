@@ -499,7 +499,7 @@ describe('As an ALPS user', () => {
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
         simulationAction.clickHistoryUrlSearchBox(data.SimulationKeyword)
-        simulationAction.clickFetchKeyword()
+        simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
 
         // validation of keywords are available or not
@@ -512,7 +512,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
         simulationAction.clickSearchBox(data.NonLiveKW)
-        simulationAction.clickFetchKeywords()
+        simulationAction.clickFetchKeywordButton()
         simulationAction.verifyLoaderKW()
         
     })
@@ -525,7 +525,7 @@ describe('As an ALPS user', () => {
         simulationAction.textPageOptimizationUrl(data.SimURL)
         simulationAction.clickGoButton()
         simulationAction.clickHistoryUrlSearchBox(data.KeywordRelated)
-        simulationAction.clickFetchKeyword()
+        simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
         //select any one KW
         simulationAction.clickCheckBox()
@@ -540,7 +540,7 @@ describe('As an ALPS user', () => {
         simulationAction.textPageOptimizationUrl(data.optimizationurl)
         simulationAction.clickGoButton()
         simulationAction.clickSearchBox(data.NonLiveKW)
-        simulationAction.clickFetchKeywords()
+        simulationAction.clickFetchKeywordButton()
         
         //verify the related keyword visible on page simulation
         simulationAction.verifyCountKeyword()
@@ -610,4 +610,21 @@ describe('As an ALPS user', () => {
 
     })
 
+})
+    it('AL-T1335: Verify the limit for selecting keywords for non-live flow', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.NonLiveKW)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.maxCheckbox)
+        simulationAction.clickSelectAllKeyword()
+
+        //validation the notification message for selection more than 20 KW
+        simulationAction.verifyCheckboxSelection(data.maxCheckbox)
+        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
+    })
 })
