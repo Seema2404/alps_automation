@@ -807,3 +807,7 @@ export const clickCheckBox = () => {
 export const verifyKWAlreadySelected = () =>{
     OptimizationPage.elements.checkBoxClick().first().should('be.checked')
 }
+
+export const verifyTopicInputBox = () => {
+    OptimizationPage.elements.historyUrlSearchBox().should('be.visible')
+}

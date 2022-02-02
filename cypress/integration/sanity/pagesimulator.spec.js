@@ -612,4 +612,23 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCheckboxSelection(data.maxCheckbox)
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
     })
+
+    it('AL-T1326: verify the "topic" input box button should be visible in live or non live flow', () => {
+        //live flow
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.verifyTopicInputBox()  //verify input box
+
+        //non-live flow
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.verifyTopicInputBox() //verify input box 
+        
+    })
+
 })
