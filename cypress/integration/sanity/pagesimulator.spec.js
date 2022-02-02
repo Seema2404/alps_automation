@@ -511,13 +511,15 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCountKeyword()
     })
 
-    it('AL-T1320: verify are we able to see all Related KW in that section for non-live flow', () => {
+    it('AL-T1320: verify the loader icon when we Fetch the related KW', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
         simulationAction.clickSearchBox(data.NonLiveKW)
-        simulationAction.clickFetchKeywordButton
+        simulationAction.clickFetchKeywordButton()
+
+        //validation of the loader Icon
         simulationAction.verifyLoaderKW()
         
     })
@@ -526,9 +528,9 @@ describe('As an ALPS user', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
-        simulationAction.clickSearchBox(data.NonLiveKW)
+        simulationAction.clickSearchBox(data.SimulationKeyword)
         simulationAction.clickFetchKeywordButton()
         
         //verify the related keyword visible on page simulation
