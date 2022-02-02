@@ -270,6 +270,9 @@ export class PageSimulation {
             keywordSearch :() => cy.get('kw_url_project_filter_search_input'),
             checkBoxClick : () => cy.get('input[id*=kw_url_checkbox]'),
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
+            relevanceScoreTitle : () => cy.get('#kw_url_relevance-score_title'),
+            relevanceScoreFilter : () => cy.get('div[id="kw_url_relevance-score_title"]+div input[id*=kw_url_project_filter]')
+
         }
     }
 }

@@ -806,3 +806,15 @@ export const clickCheckBox = () => {
 export const verifyKWAlreadySelected = () =>{
     OptimizationPage.elements.checkBoxClick().first().should('be.checked')
 }
+
+export const clickRelevanceScoreTitle = () => {
+    OptimizationPage.elements.relevanceScoreTitle().click({force:true}) 
+}
+   
+export const clickRelavanceScoreFilter = () => {
+    OptimizationPage.elements.relevanceScoreFilter().then(($ele) =>{
+           for (let i = 0; i < $ele.length; i++) {
+                $ele[i].click()   
+           }
+    })
+}

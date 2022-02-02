@@ -596,4 +596,18 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCheckboxSelection(data.maxCheckbox)
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
     })
+
+    it.only('AL-T1334: verify that we are able to see the relavance score in related kw section.', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        simulationAction.clickRelevanceScoreTitle()
+        simulationAction.clickRelavanceScoreFilter()
+
+    })
+
 })
