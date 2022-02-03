@@ -135,6 +135,13 @@ export const clickReportsMenuOption = () => {
     kga.elements.reportsMenuOption().click()
 }
 
+export const verifySearchVolumeText = () => {
+    kga.elements.searchVolumeText().should('be.visible')
+}
+
+export const verifySVGIconSerpResultInfo = () => {
+    kga.elements.serpResultInfo().should('have.text', 'Keyword Planner is used to fetch default Monthly Search Volume. If the data is unavailable, we use alternate sources.')
+}
 export const clickDownloadButton = () => {
     
     kga.elements.kgaDownload().should('be.visible').click({force : true})
