@@ -46,6 +46,8 @@ export class KGAHomePage {
             kgaDownloadOption: () => cy.get('#kwAnalysis_metaInfo_downloadSerp_button'),
             kgaSvgIcon: () => cy.get('#search_vol_label_tooltip>span>svg'),
             kgaSearchVolumeText: () => cy.get('#search_vol_label_tooltip_text'),
+            pageSimulationSvgInfoIcon: () => cy.get('#mkw_related_kwd_rank_search_volume_tooltip>span>svg'),
+            pageSimulationSvgInfoText: () => cy.get('#mkw_related_kwd_rank_search_volume_tooltip_text'),
         }
     }
 }

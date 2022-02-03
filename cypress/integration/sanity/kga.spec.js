@@ -52,4 +52,14 @@ describe('As a KGA user', () => {
         kgaAction.verifyKgaSearchVolumeText()
     })
 
+    it('AL-T505:Verify the presence of info icon for SV on Simulation page inside the keyword-level impact pop-up', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.clickGo()
+        cy.wait(10000)
+        kgaAction.clickSerpSimulationButton()
+        kgaAction.verifySimulationSvgIcon()
+        kgaAction.verifyPageSimulationSvgInfoText()
+    })
 })
