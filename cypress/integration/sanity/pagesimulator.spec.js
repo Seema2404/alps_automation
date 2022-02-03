@@ -408,7 +408,7 @@ describe('As an ALPS user', () => {
     })
 
     
-    it('AL-T236: Verify the functionality of View Switch on new editor', () => {
+    it('AL-T509: Verify the functionality of View Switch on new editor for live flow', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -506,13 +506,14 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCountKeyword()
     })
 
-    it('AL-T1320: verify are we able to see all Related KW in that section', () => {
+    it('AL-T1320: verify the loader icon when we Fetch the related KW', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
         simulationAction.clickSearchBox(data.NonLiveKW)
         simulationAction.clickFetchKeywordButton()
+        //verify the loader icon
         simulationAction.verifyLoaderKW()
         
     })
@@ -597,7 +598,7 @@ describe('As an ALPS user', () => {
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
     })
 
-    it.only('AL-T1334: verify that we are able to see the relavance score in related kw section.', () => {
+    it('AL-T1334: verify that we are able to see the relavance score in related kw section.', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -605,8 +606,10 @@ describe('As an ALPS user', () => {
         simulationAction.clickGoButton()
         simulationAction.enterRelatedKeyword(data.SimulationKeyword)
         simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
         simulationAction.clickRelevanceScoreTitle()
-        simulationAction.clickRelavanceScoreFilter()
+        //verify the relevance Score Filter
+        simulationAction.clickRelavanceScoreFilterAndVerifyScores()
 
     })
 

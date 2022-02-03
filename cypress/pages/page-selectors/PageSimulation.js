@@ -272,8 +272,9 @@ export class PageSimulation {
             checkBoxClick : () => cy.get('input[id*=kw_url_checkbox]'),
             countKeyword : () => cy.get('input[id*=kw_url_checkbox]'),
             relevanceScoreTitle : () => cy.get('#kw_url_relevance-score_title'),
-            relevanceScoreFilter : () => cy.get('div[id="kw_url_relevance-score_title"]+div input[id*=kw_url_project_filter]')
-
+            relevanceScoreFilter : () => cy.get('div[id="kw_url_relevance-score_title"]+div input[id*=kw_url_project_filter]'),
+            relvanceScoreList : () => cy.get('tbody>tr>td:nth-of-type(3)'),
+            relvanceFilterText : () => cy.get('div[id="kw_url_relevance-score_title"]+div>div>label>span')
         }
     }
 }

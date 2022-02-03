@@ -812,10 +812,32 @@ export const clickRelevanceScoreTitle = () => {
     OptimizationPage.elements.relevanceScoreTitle().click({force:true}) 
 }
    
-export const clickRelavanceScoreFilter = () => {
-    OptimizationPage.elements.relevanceScoreFilter().then(($ele) =>{
-           for (let i = 0; i < $ele.length; i++) {
-                $ele[i].click()   
-           }
+export const clickRelavanceScoreFilterAndVerifyScores = () => {
+    let ScoreTxt;
+    const RelScoreList=[]
+    OptimizationPage.elements.relevanceScoreFilter().each(($ele,index) =>{
+           
+        OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})
+        OptimizationPage.elements.relvanceFilterText().eq(index).then((ScTxt) => {
+            let expectedScTxt=ScTxt.text();
+            ScoreTxt =expectedScTxt.split(' - ')
+        })
+        
+        OptimizationPage.elements.relvanceScoreList().each((score, index, list) => {
+            RelScoreList.push(score)
+        }).then(()=>{
+            let flag=false;
+            for (let index = 0; index < RelScoreList.length; index++) {
+                const ActualRelScore=parseFloat(RelScoreList[index].text())
+                if (ActualRelScore>=parseFloat(ScoreTxt[0]) && ActualRelScore<=parseFloat(ScoreTxt[1])) {
+                    flag=true;
+                    expect(flag).to.be.true
+                } else {
+                    expect(flag).to.be.true
+                }
+                
+            }    
+        }) 
+        OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})     
     })
 }
