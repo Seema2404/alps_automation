@@ -21,7 +21,7 @@ describe('As a KGA user', () => {
     afterEach(() => {
         cy.saveLocalStorage()
     })
-    it.skip('AL-T413:Verify the behavior of download button when Keyword Crawl status is 100 percent', () => {
+    it('AL-T413:Verify the behavior of download button when Keyword Crawl status is 100 percent', () => {
         loginAction.clickAlpsLogo()
         kgaAction.enterURL(data.kgaURL)
         kgaAction.enterKeyword(data.kgaKeyword)
@@ -31,13 +31,13 @@ describe('As a KGA user', () => {
         kgaAction.clickDownloadButton()
     })
 
-    it('AL-T503:Verify the presence of info icon for SV on Serp page', () =>{
+    it.only('AL-T503:Verify the presence of info icon for SV on Serp page', () =>{
         loginAction.clickAlpsLogo()
         kgaAction.enterURL(data.kgaURL)
         kgaAction.enterKeyword(data.kgaKeyword)
         kgaAction.clickGo()
         cy.wait(10000)
         kgaAction.verifySearchVolumeText()
-        
+        kgaAction.verifySVGIcon()
     })
 })

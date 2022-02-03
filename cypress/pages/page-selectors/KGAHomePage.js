@@ -41,6 +41,7 @@ export class KGAHomePage {
             reportsMenuOption: () => cy.get('nav a').contains('REPORTS'),
             searchVolumeText: () => cy.get('#serpResult_resultInfo_searchVolume_title'),
             svgIcon: () => cy.get('#serpResult_resultInfo_searchVolume_title__tooltip>span>svg'),
+            serpResultInfo: () => cy.get('#serpResult_resultInfo_searchVolume_title__tooltip_text'),
         }
     }
 }

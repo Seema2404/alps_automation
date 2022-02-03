@@ -12,7 +12,8 @@
         ],
         "types": [
             "cypress",
-            "node"
+            "node",
+            "cypress-real-events"
         ],
         "allowJs": true,
         "skipLibCheck": true,

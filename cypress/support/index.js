@@ -1,5 +1,5 @@
 // / <reference types="cypress-xpath" />
-
+import "cypress-real-events/support";
 import addContext from 'mochawesome/addContext'
 
 require('cypress-xpath')

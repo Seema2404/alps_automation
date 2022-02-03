@@ -141,4 +141,6 @@ export const verifySearchVolumeText = () => {
 
 export const verifySVGIcon = () => {
     kga.elements.svgIcon().should('be.visible')
+    kga.elements.svgIcon().trigger('mousemove',{ clientX: 139, clientY: 79})
+    kga.elements.serpResultInfo().should('be.visible').wait(3000)
 }
