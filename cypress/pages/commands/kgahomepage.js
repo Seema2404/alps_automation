@@ -139,10 +139,8 @@ export const verifySearchVolumeText = () => {
     kga.elements.searchVolumeText().should('be.visible')
 }
 
-export const verifySVGIcon = () => {
-    kga.elements.svgIcon().should('be.visible')
-    kga.elements.svgIcon().trigger('mousemove',{ clientX: 139, clientY: 79})
-    kga.elements.serpResultInfo().should('be.visible').wait(3000)
+export const verifySVGIconSerpResultInfo = () => {
+    kga.elements.serpResultInfo().should('have.text', 'Keyword Planner is used to fetch default Monthly Search Volume. If the data is unavailable, we use alternate sources.')
 }
 export const clickDownloadButton = () => {
     

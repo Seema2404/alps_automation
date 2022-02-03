@@ -31,13 +31,13 @@ describe('As a KGA user', () => {
         kgaAction.clickDownloadButton()
     })
 
-    it.only('AL-T503:Verify the presence of info icon for SV on Serp page', () =>{
+    it('AL-T503:Verify the presence of info icon for SV on Serp page', () =>{
         loginAction.clickAlpsLogo()
         kgaAction.enterURL(data.kgaURL)
         kgaAction.enterKeyword(data.kgaKeyword)
         kgaAction.clickGo()
         cy.wait(10000)
         kgaAction.verifySearchVolumeText()
-        kgaAction.verifySVGIcon()
+        kgaAction.verifySVGIconSerpResultInfo()
     })
 })
