@@ -43,7 +43,9 @@ export class KGAHomePage {
             svgIcon: () => cy.get('#serpResult_resultInfo_searchVolume_title__tooltip>span>svg'),
             serpResultInfo: () => cy.get('#serpResult_resultInfo_searchVolume_title__tooltip_text'),
             kgaDownload: () => cy.get('.fright.download_right_container>i',{ timeout: 60000 }),
-            kgaDownloadOption: () => cy.get('#kwAnalysis_metaInfo_downloadSerp_button')
+            kgaDownloadOption: () => cy.get('#kwAnalysis_metaInfo_downloadSerp_button'),
+            kgaSvgIcon: () => cy.get('#search_vol_label_tooltip>span>svg'),
+            kgaSearchVolumeText: () => cy.get('#search_vol_label_tooltip_text'),
         }
     }
 }

@@ -40,4 +40,16 @@ describe('As a KGA user', () => {
         kgaAction.verifySearchVolumeText()
         kgaAction.verifySVGIconSerpResultInfo()
     })
+
+    it('AL-T504:Verify the presence of info icon for SV on KGA page', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.clickGo()
+        cy.wait(10000)
+        kgaAction.clickSerpKgaButton()
+        kgaAction.verifyKgaSvgIcon()
+        kgaAction.verifyKgaSearchVolumeText()
+    })
+
 })

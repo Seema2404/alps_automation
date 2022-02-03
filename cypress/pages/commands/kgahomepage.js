@@ -148,3 +148,11 @@ export const clickDownloadButton = () => {
     kga.elements.kgaDownloadOption().click({force : true})
     cy.verifyDownload('serp_layout.csv')
 }
+
+export const verifyKgaSvgIcon = () => {
+    kga.elements.kgaSvgIcon().should('be.visible')
+}
+
+export const verifyKgaSearchVolumeText = () => {
+    kga.elements.kgaSearchVolumeText().should('have.text', 'Keyword Planner is used to fetch default Monthly Search Volume. If the data is unavailable, we use alternate sources.')
+}
