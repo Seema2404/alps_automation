@@ -647,6 +647,7 @@ describe('As an ALPS user', () => {
         //validation the notification message for selection more than 20 KW
         simulationAction.verifyCheckboxSelection(data.maxCheckbox)
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
+        
     })
     
 })
