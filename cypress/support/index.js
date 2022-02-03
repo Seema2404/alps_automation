@@ -1,6 +1,7 @@
 // / <reference types="cypress-xpath" />
 import "cypress-real-events/support";
 import addContext from 'mochawesome/addContext'
+require('cy-verify-downloads').addCustomCommand();
 
 require('cypress-xpath')
 

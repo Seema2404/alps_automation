@@ -37,7 +37,11 @@ export const validateHomepage = () => {
 }
 
 export const clickAlpsLogo =() => {
-
     login.elements.logo().click({force: true})
+}
+
+export const TxtBoxKeywordLandingPage = (Keyword) => {
+    login.elements.kwLandingPage().clear()
+    login.elements.kwLandingPage().type(Keyword)
 
 }

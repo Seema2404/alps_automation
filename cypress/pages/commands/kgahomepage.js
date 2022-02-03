@@ -144,3 +144,9 @@ export const verifySVGIcon = () => {
     kga.elements.svgIcon().trigger('mousemove',{ clientX: 139, clientY: 79})
     kga.elements.serpResultInfo().should('be.visible').wait(3000)
 }
+export const clickDownloadButton = () => {
+    
+    kga.elements.kgaDownload().should('be.visible').click({force : true})
+    kga.elements.kgaDownloadOption().click({force : true})
+    cy.verifyDownload('serp_layout.csv')
+}
