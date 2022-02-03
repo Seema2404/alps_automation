@@ -134,3 +134,11 @@ export const clickOpMenuOption = () => {
 export const clickReportsMenuOption = () => {
     kga.elements.reportsMenuOption().click()
 }
+
+export const verifySearchVolumeText = () => {
+    kga.elements.searchVolumeText().should('be.visible')
+}
+
+export const verifySVGIcon = () => {
+    kga.elements.svgIcon().should('be.visible')
+}
