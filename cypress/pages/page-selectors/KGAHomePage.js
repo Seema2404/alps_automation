@@ -38,7 +38,9 @@ export class KGAHomePage {
             projectTab: () => cy.get('#logo + div nav div').contains('PROJECT'),
             auditsMenuOption: () => cy.get('nav a').contains('AUDITS'),
             opMenuOption: () => cy.get('nav a').contains('OPPORTUNITY PLANNING'),
-            reportsMenuOption: () => cy.get('nav a').contains('REPORTS')
+            reportsMenuOption: () => cy.get('nav a').contains('REPORTS'),
+            kgaDownload: () => cy.get('.fright.download_right_container>i',{ timeout: 60000 }),
+            kgaDownloadOption: () => cy.get('#kwAnalysis_metaInfo_downloadSerp_button')
         }
     }
 }
