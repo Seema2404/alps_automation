@@ -808,6 +808,39 @@ export const verifyKWAlreadySelected = () =>{
     OptimizationPage.elements.checkBoxClick().first().should('be.checked')
 }
 
+export const clickRelevanceScoreTitle = () => {
+    OptimizationPage.elements.relevanceScoreTitle().click({force:true}) 
+}
+   
+export const clickRelavanceScoreFilterAndVerifyScores = () => {
+    let ScoreTxt;
+    const RelScoreList=[]
+    OptimizationPage.elements.relevanceScoreFilter().each(($ele,index) =>{
+           
+        OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})
+        OptimizationPage.elements.relvanceFilterText().eq(index).then((ScTxt) => {
+            let expectedScTxt=ScTxt.text();
+            ScoreTxt =expectedScTxt.split(' - ')
+        })
+        
+        OptimizationPage.elements.relvanceScoreList().each((score, index, list) => {
+            RelScoreList.push(score)
+        }).then(()=>{
+            let flag=false;
+            for (let index = 0; index < RelScoreList.length; index++) {
+                const ActualRelScore=parseFloat(RelScoreList[index].text())
+                if (ActualRelScore>=parseFloat(ScoreTxt[0]) && ActualRelScore<=parseFloat(ScoreTxt[1])) {
+                    flag=true;
+                    expect(flag).to.be.true
+                } else {
+                    expect(flag).to.be.true
+                }
+                
+            }    
+        }) 
+        OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})     
+    })
+}
 export const verifyTopicInputBox = () => {
     OptimizationPage.elements.historyUrlSearchBox().should('be.visible')
 }

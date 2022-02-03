@@ -408,7 +408,7 @@ describe('As an ALPS user', () => {
     })
 
     
-    it('AL-T236: Verify the functionality of View Switch on new editor', () => {
+    it('AL-T509: Verify the functionality of View Switch on new editor for live flow', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -506,13 +506,14 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCountKeyword()
     })
 
-    it('AL-T1320: verify are we able to see all Related KW in that section', () => {
+    it('AL-T1320: verify the loader icon when we Fetch the related KW', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.clickButtonIDNotHaveLiveUrl()
         simulationAction.clickSearchBox(data.NonLiveKW)
         simulationAction.clickFetchKeywordButton()
+        //verify the loader icon
         simulationAction.verifyLoaderKW()
         
     })
@@ -596,22 +597,6 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCheckboxSelection(data.maxCheckbox)
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
     })
-    it('AL-T1335: Verify the limit for selecting keywords for non-live flow', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.clickButtonIDNotHaveLiveUrl()
-        simulationAction.clickTabKeywordSuggestion()
-        simulationAction.enterRelatedKeyword(data.NonLiveKW)
-        simulationAction.clickFetchKeywordButton()
-        cy.wait(9000)
-        simulationAction.clickRelatedCheckbox(data.maxCheckbox)
-        simulationAction.clickSelectAllKeyword()
-
-        //validation the notification message for selection more than 20 KW
-        simulationAction.verifyCheckboxSelection(data.maxCheckbox)
-        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
-    })
 
     it('AL-T1326: verify the "topic" input box button should be visible in live or non live flow', () => {
         //live flow
@@ -631,4 +616,38 @@ describe('As an ALPS user', () => {
         
     })
 
+    it('AL-T1334: verify that we are able to see the relavance score in related kw section.', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelevanceScoreTitle()
+        //verify the relevance Score Filter
+        simulationAction.clickRelavanceScoreFilterAndVerifyScores()
+
+    })
+
+
+    it('AL-T1335: Verify the limit for selecting keywords for non-live flow', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickButtonIDNotHaveLiveUrl()
+        simulationAction.clickTabKeywordSuggestion()
+        simulationAction.enterRelatedKeyword(data.NonLiveKW)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.maxCheckbox)
+        simulationAction.clickSelectAllKeyword()
+
+        //validation the notification message for selection more than 20 KW
+        simulationAction.verifyCheckboxSelection(data.maxCheckbox)
+        simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
+        
+    })
+    
 })
