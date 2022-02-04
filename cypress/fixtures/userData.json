@@ -6,5 +6,6 @@
 	"url": "hdfcbank.com",
 	"searchVolume": "35.1M",
 	"kgaURL": "www.allstate.com",
-	"kgaKeyword": "auto insurance"
+	"kgaKeyword": "auto insurance",
+	"kgaUrlSpecialChar": "www.allstate.com#"
 }
