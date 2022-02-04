@@ -626,7 +626,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
         simulationAction.clickRelevanceScoreTitle()
-        //verify the relevance Score Filter
+        //verify the relevance Score by using Relevance Score Filter
         simulationAction.clickRelavanceScoreFilterAndVerifyScores()
 
     })
@@ -650,24 +650,27 @@ describe('As an ALPS user', () => {
         
     })
 
-    it('AL-T1341: verify the notification message in related kw section, when we update the Locale or change the locale in simulation page.', () => {
+    it('AL-T95: Verify the validation on the URL text box', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickGoButton()
+
+        //verify the inline error message
+        simulationAction.verifyErrMsgSimulationUrl(data.ErrMsgSimulationUrl)
+
+    })
+
+    it('AL-T1338: verify the behaviour of the fetch keyword button in default status', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
-        simulationAction.cli
-        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
-        simulationAction.clickFetchKeywordButton()
-        cy.wait(9000)
-        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
-        simulationAction.ClickSelectorLocaleDdn()
-        simulationAction.ClickSlectNewLocale()
-
-        // validating the Fetch Kw suggestion when update the Locale
-        simulationAction.dispNotificationMessageForLocaleUpdate()
-        simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
-
+        
+        //verify Fetch Kw button in default state
+        simulationAction.verifyFetchKwBtnDisable()
+        
     })
     
 })
