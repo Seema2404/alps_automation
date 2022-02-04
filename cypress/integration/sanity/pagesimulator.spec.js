@@ -700,5 +700,22 @@ describe('As an ALPS user', () => {
         simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
 
     })
+    it('AL-T514:Verify the functionality of View Original Content option for the new editor', () => {  
+        loginAction.clickAlpsLogo()
+        loginAction.TxtBoxKeywordLandingPage(data.keyword)
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        cy.wait(9000)
+        kgaSerpAction.clickSerpPageSimulation()
+        simulationAction.clicksiMulationMultiKeywordToggleButton()
+        simulationAction.updateBodyContentInSim(data.TextToUpdateForContent)
+        simulationAction.clickRunSimulationButton()
+
+        // asserting the content 
+        simulationAction.verifyViewOriginalContent()
+
+
+    })
+	
     
 })
