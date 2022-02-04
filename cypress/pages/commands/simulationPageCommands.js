@@ -461,18 +461,16 @@ export const dispNotificationForMaxLimitKWSim = (MaxLimitNoftification) => {
 
 export const verifyViewOriginalContent = () => {
     
-    let contentEditorText=Simulation.elements.simContentEditor().then(function (fetchDispText) {
-        const NotificationMaxLimitText = fetchDispText.text()
-        return NotificationMaxLimitText
-    })
+    Simulation.elements.simContentEditor().then(function (fetchDispText) {
+        const ContenttextSimContentEditor = fetchDispText.text()
+        Simulation.elements.viewOriginalContent().click({ force: true })
+        
+        Simulation.elements.simViewOriginalContent().then(function (fetchDispText) {
+            const ContenttextSimViewOriginalContent = fetchDispText.text()
 
-    Simulation.elements.viewOriginalContent().click({ force: true })
-
-    let contentViewOriginalText=Simulation.elements.simViewOriginalContent().then(function (fetchDispText) {
-        const NotificationMaxLimitText = fetchDispText.text()
-        return NotificationMaxLimitText
-    })
-    expect(contentEditorText).not.to.equal(contentViewOriginalText)
+            expect(ContenttextSimContentEditor).not.to.equal(ContenttextSimViewOriginalContent)
+        })
+})
 }
 
 
