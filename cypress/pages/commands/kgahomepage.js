@@ -164,3 +164,19 @@ export const verifySimulationSvgIcon = () => {
 export const verifyPageSimulationSvgInfoText = () => {
     kga.elements.pageSimulationSvgInfoText().should('have.text', 'Please ignore any search volume mismatch between Related and Project Keywords tabs as they could be pulled at different times. Latest search volume will be used in the simulation to ensure accurate results.')
 }
+
+export const clickPageSimulationModifyButton = () =>{
+    kga.elements.pageSimulationModifyButton().click()
+}
+
+export const clickPageSimulationZoomButton = () =>{
+    kga.elements.pageSimulationZoomButton().click()
+}
+
+export const verifyZoomKeywordImpactSvgIcon = () => {
+    kga.elements.zoomKeywordImpactSvgIcon().should('be.visible')
+}
+
+export const verifyZoomKeywordImpactSvgText = () => {
+    kga.elements.zoomKeywordImpactSvgText().should('have.text', 'Keyword Planner is used to fetch default Monthly Search Volume. If the data is unavailable, we use alternate sources.')
+}

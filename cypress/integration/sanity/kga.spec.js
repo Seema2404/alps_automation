@@ -62,4 +62,17 @@ describe('As a KGA user', () => {
         kgaAction.verifySimulationSvgIcon()
         kgaAction.verifyPageSimulationSvgInfoText()
     })
+
+    it('AL-T506:Verify the presence of info icon for SV In the Simulation page in Zoom mode next to the Keyword impact.', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.clickGo()
+        cy.wait(10000)
+        kgaAction.clickSerpSimulationButton()
+        kgaAction.clickPageSimulationModifyButton()
+        kgaAction.clickPageSimulationZoomButton()
+        kgaAction.verifyZoomKeywordImpactSvgIcon()
+        kgaAction.verifyZoomKeywordImpactSvgText()
+    })
 })
