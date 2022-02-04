@@ -841,6 +841,14 @@ export const clickRelavanceScoreFilterAndVerifyScores = () => {
         OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})     
     })
 }
+
 export const verifyTopicInputBox = () => {
     OptimizationPage.elements.historyUrlSearchBox().should('be.visible')
 }
+
+export const verifyErrMsgSimulationUrl = (error) => {
+    OptimizationPage.elements.ErrMsgSimulationUrl().should('be.visible')
+    OptimizationPage.elements.ErrMsgSimulationUrl().contains(error)
+    
+}
+

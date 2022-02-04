@@ -626,7 +626,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
         simulationAction.clickRelevanceScoreTitle()
-        //verify the relevance Score Filter
+        //verify the relevance Score by using Relevance Score Filter
         simulationAction.clickRelavanceScoreFilterAndVerifyScores()
 
     })
@@ -648,6 +648,17 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCheckboxSelection(data.maxCheckbox)
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
         
+    })
+
+    it('AL-T95: Verify the validation on the URL text box', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickGoButton()
+
+        //verify the inline error message
+        simulationAction.verifyErrMsgSimulationUrl(data.ErrMsgSimulationUrl)
+
     })
 
     it('AL-T1338: verify the behaviour of the fetch keyword button in default status', () => {
