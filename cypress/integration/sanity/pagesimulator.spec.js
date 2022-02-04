@@ -560,6 +560,14 @@ describe('As an ALPS user', () => {
         cy.wait(9000)
         //verify project changed with 'no KW'
         projectAction.verifyChangedProject(data.project)
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabProjectKeywordInSimPage()
+
+        //validation of No Keyword found message
+        simulationAction.NoKWFoundMessage(data.NoKWFoundMsg)
     
     })
 
@@ -671,6 +679,26 @@ describe('As an ALPS user', () => {
         //verify Fetch Kw button in default state
         simulationAction.verifyFetchKwBtnDisable()
         
+    })
+
+    it('AL-T1341: verify the notification message in related kw section, when we update the Locale or when we change The locale in simulation page.', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.cli
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
+        simulationAction.ClickSelectorLocaleDdn()
+        simulationAction.ClickSlectNewLocale()
+
+        // validating the Fetch Kw suggestion when update the Locale
+        simulationAction.dispNotificationMessageForLocaleUpdate()
+        simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
+
     })
     
 })
