@@ -320,7 +320,7 @@ export const clickTabInputKeywordsInSimPage = () => {
 }
 
 export const clickTabProjectKeywordInSimPage = () => {
-    OptimizationPage.elements.tabProjectKeyword().click()
+    OptimizationPage.elements.tabProjectKeyword().click({force :true})
 }
 
 export const clickTabKeywordSuggestion = () => {
@@ -813,20 +813,20 @@ export const clickRelevanceScoreTitle = () => {
 }
    
 export const clickRelavanceScoreFilterAndVerifyScores = () => {
-    let ScoreTxt;
+    let ScoreTxt
     const RelScoreList=[]
     OptimizationPage.elements.relevanceScoreFilter().each(($ele,index) =>{
            
         OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})
         OptimizationPage.elements.relvanceFilterText().eq(index).then((ScTxt) => {
-            let expectedScTxt=ScTxt.text();
+            let expectedScTxt=ScTxt.text()
             ScoreTxt =expectedScTxt.split(' - ')
         })
         
         OptimizationPage.elements.relvanceScoreList().each((score, index, list) => {
             RelScoreList.push(score)
         }).then(()=>{
-            let flag=false;
+            let flag=false
             for (let index = 0; index < RelScoreList.length; index++) {
                 const ActualRelScore=parseFloat(RelScoreList[index].text())
                 if (ActualRelScore>=parseFloat(ScoreTxt[0]) && ActualRelScore<=parseFloat(ScoreTxt[1])) {
@@ -843,4 +843,25 @@ export const clickRelavanceScoreFilterAndVerifyScores = () => {
 }
 export const verifyTopicInputBox = () => {
     OptimizationPage.elements.historyUrlSearchBox().should('be.visible')
+}
+
+export const clickSearchVolumeTitle = () => {
+    OptimizationPage.elements.searchVolumeTitle().click({force : true})
+}
+
+export const clickSearchVolFilterAndVerifySearchVolScores = () => {
+    let ScoreTxt
+    const SVScoreList=[]
+    OptimizationPage.elements.searchVolumeFilter().each(($ele, index) => {
+        OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
+
+    })
+
+    OptimizationPage.elements.searchVolumeScoreList().each((score,index,list) => {
+        SVScoreList=push(score)
+    }).then(() => {
+        for (let index = 0; index < SVScoreList.length; index++) {
+            cy.log(SVScoreList[index].text())
+        }
+    })
 }

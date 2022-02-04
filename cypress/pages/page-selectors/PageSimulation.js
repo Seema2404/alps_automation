@@ -274,7 +274,11 @@ export class PageSimulation {
             relevanceScoreTitle : () => cy.get('#kw_url_relevance-score_title'),
             relevanceScoreFilter : () => cy.get('div[id="kw_url_relevance-score_title"]+div input[id*=kw_url_project_filter]'),
             relvanceScoreList : () => cy.get('tbody>tr>td:nth-of-type(3)'),
-            relvanceFilterText : () => cy.get('div[id="kw_url_relevance-score_title"]+div>div>label>span')
+            relvanceFilterText : () => cy.get('div[id="kw_url_relevance-score_title"]+div>div>label>span'),
+            searchVolumeTitle : () => cy.get('#kw_url_search-volume_title'),
+            searchVolumeFilter : () => cy.get('#kw_url_search-volume_title+div input[id*="kw_url_project_filter"]'),
+            searchVolumeScoreList : () => cy.get('tbody>tr>td:nth-of-type(2)'),
+
         }
     }
 }

@@ -560,6 +560,14 @@ describe('As an ALPS user', () => {
         cy.wait(9000)
         //verify project changed with 'no KW'
         projectAction.verifyChangedProject(data.project)
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabProjectKeywordInSimPage()
+
+        //validation of No Keyword found message
+        simulationAction.NoKWFoundMessage(data.NoKWFoundMsg)
     
     })
 
@@ -648,6 +656,18 @@ describe('As an ALPS user', () => {
         simulationAction.verifyCheckboxSelection(data.maxCheckbox)
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
         
+    })
+
+    it.only('AL-T1345: Verify user should be able to filter Project keywords by Search Volume', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.clickTabProjectKeywordInSimPage()
+        simulationAction.clickTabProjectKeywordInSimPage()
+        simulationAction.clickSearchVolumeTitle()
+        simulationAction.clickSearchVolFilterAndVerifySearchVolScores() 
     })
     
 })
