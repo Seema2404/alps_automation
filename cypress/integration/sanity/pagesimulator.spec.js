@@ -714,7 +714,6 @@ describe('As an ALPS user', () => {
         // asserting the content 
         simulationAction.verifyViewOriginalContent()
 
-
     })
 	
     
