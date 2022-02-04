@@ -250,6 +250,7 @@ export class PageSimulation {
             selectAllFromProKW: () => cy.get('#kw_url_project_filter_select_all'),
             totalNumberOfKW: () => cy.get('#phillContainer'),
             notificationMessageForLocaleUpdate: () => cy.get('#contentSimulation_multiKeyword_localeChange_warning_text'),
+            notifyFetchKwSuggestion : () => cy.get('#version_notification_message'), 
             textBoxToUpdateLocaleInSim: () => cy.get('#react-select-protocol-input'),
             slectNewLocale: () => cy.get('#react-select-protocol-option-1'),
             NotifyMsgForEmptyKWProceed: () => cy.get('#contentSimulation_multiKeyword_addKeyword_error'),
