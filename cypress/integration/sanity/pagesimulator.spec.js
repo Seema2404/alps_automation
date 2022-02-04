@@ -649,5 +649,17 @@ describe('As an ALPS user', () => {
         simulationAction.verifyLimitKeyword(data.RelatedKWLimit)
         
     })
+
+    it('AL-T1338: verify the behaviour of the fetch keyword button in default status', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        
+        //verify Fetch Kw button in default state
+        simulationAction.verifyFetchKwBtnDisable()
+        
+    })
     
 })
