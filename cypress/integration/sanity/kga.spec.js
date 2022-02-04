@@ -97,4 +97,5 @@ describe('As a KGA user', () => {
         //verify Invalid URL message
         kgaAction.verifyInvalidUrlText()
     })
+    
 })
