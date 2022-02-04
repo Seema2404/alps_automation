@@ -76,6 +76,16 @@ describe('As a KGA user', () => {
         kgaAction.verifyZoomKeywordImpactSvgText()
     })
 
+    it('AL-1208:Verify the scenario when user type keyword(any special character)and url with # characters', () =>{
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaUrlSpecialChar)
+        //verify entred url with special character error on Home page
+        kgaAction.verifyKgaHomePageUrlError()
+        //verify error message text
+        kgaAction.verifyKgaHomePageUrlErrorText()
+    })
+
     it('AL-T1209:Verify the scanario when user enter any invalid url with # in it', () => {
         loginAction.clickAlpsLogo()
         kgaAction.enterKeyword(data.kgaKeyword)

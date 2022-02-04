@@ -176,6 +176,14 @@ export const verifyInvalidUrlText = () => {
     kga.elements.urlerror().should('have.text', 'Please enter a valid URL (e.g. https://www.example.com)')
 }
 
+export const verifyKgaHomePageUrlError = () => {
+    kga.elements.urlerror().should('be.visible')
+}
+
+export const verifyKgaHomePageUrlErrorText = () => {
+    kga.elements.urlerror().should('have.text', 'For the purpose of scoring and simulation, the system considers the URL without the # values when submitting')
+}
+
 export const clickPageSimulationModifyButton = () =>{
     kga.elements.pageSimulationModifyButton().click()
 }

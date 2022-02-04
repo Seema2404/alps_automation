@@ -7,5 +7,6 @@
 	"searchVolume": "35.1M",
 	"kgaURL": "www.allstate.com",
 	"kgaKeyword": "auto insurance",
-	"kgaInvalidUrl": "#https://www.allstate.com/"
+	"kgaInvalidUrl": "#https://www.allstate.com/",
+	"kgaUrlSpecialChar": "www.allstate.com#"
 }
