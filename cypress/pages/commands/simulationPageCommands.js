@@ -368,6 +368,16 @@ export const dispNotificationMessageForLocaleUpdate = () => {
     OptimizationPage.elements.notificationMessageForLocaleUpdate().should('be.visible')
 }
 
+export const dispNotificationMsgFetchKeywordSuggestion = (notifyMsg) => {
+    OptimizationPage.elements.notifyFetchKwSuggestion().should('be.visible')
+    OptimizationPage.elements.notifyFetchKwSuggestion().then((msg) => {
+        const expectedNotifyMsg=msg.text();
+        expect(expectedNotifyMsg).to.contains(notifyMsg)
+        expect(expectedNotifyMsg).to.include(notifyMsg)
+
+    })
+}
+
 export const dispHeadingContentOptimalUsageHtmlAttributes = () => {
     Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('be.visible')
 }
