@@ -164,3 +164,14 @@ export const verifySimulationSvgIcon = () => {
 export const verifyPageSimulationSvgInfoText = () => {
     kga.elements.pageSimulationSvgInfoText().should('have.text', 'Please ignore any search volume mismatch between Related and Project Keywords tabs as they could be pulled at different times. Latest search volume will be used in the simulation to ensure accurate results.')
 }
+
+export const verifyUrlError = () => {
+    kga.elements.urlerror().should('be.visible')
+}
+export const verifyUrlErrorText = () => {
+    kga.elements.urlerror().should('have.text', 'For the purpose of scoring and simulation, the system considers the URL without the # values when submitting')
+}
+
+export const verifyInvalidUrlText = () => {
+    kga.elements.urlerror().should('have.text', 'Please enter a valid URL (e.g. https://www.example.com)')
+}
