@@ -48,6 +48,10 @@ export class KGAHomePage {
             kgaSearchVolumeText: () => cy.get('#search_vol_label_tooltip_text'),
             pageSimulationSvgInfoIcon: () => cy.get('#mkw_related_kwd_rank_search_volume_tooltip>span>svg'),
             pageSimulationSvgInfoText: () => cy.get('#mkw_related_kwd_rank_search_volume_tooltip_text'),
+            pageSimulationModifyButton: () => cy.get('#contentSimulation_multiKeyword_accordionToggle_button'),
+            pageSimulationZoomButton: () => cy.get('#zoom-selector_button'),
+            zoomKeywordImpactSvgIcon: () => cy.get('#sim_impacted_kw_sec_label_tooltip>span>svg'),
+            zoomKeywordImpactSvgText: () => cy.get('#sim_impacted_kw_sec_label_tooltip_text'),
         }
     }
 }
