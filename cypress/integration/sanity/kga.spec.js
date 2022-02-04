@@ -85,4 +85,17 @@ describe('As a KGA user', () => {
         //verify error message text
         kgaAction.verifyKgaHomePageUrlErrorText()
     })
+
+    it('AL-T1209:Verify the scanario when user enter any invalid url with # in it', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaInvalidUrl)
+        //verify url error message
+        kgaAction.verifyUrlError()
+        kgaAction.verifyUrlErrorText()
+        kgaAction.clickGo()
+        //verify Invalid URL message
+        kgaAction.verifyInvalidUrlText()
+    })
+    
 })
