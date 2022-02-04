@@ -172,3 +172,19 @@ export const verifyKgaHomePageUrlError = () => {
 export const verifyKgaHomePageUrlErrorText = () => {
     kga.elements.urlerror().should('have.text', 'For the purpose of scoring and simulation, the system considers the URL without the # values when submitting')
 }
+
+export const clickPageSimulationModifyButton = () =>{
+    kga.elements.pageSimulationModifyButton().click()
+}
+
+export const clickPageSimulationZoomButton = () =>{
+    kga.elements.pageSimulationZoomButton().click()
+}
+
+export const verifyZoomKeywordImpactSvgIcon = () => {
+    kga.elements.zoomKeywordImpactSvgIcon().should('be.visible')
+}
+
+export const verifyZoomKeywordImpactSvgText = () => {
+    kga.elements.zoomKeywordImpactSvgText().should('have.text', 'Keyword Planner is used to fetch default Monthly Search Volume. If the data is unavailable, we use alternate sources.')
+}
