@@ -681,13 +681,29 @@ describe('As an ALPS user', () => {
         
     })
 
-    it('AL-T1341: verify the notification message in related kw section, when we update the Locale or when we change The locale in simulation page.', () => {
+    it('AL-T1339: verify the notification message when we update the fetch keywords in topic', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
-        simulationAction.cli
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(6000)
+        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
+        simulationAction.enterRelatedKeyword(data.keyword)
+        
+        // validating the Fetch Kw suggestion when update the FetchKeyword
+        simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
+
+    })
+
+    it('AL-T1341: verify the notification message in related kw section, when we update the Locale or when we change the locale in simulation page.', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
         simulationAction.enterRelatedKeyword(data.SimulationKeyword)
         simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
@@ -717,6 +733,7 @@ describe('As an ALPS user', () => {
     })
 	
     it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
+        //paginate feature is depricated
         cy.loginUser()
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -731,5 +748,5 @@ describe('As an ALPS user', () => {
         simulationAction.clickRelScoreFilterSortAndVerifyScores()
 
     })
-    
+
 })
