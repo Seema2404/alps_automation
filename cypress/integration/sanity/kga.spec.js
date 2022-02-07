@@ -105,4 +105,13 @@ describe('As a KGA user', () => {
         kgaAction.clickGo()
         kgaAction.verifyKgaUrlRank()
     })
+
+    it('AL-T1268:verify the page heading in KGA page', () =>{
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        //verfiy the page heading on KGA
+        kgaAction.validateResultsPage()
+    })
 })
