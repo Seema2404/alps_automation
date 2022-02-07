@@ -861,18 +861,34 @@ export const clickSearchVolumeTitle = () => {
 
 export const clickSearchVolFilterAndVerifySearchVolScores = () => {
     let ScoreTxt
+    let ScoreM
+    let ScoreK
     const SVScoreList=[]
     OptimizationPage.elements.searchVolumeFilter().each(($ele, index) => {
         
         OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
-
-        OptimizationPage.elements.searchVolumeScoreList().each((score,index,list) => {
-            SVScoreList.push(score)
-        }).then(() => {
-            for (let index = 0; index < SVScoreList.length; index++) {
-                cy.log(SVScoreList[index].text())
-            }
+        OptimizationPage.elements.searchVolumeFilter().eq(index).then((ScTxt) => {
+            let expectedScTxt=ScTxt.text()
+            ScoreTxt =expectedScTxt.replace(',', '').split(' - ')
+            cy.log(ScTxt)
+            
         })
+
+        // OptimizationPage.elements.searchVolumeScoreList().each((score,index,list) => {
+        //     SVScoreList.push(score)
+        // }).then(() => {
+        //     for (let index = 0; index < SVScoreList.length; index++) {
+                
+        //         if((SVScoreList[index].text()).includes('M')){
+        //             ScoreM = parseFloat(SVScoreList[index].text())*1000000 
+        //             cy.log(ScoreM)   
+        //         }else if ((SVScoreList[index].text()).includes('K')) {
+        //             ScoreK = parseFloat(SVScoreList[index].text())*1000
+        //             cy.log(ScoreK)
+        //         }
+                
+        //     }
+        // })
         OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
     })
 
