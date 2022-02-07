@@ -52,7 +52,14 @@ export class KGAHomePage {
             pageSimulationZoomButton: () => cy.get('#zoom-selector_button'),
             zoomKeywordImpactSvgIcon: () => cy.get('#sim_impacted_kw_sec_label_tooltip>span>svg'),
             zoomKeywordImpactSvgText: () => cy.get('#sim_impacted_kw_sec_label_tooltip_text'),
-            kgaUrlRank: () => cy.get('.serpResult_rankTable_success_urlStatus td div div div').contains('121')
+            kgaUrlRank: () => cy.get('.serpResult_rankTable_success_urlStatus td div div div').contains('121'),
+            kgaKeywordPageRelevance: () => cy.get('#keyword-page-relevance-acc-title'),
+            kgaContentParameterH2Score: () => cy.get('#h-2-score-sub-accordion-head'),
+            kgaContentParameterH1Score: () => cy.get('#h-1-score-sub-accordion-head'),
+            kgaContentParameterMetaDisScore: () => cy.get('#meta-description-score-sub-accordion-head'),
+            kgaContentParameterBodyConScore: () => cy.get('#body-content-score-sub-accordion-head'),
+            kgaContentParameterUrlScore: () => cy.get('#url-score-sub-accordion-head'),
+            kgaContentParameterTitleScore: () => cy.get('#title-score-sub-accordion-head')
         }
     }
 }

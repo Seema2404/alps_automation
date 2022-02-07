@@ -202,3 +202,31 @@ export const verifyZoomKeywordImpactSvgText = () => {
 export const verifyKgaUrlRank = () => {
     kga.elements.kgaUrlRank().should('have.text', '121')
 }
+
+export const clickKgaKeywordPageRelevance = () => {
+    kga.elements.kgaKeywordPageRelevance().click()
+}
+
+export const verifyKgaContentParameterH2Score = () => {
+    kga.elements.kgaContentParameterH2Score().should('be.visible')
+}
+
+export const verifyKgaContentParameterH1Score = () => {
+    kga.elements.kgaContentParameterH1Score().should('be.visible')
+}
+
+export const verifyKgaContentParameterMetaDisScore = () => {
+    kga.elements.kgaContentParameterMetaDisScore().should('be.visible')
+}
+
+export const verifyKgaContentParameterBodyConScore = () => {
+    kga.elements.kgaContentParameterBodyConScore().should('be.visible')
+}
+
+export const verifyKgaContentParameterUrlScore = () => {
+    kga.elements.kgaContentParameterUrlScore().should('be.visible')
+}
+
+export const verifyKgaContentParameterTitleScore = () => {
+    kga.elements.kgaContentParameterTitleScore().should('be.visible')
+}

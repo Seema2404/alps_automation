@@ -114,4 +114,20 @@ describe('As a KGA user', () => {
         //verfiy the page heading on KGA
         kgaAction.validateResultsPage()
     })
+
+    it('AL-T1270:Verify the content parameter and score separately in KGA page', () =>{
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        kgaAction.clickSerpKgaButton()
+        kgaAction.clickKgaKeywordPageRelevance()
+        //verify All content parameter score in KW page relevance
+        kgaAction.verifyKgaContentParameterH2Score()
+        kgaAction.verifyKgaContentParameterH1Score()
+        kgaAction.verifyKgaContentParameterMetaDisScore()
+        kgaAction.verifyKgaContentParameterBodyConScore()
+        kgaAction.verifyKgaContentParameterUrlScore()
+        kgaAction.verifyKgaContentParameterTitleScore()
+    })
 })
