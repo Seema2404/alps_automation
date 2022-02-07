@@ -230,3 +230,19 @@ export const verifyKgaContentParameterUrlScore = () => {
 export const verifyKgaContentParameterTitleScore = () => {
     kga.elements.kgaContentParameterTitleScore().should('be.visible')
 }
+
+export const clickKgaTechnicalTab = () => {
+    kga.elements.kgaTechnicalTab().click()
+}
+
+export const verifyKgaTechnicalParameterOptimal = () => {
+    kga.elements.kgaTechnicalParameterOptimal().should('be.visible')
+}
+
+export const verifyKgaTechnicalParameterCoreWeb = () => {
+    kga.elements.kgaTechnicalParameterCoreWeb().should('be.visible')
+}
+
+export const verifyKgaTechnicalParameterOtherWeb = () => {
+    kga.elements.kgaTechnicalParameterOtherWeb().should('be.visible')
+}
