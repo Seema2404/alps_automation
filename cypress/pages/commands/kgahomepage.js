@@ -199,3 +199,6 @@ export const verifyZoomKeywordImpactSvgIcon = () => {
 export const verifyZoomKeywordImpactSvgText = () => {
     kga.elements.zoomKeywordImpactSvgText().should('have.text', 'Keyword Planner is used to fetch default Monthly Search Volume. If the data is unavailable, we use alternate sources.')
 }
+export const verifyKgaUrlRank = () => {
+    kga.elements.kgaUrlRank().should('have.text', '121')
+}
