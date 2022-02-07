@@ -1,6 +1,6 @@
 import * as iframe from 'cypress-iframe'
 
-import { prtKeywordExplorer } from '../page-selectors/PrtKeywordExplorerPage'
+import { prtKeywordExplorer, PrtKeywordExplorerPage } from '../page-selectors/PrtKeywordExplorerPage'
 
 export const clickPlanningAndResearch = () => {
     prtKeywordExplorer.elements.planningAndResearch().click()
@@ -33,10 +33,18 @@ export const validateKeywordExplorerSection = (getBody) => {
     prtKeywordExplorer.elements.keywordExplorerSection(getBody).should('be.visible')
 }
 
+export const dispValidateKeywordExplorerSection = () => {
+    prtKeywordExplorer.elements.keywordExplorerSection().should('be.visible')
+}
+
 export const validateSearchVolumeSection = (getBody) => {
     prtKeywordExplorer.elements.searchVolumeSection(getBody).should('be.visible')
 }
 
 export const validateKeywordCountSection = (getBody) => {
     prtKeywordExplorer.elements.keywordCountSection(getBody).should('be.visible')
+}
+
+export const dispPlanningAndResearchTab = () => {
+    prtKeywordExplorer.elements.planningAndResearch().should('be.visible')
 }

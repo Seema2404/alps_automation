@@ -18,6 +18,10 @@ export const validateSearchEngineLabel = () => {
     prtShareOfVoice.elements.searchEngineLabel().should('be.visible')
 }
 
+export const dispShareOfVoice = () => {
+    prtShareOfVoice.elements.shareOfVoice().should('be.visible')
+}
+
 export const validateFiltersContainer = (getBody) => {
     prtShareOfVoice.elements.filtersContainer(getBody).should('be.visible')
 }

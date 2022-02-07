@@ -1,4 +1,5 @@
 import * as iframe from 'cypress-iframe'
+import { prtShareOfVoice } from '../page-selectors/PrtShareOfVoicePage'
 
 import { prtTopicalAuthority } from '../page-selectors/PrtTopicalAuthorityPage'
 
@@ -36,4 +37,8 @@ export const validateTableTitleDomain = (getBody) => {
 
 export const validateTableContainer = (getBody) => {
     prtTopicalAuthority.elements.tableContainer(getBody).should('be.visible')
+}
+
+export const disptopicalAuthority = () => {
+    prtTopicalAuthority.elements.topicalAuthority().should('be.visible')
 }
