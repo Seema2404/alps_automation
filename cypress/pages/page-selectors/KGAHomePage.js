@@ -52,6 +52,7 @@ export class KGAHomePage {
             pageSimulationZoomButton: () => cy.get('#zoom-selector_button'),
             zoomKeywordImpactSvgIcon: () => cy.get('#sim_impacted_kw_sec_label_tooltip>span>svg'),
             zoomKeywordImpactSvgText: () => cy.get('#sim_impacted_kw_sec_label_tooltip_text'),
+            kgaUrlRank: () => cy.get('.serpResult_rankTable_success_urlStatus td div div div').contains('121')
         }
     }
 }
