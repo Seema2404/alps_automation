@@ -713,8 +713,23 @@ describe('As an ALPS user', () => {
 
         // asserting the content 
         simulationAction.verifyViewOriginalContent()
-
+        
     })
 	
+    it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelevanceScoreTitle()
+        //verify the relevance Score by using Relevance Score Filter and sorting
+        simulationAction.clickRelScoreFilterSortAndVerifyScores()
+
+    })
     
 })
