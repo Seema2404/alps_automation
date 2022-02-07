@@ -321,6 +321,7 @@ export const clickTabInputKeywordsInSimPage = () => {
 
 export const clickTabProjectKeywordInSimPage = () => {
     OptimizationPage.elements.tabProjectKeyword().click({force :true})
+    cy.wait(2000)
 }
 
 export const clickTabKeywordSuggestion = () => {
@@ -853,15 +854,18 @@ export const clickSearchVolFilterAndVerifySearchVolScores = () => {
     let ScoreTxt
     const SVScoreList=[]
     OptimizationPage.elements.searchVolumeFilter().each(($ele, index) => {
+        
         OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
 
+        OptimizationPage.elements.searchVolumeScoreList().each((score,index,list) => {
+            SVScoreList.push(score)
+        }).then(() => {
+            for (let index = 0; index < SVScoreList.length; index++) {
+                cy.log(SVScoreList[index].text())
+            }
+        })
+        OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
     })
 
-    OptimizationPage.elements.searchVolumeScoreList().each((score,index,list) => {
-        SVScoreList=push(score)
-    }).then(() => {
-        for (let index = 0; index < SVScoreList.length; index++) {
-            cy.log(SVScoreList[index].text())
-        }
-    })
+    
 }
