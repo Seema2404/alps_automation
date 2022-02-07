@@ -715,7 +715,7 @@ describe('As an ALPS user', () => {
         simulationAction.verifyViewOriginalContent()
     })
 	
-    it.only('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
+    it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()

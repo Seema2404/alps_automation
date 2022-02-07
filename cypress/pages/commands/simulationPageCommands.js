@@ -863,6 +863,7 @@ export const clickRelScoreFilterSortAndVerifyScores = () => {
         for (let sort = 0; sort < 2; sort++) {
             cy.log("Sorting ===>"+sort)
             OptimizationPage.elements.RelScoreSort().last().click({force : true})
+
             OptimizationPage.elements.relvanceScoreList().each((score, index, list) => {
                 RelScoreList.push(score)
             }).then(()=>{
@@ -876,7 +877,8 @@ export const clickRelScoreFilterSortAndVerifyScores = () => {
                         expect(flag).to.be.true
                     }    
                 }
-            })     
+            }) 
+
         }
         
         OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})     
