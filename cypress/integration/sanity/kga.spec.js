@@ -131,7 +131,7 @@ describe('As a KGA user', () => {
         kgaAction.verifyKgaContentParameterTitleScore()
     })
 
-    it.only('AL-T1271:Verify the TECHNICAL parameter and score separately in KGA page', () =>{
+    it('AL-T1271:Verify the TECHNICAL parameter and score separately in KGA page', () =>{
         loginAction.clickAlpsLogo()
         kgaAction.enterKeyword(data.kgaKeyword)
         kgaAction.enterURL(data.kgaURL)
