@@ -52,7 +52,7 @@ export class KGAHomePage {
             pageSimulationZoomButton: () => cy.get('#zoom-selector_button'),
             zoomKeywordImpactSvgIcon: () => cy.get('#sim_impacted_kw_sec_label_tooltip>span>svg'),
             zoomKeywordImpactSvgText: () => cy.get('#sim_impacted_kw_sec_label_tooltip_text'),
-            kgaUrlRank: () => cy.get(':nth-child(12) > .sc-dzVpKk > .sc-hzOKmB > .sc-ghUbLI > .sc-hrBRpH')
+            kgaUrlRank: () => cy.get('.sc-hrBRpH.brIHWc').contains('121')
         }
     }
 }
