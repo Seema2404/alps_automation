@@ -369,6 +369,16 @@ export const dispNotificationMessageForLocaleUpdate = () => {
     OptimizationPage.elements.notificationMessageForLocaleUpdate().should('be.visible')
 }
 
+export const dispNotificationMsgFetchKeywordSuggestion = (notifyMsg) => {
+    OptimizationPage.elements.notifyFetchKwSuggestion().should('be.visible')
+    OptimizationPage.elements.notifyFetchKwSuggestion().then((msg) => {
+        const expectedNotifyMsg=msg.text();
+        expect(expectedNotifyMsg).to.contains(notifyMsg)
+        expect(expectedNotifyMsg).to.include(notifyMsg)
+
+    })
+}
+
 export const dispHeadingContentOptimalUsageHtmlAttributes = () => {
     Simulation.elements.headingContentOptimalUsageHtmlAttributes().should('be.visible')
 }
@@ -462,18 +472,16 @@ export const dispNotificationForMaxLimitKWSim = (MaxLimitNoftification) => {
 
 export const verifyViewOriginalContent = () => {
     
-    let contentEditorText=Simulation.elements.simContentEditor().then(function (fetchDispText) {
-        const NotificationMaxLimitText = fetchDispText.text()
-        return NotificationMaxLimitText
-    })
+    Simulation.elements.simContentEditor().then(function (fetchDispText) {
+        const ContenttextSimContentEditor = fetchDispText.text()
+        Simulation.elements.viewOriginalContent().click({ force: true })
+        
+        Simulation.elements.simViewOriginalContent().then(function (fetchDispText) {
+            const ContenttextSimViewOriginalContent = fetchDispText.text()
 
-    Simulation.elements.viewOriginalContent().click({ force: true })
-
-    let contentViewOriginalText=Simulation.elements.simViewOriginalContent().then(function (fetchDispText) {
-        const NotificationMaxLimitText = fetchDispText.text()
-        return NotificationMaxLimitText
-    })
-    expect(contentEditorText).not.to.equal(contentViewOriginalText)
+            expect(ContenttextSimContentEditor).not.to.equal(ContenttextSimViewOriginalContent)
+        })
+})
 }
 
 
@@ -842,6 +850,7 @@ export const clickRelavanceScoreFilterAndVerifyScores = () => {
         OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})     
     })
 }
+
 export const verifyTopicInputBox = () => {
     OptimizationPage.elements.historyUrlSearchBox().should('be.visible')
 }
@@ -869,3 +878,9 @@ export const clickSearchVolFilterAndVerifySearchVolScores = () => {
 
     
 }
+export const verifyErrMsgSimulationUrl = (error) => {
+    OptimizationPage.elements.ErrMsgSimulationUrl().should('be.visible')
+    OptimizationPage.elements.ErrMsgSimulationUrl().contains(error)
+    
+}
+

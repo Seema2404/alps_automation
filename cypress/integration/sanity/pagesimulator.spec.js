@@ -634,7 +634,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
         simulationAction.clickRelevanceScoreTitle()
-        //verify the relevance Score Filter
+        //verify the relevance Score by using Relevance Score Filter
         simulationAction.clickRelavanceScoreFilterAndVerifyScores()
 
     })
@@ -658,6 +658,64 @@ describe('As an ALPS user', () => {
         
     })
 
+    it('AL-T1338: verify the behaviour of the fetch keyword button in default status', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        
+        //verify Fetch Kw button in default state
+        simulationAction.verifyFetchKwBtnDisable()
+    })
+    
+    it('AL-T1341: verify the notification message in related kw section, when we update the Locale or when we change The locale in simulation page.', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.cli
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
+        simulationAction.ClickSelectorLocaleDdn()
+        simulationAction.ClickSlectNewLocale()
+
+        // validating the Fetch Kw suggestion when update the Locale
+        simulationAction.dispNotificationMessageForLocaleUpdate()
+        simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
+
+    })
+
+    it('AL-T95: Verify the validation on the URL text box', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickGoButton()
+
+        //verify the inline error message
+        simulationAction.verifyErrMsgSimulationUrl(data.ErrMsgSimulationUrl)
+
+    })
+    
+    it('AL-T514:Verify the functionality of View Original Content option for the new editor', () => {  
+        loginAction.clickAlpsLogo()
+        loginAction.TxtBoxKeywordLandingPage(data.keyword)
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        cy.wait(9000)
+        kgaSerpAction.clickSerpPageSimulation()
+        simulationAction.clicksiMulationMultiKeywordToggleButton()
+        simulationAction.updateBodyContentInSim(data.TextToUpdateForContent)
+        simulationAction.clickRunSimulationButton()
+
+        // asserting the content 
+        simulationAction.verifyViewOriginalContent()
+
+    })
+
     it.only('AL-T1345: Verify user should be able to filter Project keywords by Search Volume', () => {
         //cy.loginUser()
         loginAction.clickAlpsLogo()
@@ -671,17 +729,11 @@ describe('As an ALPS user', () => {
         cy.wait(9000)
         //verify project changed with 'no KW'
         projectAction.verifyChangedProject(data.project2)
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
         simulationAction.clickTabProjectKeywordInSimPage()
 
         simulationAction.clickTabProjectKeywordInSimPage()
         simulationAction.clickSearchVolumeTitle()
         simulationAction.clickSearchVolFilterAndVerifySearchVolScores() 
     })
-
-    
     
 })
