@@ -23,6 +23,6 @@
       }
   },
     "testFiles": [
-        "sanity/user-flows/**/*"
+        "sanity/prt.spec.js"
     ]
 }
