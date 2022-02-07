@@ -10,6 +10,8 @@ export const clickKeywordExplorer = () => {
     prtKeywordExplorer.elements.keywordExplorer().click({ force: true })
 }
 
+
+
 export const waitForIframeLoad = () => {
     cy.frameLoaded(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl)
 }
@@ -47,4 +49,20 @@ export const validateKeywordCountSection = (getBody) => {
 
 export const dispPlanningAndResearchTab = () => {
     prtKeywordExplorer.elements.planningAndResearch().should('be.visible')
+}
+
+export const dispSearchEngine = () => {
+    prtKeywordExplorer.elements.searchEngine().should('be.visible')
+}
+
+export const dispProduct = () => {
+    prtKeywordExplorer.elements.product().should('be.visible')
+}
+
+export const dispLocale = () => {
+    prtKeywordExplorer.elements.locale().should('be.visible')
+}
+
+export const dispDevice = () => {
+    prtKeywordExplorer.elements.device().should('be.visible')
 }
