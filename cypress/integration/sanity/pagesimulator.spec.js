@@ -715,7 +715,7 @@ describe('As an ALPS user', () => {
         simulationAction.verifyViewOriginalContent()
     })
 	
-    it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
+    it.only('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -725,8 +725,8 @@ describe('As an ALPS user', () => {
         simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
         simulationAction.clickRelevanceScoreTitle()
-        //verify the relevance Score by using Relevance Score Filter
-        simulationAction.clickRelavanceScoreFilterAndVerifyScores()
+        //verify the relevance Score by using Relevance Score Filter and sorting
+        simulationAction.clickRelScoreFilterSortAndVerifyScores()
 
     })
     
