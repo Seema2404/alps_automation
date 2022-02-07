@@ -144,4 +144,19 @@ describe('As a KGA user', () => {
         kgaAction.verifyKgaTechnicalParameterCoreWeb()
         kgaAction.verifyKgaTechnicalParameterOtherWeb()
     })
+
+    it('AL-T1272:Verify the AUTHORITY parameter and score separately in KGA page', () =>{
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        kgaAction.clickSerpKgaButton()
+        cy.wait(3000)
+        kgaAction.clickKgaAuthorityTab()
+        //verify all technical parameter in KGA page
+        kgaAction.verifyKgaAuthorityParameterPage()
+        kgaAction.verifyKgaAuthorityParameterDomain()
+        kgaAction.verifyKgaAuthorityParameterKeyword()
+    })
+
 })

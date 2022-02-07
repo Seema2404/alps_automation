@@ -246,3 +246,19 @@ export const verifyKgaTechnicalParameterCoreWeb = () => {
 export const verifyKgaTechnicalParameterOtherWeb = () => {
     kga.elements.kgaTechnicalParameterOtherWeb().should('be.visible')
 }
+
+export const clickKgaAuthorityTab = () => {
+    kga.elements.kgaAuthorityTab().click()
+}
+
+export const verifyKgaAuthorityParameterPage = () => {
+    kga.elements.kgaAuthorityParameterPage().should('be.visible')
+}
+
+export const verifyKgaAuthorityParameterDomain = () => {
+    kga.elements.kgaAuthorityParameterDomain().should('be.visible')
+}
+
+export const verifyKgaAuthorityParameterKeyword = () => {
+    kga.elements.kgaAuthorityParameterKeyword().should('be.visible')
+}
