@@ -130,4 +130,18 @@ describe('As a KGA user', () => {
         kgaAction.verifyKgaContentParameterUrlScore()
         kgaAction.verifyKgaContentParameterTitleScore()
     })
+
+    it('AL-T1271:Verify the TECHNICAL parameter and score separately in KGA page', () =>{
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        kgaAction.clickSerpKgaButton()
+        cy.wait(3000)
+        kgaAction.clickKgaTechnicalTab()
+        //verify all technical parameter in KGA page
+        kgaAction.verifyKgaTechnicalParameterOptimal()
+        kgaAction.verifyKgaTechnicalParameterCoreWeb()
+        kgaAction.verifyKgaTechnicalParameterOtherWeb()
+    })
 })

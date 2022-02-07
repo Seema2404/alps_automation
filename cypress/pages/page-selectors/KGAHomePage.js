@@ -59,7 +59,11 @@ export class KGAHomePage {
             kgaContentParameterMetaDisScore: () => cy.get('#meta-description-score-sub-accordion-head'),
             kgaContentParameterBodyConScore: () => cy.get('#body-content-score-sub-accordion-head'),
             kgaContentParameterUrlScore: () => cy.get('#url-score-sub-accordion-head'),
-            kgaContentParameterTitleScore: () => cy.get('#title-score-sub-accordion-head')
+            kgaContentParameterTitleScore: () => cy.get('#title-score-sub-accordion-head'),
+            kgaTechnicalTab: () => cy.get('#kwAnalysis_parameterGroups_technical_tab'),
+            kgaTechnicalParameterOptimal: () => cy.get('#optimal-usage-of-html-acc'),
+            kgaTechnicalParameterCoreWeb: () => cy.get('#core-web-vitals-acc'),
+            kgaTechnicalParameterOtherWeb: () => cy.get('#other-web-vitals-acc')
         }
     }
 }
