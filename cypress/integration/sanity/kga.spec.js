@@ -98,7 +98,7 @@ describe('As a KGA user', () => {
         kgaAction.verifyInvalidUrlText()
     })
     
-    it.only('AL-T1214:Verify the scenario when user enters url with # in it and it doesn’t rank', () => {
+    it('AL-T1214:Verify the scenario when user enters url with # in it and it doesn’t rank', () => {
         loginAction.clickAlpsLogo()
         kgaAction.enterKeyword(data.kgaKeyword)
         kgaAction.enterURL(data.kgaUrlSpecialChar)
