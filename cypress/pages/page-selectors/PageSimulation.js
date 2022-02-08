@@ -279,7 +279,8 @@ export class PageSimulation {
             searchVolumeTitle : () => cy.get('#kw_url_search-volume_title'),
             searchVolumeFilter : () => cy.get('#kw_url_search-volume_title+div input[id*="kw_url_project_filter"]'),
             searchVolumeScoreList : () => cy.get('tbody>tr>td:nth-of-type(2)'),
-            ErrMsgSimulationUrl : () => cy.get('#home_keywordSearch_domain_inputError')
+            ErrMsgSimulationUrl : () => cy.get('#home_keywordSearch_domain_inputError'),
+            RelScoreSort : () => cy.get('.sc-ecFaGM.fpuvbn'),
         }
     }
 }

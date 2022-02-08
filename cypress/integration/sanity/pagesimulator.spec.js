@@ -658,6 +658,17 @@ describe('As an ALPS user', () => {
         
     })
 
+    it('AL-T95: Verify the validation on the URL text box', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.clickGoButton()
+
+        //verify the inline error message
+        simulationAction.verifyErrMsgSimulationUrl(data.ErrMsgSimulationUrl)
+
+    })
+
     it('AL-T1338: verify the behaviour of the fetch keyword button in default status', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
@@ -668,14 +679,30 @@ describe('As an ALPS user', () => {
         //verify Fetch Kw button in default state
         simulationAction.verifyFetchKwBtnDisable()
     })
-    
-    it('AL-T1341: verify the notification message in related kw section, when we update the Locale or when we change The locale in simulation page.', () => {
+
+    it('AL-T1339: verify the notification message when we update the fetch keywords in topic', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
         simulationAction.textPageOptimizationUrl(data.SimulationUrl)
         simulationAction.clickGoButton()
-        simulationAction.cli
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(6000)
+        simulationAction.clickRelatedCheckbox(data.NoOfCheckbox)
+        simulationAction.enterRelatedKeyword(data.keyword)
+        
+        // validating the Fetch Kw suggestion when update the FetchKeyword
+        simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
+
+    })
+
+    it('AL-T1341: verify the notification message in related kw section, when we update the Locale or when we change the locale in simulation page.', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
         simulationAction.enterRelatedKeyword(data.SimulationKeyword)
         simulationAction.clickFetchKeywordButton()
         cy.wait(9000)
@@ -686,17 +713,6 @@ describe('As an ALPS user', () => {
         // validating the Fetch Kw suggestion when update the Locale
         simulationAction.dispNotificationMessageForLocaleUpdate()
         simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
-
-    })
-
-    it('AL-T95: Verify the validation on the URL text box', () => {
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.clickGoButton()
-
-        //verify the inline error message
-        simulationAction.verifyErrMsgSimulationUrl(data.ErrMsgSimulationUrl)
 
     })
     
@@ -713,7 +729,24 @@ describe('As an ALPS user', () => {
 
         // asserting the content 
         simulationAction.verifyViewOriginalContent()
+        
+    })
 
+    it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
+        //paginate feature is depricated
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelevanceScoreTitle()
+        //verify the relevance Score by using Relevance Score Filter and sorting
+        simulationAction.clickRelScoreFilterSortAndVerifyScores()
+        
     })
 
     it.only('AL-T1345: Verify user should be able to filter Project keywords by Search Volume', () => {
@@ -730,14 +763,11 @@ describe('As an ALPS user', () => {
         //verify project changed with 'no KW'
         projectAction.verifyChangedProject(data.project2)
         loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        cy.wait(2000)
         simulationAction.clickTabProjectKeywordInSimPage()
         simulationAction.clickSearchVolumeTitle()
         simulationAction.clickSearchVolFilterAndVerifySearchVolScores() 
-    })
-    
+        
+
+    })     
+       
 })
