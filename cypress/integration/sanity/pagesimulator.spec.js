@@ -749,7 +749,7 @@ describe('As an ALPS user', () => {
         
     })
 
-    it.only('AL-T1345: Verify user should be able to filter Project keywords by Search Volume', () => {
+    it('AL-T1345: Verify user should be able to filter Project keywords by Search Volume', () => {
         cy.loginUser()
         loginAction.clickAlpsLogo()
         projectAction.clickProjectNavTitle()
@@ -763,6 +763,11 @@ describe('As an ALPS user', () => {
         //verify project changed with 'no KW'
         projectAction.verifyChangedProject(data.project2)
         loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        cy.wait(4000)
         simulationAction.clickTabProjectKeywordInSimPage()
         simulationAction.clickSearchVolumeTitle()
         simulationAction.clickSearchVolFilterAndVerifySearchVolScores() 
