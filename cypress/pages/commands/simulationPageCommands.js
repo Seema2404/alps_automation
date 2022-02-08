@@ -911,7 +911,7 @@ export const clickSearchVolFilterAndVerifySearchVolScores = () => {
             let flag=false;
     
             for (let index = temp; index < SVScoreList.length; index++) {
-                cy.log(SVScoreList[index].text())
+                
                 if((SVScoreList[index].text()).includes('M')){
                     ScoreM = parseFloat(SVScoreList[index].text())*1000000 
                 }else if ((SVScoreList[index].text()).includes('K')) {
