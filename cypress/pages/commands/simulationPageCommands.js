@@ -321,7 +321,7 @@ export const clickTabInputKeywordsInSimPage = () => {
 
 export const clickTabProjectKeywordInSimPage = () => {
     OptimizationPage.elements.tabProjectKeyword().click({force :true})
-    cy.wait(2000)
+    cy.wait(6000)
 }
 
 export const clickTabKeywordSuggestion = () => {
@@ -860,36 +860,52 @@ export const clickSearchVolumeTitle = () => {
 }
 
 export const clickSearchVolFilterAndVerifySearchVolScores = () => {
-    let ScoreTxt
-    let ScoreM
-    let ScoreK
-    const SVScoreList=[]
+    let ScoreTxt;
+    let ScoreM;
+    let ScoreK;
+    let ActuaVolScore;
+    const SVScoreList=[];
+    var temp=0;
     OptimizationPage.elements.searchVolumeFilter().each(($ele, index) => {
         
         OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
-        OptimizationPage.elements.searchVolumeFilter().eq(index).then((ScTxt) => {
-            let expectedScTxt=ScTxt.text()
-            ScoreTxt =expectedScTxt.replace(',', '').split(' - ')
-            cy.log(ScTxt)
-            
-        })
 
-        // OptimizationPage.elements.searchVolumeScoreList().each((score,index,list) => {
-        //     SVScoreList.push(score)
-        // }).then(() => {
-        //     for (let index = 0; index < SVScoreList.length; index++) {
-                
-        //         if((SVScoreList[index].text()).includes('M')){
-        //             ScoreM = parseFloat(SVScoreList[index].text())*1000000 
-        //             cy.log(ScoreM)   
-        //         }else if ((SVScoreList[index].text()).includes('K')) {
-        //             ScoreK = parseFloat(SVScoreList[index].text())*1000
-        //             cy.log(ScoreK)
-        //         }
-                
-        //     }
-        // })
+        OptimizationPage.elements.searchVolumeScoreList().each((score,index,list) => {
+            SVScoreList.push(score)
+        }).then(() => {
+            let flag=false;
+    
+            for (let index = temp; index < SVScoreList.length; index++) {
+                cy.log(SVScoreList[index].text())
+                if((SVScoreList[index].text()).includes('M')){
+                    ScoreM = parseFloat(SVScoreList[index].text())*1000000 
+                }else if ((SVScoreList[index].text()).includes('K')) {
+                    ScoreK = parseFloat(SVScoreList[index].text())*1000
+                }else {
+                    ActuaVolScore=parseFloat(SVScoreList[index].text())
+                }
+
+                if(ScoreM>=1000000 || (ScoreK>=100001 && ScoreK<1000000) ){
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else if (ScoreK>=10001 && ScoreK<=100000) {
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else if (ScoreK>=1001 && ScoreK<=10000) {
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else if ((ActuaVolScore>=101 && ActuaVolScore<1000) || ScoreK==1000) {
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else {
+                    expect(flag).to.be.true;
+                }
+            }
+            temp=SVScoreList.length;
+        })
+        
         OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
+        
     })
 
     
