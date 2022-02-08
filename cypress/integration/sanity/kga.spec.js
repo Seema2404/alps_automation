@@ -159,4 +159,15 @@ describe('As a KGA user', () => {
         kgaAction.verifyKgaAuthorityParameterKeyword()
     })
 
+    it('AL-T1273:verify the accordian section in KGA page.',() =>{
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        kgaAction.clickSerpKgaButton()
+        kgaAction.clickKgaAccordianPage()
+        //verify KW and URL allow to change on accordian page
+        kgaAction.verifyKgaAccordianPageUrlSearch(data.dummyUrl)
+        kgaAction.verifyKgaAccordianPageKeywordSearch(data.dummyKeyword)
+    })
 })

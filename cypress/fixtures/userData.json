@@ -8,5 +8,7 @@
 	"kgaURL": "www.allstate.com",
 	"kgaKeyword": "auto insurance",
 	"kgaInvalidUrl": "#https://www.allstate.com/",
-	"kgaUrlSpecialChar": "www.allstate.com#"
+	"kgaUrlSpecialChar": "www.allstate.com#",
+	"dummyUrl": "xzy.com",
+	"dummyKeyword": "abc"
 }
