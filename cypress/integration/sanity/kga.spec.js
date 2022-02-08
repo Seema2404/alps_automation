@@ -139,7 +139,7 @@ describe('As a KGA user', () => {
         kgaAction.clickSerpKgaButton()
         cy.wait(3000)
         kgaAction.clickKgaTechnicalTab()
-        //verify all technical parameter in KGA page
+        //verify all technical parameter in KGA page 
         kgaAction.verifyKgaTechnicalParameterOptimal()
         kgaAction.verifyKgaTechnicalParameterCoreWeb()
         kgaAction.verifyKgaTechnicalParameterOtherWeb()
