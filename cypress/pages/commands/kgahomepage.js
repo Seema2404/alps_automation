@@ -262,3 +262,17 @@ export const verifyKgaAuthorityParameterDomain = () => {
 export const verifyKgaAuthorityParameterKeyword = () => {
     kga.elements.kgaAuthorityParameterKeyword().should('be.visible')
 }
+
+export const clickKgaAccordianPage = () => {
+    kga.elements.kgaAccordianPage().click()
+}
+
+export const clickKgaAccordianPageUrlSearch = (url) => {
+    kga.elements.kgaAccordianPageUrlSearch().clear()
+    kga.elements.kgaAccordianPageUrlSearch().type(url)
+}
+
+export const clickKgaAccordianPageKeywordSearch = (kw) => {
+    kga.elements.kgaAccordianPageKeywordSearch().clear()
+    kga.elements.kgaAccordianPageKeywordSearch().type(kw)
+}

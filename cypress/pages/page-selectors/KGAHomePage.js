@@ -67,7 +67,10 @@ export class KGAHomePage {
             kgaAuthorityTab: () => cy.get('#kwAnalysis_parameterGroups_authority_tab'),
             kgaAuthorityParameterPage: () => cy.get('#page-e-a-t-signals-acc'),
             kgaAuthorityParameterDomain: () => cy.get('#domain-e-a-t-signals-acc'),
-            kgaAuthorityParameterKeyword: () => cy.get('#keyword-backlink-relevance-acc')
+            kgaAuthorityParameterKeyword: () => cy.get('#keyword-backlink-relevance-acc'),
+            kgaAccordianPage: () => cy.get('#kwAnalysis_keywordSearch_acc_head'),
+            kgaAccordianPageUrlSearch: () => cy.get('#kwAnalysis_keywordSearch_domain'),
+            kgaAccordianPageKeywordSearch: () => cy.get('#kwAnalysis_keywordSearch_keyword'),
         }
     }
 }
