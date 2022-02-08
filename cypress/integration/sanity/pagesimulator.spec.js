@@ -715,26 +715,9 @@ describe('As an ALPS user', () => {
         simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
 
     })
-    
-    it('AL-T514:Verify the functionality of View Original Content option for the new editor', () => {  
-        loginAction.clickAlpsLogo()
-        loginAction.TxtBoxKeywordLandingPage(data.keyword)
-        simulationAction.textPageOptimizationUrl(data.optimizationurl)
-        simulationAction.clickGoButton()
-        cy.wait(9000)
-        kgaSerpAction.clickSerpPageSimulation()
-        simulationAction.clicksiMulationMultiKeywordToggleButton()
-        simulationAction.updateBodyContentInSim(data.TextToUpdateForContent)
-        simulationAction.clickRunSimulationButton()
-
-        // asserting the content 
-        simulationAction.verifyViewOriginalContent()
-        
-    })
 
     it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
         //paginate feature is depricated
-        cy.loginUser()
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -771,8 +754,22 @@ describe('As an ALPS user', () => {
         simulationAction.clickTabProjectKeywordInSimPage()
         simulationAction.clickSearchVolumeTitle()
         simulationAction.clickSearchVolFilterAndVerifySearchVolScores() 
-        
+    }) 
+    
+    it('AL-T514:Verify the functionality of View Original Content option for the new editor', () => {  
+        loginAction.clickAlpsLogo()
+        loginAction.TxtBoxKeywordLandingPage(data.keyword)
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        cy.wait(9000)
+        kgaSerpAction.clickSerpPageSimulation()
+        simulationAction.clicksiMulationMultiKeywordToggleButton()
+        simulationAction.updateBodyContentInSim(data.TextToUpdateForContent)
+        simulationAction.clickRunSimulationButton()
 
-    })     
+        // asserting the content 
+        simulationAction.verifyViewOriginalContent()
+        
+    })
        
 })
