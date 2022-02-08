@@ -18,7 +18,13 @@ export class PrtKeywordExplorerPage {
             searchEngine : () => cy.contains('Search Engine'),
             product : () => cy.contains('Product'),
             locale : () => cy.contains('Locale'),
-            device : () => cy.contains('Device')
+            device : () => cy.contains('Device'),
+            tableKW : (getBody)=>getBody().find('div').contains('#Keywords'),
+            tableSearchVolume : (getBody)=>getBody().find('div').contains('Search Volume'),
+            tableTopicDifficulty : (getBody)=>getBody().find('div').contains('Topic Difficulty'),
+
+            
+
         }
     }
 }

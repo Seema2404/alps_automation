@@ -43,7 +43,7 @@ describe('As a PRT user', () => {
         prtKA.dispDevice()
     })
 
-    it('AL-T:1079:Verify Keyword Count and Search Volume is displayed for Keyword explorer report', () => {
+    it('AL-T1079:Verify Keyword Count and Search Volume is displayed for Keyword explorer report', () => {
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
         prtKA.clickKeywordExplorer()
@@ -60,4 +60,35 @@ describe('As a PRT user', () => {
         
     })
 
+    // Test case is failing due to application is not giving proper date.
+    it('AL-T1080:Verify the Date filter for Keyword explorer report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtKA.clickKeywordExplorer()
+        var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+
+        // date validation of latest month.
+        prtKA.dispDateKWExplorer(todayDate)
+       
+
+    })
+
+    it('AL-T1081:Verify the table hader for Keyword explorer report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtKA.clickKeywordExplorer()
+
+        // validate the table header
+
+        cy.enter(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtKA.disptableKW(getBody)
+            prtKA.dispTableSearchVolume(getBody)
+            prtKA.dispTableTopicDifficulty(getBody)
+
+        })
+        
+
+
+    })
 })
