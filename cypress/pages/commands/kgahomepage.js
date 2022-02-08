@@ -267,12 +267,14 @@ export const clickKgaAccordianPage = () => {
     kga.elements.kgaAccordianPage().click()
 }
 
-export const clickKgaAccordianPageUrlSearch = (url) => {
+export const verifyKgaAccordianPageUrlSearch = (url) => {
     kga.elements.kgaAccordianPageUrlSearch().clear()
     kga.elements.kgaAccordianPageUrlSearch().type(url)
+    kga.elements.kgaAccordianPageUrlSearch().should('have.value', 'xzy.com')
 }
 
-export const clickKgaAccordianPageKeywordSearch = (kw) => {
+export const verifyKgaAccordianPageKeywordSearch = (kw) => {
     kga.elements.kgaAccordianPageKeywordSearch().clear()
     kga.elements.kgaAccordianPageKeywordSearch().type(kw)
+    kga.elements.kgaAccordianPageKeywordSearch().should('have.value', 'abc')
 }
