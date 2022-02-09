@@ -258,4 +258,16 @@ describe('As a KGA user', () => {
         //verify value based on low filter option
         kgaAction.verifyKgaTechnicalParameterOptimal()
     })
+
+    it('AL-T1280:validate the Traffic and CTR value in KGA page', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        kgaAction.clickSerpKgaButton()
+        kgaAction.clickKgaKeywordPerformanceLabel()
+        //verify Traffic and CRT valaue on KGA page
+        kgaAction.verifyKgaKeywordPerformanceTrafficValue()
+        kgaAction.verifyKgaKeywordPerformanceCrtValue()
+    })
 })

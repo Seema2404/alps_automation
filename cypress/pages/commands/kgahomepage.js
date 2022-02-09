@@ -303,6 +303,18 @@ export const verifyKgaKeywordPageRelevance = () => {
     kga.elements.kgaKeywordPageRelevance().should('not.exist')
 }
 
+export const clickKgaKeywordPerformanceLabel = () => {
+    kga.elements.kgaKeywordPerformanceLabel().click()
+}
+
+export const verifyKgaKeywordPerformanceTrafficValue = () => {
+    kga.elements.kgaKeywordPerformanceTrafficValue().should('be.visible')
+}
+
+export const verifyKgaKeywordPerformanceCrtValue = () => {
+    kga.elements.kgaKeywordPerformanceCrtValue().should('be.visible')
+}
+
 export const notVisibleKgaTechnicalParameterOptimal = () => {
     kga.elements.kgaTechnicalParameterOptimal().should('not.exist')
 }
