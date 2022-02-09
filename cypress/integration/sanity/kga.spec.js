@@ -213,4 +213,49 @@ describe('As a KGA user', () => {
         //verify value base on very low filter option
         kgaAction.verifyKgaKeywordPageRelevance()
     })
+
+    it('AL-T1278: verify the high low medium ,very high, very low value based on check box section in KGA page under technical page',() =>{
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        kgaAction.clickSerpKgaButton()
+        cy.wait(2000)
+        kgaAction.clickKgaTechnicalTab()
+        //active very high filter option
+        kgaAction.clickVerifyHighFilterOption()
+        //verify value based on very high filter option
+        kgaAction.notVisibleKgaTechnicalParameterOptimal()
+        kgaAction.notVisibleKgaTechnicalParameterCoreWeb()
+        kgaAction.notVisibleKgaTechnicalParameterOtherWeb()
+        //deactive very high filter option
+        kgaAction.clickVerifyHighFilterOption()
+        //active high filter option
+        kgaAction.clickHighFilterOption()
+        //verify value based on high filter option
+        kgaAction.verifyKgaTechnicalParameterOptimal()
+        kgaAction.verifyKgaTechnicalParameterOtherWeb()
+        //deactive high filter option
+        kgaAction.clickHighFilterOption()
+        //active medium filter option
+        kgaAction.clickMediumFilterOption()
+        //verify value based on medium filter option
+        kgaAction.notVisibleKgaTechnicalParameterOptimal()
+        kgaAction.notVisibleKgaTechnicalParameterCoreWeb()
+        kgaAction.notVisibleKgaTechnicalParameterOtherWeb()
+        //deactive medium filter option
+        kgaAction.clickMediumFilterOption()
+        //active low filter option
+        kgaAction.clickLowFilterOption()
+        //verify value based on low filter option
+        kgaAction.notVisibleKgaTechnicalParameterOptimal()
+        kgaAction.notVisibleKgaTechnicalParameterCoreWeb()
+        kgaAction.notVisibleKgaTechnicalParameterOtherWeb()
+        //deactive low filter option
+        kgaAction.clickLowFilterOption()
+        //active very low filter option
+        kgaAction.clickVeryLowFilterOPtion()
+        //verify value based on low filter option
+        kgaAction.verifyKgaTechnicalParameterOptimal()
+    })
 })

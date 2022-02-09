@@ -302,3 +302,15 @@ export const clickVeryLowFilterOPtion = () => {
 export const verifyKgaKeywordPageRelevance = () => {
     kga.elements.kgaKeywordPageRelevance().should('not.exist')
 }
+
+export const notVisibleKgaTechnicalParameterOptimal = () => {
+    kga.elements.kgaTechnicalParameterOptimal().should('not.exist')
+}
+
+export const notVisibleKgaTechnicalParameterCoreWeb = () => {
+    kga.elements.kgaTechnicalParameterCoreWeb().should('not.exist')
+}
+
+export const notVisibleKgaTechnicalParameterOtherWeb = () => {
+    kga.elements.kgaTechnicalParameterOtherWeb().should('not.exist')
+}
