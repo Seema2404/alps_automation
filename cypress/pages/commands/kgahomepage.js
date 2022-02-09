@@ -278,3 +278,27 @@ export const verifyKgaAccordianPageKeywordSearch = (kw) => {
     kga.elements.kgaAccordianPageKeywordSearch().type(kw)
     kga.elements.kgaAccordianPageKeywordSearch().should('have.value', kw)
 }
+
+export const clickVerifyHighFilterOption = () => {
+    kga.elements.verifyHighFilterOption().click()
+}
+
+export const clickHighFilterOption = () => {
+    kga.elements.highFilterOption().click()
+}
+
+export const clickMediumFilterOption = () => {
+    kga.elements.mediumFilterOption().click()
+}
+
+export const clickLowFilterOption = () => {
+    kga.elements.lowFilterOption().click()
+}
+
+export const clickVeryLowFilterOPtion = () => {
+    kga.elements.veryLowFilterOPtion().click()
+}
+
+export const verifyKgaKeywordPageRelevance = () => {
+    kga.elements.kgaKeywordPageRelevance().should('not.exist')
+}
