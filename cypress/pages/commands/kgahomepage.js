@@ -326,3 +326,8 @@ export const notVisibleKgaTechnicalParameterCoreWeb = () => {
 export const notVisibleKgaTechnicalParameterOtherWeb = () => {
     kga.elements.kgaTechnicalParameterOtherWeb().should('not.exist')
 }
+
+export const validateSimulationPage = () => {
+    kga.elements.kgaSimulationPage().should('contains.text', 'Simulation URL - ')
+}
+
