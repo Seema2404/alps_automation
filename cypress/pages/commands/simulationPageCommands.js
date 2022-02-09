@@ -320,7 +320,8 @@ export const clickTabInputKeywordsInSimPage = () => {
 }
 
 export const clickTabProjectKeywordInSimPage = () => {
-    OptimizationPage.elements.tabProjectKeyword().click()
+    OptimizationPage.elements.tabProjectKeyword().click({force :true})
+    cy.wait(6000)
 }
 
 export const clickTabKeywordSuggestion = () => {
@@ -821,20 +822,20 @@ export const clickRelevanceScoreTitle = () => {
 }
    
 export const clickRelavanceScoreFilterAndVerifyScores = () => {
-    let ScoreTxt;
+    let ScoreTxt
     const RelScoreList=[]
     OptimizationPage.elements.relevanceScoreFilter().each(($ele,index) =>{
            
         OptimizationPage.elements.relevanceScoreFilter().eq(index).click({force:true})
         OptimizationPage.elements.relvanceFilterText().eq(index).then((ScTxt) => {
-            let expectedScTxt=ScTxt.text();
+            let expectedScTxt=ScTxt.text()
             ScoreTxt =expectedScTxt.split(' - ')
         })
         
         OptimizationPage.elements.relvanceScoreList().each((score, index, list) => {
             RelScoreList.push(score)
         }).then(()=>{
-            let flag=false;
+            let flag=false
             for (let index = 0; index < RelScoreList.length; index++) {
                 const ActualRelScore=parseFloat(RelScoreList[index].text())
                 if (ActualRelScore>=parseFloat(ScoreTxt[0]) && ActualRelScore<=parseFloat(ScoreTxt[1])) {
@@ -889,6 +890,61 @@ export const verifyTopicInputBox = () => {
     OptimizationPage.elements.historyUrlSearchBox().should('be.visible')
 }
 
+export const clickSearchVolumeTitle = () => {
+    OptimizationPage.elements.searchVolumeTitle().click({force : true})
+}
+
+export const clickSearchVolFilterAndVerifySearchVolScores = () => {
+    let ScoreTxt;
+    let ScoreM;
+    let ScoreK;
+    let ActuaVolScore;
+    const SVScoreList=[];
+    var temp=0;
+    OptimizationPage.elements.searchVolumeFilter().each(($ele, index) => {
+        
+        OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
+
+        OptimizationPage.elements.searchVolumeScoreList().each((score,index,list) => {
+            SVScoreList.push(score)
+        }).then(() => {
+            let flag=false;
+    
+            for (let index = temp; index < SVScoreList.length; index++) {
+                
+                if((SVScoreList[index].text()).includes('M')){
+                    ScoreM = parseFloat(SVScoreList[index].text())*1000000 
+                }else if ((SVScoreList[index].text()).includes('K')) {
+                    ScoreK = parseFloat(SVScoreList[index].text())*1000
+                }else {
+                    ActuaVolScore=parseFloat(SVScoreList[index].text())
+                }
+
+                if(ScoreM>=1000000 || (ScoreK>=100001 && ScoreK<1000000) ){
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else if (ScoreK>=10001 && ScoreK<=100000) {
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else if (ScoreK>=1001 && ScoreK<=10000) {
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else if ((ActuaVolScore>=101 && ActuaVolScore<1000) || ScoreK==1000) {
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else {
+                    expect(flag).to.be.true;
+                }
+            }
+            temp=SVScoreList.length;
+        })
+        
+        OptimizationPage.elements.searchVolumeFilter().eq(index).click({force : true})
+        
+    })
+
+    
+}
 export const verifyErrMsgSimulationUrl = (error) => {
     OptimizationPage.elements.ErrMsgSimulationUrl().should('be.visible')
     OptimizationPage.elements.ErrMsgSimulationUrl().contains(error)
