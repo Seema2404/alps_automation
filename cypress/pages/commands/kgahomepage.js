@@ -314,3 +314,15 @@ export const verifyKgaKeywordPerformanceTrafficValue = () => {
 export const verifyKgaKeywordPerformanceCrtValue = () => {
     kga.elements.kgaKeywordPerformanceCrtValue().should('be.visible')
 }
+
+export const notVisibleKgaTechnicalParameterOptimal = () => {
+    kga.elements.kgaTechnicalParameterOptimal().should('not.exist')
+}
+
+export const notVisibleKgaTechnicalParameterCoreWeb = () => {
+    kga.elements.kgaTechnicalParameterCoreWeb().should('not.exist')
+}
+
+export const notVisibleKgaTechnicalParameterOtherWeb = () => {
+    kga.elements.kgaTechnicalParameterOtherWeb().should('not.exist')
+}
