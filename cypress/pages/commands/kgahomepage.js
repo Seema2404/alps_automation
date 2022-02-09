@@ -279,7 +279,6 @@ export const verifyKgaAccordianPageKeywordSearch = (kw) => {
     kga.elements.kgaAccordianPageKeywordSearch().should('have.value', kw)
 }
 
-
 export const clickVerifyHighFilterOption = () => {
     kga.elements.verifyHighFilterOption().click()
 }

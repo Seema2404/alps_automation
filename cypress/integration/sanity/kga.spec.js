@@ -171,7 +171,50 @@ describe('As a KGA user', () => {
         kgaAction.verifyKgaAccordianPageKeywordSearch(data.dummyKeyword)
     })
 
-    it.only('AL-T1278: verify the high low medium ,very high, very low value based on check box section in KGA page under technical page',() =>{
+    it('AL-T1277:verify the high low medium ,very high, very low value based on check box section in KGA page under Authority page',() =>{
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        kgaAction.clickSerpKgaButton()
+        cy.wait(2000)
+        //active very high filter option
+        kgaAction.clickVerifyHighFilterOption()
+        kgaAction.clickKgaKeywordPageRelevance()
+        //verify value base on very high filter option check box
+        kgaAction.verifyKgaContentParameterBodyConScore()
+        kgaAction.verifyKgaContentParameterTitleScore()
+        //deactive very high filter option
+        kgaAction.clickVerifyHighFilterOption()
+        //active high filter option
+        kgaAction.clickHighFilterOption()
+        kgaAction.clickKgaKeywordPageRelevance()
+        //verify value base on high filter option check box
+        kgaAction.verifyKgaContentParameterH1Score()
+        //deactive high filter option
+        kgaAction.clickHighFilterOption()
+        //active medium filter option
+        kgaAction.clickMediumFilterOption()
+        kgaAction.clickKgaKeywordPageRelevance()
+        //verify value base on medium filter option check box
+        kgaAction.verifyKgaContentParameterH2Score()
+        kgaAction.verifyKgaContentParameterMetaDisScore()
+        //deactive medium filter option
+        kgaAction.clickMediumFilterOption()
+        //active low filter option
+        kgaAction.clickLowFilterOption()
+        kgaAction.clickKgaKeywordPageRelevance()
+        //verfiy value base on low filter option check box
+        kgaAction.verifyKgaContentParameterUrlScore()
+        //deactive low filter option
+        kgaAction.clickLowFilterOption()
+        //active very low filter option
+        kgaAction.clickVeryLowFilterOPtion()
+        //verify value base on very low filter option
+        kgaAction.verifyKgaKeywordPageRelevance()
+    })
+
+    it('AL-T1278: verify the high low medium ,very high, very low value based on check box section in KGA page under technical page',() =>{
         loginAction.clickAlpsLogo()
         kgaAction.enterKeyword(data.kgaKeyword)
         kgaAction.enterURL(data.kgaURL)
