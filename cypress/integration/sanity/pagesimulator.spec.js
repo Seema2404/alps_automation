@@ -3,10 +3,11 @@ import * as kgaAction from '../../pages/commands/kgahomepage'
 import * as kgaSerpAction from '../../pages/commands/kgaserpage'
 import * as simulationAction from '../../pages/commands/simulationPageCommands'
 import * as projectAction from '../../pages/commands/projectflowcommands'
-
+import * as mockAction from '../../pages/commands/mockApiCommands'
 
 describe('As an ALPS user', () => {
     let data
+    let alpsapiendpoints
 
     before(() => {
         // Clear downloads folder
@@ -16,6 +17,9 @@ describe('As an ALPS user', () => {
         cy.loginUser()
         cy.fixture('userData').then((userData) => {
             data = userData
+        })
+        cy.fixture('apiEndPoints').then((apiEndPoints) => {
+            alpsapiendpoints = apiEndPoints
         })
     })
     beforeEach(() => {
@@ -715,9 +719,10 @@ describe('As an ALPS user', () => {
         simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
 
     })
-
+	
     it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
         //paginate feature is depricated
+        cy.loginUser()
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
@@ -729,6 +734,24 @@ describe('As an ALPS user', () => {
         simulationAction.clickRelevanceScoreTitle()
         //verify the relevance Score by using Relevance Score Filter and sorting
         simulationAction.clickRelScoreFilterSortAndVerifyScores()
+
+    })
+
+    it('AL-T1337: verify the fetch KW request failed condition', () => {
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.optimizationurl)
+        simulationAction.clickGoButton()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        
+        mockAction.MockingApiForFailureCase(alpsapiendpoints.MethodPost,alpsapiendpoints.RefreshRelatedKeywordInitiateApi)
+        cy.wait(2000)
+        simulationAction.clickFetchKeywordButton()
+
+        // Asserting the notification message.
+        simulationAction.dispNotificationMsgInitiateApiFails(data.TrackRequestAPIfailNotification)
+
         
     })
 
