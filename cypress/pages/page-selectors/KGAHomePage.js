@@ -71,6 +71,11 @@ export class KGAHomePage {
             kgaAccordianPage: () => cy.get('#kwAnalysis_keywordSearch_acc_head'),
             kgaAccordianPageUrlSearch: () => cy.get('#kwAnalysis_keywordSearch_domain'),
             kgaAccordianPageKeywordSearch: () => cy.get('#kwAnalysis_keywordSearch_keyword'),
+            verifyHighFilterOption: () => cy.get('#very-high-filter-option'),
+            highFilterOption: () => cy.get('#high-filter-option'),
+            mediumFilterOption: () => cy.get('#medium-filter-option'),
+            lowFilterOption: () => cy.get('#low-filter-option'),
+            veryLowFilterOPtion: () => cy.get('#very-low-filter-option')
         }
     }
 }
