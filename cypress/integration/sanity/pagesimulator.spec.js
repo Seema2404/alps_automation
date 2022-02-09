@@ -678,7 +678,6 @@ describe('As an ALPS user', () => {
         
         //verify Fetch Kw button in default state
         simulationAction.verifyFetchKwBtnDisable()
-        
     })
 
     it('AL-T1339: verify the notification message when we update the fetch keywords in topic', () => {
@@ -716,6 +715,47 @@ describe('As an ALPS user', () => {
         simulationAction.dispNotificationMsgFetchKeywordSuggestion(data.FetchKwSuggestion)
 
     })
+
+    it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
+        //paginate feature is depricated
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
+        simulationAction.clickFetchKeywordButton()
+        cy.wait(9000)
+        simulationAction.clickRelevanceScoreTitle()
+        //verify the relevance Score by using Relevance Score Filter and sorting
+        simulationAction.clickRelScoreFilterSortAndVerifyScores()
+        
+    })
+
+    it('AL-T1345: Verify user should be able to filter Project keywords by Search Volume', () => {
+        cy.loginUser()
+        loginAction.clickAlpsLogo()
+        projectAction.clickProjectNavTitle()
+        projectAction.clickChangeProjectTab()
+        projectAction.enterProjectNameToSearch(data.project2)
+        projectAction.clickGoToDashboard()
+        projectAction.clickApplyFilter()
+        cy.wait(5000)
+        projectAction.clickAlpsLogo()
+        cy.wait(2000)
+        //verify project changed with 'no KW'
+        projectAction.verifyChangedProject(data.project2)
+        loginAction.clickAlpsLogo()
+        simulationAction.clickTabOptimization()
+        simulationAction.clickTabPageSimulation()
+        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
+        simulationAction.clickGoButton()
+        cy.wait(4000)
+        simulationAction.clickTabProjectKeywordInSimPage()
+        simulationAction.clickSearchVolumeTitle()
+        simulationAction.clickSearchVolFilterAndVerifySearchVolScores() 
+    }) 
+    
     it('AL-T514:Verify the functionality of View Original Content option for the new editor', () => {  
         loginAction.clickAlpsLogo()
         loginAction.TxtBoxKeywordLandingPage(data.keyword)
@@ -731,22 +771,5 @@ describe('As an ALPS user', () => {
         simulationAction.verifyViewOriginalContent()
         
     })
-	
-    it('AL-T1343: Verify user should be able to search/sort/filter/paginate Related keywords for a given Topic', () => {
-        //paginate feature is depricated
-        cy.loginUser()
-        loginAction.clickAlpsLogo()
-        simulationAction.clickTabOptimization()
-        simulationAction.clickTabPageSimulation()
-        simulationAction.textPageOptimizationUrl(data.SimulationUrl)
-        simulationAction.clickGoButton()
-        simulationAction.enterRelatedKeyword(data.SimulationKeyword)
-        simulationAction.clickFetchKeywordButton()
-        cy.wait(9000)
-        simulationAction.clickRelevanceScoreTitle()
-        //verify the relevance Score by using Relevance Score Filter and sorting
-        simulationAction.clickRelScoreFilterSortAndVerifyScores()
-
-    })
-
+       
 })

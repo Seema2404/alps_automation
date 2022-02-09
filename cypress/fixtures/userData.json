@@ -33,6 +33,7 @@
 	"maxCheckbox" : "24",
 	"RelatedKWLimit" : "Unable to add keyword as the limit is 20 keyword. Please try again by reducing the keyword(s)",
 	"project" : "Iquanti-Test",
+	"project2" : "Allstate Demo Reporting",
 	"NoKWFoundMsg" : "No Keywords Found",
 	"projectName" : "test-3",
 	"NotificationMsgInitiateApiFails" : "Server is unable to process your request at this moment. We are looking into it.",
