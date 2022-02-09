@@ -270,4 +270,15 @@ describe('As a KGA user', () => {
         kgaAction.verifyKgaKeywordPerformanceTrafficValue()
         kgaAction.verifyKgaKeywordPerformanceCrtValue()
     })
+
+    it('AL-T1281:Verify the Scenario when User clicks on Simulation button in KGA/SERP page', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.clickGo()
+        kgaAction.clickSerpSimulationButton()
+        //verify able to see simulation page
+        kgaAction.validateSimulationPage()
+
+    })
 })

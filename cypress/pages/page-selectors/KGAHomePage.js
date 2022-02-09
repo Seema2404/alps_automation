@@ -77,7 +77,8 @@ export class KGAHomePage {
             lowFilterOption: () => cy.get('#low-filter-option'),
             veryLowFilterOPtion: () => cy.get('#very-low-filter-option'),
             kgaKeywordPerformanceTrafficValue: () => cy.get('#traffic-value'),
-            kgaKeywordPerformanceCrtValue: () => cy.get('#ctr-value')
+            kgaKeywordPerformanceCrtValue: () => cy.get('#ctr-value'),
+            kgaSimulationPage: () => cy.get('#contentSimulation_multiKeyword_accordionToggle_button > div > h3 > span:nth-child(1)'),            
         }
     }
 }
