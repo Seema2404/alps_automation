@@ -117,4 +117,16 @@ describe('As a PRT user', () => {
 
     // })
 
+    it('Al-T1082: Verify the search box is working for Keyword explorer report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtKA.clickKeywordExplorer()
+        cy.enter(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            // prtKA.disptableKW(getBody)
+            // prtKA.dispTableSearchVolume(getBody)
+            // prtKA.dispTableTopicDifficulty(getBody)
+
+        })
+    })
 })
