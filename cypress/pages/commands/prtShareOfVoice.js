@@ -3,7 +3,7 @@ import * as iframe from 'cypress-iframe'
 import { prtShareOfVoice } from '../page-selectors/PrtShareOfVoicePage'
 
 export const clickPlanningAndResearch = () => {
-    prtShareOfVoice.elements.planningAndResearch().click()
+    prtShareOfVoice.elements.planningAndResearch().click({ force : true } )
 }
 
 export const clickShareOfVoice = () => {
@@ -78,4 +78,28 @@ export const validateTableHeaderSOVKWRank6to10 = (getBody) => {
 
 export const validateTableHeaderSOVKWRank11to20 = (getBody) => {
     prtShareOfVoice.elements.tableHeaderSOVKWRank11to20(getBody).should('be.visible')
+}
+
+export const validateShareOfVoiceOverview = (attr,value) => {
+    prtShareOfVoice.elements.shareOfVoiceOverview().should('have.attr',attr,value)
+}
+
+export const validateSearchEngineFilter = () => {
+    prtShareOfVoice.elements.searchEngine().should('be.visible')
+    prtShareOfVoice.elements.shareOfVoiceTopFilter().first().should('be.visible')   
+}
+
+export const validateProductFilter = () => {
+    prtShareOfVoice.elements.product().should('be.visible')
+    prtShareOfVoice.elements.shareOfVoiceTopFilter().eq(1).should('be.visible')
+}
+
+export const validateLocaleFilter = () => {
+    prtShareOfVoice.elements.locale().should('be.visible')
+    prtShareOfVoice.elements.shareOfVoiceTopFilter().eq(2).should('be.visible')
+}
+
+export const validateDeviceFilter = () => {
+    prtShareOfVoice.elements.device().should('be.visible')
+    prtShareOfVoice.elements.shareOfVoiceTopFilter().last().should('be.visible')
 }

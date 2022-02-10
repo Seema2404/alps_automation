@@ -8,8 +8,12 @@ import { prtShareOfVoice } from '../../pages/page-selectors/PrtShareOfVoicePage'
 
 
 describe('As a PRT user', () => {
+    let data;
     before(() => {
         cy.loginUser('Iquanti Inc', 1)
+        cy.fixture('userData').then((userData) => {
+            data = userData
+        })
     })
     beforeEach(() => {
         cy.restoreLocalStorage()
@@ -132,4 +136,18 @@ describe('As a PRT user', () => {
             prtSOF.validateTableHeaderSOVKWRank11to20(getBody)
         })
     })
+    
+    it('AL-T1083: Verify top level filters for SOV overview report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+
+        //validate top level filters
+        prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
+        prtSOF.validateSearchEngineFilter()
+        prtSOF.validateProductFilter()
+        prtSOF.validateLocaleFilter()
+        prtSOF.validateDeviceFilter()
+    })
+
 })
