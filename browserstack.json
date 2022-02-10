@@ -35,6 +35,8 @@
             "axios": "^0.21.1",
             "browserstack-cypress-cli": "^1.11.0",
             "cypress-file-upload": "^5.0.5",
+            "cypress-real-events": "^1.6.0",
+            "cy-verify-downloads": "0.0.5",
             "cypress-iframe": "^1.0.1",
             "@types/node": "^14.0.12",
             "cypress-select-tests": "^1.7.1",
