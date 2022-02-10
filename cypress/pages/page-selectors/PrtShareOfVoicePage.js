@@ -10,7 +10,13 @@ export class PrtShareOfVoicePage {
             searchVolumeSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Search Volume'),
             keywordCountSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Keyword Count'),
             shareOfVoiceByBusinessType: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Business Type'),
-            shareOfVoiceByDomain: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Domain')
+            shareOfVoiceByDomain: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Domain'),
+            shareOfVoiceOverview : () => cy.get('#share-of-voice-overview-url'),
+            searchEngine : () => cy.contains('Search Engine'),
+            product : () => cy.contains('Product'),
+            locale : () => cy.contains('Locale'),
+            device : () => cy.contains('Device'),
+            shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div')
         }
     }
 }
