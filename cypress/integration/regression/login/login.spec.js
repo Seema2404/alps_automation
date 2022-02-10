@@ -1,5 +1,7 @@
 import * as loginAction from '../../../pages/commands/login'
 
+let login
+
 describe('SignIn as a user', () => {
     before(() => {
         cy.visitWithBaseAuth()

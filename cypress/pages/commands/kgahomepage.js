@@ -27,6 +27,21 @@ export const validateRankingURLs = (rank) => {
     kga.elements.rankingURLs().should('have.length.greaterThan', 9)
 }
 
+export const clickKgaButton = () => {
+    kga.elements.kgabutton().click()
+}
+export const clickKgaAccordion = () => {
+    kga.elements.kgaAccordion().click()
+}
+
+export const clickKgaSubmit = () => {
+    kga.elements.kgaSubmit().click()
+}
+
+export const validatingKgaPageTitle = () => {
+    kga.elements.kgapagetitle().should('be.visible')
+}
+
 export const validateInputKeywordField = () => {
     kga.elements.inputKeyword().should('be.visible')
 }

@@ -1,7 +1,14 @@
 // / <reference types="cypress-xpath" />
 import "cypress-real-events/support";
 import addContext from 'mochawesome/addContext'
-require('cy-verify-downloads').addCustomCommand();
+import 'cypress-file-upload'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('cy-verify-downloads').addCustomCommand()
+
+// import * as commands from './commands'
+
+// eslint-disable-next-line import/no-unassigned-import
+require('cypress-xpath')
 
 require('cypress-xpath')
 

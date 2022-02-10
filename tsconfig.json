@@ -13,7 +13,9 @@
         "types": [
             "cypress",
             "node",
-            "cypress-real-events"
+            "cypress-real-events",
+            "cy-verify-downloads",
+            "cypress-file-upload"
         ],
         "allowJs": true,
         "skipLibCheck": true,
