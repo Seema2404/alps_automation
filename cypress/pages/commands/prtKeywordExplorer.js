@@ -20,3 +20,23 @@ export const verifySearchVolume = (sv) => {
             .should('contains.text', sv)
     })
 }
+
+export const validateSearchEngineLabel = () => {
+    prtKeywordExplorer.elements.searchEngineLabel().should('be.visible')
+}
+
+export const validateFiltersContainer = (getBody) => {
+    prtKeywordExplorer.elements.filtersContainer(getBody).should('be.visible')
+}
+
+export const validateKeywordExplorerSection = (getBody) => {
+    prtKeywordExplorer.elements.keywordExplorerSection(getBody).should('be.visible')
+}
+
+export const validateSearchVolumeSection = (getBody) => {
+    prtKeywordExplorer.elements.searchVolumeSection(getBody).should('be.visible')
+}
+
+export const validateKeywordCountSection = (getBody) => {
+    prtKeywordExplorer.elements.keywordCountSection(getBody).should('be.visible')
+}

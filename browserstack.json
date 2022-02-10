@@ -1,0 +1,57 @@
+{
+    "auth": {
+        "username": "yuvraj34",
+        "access_key": "YFnixL7phMrETSYvpScD"
+    },
+    "browsers": [
+        {
+            "browser": "chrome",
+            "os": "OS X Mojave",
+            "versions": [
+                "latest"
+            ]
+        },
+        {
+            "browser": "chrome",
+            "os": "Windows 10",
+            "versions": [
+                "latest"
+            ]
+        },
+        {
+            "browser": "edge",
+            "os": "Windows 10",
+            "versions": [
+                "latest"
+            ]
+        }
+    ],
+    "run_settings": {
+        "cypress_version": "7.2",
+        "parallels": 1,
+        "exclude": ["screenshots/*", "reports/*", "videos/*"],
+        "npm_dependencies": {
+            "@types/cypress": "^1.1.3",
+            "axios": "^0.21.1",
+            "browserstack-cypress-cli": "^1.11.0",
+            "cypress-file-upload": "^5.0.5",
+            "cypress-iframe": "^1.0.1",
+            "@types/node": "^14.0.12",
+            "cypress-select-tests": "^1.7.1",
+            "typescript": "^3.9.5",
+            "@types/mochawesome": "^6.2.0",
+            "mochawesome": "^6.1.1",
+            "cypress-xpath": "^1.6.2"
+        },
+        "project_name": "ALPS",
+        "build_name": "Prod Health Check",
+        "headless": true
+    },
+    "connection_settings": {
+        "local": false,
+        "local_identifier": null,
+        "local_mode": null,
+        "local_config_file": null
+    },
+    "disable_usage_reporting": false
+}

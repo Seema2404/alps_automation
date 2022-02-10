@@ -8,21 +8,18 @@
     "pluginsFile": "cypress/plugins/index.js",
     "supportFile": "cypress/support/index.js",
     "retries": 1,
-    "video": false,
+    "video": true,
     "viewportWidth": 1366,
     "viewportHeight": 768,
-    "reporter": "cypress-multi-reporters",
-    "reporterOptions": {
-      "reporterEnabled": "mochawesome",
-      "mochawesomeReporterOptions": {
-          "reportDir": "cypress/reports/mocha",
-          "quite": true,
-          "overwrite": false,
-          "html": false,
-          "json": true
-      }
-  },
+    "env": {
+        "alpsUrl": "https://alps.iquanti.com/",
+        "basicAuthLogin": "",
+        "basicAuthPassword": "",
+        "username": "alps-qa@iquanti.com",
+        "password": "Test@12345",
+        "tenant": "Iquanti Training"
+    },
     "testFiles": [
-        "sanity/*"
+        "sanity/user-flows/**/*"
     ]
 }
