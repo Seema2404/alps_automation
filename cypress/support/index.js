@@ -1,5 +1,5 @@
 // / <reference types="cypress-xpath" />
-
+import "cypress-real-events/support";
 import addContext from 'mochawesome/addContext'
 import 'cypress-file-upload'
 // eslint-disable-next-line @typescript-eslint/no-var-requires

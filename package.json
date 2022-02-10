@@ -7,6 +7,7 @@
     "browserstack-cypress-cli": "^1.11.0",
     "cypress-file-upload": "^5.0.5",
     "cypress-iframe": "^1.0.1",
+    "cypress-real-events": "^1.6.0",
     "cypress-xpath": "^1.6.2",
     "faker": "^4.1.0",
     "fs": "0.0.1-security",
