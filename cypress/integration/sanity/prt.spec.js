@@ -4,6 +4,7 @@ import * as prtKA from '../../pages/commands/prtKeywordExplorer'
 import * as prtSOF from '../../pages/commands/prtShareOfVoice'
 import * as prtTA from '../../pages/commands/PrtTopicalAuthority'
 import { prtKeywordExplorer } from '../../pages/page-selectors/PrtKeywordExplorerPage'
+import { prtShareOfVoice } from '../../pages/page-selectors/PrtShareOfVoicePage'
 
 
 describe('As a PRT user', () => {
@@ -87,8 +88,33 @@ describe('As a PRT user', () => {
             prtKA.dispTableTopicDifficulty(getBody)
 
         })
-        
-
-
     })
+
+    it('AL-T1084:Verify Keyword Count and Search Volume is displayed for SOV overview report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+        prtSOF.validateSearchEngineLabel()
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtSOF.validateSearchVolumeSection(getBody)
+            prtSOF.validateKeywordCountSection(getBody)
+            
+        })   
+    })
+
+    // // Test case is failing due to application is not giving proper date.
+    // it('AL-T1085:Verify the Date filter for SOV overview report', () => {
+    //     cy.wait(7000)
+    //     prtKA.clickPlanningAndResearch()
+    //     prtSOF.clickShareOfVoice()
+    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+
+      
+    //     // date validation of latest month.
+    //     prtSOF.dispDateShareOfVoice(todayDate)      
+
+    // })
+
 })
