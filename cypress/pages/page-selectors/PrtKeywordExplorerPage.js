@@ -21,7 +21,7 @@ export class PrtKeywordExplorerPage {
             tableKW : (getBody)=>getBody().find('div').contains('#Keywords'),
             tableSearchVolume : (getBody)=>getBody().find('div').contains('Search Volume'),
             tableTopicDifficulty : (getBody)=>getBody().find('div').contains('Topic Difficulty'),
-
+            keywordExplorerSearchBox : (getBody) => getBody().find('input[name="search-field"]'),
             
 
         }

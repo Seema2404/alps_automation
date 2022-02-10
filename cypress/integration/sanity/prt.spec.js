@@ -99,10 +99,9 @@ describe('As a PRT user', () => {
         prtKA.clickPlanningAndResearch()
         prtKA.clickKeywordExplorer()
         prtKA.waitForIframeLoad()
-        //prtKA.enterKeyword()
         cy.enter(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
-            prtKA.enterKeyword(getBody,data.keyword)
+            //prtKA.enterKeyword(getBody,data.keyword)
             prtKA.validateSearchVolumeSection(getBody)
             prtKA.validateKeywordCountSection(getBody)
         })
