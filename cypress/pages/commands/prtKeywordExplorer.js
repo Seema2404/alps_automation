@@ -94,6 +94,10 @@ export const dispDevice = () => {
     prtKeywordExplorer.elements.device().should('be.visible')
 }
 
+export const verifySearchBox = (getBody,getBody2) => {
+    prtKeywordExplorer.elements.keywordExplorerSearchBox(getBody,getBody2).should('be.visible')
+}
+
 export const enterKeyword = (getBody,kw) => {
     prtKeywordExplorer.elements.keywordExplorerSearchBox(getBody).should('be.visible')
     //.clear().type(kw)

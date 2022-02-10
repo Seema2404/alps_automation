@@ -101,9 +101,11 @@ describe('As a PRT user', () => {
         prtKA.waitForIframeLoad()
         cy.enter(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
-            //prtKA.enterKeyword(getBody,data.keyword)
-            prtKA.validateSearchVolumeSection(getBody)
-            prtKA.validateKeywordCountSection(getBody)
+            cy.enter(getBody,prtKeywordExplorer.elements.iFrame,prtKeywordExplorer.elements.iFrameSearchBox).then(getBody2 => {
+                cy.wait(7000)
+                prtKA.verifySearchBox(getBody,getBody2)
+            })
+            
         })
         
     })

@@ -5,6 +5,7 @@ export class PrtShareOfVoicePage {
             shareOfVoice: () => cy.get('a').contains('SHARE OF VOICE'),
             iFrame: '.report-style-class iframe',
             iFrameUrl: { url: 'https://app.powerbi.com' },
+            iFrameSearchBox : '[class*="visual-textFilter"] iframe',
             searchEngineLabel: () => cy.get('#breadcrumb + div + div div div div:nth-child(1) span'),
             filtersContainer: (getBody) => getBody().find('.scrollWrapper div p span').contains('FILTERS'),
             searchVolumeSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Search Volume'),
@@ -15,7 +16,6 @@ export class PrtShareOfVoicePage {
             searchEngine : () => cy.contains('Search Engine'),
             product : () => cy.contains('Product'),
             locale : () => cy.contains('Locale'),
-            device : () => cy.contains('Device'),
             shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div')
         }
     }
