@@ -103,3 +103,7 @@ export const validateDeviceFilter = () => {
     prtShareOfVoice.elements.device().should('be.visible')
     prtShareOfVoice.elements.shareOfVoiceTopFilter().last().should('be.visible')
 }
+
+export const clickTrendsSOV = () => {
+    prtShareOfVoice.elements.trendsSOV().click()
+}

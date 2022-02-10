@@ -22,7 +22,8 @@ export class PrtShareOfVoicePage {
             product : () => cy.contains('Product'),
             locale : () => cy.contains('Locale'),
             device : () => cy.contains('Device'),
-            shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div')
+            shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div'),
+            trendsSOV: () => cy.get('#share-of-voice-trends-url'),
         }
     }
 }

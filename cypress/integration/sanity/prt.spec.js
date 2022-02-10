@@ -149,4 +149,15 @@ describe('As a PRT user', () => {
         prtSOF.validateDeviceFilter()
     })
 
+    it('AL-T1089: Verify top level filters for SOV trends report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickTrendsSOV()
+        //validate top level filters in trends
+        prtSOF.validateSearchEngineFilter()
+        prtSOF.validateProductFilter()
+        prtSOF.validateLocaleFilter()
+        prtSOF.validateDeviceFilter()
+    })
 })
