@@ -121,11 +121,26 @@ describe('As a PRT user', () => {
 
     // })
 
+    it('AL-T1086:Verify the table hader for SOV overview by domain', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+        //verify table header elements share of voice
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.validateTableHeaderSOVDomain(getBody)
+            prtSOF.validateTableHeaderSOV(getBody)
+            prtSOF.validateTableHeaderSOVTraffice(getBody)
+            prtSOF.validateTableHeaderSOVKWRank1to5(getBody)
+            prtSOF.validateTableHeaderSOVKWRank6to10(getBody)
+            prtSOF.validateTableHeaderSOVKWRank11to20(getBody)
+        })
+    })
+
     it('AL-T1083: Verify top level filters for SOV overview report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
-
         //validate top level filters
         prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
         prtSOF.validateSearchEngineFilter()
