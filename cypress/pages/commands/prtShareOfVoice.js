@@ -14,6 +14,20 @@ export const waitForIframeLoad = () => {
     cy.frameLoaded(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl)
 }
 
+export const dispDateShareOfVoice = (systemdate) => {
+    cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+        getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Domain for').then((visibletext) => {
+        
+            const dispvisibletext=visibletext.text()
+            expect(dispvisibletext).to.contain(systemdate)
+            
+        
+        })
+            
+    })
+}
+
+
 export const validateSearchEngineLabel = () => {
     prtShareOfVoice.elements.searchEngineLabel().should('be.visible')
 }

@@ -47,6 +47,33 @@ export const validateKeywordCountSection = (getBody) => {
     prtKeywordExplorer.elements.keywordCountSection(getBody).should('be.visible')
 }
 
+
+export const disptableKW = (getBody) => {
+    prtKeywordExplorer.elements.tableKW(getBody).should('be.visible')
+}
+
+export const dispTableSearchVolume = (getBody) => {
+    prtKeywordExplorer.elements.tableSearchVolume(getBody).should('be.visible')
+}
+
+export const dispTableTopicDifficulty = (getBody) => {
+    prtKeywordExplorer.elements.tableTopicDifficulty(getBody).should('be.visible')
+}
+
+
+export const dispDateKWExplorer = (systemdate) => {
+    cy.enter(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl).then(getBody => {
+        getBody().find('h3.preTextWithEllipsis').contains('Keyword Explorer For').then((visibletext) => {
+        
+            const dispvisibletext=visibletext.text()
+            expect(dispvisibletext).to.contain(systemdate)
+            
+        
+        })
+            
+    })
+}
+
 export const dispPlanningAndResearchTab = () => {
     prtKeywordExplorer.elements.planningAndResearch().should('be.visible')
 }
@@ -66,3 +93,4 @@ export const dispLocale = () => {
 export const dispDevice = () => {
     prtKeywordExplorer.elements.device().should('be.visible')
 }
+

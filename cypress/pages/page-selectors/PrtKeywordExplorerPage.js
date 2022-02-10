@@ -13,12 +13,17 @@ export class PrtKeywordExplorerPage {
             // keywordExplorerSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Keyword Explorer'),
             searchVolumeSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Search Volume'),
             keywordCountSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Keyword Count'),
-    
             keywordExplorerSection: ()=>cy.contains('KEYWORD EXPLORER'),
             searchEngine : () => cy.contains('Search Engine'),
             product : () => cy.contains('Product'),
             locale : () => cy.contains('Locale'),
-            device : () => cy.contains('Device')
+            device : () => cy.contains('Device'),
+            tableKW : (getBody)=>getBody().find('div').contains('#Keywords'),
+            tableSearchVolume : (getBody)=>getBody().find('div').contains('Search Volume'),
+            tableTopicDifficulty : (getBody)=>getBody().find('div').contains('Topic Difficulty'),
+
+            
+
         }
     }
 }
