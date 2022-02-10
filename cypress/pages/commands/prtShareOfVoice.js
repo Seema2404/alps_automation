@@ -55,3 +55,27 @@ export const validateShareOfVoiceByBusinessType = (getBody) => {
 export const validateShareOfVoiceByDomain = (getBody) => {
     prtShareOfVoice.elements.shareOfVoiceByDomain(getBody).should('be.visible')
 }
+
+export const validateTableHeaderSOVDomain = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVDomain(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOV = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOV(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVTraffice = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVTraffice(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVKWRank1to5 = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVKWRank1to5(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVKWRank6to10 = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVKWRank6to10(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVKWRank11to20 = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVKWRank11to20(getBody).should('be.visible')
+}
