@@ -94,6 +94,34 @@ describe('As a PRT user', () => {
         })
     })
 
+    it.only('Al-T1082: Verify the search box is working for Keyword explorer report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtKA.clickKeywordExplorer()
+        prtKA.waitForIframeLoad()
+        //prtKA.enterKeyword()
+        cy.enter(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtKA.enterKeyword(getBody,data.keyword)
+            prtKA.validateSearchVolumeSection(getBody)
+            prtKA.validateKeywordCountSection(getBody)
+        })
+        
+    })
+
+    it('AL-T1083: Verify top level filters for SOV overview report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+
+        //validate top level filters
+        prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
+        prtSOF.validateSearchEngineFilter()
+        prtSOF.validateProductFilter()
+        prtSOF.validateLocaleFilter()
+        prtSOF.validateDeviceFilter()
+    })
+
     it('AL-T1084:Verify Keyword Count and Search Volume is displayed for SOV overview report', () => {
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
@@ -120,18 +148,5 @@ describe('As a PRT user', () => {
     //     prtSOF.dispDateShareOfVoice(todayDate)      
 
     // })
-
-    it('AL-T1083: Verify top level filters for SOV overview report', () => {
-        cy.wait(7000)
-        prtSOF.clickPlanningAndResearch()
-        prtSOF.clickShareOfVoice()
-
-        //validate top level filters
-        prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
-        prtSOF.validateSearchEngineFilter()
-        prtSOF.validateProductFilter()
-        prtSOF.validateLocaleFilter()
-        prtSOF.validateDeviceFilter()
-    })
 
 })
