@@ -149,4 +149,18 @@ describe('As a PRT user', () => {
         prtSOF.validateDeviceFilter()
     })
 
+    it('AL-T1095: Verify Keyword Count, Search Volume, Traffic, Share of voice is displayed for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.validateSearchVolume(getBody)
+            prtSOF.validateKeywordCount(getBody)
+            prtSOF.validateTraffic(getBody)
+            prtSOF.validateShareOfVoice(getBody)
+        })
+    })
+
 })

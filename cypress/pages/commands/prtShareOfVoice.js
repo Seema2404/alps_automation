@@ -84,6 +84,10 @@ export const validateShareOfVoiceOverview = (attr,value) => {
     prtShareOfVoice.elements.shareOfVoiceOverview().should('have.attr',attr,value)
 }
 
+export const clickToCategory = () => {
+    prtShareOfVoice.elements.shareOfVoiceCategory().click()
+}
+
 export const validateSearchEngineFilter = () => {
     prtShareOfVoice.elements.searchEngine().should('be.visible')
     prtShareOfVoice.elements.shareOfVoiceTopFilter().first().should('be.visible')   
@@ -103,3 +107,19 @@ export const validateDeviceFilter = () => {
     prtShareOfVoice.elements.device().should('be.visible')
     prtShareOfVoice.elements.shareOfVoiceTopFilter().last().should('be.visible')
 }
+
+export const validateSearchVolume = (getBody) => {
+    prtShareOfVoice.elements.searchVolume(getBody).should('be.visible')
+} 
+
+export const validateKeywordCount = (getBody) => {
+    prtShareOfVoice.elements.keywordCount(getBody).should('be.visible')
+} 
+
+export const validateTraffic = (getBody) => {
+    prtShareOfVoice.elements.traffic(getBody).should('be.visible')
+} 
+
+export const validateShareOfVoice = (getBody) => {
+    prtShareOfVoice.elements.shareOfVoiceInCategory(getBody).should('be.visible')
+} 
