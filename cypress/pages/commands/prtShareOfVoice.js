@@ -116,3 +116,19 @@ export const validateDomainFilter = () => {
     prtShareOfVoice.elements.domain().should('be.visible')
     prtShareOfVoice.elements.shareOfVoiceTopFilter().last().should('be.visible')
 }
+
+export const validateSearchVolume = (getBody) => {
+    prtShareOfVoice.elements.searchVolume(getBody).should('be.visible')
+} 
+
+export const validateKeywordCount = (getBody) => {
+    prtShareOfVoice.elements.keywordCount(getBody).should('be.visible')
+} 
+
+export const validateTraffic = (getBody) => {
+    prtShareOfVoice.elements.traffic(getBody).should('be.visible')
+} 
+
+export const validateShareOfVoice = (getBody) => {
+    prtShareOfVoice.elements.shareOfVoiceInCategory(getBody).should('be.visible')
+} 
