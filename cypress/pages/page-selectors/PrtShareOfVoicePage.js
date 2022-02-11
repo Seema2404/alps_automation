@@ -24,12 +24,12 @@ export class PrtShareOfVoicePage {
             locale : () => cy.contains('Locale'),
             device : () => cy.contains('Device'),
             shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div'),
+            trendsSOV: () => cy.get('#share-of-voice-trends-url'),
             searchVolume : (getBody) => getBody().contains('Search Volume'),
             keywordCount : (getBody) => getBody().contains('Keyword Count'),
             traffic : (getBody) => getBody().contains('Traffic'),
             shareOfVoiceInCategory : (getBody) => getBody().contains('Share of Voice'),
             domain : () => cy.contains('Domain'),
-            shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div')
         }
     }
 }

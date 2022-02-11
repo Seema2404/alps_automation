@@ -117,6 +117,9 @@ export const validateDomainFilter = () => {
     prtShareOfVoice.elements.shareOfVoiceTopFilter().last().should('be.visible')
 }
 
+export const clickTrendsSOV = () => {
+    prtShareOfVoice.elements.trendsSOV().click()
+}
 export const validateSearchVolume = (getBody) => {
     prtShareOfVoice.elements.searchVolume(getBody).should('be.visible')
 } 
