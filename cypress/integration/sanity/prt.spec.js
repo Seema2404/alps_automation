@@ -180,7 +180,19 @@ describe('As a PRT user', () => {
         prtSOF.validateLocaleFilter()
         prtSOF.validateDeviceFilter()
         prtSOF.validateDomainFilter()
+    })
 
+    it('AL-T1089: Verify top level filters for SOV trends report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickTrendsSOV()
+
+        //validate top level filters in trends
+        prtSOF.validateSearchEngineFilter()
+        prtSOF.validateProductFilter()
+        prtSOF.validateLocaleFilter()
+        prtSOF.validateDeviceFilter()
     })    
 
     it('AL-T1095: Verify Keyword Count, Search Volume, Traffic, Share of voice is displayed for SOV category report', () => {
@@ -196,4 +208,5 @@ describe('As a PRT user', () => {
             prtSOF.validateShareOfVoice(getBody)
         })
     })
+
 })
