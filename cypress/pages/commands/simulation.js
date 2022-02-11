@@ -69,6 +69,7 @@ export const validateViewOriginalButton = () => {
 }
 
 export const editTitle = () => {
+    cy.wait(5000)
     simulation.elements.editorTitleInput().type('edited')
 }
 
