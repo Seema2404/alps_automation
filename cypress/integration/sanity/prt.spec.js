@@ -176,4 +176,5 @@ describe('As a PRT user', () => {
         prtSOF.validateLocaleFilter()
         prtSOF.validateDeviceFilter()
     })
+    
 })
