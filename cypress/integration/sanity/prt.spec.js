@@ -192,4 +192,22 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1092:Verify the table hader for SOV by category', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+         //verify table header elements share of voice
+         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.validateTableHeaderSOVCategory(getBody)
+            prtSOF.validateTableHeaderSOVKeywords(getBody)
+            prtSOF.validateTableHeaderSOVSerchVolume(getBody)
+            prtSOF.validateTableHeaderSOV(getBody)
+            prtSOF.validateTableHeaderSOVTraffice(getBody)
+            prtSOF.validateTableHeaderSOVKWRank1to5(getBody)
+            prtSOF.validateTableHeaderSOVKWRank6to10(getBody)
+            prtSOF.validateTableHeaderSOVCatKWRank11to20(getBody)
+        })
+    })
+
 })

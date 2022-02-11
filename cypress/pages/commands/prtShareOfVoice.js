@@ -135,3 +135,18 @@ export const validateTraffic = (getBody) => {
 export const validateShareOfVoice = (getBody) => {
     prtShareOfVoice.elements.shareOfVoiceInCategory(getBody).should('be.visible')
 } 
+
+export const validateTableHeaderSOVCategory = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVCategory(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVKeywords = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVKeywords(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVSerchVolume = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVSerchVolume(getBody).should('be.visible')
+}
+export const validateTableHeaderSOVCatKWRank11to20 = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVCatKWRank11to20(getBody).should('be.visible')
+}
