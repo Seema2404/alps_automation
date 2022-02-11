@@ -166,4 +166,4 @@ export class SimulationPage {
     }
 }
 
-export const Simulation = new SimulationPage()
+export const simulation = new SimulationPage()
