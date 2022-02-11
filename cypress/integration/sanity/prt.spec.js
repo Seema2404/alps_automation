@@ -170,6 +170,7 @@ describe('As a PRT user', () => {
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.clickTrendsSOV()
+
         //validate top level filters in trends
         prtSOF.validateSearchEngineFilter()
         prtSOF.validateProductFilter()
