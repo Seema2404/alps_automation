@@ -30,6 +30,10 @@ export class PrtShareOfVoicePage {
             traffic : (getBody) => getBody().contains('Traffic'),
             shareOfVoiceInCategory : (getBody) => getBody().contains('Share of Voice'),
             domain : () => cy.contains('Domain'),
+            tableHeaderSOVCategory: (getBody) => getBody().contains('Category'),
+            tableHeaderSOVKeywords: (getBody) => getBody().contains('#Keywords'),
+            tableHeaderSOVSerchVolume: (getBody) => getBody().contains('Search Volume'),
+            tableHeaderSOVCatKWRank11to20: (getBody) => getBody().contains('#KWs on Rank 11-20'),
         }
     }
 }
