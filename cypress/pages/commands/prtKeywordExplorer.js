@@ -14,8 +14,22 @@ export const waitForIframeLoad = () => {
     cy.frameLoaded(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl)
 }
 
-export const waitForSearchBoxIframeLoad = () => {
-    cy.frameLoaded(prtKeywordExplorer.elements.iFrameSearchBox, prtKeywordExplorer.elements.iFrameUrl)
+export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
+    cy.frameLoaded(prtKeywordExplorer.elements.iFrame).iframeCustom()
+    .find(prtKeywordExplorer.elements.iFrameSearchBox)
+    .iframeCustom()
+    .find('#sandbox-host div input').should('be.visible')
+    .wait(2000)
+    .clear().type(keyword)
+    .type('{enter}')
+}
+
+export const validateSearchBoxResult = (getBody,keyword) => {
+    prtKeywordExplorer.elements.keywordThemesText(getBody)
+    // .then((resValue) => {
+    //     const result=resValue.text();
+    //     expect(result).to.contains(keyword)
+    // })
 }
 
 export const verifySearchVolume = (sv) => {
