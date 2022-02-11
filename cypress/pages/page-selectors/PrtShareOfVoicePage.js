@@ -34,6 +34,7 @@ export class PrtShareOfVoicePage {
             tableHeaderSOVKeywords: (getBody) => getBody().contains('#Keywords'),
             tableHeaderSOVSerchVolume: (getBody) => getBody().contains('Search Volume'),
             tableHeaderSOVCatKWRank11to20: (getBody) => getBody().contains('#KWs on Rank 11-20'),
+            txtboxSOVCategory: () => cy.get('.css-2b097c-container > div > div> div')
         }
     }
 }
