@@ -48,6 +48,26 @@ Cypress.Commands.add(
         .getInDocument(targetElement)
 )
 
+Cypress.Commands.add('getIframeBody', (iframeLoc) => {
+    // get the iframe > document > body
+    // and retry until the body element is not empty
+    return cy
+        .get(iframeLoc)
+        .its('0.contentDocument.body').should('not.be.empty')
+    // wraps "body" DOM element to allow
+    // chaining more Cypress commands, like ".find(...)"
+    // https://on.cypress.io/wrap
+        .then(cy.wrap)
+})
+
+Cypress.Commands.add('iframeCustom', { prevSubject: 'element' }, ($iframe) => {
+    return new Cypress.Promise((resolve) => {
+        $iframe.ready(function () {
+            resolve($iframe.contents().find('body'))
+        })
+    })
+})
+
 Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {
     Cypress.log({
         name: 'iframe',
