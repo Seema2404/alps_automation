@@ -12,11 +12,24 @@ export class PrtShareOfVoicePage {
             keywordCountSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Keyword Count'),
             shareOfVoiceByBusinessType: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Business Type'),
             shareOfVoiceByDomain: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Domain'),
+            tableHeaderSOVDomain: (getBody) => getBody().contains('Domain'),
+            tableHeaderSOV: (getBody) => getBody().contains('Share Of Voice'),
+            tableHeaderSOVTraffice: (getBody) => getBody().contains('Traffic'),
+            tableHeaderSOVKWRank1to5: (getBody) => getBody().contains('#KWs for Rank 1-5'),
+            tableHeaderSOVKWRank6to10: (getBody) => getBody().contains('#KWs for Rank 6-10'),
+            tableHeaderSOVKWRank11to20: (getBody) => getBody().contains('#KWs for Rank 11-20'),
             shareOfVoiceOverview : () => cy.get('#share-of-voice-overview-url'),
+            shareOfVoiceCategory : () => cy.get('#share-of-voice-category-url'),
             searchEngine : () => cy.contains('Search Engine'),
             product : () => cy.contains('Product'),
             locale : () => cy.contains('Locale'),
-            shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div')
+            device : () => cy.contains('Device'),
+            shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div'),
+            searchVolume : (getBody) => getBody().contains('Search Volume'),
+            keywordCount : (getBody) => getBody().contains('Keyword Count'),
+            traffic : (getBody) => getBody().contains('Traffic'),
+            shareOfVoiceInCategory : (getBody) => getBody().contains('Share of Voice'),
+            domain : () => cy.contains('Domain'),
         }
     }
 }
