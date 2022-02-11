@@ -18,10 +18,12 @@ export class PrtShareOfVoicePage {
             tableHeaderSOVKWRank6to10: (getBody) => getBody().contains('#KWs for Rank 6-10'),
             tableHeaderSOVKWRank11to20: (getBody) => getBody().contains('#KWs for Rank 11-20'),
             shareOfVoiceOverview : () => cy.get('#share-of-voice-overview-url'),
+            shareOfVoiceCategory : () => cy.get('#share-of-voice-category-url'),
             searchEngine : () => cy.contains('Search Engine'),
             product : () => cy.contains('Product'),
             locale : () => cy.contains('Locale'),
             device : () => cy.contains('Device'),
+            domain : () => cy.contains('Domain'),
             shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div')
         }
     }

@@ -94,6 +94,19 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1083: Verify top level filters for SOV overview report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+
+        //validate top level filters
+        prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
+        prtSOF.validateSearchEngineFilter()
+        prtSOF.validateProductFilter()
+        prtSOF.validateLocaleFilter()
+        prtSOF.validateDeviceFilter()
+    })
+
     it('AL-T1084:Verify Keyword Count and Search Volume is displayed for SOV overview report', () => {
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
@@ -137,16 +150,19 @@ describe('As a PRT user', () => {
         })
     })
 
-    it('AL-T1083: Verify top level filters for SOV overview report', () => {
+    it('AL-T1094: Verify top level filters for SOV category report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+
         //validate top level filters
-        prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
+        prtSOF.validateShareOfVoiceCategory(data.attr,data.attrValue)
         prtSOF.validateSearchEngineFilter()
         prtSOF.validateProductFilter()
         prtSOF.validateLocaleFilter()
         prtSOF.validateDeviceFilter()
-    })
+        prtSOF.validateDomainFilter()
 
+    })
 })
