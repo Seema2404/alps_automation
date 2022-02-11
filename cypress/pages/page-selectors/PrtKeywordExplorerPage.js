@@ -7,6 +7,7 @@ export class PrtKeywordExplorerPage {
             keywordExplorer: () => cy.get('a').contains('KEYWORD EXPLORER'),
             iFrame: '.report-style-class iframe',
             iFrameUrl: { url: 'https://app.powerbi.com' },
+            iFrameSearchBox : 'div[class*="visual-textFilter"] iframe',
             searchVolume: '.value title',
             searchEngineLabel: () => cy.get('#breadcrumb + div div div div:nth-child(1) span'),
             filtersContainer: (getBody) => getBody().find('.scrollWrapper div p span').contains('FILTERS'),
@@ -21,7 +22,7 @@ export class PrtKeywordExplorerPage {
             tableKW : (getBody)=>getBody().find('div').contains('#Keywords'),
             tableSearchVolume : (getBody)=>getBody().find('div').contains('Search Volume'),
             tableTopicDifficulty : (getBody)=>getBody().find('div').contains('Topic Difficulty'),
-            keywordExplorerSearchBox : (getBody,getBody2) => getBody().getBody2().find('div').contains('input[name="search-field"]'),
+            keywordExplorerSearchBox : (getBody2) => getBody2().find('div').contains('input[name="search-field"]'),
             
 
         }

@@ -10,10 +10,12 @@ export const clickKeywordExplorer = () => {
     prtKeywordExplorer.elements.keywordExplorer().click({ force: true })
 }
 
-
-
 export const waitForIframeLoad = () => {
     cy.frameLoaded(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl)
+}
+
+export const waitForSearchBoxIframeLoad = () => {
+    cy.frameLoaded(prtKeywordExplorer.elements.iFrameSearchBox, prtKeywordExplorer.elements.iFrameUrl)
 }
 
 export const verifySearchVolume = (sv) => {
@@ -94,8 +96,8 @@ export const dispDevice = () => {
     prtKeywordExplorer.elements.device().should('be.visible')
 }
 
-export const verifySearchBox = (getBody,getBody2) => {
-    prtKeywordExplorer.elements.keywordExplorerSearchBox(getBody,getBody2).should('be.visible')
+export const verifySearchBox = (getBody2) => {
+    prtKeywordExplorer.elements.keywordExplorerSearchBox(getBody2).should('be.visible')
 }
 
 export const enterKeyword = (getBody,kw) => {
