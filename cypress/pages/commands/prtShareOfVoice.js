@@ -56,8 +56,40 @@ export const validateShareOfVoiceByDomain = (getBody) => {
     prtShareOfVoice.elements.shareOfVoiceByDomain(getBody).should('be.visible')
 }
 
+export const validateTableHeaderSOVDomain = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVDomain(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOV = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOV(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVTraffice = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVTraffice(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVKWRank1to5 = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVKWRank1to5(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVKWRank6to10 = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVKWRank6to10(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVKWRank11to20 = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVKWRank11to20(getBody).should('be.visible')
+}
+
 export const validateShareOfVoiceOverview = (attr,value) => {
     prtShareOfVoice.elements.shareOfVoiceOverview().should('have.attr',attr,value)
+}
+
+export const clickToCategory = () => {
+    prtShareOfVoice.elements.shareOfVoiceCategory().click()
+}
+
+export const validateShareOfVoiceCategory = (attr,value) => {
+    prtShareOfVoice.elements.shareOfVoiceCategory().should('have.attr',attr,value)
 }
 
 export const validateSearchEngineFilter = () => {
@@ -77,5 +109,44 @@ export const validateLocaleFilter = () => {
 
 export const validateDeviceFilter = () => {
     prtShareOfVoice.elements.device().should('be.visible')
+    prtShareOfVoice.elements.shareOfVoiceTopFilter().eq(3).should('be.visible')
+}
+
+export const validateDomainFilter = () => {
+    prtShareOfVoice.elements.domain().should('be.visible')
     prtShareOfVoice.elements.shareOfVoiceTopFilter().last().should('be.visible')
+}
+
+export const clickTrendsSOV = () => {
+    prtShareOfVoice.elements.trendsSOV().click()
+}
+export const validateSearchVolume = (getBody) => {
+    prtShareOfVoice.elements.searchVolume(getBody).should('be.visible')
+} 
+
+export const validateKeywordCount = (getBody) => {
+    prtShareOfVoice.elements.keywordCount(getBody).should('be.visible')
+} 
+
+export const validateTraffic = (getBody) => {
+    prtShareOfVoice.elements.traffic(getBody).should('be.visible')
+} 
+
+export const validateShareOfVoice = (getBody) => {
+    prtShareOfVoice.elements.shareOfVoiceInCategory(getBody).should('be.visible')
+} 
+
+export const validateTableHeaderSOVCategory = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVCategory(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVKeywords = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVKeywords(getBody).should('be.visible')
+}
+
+export const validateTableHeaderSOVSerchVolume = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVSerchVolume(getBody).should('be.visible')
+}
+export const validateTableHeaderSOVCatKWRank11to20 = (getBody) => {
+    prtShareOfVoice.elements.tableHeaderSOVCatKWRank11to20(getBody).should('be.visible')
 }

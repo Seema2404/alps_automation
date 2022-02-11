@@ -94,6 +94,19 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1083: Verify top level filters for SOV overview report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+
+        //validate top level filters
+        prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
+        prtSOF.validateSearchEngineFilter()
+        prtSOF.validateProductFilter()
+        prtSOF.validateLocaleFilter()
+        prtSOF.validateDeviceFilter()
+    })
+
     it('AL-T1084:Verify Keyword Count and Search Volume is displayed for SOV overview report', () => {
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
@@ -121,17 +134,80 @@ describe('As a PRT user', () => {
 
     // })
 
-    it('AL-T1083: Verify top level filters for SOV overview report', () => {
+    it('AL-T1086:Verify the table hader for SOV overview by domain', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+        //verify table header elements share of voice
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.validateTableHeaderSOVDomain(getBody)
+            prtSOF.validateTableHeaderSOV(getBody)
+            prtSOF.validateTableHeaderSOVTraffice(getBody)
+            prtSOF.validateTableHeaderSOVKWRank1to5(getBody)
+            prtSOF.validateTableHeaderSOVKWRank6to10(getBody)
+            prtSOF.validateTableHeaderSOVKWRank11to20(getBody)
+        })
+    })
+
+    it('AL-T1094: Verify top level filters for SOV category report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
 
         //validate top level filters
-        prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
+        prtSOF.validateShareOfVoiceCategory(data.attr,data.attrValue)
         prtSOF.validateSearchEngineFilter()
         prtSOF.validateProductFilter()
         prtSOF.validateLocaleFilter()
         prtSOF.validateDeviceFilter()
+        prtSOF.validateDomainFilter()
+    })
+
+    it('AL-T1089: Verify top level filters for SOV trends report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickTrendsSOV()
+
+        //validate top level filters in trends
+        prtSOF.validateSearchEngineFilter()
+        prtSOF.validateProductFilter()
+        prtSOF.validateLocaleFilter()
+        prtSOF.validateDeviceFilter()
+    })    
+
+    it('AL-T1095: Verify Keyword Count, Search Volume, Traffic, Share of voice is displayed for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.validateSearchVolume(getBody)
+            prtSOF.validateKeywordCount(getBody)
+            prtSOF.validateTraffic(getBody)
+            prtSOF.validateShareOfVoice(getBody)
+        })
+    })
+
+    it('AL-T1092:Verify the table hader for SOV by category', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+         //verify table header elements share of voice
+         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.validateTableHeaderSOVCategory(getBody)
+            prtSOF.validateTableHeaderSOVKeywords(getBody)
+            prtSOF.validateTableHeaderSOVSerchVolume(getBody)
+            prtSOF.validateTableHeaderSOV(getBody)
+            prtSOF.validateTableHeaderSOVTraffice(getBody)
+            prtSOF.validateTableHeaderSOVKWRank1to5(getBody)
+            prtSOF.validateTableHeaderSOVKWRank6to10(getBody)
+            prtSOF.validateTableHeaderSOVCatKWRank11to20(getBody)
+        })
     })
 
 })
