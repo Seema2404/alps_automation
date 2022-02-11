@@ -28,6 +28,8 @@ export class PrtShareOfVoicePage {
             keywordCount : (getBody) => getBody().contains('Keyword Count'),
             traffic : (getBody) => getBody().contains('Traffic'),
             shareOfVoiceInCategory : (getBody) => getBody().contains('Share of Voice'),
+            domain : () => cy.contains('Domain'),
+            shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div')
         }
     }
 }
