@@ -220,7 +220,8 @@ describe('As a PRT user', () => {
         prtTA.validateSearchEngineFilter()
         prtTA.validateProductFilter()
         prtTA.validateLocaleFilter()
-        prtTA.validateDomainFilter()   
+        prtTA.validateDomainFilter()
+           
     })
 
 })
