@@ -10,10 +10,22 @@ export const clickKeywordExplorer = () => {
     prtKeywordExplorer.elements.keywordExplorer().click({ force: true })
 }
 
-
-
 export const waitForIframeLoad = () => {
     cy.frameLoaded(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl)
+}
+
+export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
+    cy.frameLoaded(prtKeywordExplorer.elements.iFrame).iframeCustom()
+    .find(prtKeywordExplorer.elements.iFrameSearchBox)
+    .iframeCustom()
+    .find('#sandbox-host div input').should('be.visible')
+    .wait(2000)
+    .clear().type(keyword)
+    .type('{enter}')
+}
+
+export const validateSearchBoxResult = (getBody,keyword) => {
+    prtKeywordExplorer.elements.keywordThemesText(getBody).should('contains.text',keyword)
 }
 
 export const verifySearchVolume = (sv) => {
@@ -93,4 +105,14 @@ export const dispLocale = () => {
 export const dispDevice = () => {
     prtKeywordExplorer.elements.device().should('be.visible')
 }
+
+export const verifySearchBox = (getBody2) => {
+    prtKeywordExplorer.elements.keywordExplorerSearchBox(getBody2).should('be.visible')
+}
+
+export const enterKeyword = (getBody,kw) => {
+    prtKeywordExplorer.elements.keywordExplorerSearchBox(getBody).should('be.visible')
+    //.clear().type(kw)
+}
+
 
