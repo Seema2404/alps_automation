@@ -124,7 +124,7 @@ describe('As a PRT user', () => {
 
     it('AL-T1084:Verify Keyword Count and Search Volume is displayed for SOV overview report', () => {
         cy.wait(7000)
-        prtKA.clickPlanningAndResearch()
+        prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
         prtSOF.validateSearchEngineLabel()
@@ -151,7 +151,7 @@ describe('As a PRT user', () => {
 
     it('AL-T1086:Verify the table hader for SOV overview by domain', () => {
         cy.wait(7000)
-        prtKA.clickPlanningAndResearch()
+        prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
         //verify table header elements share of voice
@@ -179,6 +179,22 @@ describe('As a PRT user', () => {
         prtSOF.validateDeviceFilter()
         prtSOF.validateDomainFilter()
     })
+
+    it('AL-T1088: Verify the search box is working for SOV overview report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtSOF.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
+
+            //validate search box result is working
+            prtSOF.validateSearchBoxResult(getBody,data.searchKeyword)
+        })
+    })
+
 
     it('AL-T1089: Verify top level filters for SOV trends report', () => {
         cy.wait(7000)
@@ -235,7 +251,7 @@ describe('As a PRT user', () => {
     })
     it('AL-T1104: Verify top level filter for Topical Authority domain report', () => {
         cy.wait(7000)
-        prtSOF.clickPlanningAndResearch()
+        prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         prtTA.clickDomainTab()
 
@@ -249,7 +265,7 @@ describe('As a PRT user', () => {
 
     it('AL-T1101: Verify the table header for Topical Authority category report', () => {
         cy.wait(7000)
-        prtSOF.clickPlanningAndResearch()
+        prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
 
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
