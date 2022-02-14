@@ -246,14 +246,21 @@ describe('As a PRT user', () => {
         prtTA.validateDomainFilter()
            
     })
+    it('AL-T1098: Verify top level filter for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        //validate top level filters
+        prtTA.validateSearchEngineFilter()
+        prtTA.validateProductFilter()
+        prtTA.validateLocaleFilter()
+    })
 
     it('AL-T1101: Verify the table header for Topical Authority category report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
-
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-            
             //verify table header for Topical Authority
             prtTA.validateTableHeaderDomain(getBody)
             prtTA.validateTableHeaderTopicalAuthority(getBody)
