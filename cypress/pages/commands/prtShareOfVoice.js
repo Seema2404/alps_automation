@@ -150,3 +150,8 @@ export const validateTableHeaderSOVSerchVolume = (getBody) => {
 export const validateTableHeaderSOVCatKWRank11to20 = (getBody) => {
     prtShareOfVoice.elements.tableHeaderSOVCatKWRank11to20(getBody).should('be.visible')
 }
+
+export const validateTargetDomainFilter = () => {
+    prtShareOfVoice.elements.txtboxSOVCategoryProduct().should('have.text', 'Credit Cards')
+    prtShareOfVoice.elements.txtboxSOVCategoryDomain().should('have.text', 'card.discover.com')
+}
