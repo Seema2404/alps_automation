@@ -85,7 +85,7 @@ export const validateShareOfVoiceOverview = (attr,value) => {
 }
 
 export const clickToCategory = () => {
-    prtShareOfVoice.elements.shareOfVoiceCategory().click()
+    prtShareOfVoice.elements.shareOfVoiceCategory().click({ force : true})
 }
 
 export const validateShareOfVoiceCategory = (attr,value) => {
@@ -118,7 +118,7 @@ export const validateDomainFilter = () => {
 }
 
 export const clickTrendsSOV = () => {
-    prtShareOfVoice.elements.trendsSOV().click()
+    prtShareOfVoice.elements.trendsSOV().click({ force : true })
 }
 export const validateSearchVolume = (getBody) => {
     prtShareOfVoice.elements.searchVolume(getBody).should('be.visible')

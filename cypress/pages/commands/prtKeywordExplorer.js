@@ -3,7 +3,7 @@ import * as iframe from 'cypress-iframe'
 import { prtKeywordExplorer, PrtKeywordExplorerPage } from '../page-selectors/PrtKeywordExplorerPage'
 
 export const clickPlanningAndResearch = () => {
-    prtKeywordExplorer.elements.planningAndResearch().click()
+    prtKeywordExplorer.elements.planningAndResearch().click({ force : true})
 }
 
 export const clickKeywordExplorer = () => {
