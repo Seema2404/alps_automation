@@ -214,12 +214,13 @@ describe('As a PRT user', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
-
+        prtTA.clickDomainTab()
 
         //validate top level filters
-        prtKA.validateSearchEngineFilter()
-        prtKA.validateProductFilter()
-        prtKA.validateLocaleFilter()
+        prtTA.validateSearchEngineFilter()
+        prtTA.validateProductFilter()
+        prtTA.validateLocaleFilter()
+        prtTA.validateDomainFilter()
        
 
         
