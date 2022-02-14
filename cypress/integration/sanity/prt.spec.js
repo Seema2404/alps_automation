@@ -94,6 +94,21 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('Al-T1082: Verify the search box is working for Keyword explorer report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtKA.clickKeywordExplorer()
+        prtKA.waitForIframeLoad()
+        cy.enter(prtKeywordExplorer.elements.iFrame, prtKeywordExplorer.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtKA.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
+
+            //validate search box result is working
+            prtKA.validateSearchBoxResult(getBody,data.searchKeyword)
+        })
+        
+    })
+
     it('AL-T1083: Verify top level filters for SOV overview report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
