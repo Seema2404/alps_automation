@@ -152,6 +152,6 @@ export const validateTableHeaderSOVCatKWRank11to20 = (getBody) => {
 }
 
 export const validateTargetDomainFilter = () => {
-    prtShareOfVoice.elements.txtboxSOVCategory().eq(1).should('have.text', 'Credit Cards')
-    prtShareOfVoice.elements.txtboxSOVCategory().last().should('have.text', 'card.discover.com')
+    prtShareOfVoice.elements.txtboxSOVCategoryProduct().should('have.text', 'Credit Cards')
+    prtShareOfVoice.elements.txtboxSOVCategoryDomain().should('have.text', 'card.discover.com')
 }
