@@ -5,6 +5,7 @@ import * as prtSOF from '../../pages/commands/prtShareOfVoice'
 import * as prtTA from '../../pages/commands/PrtTopicalAuthority'
 import { prtKeywordExplorer } from '../../pages/page-selectors/PrtKeywordExplorerPage'
 import { prtShareOfVoice } from '../../pages/page-selectors/PrtShareOfVoicePage'
+import { prtTopicalAuthority } from '../../pages/page-selectors/PrtTopicalAuthorityPage'
 
 
 describe('As a PRT user', () => {
@@ -284,6 +285,21 @@ describe('As a PRT user', () => {
             prtTA.validateTableHeaderKwsBeyondPage2(getBody)
         })
 
+    })
+
+    it.only('AL-1103: Verify the search box is working for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.waitForIframeLoad()
+
+        cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtTA.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
+
+            //validate search box result is working
+            prtTA.validateSearchBoxResult(getBody,data.searchKeyword)
+        })
     })
 
 })
