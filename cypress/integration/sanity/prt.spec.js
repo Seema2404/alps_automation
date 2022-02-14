@@ -260,9 +260,7 @@ describe('As a PRT user', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
-
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-            
             //verify table header for Topical Authority
             prtTA.validateTableHeaderDomain(getBody)
             prtTA.validateTableHeaderTopicalAuthority(getBody)
