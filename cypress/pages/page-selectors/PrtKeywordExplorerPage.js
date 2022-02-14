@@ -22,8 +22,7 @@ export class PrtKeywordExplorerPage {
             tableKW : (getBody)=>getBody().find('div').contains('#Keywords'),
             tableSearchVolume : (getBody)=>getBody().find('div').contains('Search Volume'),
             tableTopicDifficulty : (getBody)=>getBody().find('div').contains('Topic Difficulty'),
-            keywordThemesText : (getBody) => getBody().find('div.rowHeaders').get('div>div>div:nth-of-type(2)'),
-
+            keywordThemesText : (getBody) => getBody().find('div[class*="expandableContent pivotTableCellWrap"]'),
         }
     }
 }

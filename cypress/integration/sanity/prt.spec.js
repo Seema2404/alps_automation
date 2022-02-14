@@ -94,7 +94,7 @@ describe('As a PRT user', () => {
         })
     })
 
-    it.only('Al-T1082: Verify the search box is working for Keyword explorer report', () => {
+    it('Al-T1082: Verify the search box is working for Keyword explorer report', () => {
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
         prtKA.clickKeywordExplorer()
