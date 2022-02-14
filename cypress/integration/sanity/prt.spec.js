@@ -255,6 +255,7 @@ describe('As a PRT user', () => {
             prtSOF.validateSearchVolume(getBody)
             prtSOF.validateKeywordCount(getBody)
         })
+    })
     it('AL-T1098: Verify top level filter for Topical Authority category report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
