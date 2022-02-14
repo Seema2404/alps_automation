@@ -262,14 +262,31 @@ describe('As a PRT user', () => {
         prtTA.validateDomainFilter()
            
     })
+    it('AL-T1099: Verify Keyword Count and Search Volume is displayed for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        //validate keyword count and search volume for Topical authority category
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.validateSearchVolume(getBody)
+            prtSOF.validateKeywordCount(getBody)
+        })
+    })
+    it('AL-T1098: Verify top level filter for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        //validate top level filters
+        prtTA.validateSearchEngineFilter()
+        prtTA.validateProductFilter()
+        prtTA.validateLocaleFilter()
+    })
 
     it('AL-T1101: Verify the table header for Topical Authority category report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
-
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-            
             //verify table header for Topical Authority
             prtTA.validateTableHeaderDomain(getBody)
             prtTA.validateTableHeaderTopicalAuthority(getBody)
