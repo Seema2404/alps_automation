@@ -62,3 +62,45 @@ export const validateDomainFilter = () => {
     prtTopicalAuthority.elements.domain().should('be.visible')
     prtTopicalAuthority.elements.shareOfVoiceTopFilter().last().should('be.visible')
 }
+
+export const validateTableHeaderDomain = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderDomain(getBody).should('be.visible')
+}
+
+export const validateTableHeaderTopicalAuthority = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderTopicalAuthority(getBody).should('be.visible')
+}
+
+export const validateTableHeaderUrlCount = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderUrlCount(getBody).should('be.visible')
+}
+
+export const validateTableHeaderUrlRating20 = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderUrlRating20(getBody).should('be.visible')
+}
+
+export const validateTableHeaderUrlRating20to40 = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderUrlRating20to40(getBody).should('be.visible')
+}
+
+export const validateTableHeaderUrlRating40 = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderUrlRating40(getBody).should('be.visible')
+}
+
+export const validateTableHeaderUrlRatingNA = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderUrlRatingNA(getBody).should('be.visible')
+}
+
+export const validateTableHeaderKwsOnPage1 = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderKwsOnPage1(getBody).should('be.visible')
+}
+
+export const validateTableHeaderKwsOnPag2 = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderKwsOnPag2(getBody).should('be.visible')
+}
+
+export const validateTableHeaderKwsBeyondPage2 = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderKwsBeyondPage2(getBody).should('be.visible')
+}
+
+

@@ -16,6 +16,16 @@ export class PrtTopicalAuthorityPage {
             locale : () => cy.contains('Locale'),
             domain : () => cy.get('span').contains('Domain'),
             shareOfVoiceTopFilter : () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div'),
+            tableHeaderDomain: (getBody) => getBody().find('div').contains('Domain'),
+            tableHeaderTopicalAuthority: (getBody) => getBody().contains('#Topical Authority'),
+            tableHeaderUrlCount: (getBody) => getBody().contains('#URL Count'),
+            tableHeaderUrlRating20: (getBody) => getBody().contains('#URL Rating <20'),
+            tableHeaderUrlRating20to40: (getBody) => getBody().contains('#URL Rating 20-40'),
+            tableHeaderUrlRating40: (getBody) => getBody().contains('#URL Rating >40'),
+            tableHeaderUrlRatingNA: (getBody) => getBody().contains('#URL Rating NA'),
+            tableHeaderKwsOnPage1: (getBody) => getBody().contains('#KWs on Page 1 '),
+            tableHeaderKwsOnPag2: (getBody) => getBody().contains('#KWs on Page 2'),
+            tableHeaderKwsBeyondPage2: (getBody) => getBody().contains('#Kws beyond Page 2'),
         }
     }
 }
