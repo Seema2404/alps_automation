@@ -223,5 +223,14 @@ describe('As a PRT user', () => {
         prtTA.validateDomainFilter()
            
     })
+    it('AL-T1098: Verify top level filter for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        //validate top level filters
+        prtTA.validateSearchEngineFilter()
+        prtTA.validateProductFilter()
+        prtTA.validateLocaleFilter()
+    })
 
 })
