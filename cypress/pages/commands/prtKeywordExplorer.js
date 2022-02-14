@@ -26,10 +26,10 @@ export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
 
 export const validateSearchBoxResult = (getBody,keyword) => {
     prtKeywordExplorer.elements.keywordThemesText(getBody)
-    // .then((resValue) => {
-    //     const result=resValue.text();
-    //     expect(result).to.contains(keyword)
-    // })
+    .then((resValue) => {
+        const result=resValue.text();
+        expect(result).to.contains(keyword)
+    })
 }
 
 export const verifySearchVolume = (sv) => {

@@ -104,7 +104,7 @@ describe('As a PRT user', () => {
             prtKA.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
 
             //validate search box result is working
-            prtKA.validateSearchBoxResult()
+            prtKA.validateSearchBoxResult(getBody,data.searchKeyword)
         })
         
     })
