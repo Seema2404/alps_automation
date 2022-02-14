@@ -210,6 +210,14 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1097:Verify the Target Domain filter for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+         //verify Target Domain filter for SOV category
+        prtSOF.validateTargetDomainFilter()
+    })
     it('AL-T1104: Verify top level filter for Topical Authority domain report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()

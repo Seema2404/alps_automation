@@ -34,6 +34,8 @@ export class PrtShareOfVoicePage {
             tableHeaderSOVKeywords: (getBody) => getBody().contains('#Keywords'),
             tableHeaderSOVSerchVolume: (getBody) => getBody().contains('Search Volume'),
             tableHeaderSOVCatKWRank11to20: (getBody) => getBody().contains('#KWs on Rank 11-20'),
+            txtboxSOVCategoryProduct: () => cy.xpath('//span[text()="Product"]/following-sibling::div[1]/div/div/div'),
+            txtboxSOVCategoryDomain: () => cy.xpath('//span[text()="Domain"]/following-sibling::div[1]/div/div/div')
         }
     }
 }
