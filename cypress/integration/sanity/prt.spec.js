@@ -287,7 +287,7 @@ describe('As a PRT user', () => {
 
     })
 
-    it.only('AL-1103: Verify the search box is working for Topical Authority category report', () => {
+    it('AL-1103: Verify the search box is working for Topical Authority category report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
