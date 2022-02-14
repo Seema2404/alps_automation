@@ -210,4 +210,19 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1104: Verify top level filter for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+
+
+        //validate top level filters
+        prtKA.validateSearchEngineFilter()
+        prtKA.validateProductFilter()
+        prtKA.validateLocaleFilter()
+       
+
+        
+    })
+
 })
