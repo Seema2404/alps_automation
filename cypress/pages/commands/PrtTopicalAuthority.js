@@ -24,7 +24,7 @@ export const validateFiltersContainer = (getBody) => {
 }
 
 export const clickDomainTab = () => {
-    prtTopicalAuthority.elements.domainTab().click()
+    prtTopicalAuthority.elements.domainTab().click({ force : true })
 }
 
 export const validateTableTitleCategory = (getBody) => {
@@ -41,4 +41,24 @@ export const validateTableContainer = (getBody) => {
 
 export const disptopicalAuthority = () => {
     prtTopicalAuthority.elements.topicalAuthority().should('be.visible')
+}
+
+export const validateSearchEngineFilter = () => {
+    prtTopicalAuthority.elements.searchEngine().should('be.visible')
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().first().should('be.visible')   
+}
+
+export const validateProductFilter = () => {
+    prtTopicalAuthority.elements.product().should('be.visible')
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().eq(1).should('be.visible')
+}
+
+export const validateLocaleFilter = () => {
+    prtTopicalAuthority.elements.locale().should('be.visible')
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().eq(2).should('be.visible')
+}
+
+export const validateDomainFilter = () => {
+    prtTopicalAuthority.elements.domain().should('be.visible')
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().last().should('be.visible')
 }
