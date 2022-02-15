@@ -242,6 +242,18 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1096:Verify the Date filter for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+        var recentMonth = (new Date()).toString().split(' ').splice(1,1).join(' ')
+
+        // validation of recent month.
+        prtSOF.dispDateShareOfVoiceByCategory(recentMonth)      
+
+    })
+
     it('AL-T1097:Verify the Target Domain filter for SOV category report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
@@ -300,8 +312,8 @@ describe('As a PRT user', () => {
             prtTA.validateTableHeaderKwsOnPag2(getBody)
             prtTA.validateTableHeaderKwsBeyondPage2(getBody)
         })
-
     })
+
     it('AL-T1107: Verify the table hader for Topical Authority domain report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
@@ -326,7 +338,7 @@ describe('As a PRT user', () => {
 
     })
 
-    it('AL-1103: Verify the search box is working for Topical Authority category report', () => {
+    it('AL-T1103: Verify the search box is working for Topical Authority category report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
@@ -340,5 +352,6 @@ describe('As a PRT user', () => {
             prtTA.validateSearchBoxResult(getBody,data.searchKeyword)
         })
     })
+
 
 })

@@ -42,6 +42,15 @@ export const dispDateShareOfVoice = (systemdate) => {
     })
 }
 
+export const dispDateShareOfVoiceByCategory = (systemdate) => {
+    cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+        cy.wait(6000)
+        prtShareOfVoice.elements.RecentDateCategory(getBody).then((visibleText) => {
+            const dispVisibleText=visibleText.text()
+            expect(dispVisibleText).to.contains(systemdate)
+        })        
+    })
+}
 
 export const validateSearchEngineLabel = () => {
     prtShareOfVoice.elements.searchEngineLabel().should('be.visible')
