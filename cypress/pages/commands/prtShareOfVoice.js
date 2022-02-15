@@ -14,6 +14,21 @@ export const waitForIframeLoad = () => {
     cy.frameLoaded(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl)
 }
 
+export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
+    cy.frameLoaded(prtShareOfVoice.elements.iFrame).iframeCustom()
+    .find(prtShareOfVoice.elements.iFrameSearchBox)
+    .iframeCustom()
+    .find('#sandbox-host div input').should('be.visible')
+    .wait(2000)
+    .clear().type(keyword)
+    .type('{enter}')
+}
+
+export const validateSearchBoxResult = (getBody,keyword) => {
+    prtShareOfVoice.elements.domainTableData(getBody).should('contains.text',keyword)
+}
+
+
 export const dispDateShareOfVoice = (systemdate) => {
     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
         getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Domain for').then((visibletext) => {
