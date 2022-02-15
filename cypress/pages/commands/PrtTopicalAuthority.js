@@ -118,7 +118,6 @@ export const validateTableHeaderKwsOnPag2 = (getBody) => {
 export const validateTableHeaderKwsBeyondPage2 = (getBody) => {
     prtTopicalAuthority.elements.tableHeaderKwsBeyondPage2(getBody).should('be.visible')
 }
-
 export const validateTableHeaderCategory = (getBody) => {
     prtTopicalAuthority.elements.tableHeaderCategory(getBody).should('be.visible')
 }
@@ -156,7 +155,3 @@ export const dispDateTopicalAuthority = (systemdate) => {
             
     })
 }
-
-
-
-
