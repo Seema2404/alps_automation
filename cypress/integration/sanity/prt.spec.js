@@ -5,6 +5,7 @@ import * as prtSOF from '../../pages/commands/prtShareOfVoice'
 import * as prtTA from '../../pages/commands/PrtTopicalAuthority'
 import { prtKeywordExplorer } from '../../pages/page-selectors/PrtKeywordExplorerPage'
 import { prtShareOfVoice } from '../../pages/page-selectors/PrtShareOfVoicePage'
+import { prtTopicalAuthority } from '../../pages/page-selectors/PrtTopicalAuthorityPage'
 
 
 describe('As a PRT user', () => {
@@ -264,7 +265,7 @@ describe('As a PRT user', () => {
     })
     it('AL-T1099: Verify Keyword Count and Search Volume is displayed for Topical Authority category report', () => {
         cy.wait(7000)
-        prtSOF.clickPlanningAndResearch()
+        prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         //validate keyword count and search volume for Topical authority category
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
@@ -274,7 +275,7 @@ describe('As a PRT user', () => {
     })
     it('AL-T1098: Verify top level filter for Topical Authority category report', () => {
         cy.wait(7000)
-        prtSOF.clickPlanningAndResearch()
+        prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         //validate top level filters
         prtTA.validateSearchEngineFilter()
@@ -311,6 +312,44 @@ describe('As a PRT user', () => {
         // validation of recent month.
         prtSOF.dispDateShareOfVoiceByCategory(recentMonth)      
 
+    })
+    it('AL-T1107: Verify the table hader for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            //verify table header for Topical Authority on domain report
+            prtTA.validateTableHeaderCategory(getBody)
+            prtTA.validateTableHeaderSubCategory(getBody)
+            prtTA.validateTableHeaderDomainTopicalAuthority(getBody)
+            prtTA.validateTableHeaderDomainHighestTopicalAuthority(getBody)
+            prtTA.validateTableHeaderDomainUrl(getBody)
+            prtTA.validateTableHeaderUrlRating20(getBody)
+            prtTA.validateTableHeaderUrlRating20to40(getBody)
+            prtTA.validateTableHeaderDomainUrlRating40(getBody)
+            prtTA.validateTableHeaderUrlRatingNA(getBody)
+            prtTA.validateTableHeaderDomainKeywordCount(getBody)
+            prtTA.validateTableHeaderKwsOnPage1(getBody)
+            prtTA.validateTableHeaderKwsOnPag2(getBody)
+            prtTA.validateTableHeaderDomainKwsBeyondPage2(getBody)
+        })
+
+    })
+
+    it('AL-1103: Verify the search box is working for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.waitForIframeLoad()
+
+        cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtTA.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
+            
+            //validate search box result is working
+            prtTA.validateSearchBoxResult(getBody,data.searchKeyword)
+        })
     })
 
 

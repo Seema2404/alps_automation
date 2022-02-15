@@ -15,6 +15,22 @@ export const waitForIframeLoad = () => {
     cy.frameLoaded(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl)
 }
 
+export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
+    cy.frameLoaded(prtTopicalAuthority.elements.iFrame).iframeCustom()
+    .find(prtTopicalAuthority.elements.iFrameSearchBox)
+    .iframeCustom()
+    .find('#sandbox-host div input').should('be.visible')
+    .wait(2000)
+    .type(keyword,{ force: true },)
+    .type('{enter}',{ force: true })
+    .wait(2000)
+    
+}
+
+export const validateSearchBoxResult = (getBody,keyword) => {
+    prtTopicalAuthority.elements.domainTableData(getBody).should('contains.text',keyword)
+}
+
 export const validateSearchEngineLabel = () => {
     prtTopicalAuthority.elements.searchEngineLabel().should('be.visible')
 }
@@ -102,5 +118,27 @@ export const validateTableHeaderKwsOnPag2 = (getBody) => {
 export const validateTableHeaderKwsBeyondPage2 = (getBody) => {
     prtTopicalAuthority.elements.tableHeaderKwsBeyondPage2(getBody).should('be.visible')
 }
-
-
+export const validateTableHeaderCategory = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderCategory(getBody).should('be.visible')
+}
+export const validateTableHeaderSubCategory = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderSubCategory(getBody).should('be.visible')
+}
+export const validateTableHeaderDomainTopicalAuthority = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderDomainTopicalAuthority(getBody).should('be.visible')
+}
+export const validateTableHeaderDomainHighestTopicalAuthority = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderDomainHighestTopicalAuthority(getBody).should('be.visible')
+}
+export const validateTableHeaderDomainUrl = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderDomainUrl(getBody).should('be.visible')
+}
+export const validateTableHeaderDomainKeywordCount = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderDomainKeywordCount(getBody).should('be.visible')
+}
+export const validateTableHeaderDomainUrlRating40 = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderDomainUrlRating40(getBody).should('be.visible')
+}
+export const validateTableHeaderDomainKwsBeyondPage2 = (getBody) => {
+    prtTopicalAuthority.elements.tableHeaderDomainKwsBeyondPage2(getBody).should('be.visible')
+}
