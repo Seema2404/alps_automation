@@ -5,6 +5,7 @@ export class PrtTopicalAuthorityPage {
             topicalAuthority: () => cy.get('a').contains('TOPICAL AUTHORITY'),
             iFrame: '.report-style-class iframe',
             iFrameUrl: { url: 'https://app.powerbi.com' },
+            iFrameSearchBox : 'div[class*="visual-textFilter"] iframe',
             searchEngineLabel: () => cy.get('#breadcrumb + div + div div div div:nth-child(1) span'),
             filtersContainer: (getBody) => getBody().find('.scrollWrapper div p span').contains('FILTERS'),
             domainTab: () => cy.get('#topical-authority-domain-tab'),
@@ -34,6 +35,7 @@ export class PrtTopicalAuthorityPage {
             tableHeaderDomainUrlRating40: (getBody) => getBody().contains('#URL Rating <40'),
             tableHeaderDomainKeywordCount: (getBody) => getBody().contains('#Keyword Count'),
             tableHeaderDomainKwsBeyondPage2: (getBody) => getBody().contains('#KWs Beyond Page 2'),
+            domainTableData : (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1) div[class*="pivotTableCellWrap"]'),
         }
     }
 }
