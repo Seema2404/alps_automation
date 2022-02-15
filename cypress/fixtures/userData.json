@@ -7,5 +7,7 @@
 	"searchVolume": "35.1M",
 	"attr" : "aria-current",
 	"attrValue" : "page",
-	"searchKeyword" : "bank"
+	"searchKeyword" : "bank",
+	"sovProduct":"Credit Cards",
+	"sovDomain":"card.discover.com"
 }

@@ -170,3 +170,46 @@ export const validateTargetDomainFilter = () => {
     prtShareOfVoice.elements.txtboxSOVCategoryProduct().should('have.text', 'Credit Cards')
     prtShareOfVoice.elements.txtboxSOVCategoryDomain().should('have.text', 'card.discover.com')
 }
+
+export const disptrendBreadcrumb = () => {
+    prtShareOfVoice.elements.trendBreadcrumb().should('be.visible')
+}
+
+export const dispcategoryBreadcrumb = () => {
+    prtShareOfVoice.elements.categoryBreadcrumb().should('be.visible')
+}
+
+
+export const distrendGraph = (getBody) => {
+    prtShareOfVoice.elements.trendGraph(getBody).should('be.visible')
+
+}
+
+export const enterDataToSearchBox =(kw) => {
+    prtShareOfVoice.elements.searchBox().clear()
+    prtShareOfVoice.elements.searchBox().type(kw)
+}
+
+export const dispDomainFortargetSelected = (product,domain) => {
+    cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+        cy.xpath('//span[text()="Product"]/following-sibling::div[1]/div/div/div').then((visibletext) => {
+        
+            const dispProductText=visibletext.text()
+            
+            if (dispProductText==product)
+            {
+                cy.xpath('//span[text()="Domain"]/following-sibling::div[1]/div/div/div').then((visibletext) => {
+                
+                    const dispDomainText=visibletext.text()
+
+                    expect(dispDomainText).to.contain(domain)
+
+                })
+
+            }
+            
+            
+        })
+            
+    })
+}

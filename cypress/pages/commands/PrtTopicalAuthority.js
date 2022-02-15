@@ -119,4 +119,19 @@ export const validateTableHeaderKwsBeyondPage2 = (getBody) => {
     prtTopicalAuthority.elements.tableHeaderKwsBeyondPage2(getBody).should('be.visible')
 }
 
+export const dispDateTopicalAuthority = (systemdate) => {
+    cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+        getBody().find('h3.preTextWithEllipsis').contains("Topical Authority report for category 'Balance Transfer' for").then((visibletext) => {
+        
+            const dispvisibletext=visibletext.text()
+            expect(dispvisibletext).to.contain(systemdate)
+            
+        
+        })
+            
+    })
+}
+
+
+
 

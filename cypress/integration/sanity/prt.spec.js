@@ -318,4 +318,48 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+        prtSOF.clickTrendsSOV()
+        prtSOF.disptrendBreadcrumb()
+        
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.distrendGraph(getBody)
+            
+        })
+    })
+
+
+
+
+    it('AL-T1091:Verify the Target Domain filter for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+        prtSOF.clickToCategory()
+        
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.dispDomainFortargetSelected(data.sovProduct,data.sovDomain)
+            
+        })
+    })
+
+
+    // // Test case is failing due to application is not giving proper date.
+    // it.only('AL-T1100:Verify the Date filter for Topical Authority category report', () => {
+    //     cy.wait(7000)
+    //     prtKA.clickPlanningAndResearch()
+    //     prtTA.clickTopicalAuthority()
+    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+
+      
+    //     // date validation of latest month.
+    //     prtTA.dispDateTopicalAuthority(todayDate)      
+
+    // })
+
 })
