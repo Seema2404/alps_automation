@@ -142,3 +142,14 @@ export const validateTableHeaderDomainUrlRating40 = (getBody) => {
 export const validateTableHeaderDomainKwsBeyondPage2 = (getBody) => {
     prtTopicalAuthority.elements.tableHeaderDomainKwsBeyondPage2(getBody).should('be.visible')
 }
+export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
+    cy.frameLoaded(prtTopicalAuthority.elements.iFrame).iframeCustom()
+    .find(prtTopicalAuthority.elements.iFrameSearchBox)
+    .iframeCustom()
+    .find('#sandbox-host div input').should('be.visible')
+    .wait(2000)
+    .type(keyword,{ force: true },)
+    .type('{enter}',{ force: true })
+    .wait(5000)
+    
+}
