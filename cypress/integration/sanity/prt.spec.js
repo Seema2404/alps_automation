@@ -352,6 +352,20 @@ describe('As a PRT user', () => {
             prtTA.validateSearchBoxResult(getBody,data.searchKeyword)
         })
     })
+    it('AL-1109: Verify the search box is working for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        prtTA.waitForIframeLoad()
+        cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtTA.enterKeywordInSearchBoxIframeDomain(data.searchTopicalDomain)
+            
+            //validate search box result is working
+            prtTA.validateSearchBoxResult(getBody,data.searchTopicalDomain)
+        })
+    })
 
 
 })
