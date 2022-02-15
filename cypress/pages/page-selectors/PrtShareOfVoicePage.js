@@ -43,6 +43,7 @@ export class PrtShareOfVoicePage {
             trendGraph: (getBody) => getBody().find('.tooltip-overlay'),
             // searchBox : () =>cy.xpath("//div[@id='sandbox-host']/div/input")
 
+            RecentDateCategory : (getBody) => getBody().contains('Share of Voice by Category')
         }
     }
 }

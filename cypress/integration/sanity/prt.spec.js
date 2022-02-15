@@ -242,6 +242,18 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1096:Verify the Date filter for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+        var recentMonth = (new Date()).toString().split(' ').splice(1,1).join(' ')
+
+        // validation of recent month.
+        prtSOF.dispDateShareOfVoiceByCategory(recentMonth)      
+
+    })
+
     it('AL-T1097:Verify the Target Domain filter for SOV category report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
@@ -300,10 +312,33 @@ describe('As a PRT user', () => {
             prtTA.validateTableHeaderKwsOnPag2(getBody)
             prtTA.validateTableHeaderKwsBeyondPage2(getBody)
         })
+    })
+
+    it('AL-T1107: Verify the table hader for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            //verify table header for Topical Authority on domain report
+            prtTA.validateTableHeaderCategory(getBody)
+            prtTA.validateTableHeaderSubCategory(getBody)
+            prtTA.validateTableHeaderDomainTopicalAuthority(getBody)
+            prtTA.validateTableHeaderDomainHighestTopicalAuthority(getBody)
+            prtTA.validateTableHeaderDomainUrl(getBody)
+            prtTA.validateTableHeaderUrlRating20(getBody)
+            prtTA.validateTableHeaderUrlRating20to40(getBody)
+            prtTA.validateTableHeaderDomainUrlRating40(getBody)
+            prtTA.validateTableHeaderUrlRatingNA(getBody)
+            prtTA.validateTableHeaderDomainKeywordCount(getBody)
+            prtTA.validateTableHeaderKwsOnPage1(getBody)
+            prtTA.validateTableHeaderKwsOnPag2(getBody)
+            prtTA.validateTableHeaderDomainKwsBeyondPage2(getBody)
+        })
 
     })
 
-    it('AL-1103: Verify the search box is working for Topical Authority category report', () => {
+    it('AL-T1103: Verify the search box is working for Topical Authority category report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
@@ -317,6 +352,21 @@ describe('As a PRT user', () => {
             prtTA.validateSearchBoxResult(getBody,data.searchKeyword)
         })
     })
+    it('AL-1109: Verify the search box is working for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        prtTA.waitForIframeLoad()
+        cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtTA.enterKeywordInSearchBoxIframeDomain(data.searchTopicalDomain)
+            
+            //validate search box result is working
+            prtTA.validateSearchBoxResult(getBody,data.searchTopicalDomain)
+        })
+    })
+
 
     it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
         cy.wait(7000)

@@ -27,6 +27,14 @@ export class PrtTopicalAuthorityPage {
             tableHeaderKwsOnPage1: (getBody) => getBody().contains('#KWs on Page 1 '),
             tableHeaderKwsOnPag2: (getBody) => getBody().contains('#KWs on Page 2'),
             tableHeaderKwsBeyondPage2: (getBody) => getBody().contains('#Kws beyond Page 2'),
+            tableHeaderCategory: (getBody) => getBody().contains('Category'),
+            tableHeaderSubCategory: (getBody) => getBody().contains('Sub Category'),
+            tableHeaderDomainTopicalAuthority: (getBody) => getBody().contains('Topical Authority'),
+            tableHeaderDomainHighestTopicalAuthority: (getBody) => getBody().contains('Highest Topical Authority'),
+            tableHeaderDomainUrl: (getBody) => getBody().contains('#URL'),
+            tableHeaderDomainUrlRating40: (getBody) => getBody().contains('#URL Rating <40'),
+            tableHeaderDomainKeywordCount: (getBody) => getBody().contains('#Keyword Count'),
+            tableHeaderDomainKwsBeyondPage2: (getBody) => getBody().contains('#KWs Beyond Page 2'),
             domainTableData : (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1) div[class*="pivotTableCellWrap"]'),
         }
     }
