@@ -38,6 +38,7 @@ export class PrtShareOfVoicePage {
             txtboxSOVCategoryProduct: () => cy.xpath('//span[text()="Product"]/following-sibling::div[1]/div/div/div'),
             txtboxSOVCategoryDomain: () => cy.xpath('//span[text()="Domain"]/following-sibling::div[1]/div/div/div'),
             domainTableData : (getBody) => getBody().find('div.bodyCells div[class*="pivotTableCellWrap cell-interactive tablixAlignLeft"]'),
+            RecentDateCategory : (getBody) => getBody().contains('Share of Voice by Category'),
         }
     }
 }

@@ -299,7 +299,19 @@ describe('As a PRT user', () => {
             prtTA.validateTableHeaderKwsOnPag2(getBody)
             prtTA.validateTableHeaderKwsBeyondPage2(getBody)
         })
+    })
+
+    it.only('AL-T1096:Verify the Date filter for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+        var recentMonth = (new Date()).toString().split(' ').splice(1,1).join(' ')
+
+        // validation of recent month.
+        prtSOF.dispDateShareOfVoiceByCategory(recentMonth)      
 
     })
+
 
 })
