@@ -301,7 +301,7 @@ describe('As a PRT user', () => {
         })
     })
 
-    it.only('AL-T1096:Verify the Date filter for SOV category report', () => {
+    it('AL-T1096:Verify the Date filter for SOV category report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
