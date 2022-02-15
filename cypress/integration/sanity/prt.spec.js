@@ -326,7 +326,21 @@ describe('As a PRT user', () => {
 
     })
 
-    it('AL-1103: Verify the search box is working for Topical Authority category report', () => {
+    it('AL-T1102: Verify the default category for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.waitForIframeLoad()
+
+        cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            //validate default keyword category for the product
+            prtTA.validateDefaultCategoryReport(getBody,data.product1,data.defKwForCreditCard)
+            
+        })
+    })
+
+    it('AL-T1103: Verify the search box is working for Topical Authority category report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()

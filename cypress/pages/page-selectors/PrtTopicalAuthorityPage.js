@@ -36,6 +36,11 @@ export class PrtTopicalAuthorityPage {
             tableHeaderDomainKeywordCount: (getBody) => getBody().contains('#Keyword Count'),
             tableHeaderDomainKwsBeyondPage2: (getBody) => getBody().contains('#KWs Beyond Page 2'),
             domainTableData : (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1) div[class*="pivotTableCellWrap"]'),
+            productCategoryTextbox: () => cy.xpath('//span[text()="Product"]/parent::div/child::div/div/div/div'),
+            keywordCategoriesFilter :(getBody) => getBody().find('div.slicerItemContainer'),
+            keywordCategoriesFilterCheckbox: (getBody) => getBody().find('div.slicerItemContainer div[class*="slicerCheckbox"]'),
+            productFreshworksCRM : () => cy.contains('Freshworks CRM'),
+            productHousehold : () => cy.contains('Household')
         }
     }
 }

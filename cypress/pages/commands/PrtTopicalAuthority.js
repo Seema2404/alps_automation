@@ -142,3 +142,20 @@ export const validateTableHeaderDomainUrlRating40 = (getBody) => {
 export const validateTableHeaderDomainKwsBeyondPage2 = (getBody) => {
     prtTopicalAuthority.elements.tableHeaderDomainKwsBeyondPage2(getBody).should('be.visible')
 }
+
+export const validateDefaultCategoryReport = (getBody,product,keywrd) => {
+    prtTopicalAuthority.elements.productCategoryTextbox().should('contain.text',product)
+    prtTopicalAuthority.elements.keywordCategoriesFilter(getBody).eq(0).should('contains.text',keywrd)
+    prtTopicalAuthority.elements.keywordCategoriesFilterCheckbox(getBody).eq(0).should('have.class','selected')
+}
+
+export const clickProductFreshworkCRM = () => {
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().eq(1).click({ force: true })
+    prtTopicalAuthority.elements.productFreshworksCRM().click({ force : true })
+}
+
+export const clickProductHousehold = () => {
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().eq(1).click({ force: true })
+    prtTopicalAuthority.elements.productHousehold().click({ force : true })
+}
+
