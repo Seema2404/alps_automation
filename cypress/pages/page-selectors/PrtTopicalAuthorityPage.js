@@ -36,6 +36,7 @@ export class PrtTopicalAuthorityPage {
             tableHeaderDomainKeywordCount: (getBody) => getBody().contains('#Keyword Count'),
             tableHeaderDomainKwsBeyondPage2: (getBody) => getBody().contains('#KWs Beyond Page 2'),
             domainTableData : (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1) div[class*="pivotTableCellWrap"]'),
+            RecentDateCategory : (getBody) => getBody().contains('Topical Authority report for'),
         }
     }
 }

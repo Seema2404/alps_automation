@@ -367,5 +367,13 @@ describe('As a PRT user', () => {
         })
     })
 
-
+    it('AL-T1106:Verify the Date filter for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+        // date validation of latest month.
+        prtTA.dispDateShareOfVoice(todayDate)      
+    })
 })

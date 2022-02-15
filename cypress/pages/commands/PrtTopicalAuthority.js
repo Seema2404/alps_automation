@@ -153,3 +153,11 @@ export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
     .wait(5000)
     
 }
+export const dispDateShareOfVoice = (systemdate) => {
+    cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
+        prtTopicalAuthority.elements.RecentDateCategory(getBody).then((visibleText) => {
+            const dispVisibleText=visibleText.text()
+            expect(dispVisibleText).to.contains(systemdate)
+        })        
+    })
+}
