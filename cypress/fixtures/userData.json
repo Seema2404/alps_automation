@@ -8,5 +8,7 @@
 	"attr" : "aria-current",
 	"attrValue" : "page",
 	"searchKeyword" : "bank",
-	"searchTopicalDomain" : "Student"
+	"searchTopicalDomain" : "Student",
+	"product" : "Credit Cards",
+	"creditCardDomain" : "card.discover.com"
 }

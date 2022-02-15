@@ -367,5 +367,15 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1108: Verify the default target domain for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        prtTA.waitForIframeLoad()
+
+         //verify default Target Domain
+        prtTA.validateTargetDomainFilter(data.product,data.creditCardDomain)
+    })
 
 })

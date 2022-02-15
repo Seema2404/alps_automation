@@ -153,3 +153,8 @@ export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
     .wait(5000)
     
 }
+
+export const validateTargetDomainFilter = (product, domain) => {
+    prtTopicalAuthority.elements.productTextboxInDomain().should('have.text',product )
+    prtTopicalAuthority.elements.domainTextboxInDomain().should('have.text', domain)
+}
