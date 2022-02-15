@@ -1,3 +1,6 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import * as iframe from 'cypress-iframe'
 
 import { prtShareOfVoice } from '../page-selectors/PrtShareOfVoicePage'
@@ -152,16 +155,17 @@ export const dispDateTopicalAuthority = (systemdate) => {
                 expect(dispvisibletext).to.contain(systemdate)
             })
     })
-    export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.frameLoaded(prtTopicalAuthority.elements.iFrame).iframeCustom()
-            .find(prtTopicalAuthority.elements.iFrameSearchBox)
-            .iframeCustom()
-            .find('#sandbox-host div input')
-            .should('be.visible')
-            .wait(2000)
-            .type(keyword, { force: true })
-            .type('{enter}', { force: true })
-            .wait(5000)
-    }
+}
+
+export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.frameLoaded(prtTopicalAuthority.elements.iFrame).iframeCustom()
+        .find(prtTopicalAuthority.elements.iFrameSearchBox)
+        .iframeCustom()
+        .find('#sandbox-host div input')
+        .should('be.visible')
+        .wait(2000)
+        .type(keyword, { force: true })
+        .type('{enter}', { force: true })
+        .wait(5000)
 }
