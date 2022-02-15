@@ -21,8 +21,10 @@ export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
     .iframeCustom()
     .find('#sandbox-host div input').should('be.visible')
     .wait(2000)
-    .clear().type(keyword)
-    .type('{enter}')
+    .type(keyword,{ force: true },)
+    .type('{enter}',{ force: true })
+    .wait(2000)
+    
 }
 
 export const validateSearchBoxResult = (getBody,keyword) => {

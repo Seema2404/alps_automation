@@ -27,7 +27,7 @@ export class PrtTopicalAuthorityPage {
             tableHeaderKwsOnPage1: (getBody) => getBody().contains('#KWs on Page 1 '),
             tableHeaderKwsOnPag2: (getBody) => getBody().contains('#KWs on Page 2'),
             tableHeaderKwsBeyondPage2: (getBody) => getBody().contains('#Kws beyond Page 2'),
-            domainTableData : (getBody) => getBody().find('div.bodyCells div[class*="pivotTableCellWrap cell-interactive tablixAlignLeft"]'),
+            domainTableData : (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1) div[class*="pivotTableCellWrap"]'),
         }
     }
 }

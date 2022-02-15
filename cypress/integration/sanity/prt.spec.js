@@ -265,7 +265,7 @@ describe('As a PRT user', () => {
     })
     it('AL-T1099: Verify Keyword Count and Search Volume is displayed for Topical Authority category report', () => {
         cy.wait(7000)
-        prtSOF.clickPlanningAndResearch()
+        prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         //validate keyword count and search volume for Topical authority category
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
@@ -275,7 +275,7 @@ describe('As a PRT user', () => {
     })
     it('AL-T1098: Verify top level filter for Topical Authority category report', () => {
         cy.wait(7000)
-        prtSOF.clickPlanningAndResearch()
+        prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         //validate top level filters
         prtTA.validateSearchEngineFilter()
@@ -312,7 +312,7 @@ describe('As a PRT user', () => {
         cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
             prtTA.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
-
+            
             //validate search box result is working
             prtTA.validateSearchBoxResult(getBody,data.searchKeyword)
         })
