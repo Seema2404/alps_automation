@@ -302,6 +302,29 @@ describe('As a PRT user', () => {
         })
 
     })
+    it('AL-T1107: Verify the table hader for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            //verify table header for Topical Authority on domain report
+            prtTA.validateTableHeaderCategory(getBody)
+            prtTA.validateTableHeaderSubCategory(getBody)
+            prtTA.validateTableHeaderDomainTopicalAuthority(getBody)
+            prtTA.validateTableHeaderDomainHighestTopicalAuthority(getBody)
+            prtTA.validateTableHeaderDomainUrl(getBody)
+            prtTA.validateTableHeaderUrlRating20(getBody)
+            prtTA.validateTableHeaderUrlRating20to40(getBody)
+            prtTA.validateTableHeaderDomainUrlRating40(getBody)
+            prtTA.validateTableHeaderUrlRatingNA(getBody)
+            prtTA.validateTableHeaderDomainKeywordCount(getBody)
+            prtTA.validateTableHeaderKwsOnPage1(getBody)
+            prtTA.validateTableHeaderKwsOnPag2(getBody)
+            prtTA.validateTableHeaderDomainKwsBeyondPage2(getBody)
+        })
+
+    })
 
     it('AL-1103: Verify the search box is working for Topical Authority category report', () => {
         cy.wait(7000)
