@@ -159,3 +159,14 @@ export const clickProductHousehold = () => {
     prtTopicalAuthority.elements.productHousehold().click({ force : true })
 }
 
+export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
+    cy.frameLoaded(prtTopicalAuthority.elements.iFrame).iframeCustom()
+    .find(prtTopicalAuthority.elements.iFrameSearchBox)
+    .iframeCustom()
+    .find('#sandbox-host div input').should('be.visible')
+    .wait(2000)
+    .type(keyword,{ force: true },)
+    .type('{enter}',{ force: true })
+    .wait(5000)
+    
+}

@@ -9,6 +9,6 @@
 	"attrValue" : "page",
 	"searchKeyword" : "bank",
 	"product1" : "Credit Cards",
-	"defKwForCreditCard" : "Balance Transfer"
-	
+	"defKwForCreditCard" : "Balance Transfer",
+	"searchTopicalDomain" : "Student"
 }
