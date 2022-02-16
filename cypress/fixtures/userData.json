@@ -10,5 +10,7 @@
 	"searchKeyword" : "bank",
 	"searchTopicalDomain" : "Student",
 	"product" : "Credit Cards",
-	"creditCardDomain" : "card.discover.com"
+	"creditCardDomain" : "card.discover.com",
+	"sovProduct":"Credit Cards",
+	"sovDomain":"card.discover.com"
 }
