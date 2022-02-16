@@ -1,6 +1,9 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import * as iframe from 'cypress-iframe'
-import { prtShareOfVoice } from '../page-selectors/PrtShareOfVoicePage'
 
+import { prtShareOfVoice } from '../page-selectors/PrtShareOfVoicePage'
 import { prtTopicalAuthority } from '../page-selectors/PrtTopicalAuthorityPage'
 
 export const clickPlanningAndResearch = () => {
@@ -17,18 +20,18 @@ export const waitForIframeLoad = () => {
 
 export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
     cy.frameLoaded(prtTopicalAuthority.elements.iFrame).iframeCustom()
-    .find(prtTopicalAuthority.elements.iFrameSearchBox)
-    .iframeCustom()
-    .find('#sandbox-host div input').should('be.visible')
-    .wait(2000)
-    .type(keyword,{ force: true },)
-    .type('{enter}',{ force: true })
-    .wait(2000)
-    
+        .find(prtTopicalAuthority.elements.iFrameSearchBox)
+        .iframeCustom()
+        .find('#sandbox-host div input')
+        .should('be.visible')
+        .wait(2000)
+        .type(keyword, { force: true })
+        .type('{enter}', { force: true })
+        .wait(2000)
 }
 
-export const validateSearchBoxResult = (getBody,keyword) => {
-    prtTopicalAuthority.elements.domainTableData(getBody).should('contains.text',keyword)
+export const validateSearchBoxResult = (getBody, keyword) => {
+    prtTopicalAuthority.elements.domainTableData(getBody).should('contains.text', keyword)
 }
 
 export const validateSearchEngineLabel = () => {
@@ -40,7 +43,7 @@ export const validateFiltersContainer = (getBody) => {
 }
 
 export const clickDomainTab = () => {
-    prtTopicalAuthority.elements.domainTab().click({ force : true })
+    prtTopicalAuthority.elements.domainTab().click({ force: true })
 }
 
 export const validateTableTitleCategory = (getBody) => {
@@ -61,7 +64,7 @@ export const disptopicalAuthority = () => {
 
 export const validateSearchEngineFilter = () => {
     prtTopicalAuthority.elements.searchEngine().should('be.visible')
-    prtTopicalAuthority.elements.shareOfVoiceTopFilter().first().should('be.visible')   
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().first().should('be.visible')
 }
 
 export const validateProductFilter = () => {
@@ -142,22 +145,36 @@ export const validateTableHeaderDomainUrlRating40 = (getBody) => {
 export const validateTableHeaderDomainKwsBeyondPage2 = (getBody) => {
     prtTopicalAuthority.elements.tableHeaderDomainKwsBeyondPage2(getBody).should('be.visible')
 }
+
+export const dispDateTopicalAuthority = (systemdate) => {
+    cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+        getBody().find('h3.preTextWithEllipsis').contains("Topical Authority report for category 'Balance Transfer' for")
+            .then((visibletext) => {
+                const dispvisibletext = visibletext.text()
+
+                expect(dispvisibletext).to.contain(systemdate)
+            })
+    })
+}
+
 export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.frameLoaded(prtTopicalAuthority.elements.iFrame).iframeCustom()
-    .find(prtTopicalAuthority.elements.iFrameSearchBox)
-    .iframeCustom()
-    .find('#sandbox-host div input').should('be.visible')
-    .wait(2000)
-    .type(keyword,{ force: true },)
-    .type('{enter}',{ force: true })
-    .wait(5000)
-    
+        .find(prtTopicalAuthority.elements.iFrameSearchBox)
+        .iframeCustom()
+        .find('#sandbox-host div input')
+        .should('be.visible')
+        .wait(2000)
+        .type(keyword, { force: true })
+        .type('{enter}', { force: true })
+        .wait(5000)
 }
 export const dispDateShareOfVoice = (systemdate) => {
     cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
         prtTopicalAuthority.elements.RecentDateCategory(getBody).then((visibleText) => {
-            const dispVisibleText=visibleText.text()
+            const dispVisibleText = visibleText.text()
+
             expect(dispVisibleText).to.contains(systemdate)
-        })        
+        })
     })
 }

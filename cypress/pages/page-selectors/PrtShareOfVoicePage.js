@@ -37,8 +37,13 @@ export class PrtShareOfVoicePage {
             tableHeaderSOVCatKWRank11to20: (getBody) => getBody().contains('#KWs on Rank 11-20'),
             txtboxSOVCategoryProduct: () => cy.xpath('//span[text()="Product"]/following-sibling::div[1]/div/div/div'),
             txtboxSOVCategoryDomain: () => cy.xpath('//span[text()="Domain"]/following-sibling::div[1]/div/div/div'),
-            RecentDateCategory : (getBody) => getBody().contains('Share of Voice by Category'),
-            domainTableData : (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1) div[class*="pivotTableCellWrap cell-interactive"]'),
+            domainTableData : (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1)  div[class*="pivotTableCellWrap cell-interactive"]'),
+            trendBreadcrumb: () => cy.get('#shareOfVoiceTrendsBr'),
+            categoryBreadcrumb: () =>cy.get('#shareOfVoiceOverviewBr'),
+            trendGraph: (getBody) => getBody().find('.tooltip-overlay'),
+            // searchBox : () =>cy.xpath("//div[@id='sandbox-host']/div/input")
+
+            RecentDateCategory : (getBody) => getBody().contains('Share of Voice by Category')
         }
     }
 }

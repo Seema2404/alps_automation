@@ -7,9 +7,9 @@ import { prtKeywordExplorer } from '../../pages/page-selectors/PrtKeywordExplore
 import { prtShareOfVoice } from '../../pages/page-selectors/PrtShareOfVoicePage'
 import { prtTopicalAuthority } from '../../pages/page-selectors/PrtTopicalAuthorityPage'
 
-
 describe('As a PRT user', () => {
-    let data;
+    let data
+
     before(() => {
         cy.loginUser('Iquanti Inc', 1)
         cy.fixture('userData').then((userData) => {
@@ -26,7 +26,7 @@ describe('As a PRT user', () => {
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
 
-        // validation of sub modules in 
+        // validation of sub modules in
         prtKA.dispValidateKeywordExplorerSection()
         prtSOF.dispShareOfVoice()
         prtTA.disptopicalAuthority()
@@ -62,8 +62,6 @@ describe('As a PRT user', () => {
             prtKA.validateSearchVolumeSection(getBody)
             prtKA.validateKeywordCountSection(getBody)
         })
-
-        
     })
 
     // Test case is failing due to application is not giving proper date.
@@ -75,7 +73,6 @@ describe('As a PRT user', () => {
 
     //     // date validation of latest month.
     //     prtKA.dispDateKWExplorer(todayDate)
-       
 
     // })
 
@@ -91,7 +88,6 @@ describe('As a PRT user', () => {
             prtKA.disptableKW(getBody)
             prtKA.dispTableSearchVolume(getBody)
             prtKA.dispTableTopicDifficulty(getBody)
-
         })
     })
 
@@ -104,10 +100,9 @@ describe('As a PRT user', () => {
             cy.wait(7000)
             prtKA.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
 
-            //validate search box result is working
-            prtKA.validateSearchBoxResult(getBody,data.searchKeyword)
+            // validate search box result is working
+            prtKA.validateSearchBoxResult(getBody, data.searchKeyword)
         })
-        
     })
 
     it('AL-T1083: Verify top level filters for SOV overview report', () => {
@@ -115,8 +110,8 @@ describe('As a PRT user', () => {
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
 
-        //validate top level filters
-        prtSOF.validateShareOfVoiceOverview(data.attr,data.attrValue)
+        // validate top level filters
+        prtSOF.validateShareOfVoiceOverview(data.attr, data.attrValue)
         prtSOF.validateSearchEngineFilter()
         prtSOF.validateProductFilter()
         prtSOF.validateLocaleFilter()
@@ -133,8 +128,7 @@ describe('As a PRT user', () => {
             cy.wait(7000)
             prtSOF.validateSearchVolumeSection(getBody)
             prtSOF.validateKeywordCountSection(getBody)
-            
-        })   
+        })
     })
 
     // // Test case is failing due to application is not giving proper date.
@@ -144,9 +138,8 @@ describe('As a PRT user', () => {
     //     prtSOF.clickShareOfVoice()
     //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
 
-      
     //     // date validation of latest month.
-    //     prtSOF.dispDateShareOfVoice(todayDate)      
+    //     prtSOF.dispDateShareOfVoice(todayDate)
 
     // })
 
@@ -155,7 +148,7 @@ describe('As a PRT user', () => {
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
-        //verify table header elements share of voice
+        // verify table header elements share of voice
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
             prtSOF.validateTableHeaderSOVDomain(getBody)
             prtSOF.validateTableHeaderSOV(getBody)
@@ -172,8 +165,8 @@ describe('As a PRT user', () => {
         prtSOF.clickShareOfVoice()
         prtSOF.clickToCategory()
 
-        //validate top level filters
-        prtSOF.validateShareOfVoiceCategory(data.attr,data.attrValue)
+        // validate top level filters
+        prtSOF.validateShareOfVoiceCategory(data.attr, data.attrValue)
         prtSOF.validateSearchEngineFilter()
         prtSOF.validateProductFilter()
         prtSOF.validateLocaleFilter()
@@ -191,11 +184,10 @@ describe('As a PRT user', () => {
             cy.wait(7000)
             prtSOF.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
 
-            //validate search box result is working
-            prtSOF.validateSearchBoxResult(getBody,data.searchKeyword)
+            // validate search box result is working
+            prtSOF.validateSearchBoxResult(getBody, data.searchKeyword)
         })
     })
-
 
     it('AL-T1089: Verify top level filters for SOV trends report', () => {
         cy.wait(7000)
@@ -203,12 +195,12 @@ describe('As a PRT user', () => {
         prtSOF.clickShareOfVoice()
         prtSOF.clickTrendsSOV()
 
-        //validate top level filters in trends
+        // validate top level filters in trends
         prtSOF.validateSearchEngineFilter()
         prtSOF.validateProductFilter()
         prtSOF.validateLocaleFilter()
         prtSOF.validateDeviceFilter()
-    })    
+    })
 
     it('AL-T1095: Verify Keyword Count, Search Volume, Traffic, Share of voice is displayed for SOV category report', () => {
         cy.wait(7000)
@@ -229,8 +221,8 @@ describe('As a PRT user', () => {
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.clickToCategory()
-         //verify table header elements share of voice
-         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+        // verify table header elements share of voice
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
             prtSOF.validateTableHeaderSOVCategory(getBody)
             prtSOF.validateTableHeaderSOVKeywords(getBody)
             prtSOF.validateTableHeaderSOVSerchVolume(getBody)
@@ -247,11 +239,12 @@ describe('As a PRT user', () => {
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.clickToCategory()
-        var recentMonth = (new Date()).toString().split(' ').splice(1,1).join(' ')
+        const recentMonth = new Date().toString().split(' ')
+            .splice(1, 1)
+            .join(' ')
 
         // validation of recent month.
-        prtSOF.dispDateShareOfVoiceByCategory(recentMonth)      
-
+        prtSOF.dispDateShareOfVoiceByCategory(recentMonth)
     })
 
     it('AL-T1097:Verify the Target Domain filter for SOV category report', () => {
@@ -259,7 +252,7 @@ describe('As a PRT user', () => {
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.clickToCategory()
-         //verify Target Domain filter for SOV category
+        // verify Target Domain filter for SOV category
         prtSOF.validateTargetDomainFilter()
     })
     it('AL-T1104: Verify top level filter for Topical Authority domain report', () => {
@@ -268,18 +261,17 @@ describe('As a PRT user', () => {
         prtTA.clickTopicalAuthority()
         prtTA.clickDomainTab()
 
-        //validate top level filters
+        // validate top level filters
         prtTA.validateSearchEngineFilter()
         prtTA.validateProductFilter()
         prtTA.validateLocaleFilter()
         prtTA.validateDomainFilter()
-           
     })
     it('AL-T1099: Verify Keyword Count and Search Volume is displayed for Topical Authority category report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
-        //validate keyword count and search volume for Topical authority category
+        // validate keyword count and search volume for Topical authority category
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
             prtSOF.validateSearchVolume(getBody)
             prtSOF.validateKeywordCount(getBody)
@@ -289,7 +281,7 @@ describe('As a PRT user', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
-        //validate top level filters
+        // validate top level filters
         prtTA.validateSearchEngineFilter()
         prtTA.validateProductFilter()
         prtTA.validateLocaleFilter()
@@ -300,7 +292,7 @@ describe('As a PRT user', () => {
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-            //verify table header for Topical Authority
+            // verify table header for Topical Authority
             prtTA.validateTableHeaderDomain(getBody)
             prtTA.validateTableHeaderTopicalAuthority(getBody)
             prtTA.validateTableHeaderUrlCount(getBody)
@@ -320,7 +312,7 @@ describe('As a PRT user', () => {
         prtTA.clickTopicalAuthority()
         prtTA.clickDomainTab()
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-            //verify table header for Topical Authority on domain report
+            // verify table header for Topical Authority on domain report
             prtTA.validateTableHeaderCategory(getBody)
             prtTA.validateTableHeaderSubCategory(getBody)
             prtTA.validateTableHeaderDomainTopicalAuthority(getBody)
@@ -335,7 +327,6 @@ describe('As a PRT user', () => {
             prtTA.validateTableHeaderKwsOnPag2(getBody)
             prtTA.validateTableHeaderDomainKwsBeyondPage2(getBody)
         })
-
     })
 
     it('AL-T1103: Verify the search box is working for Topical Authority category report', () => {
@@ -347,9 +338,9 @@ describe('As a PRT user', () => {
         cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
             prtTA.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
-            
-            //validate search box result is working
-            prtTA.validateSearchBoxResult(getBody,data.searchKeyword)
+
+            // validate search box result is working
+            prtTA.validateSearchBoxResult(getBody, data.searchKeyword)
         })
     })
     it('AL-1109: Verify the search box is working for Topical Authority domain report', () => {
@@ -361,19 +352,60 @@ describe('As a PRT user', () => {
         cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
             prtTA.enterKeywordInSearchBoxIframeDomain(data.searchTopicalDomain)
-            
-            //validate search box result is working
-            prtTA.validateSearchBoxResult(getBody,data.searchTopicalDomain)
+
+            // validate search box result is working
+            prtTA.validateSearchBoxResult(getBody, data.searchTopicalDomain)
         })
     })
+
+    it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+        prtSOF.clickTrendsSOV()
+        prtSOF.disptrendBreadcrumb()
+
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.distrendGraph(getBody)
+        })
+    })
+
+    it('AL-T1091:Verify the Target Domain filter for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+        prtSOF.clickToCategory()
+
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            prtSOF.dispDomainFortargetSelected(data.sovProduct, data.sovDomain)
+        })
+    })
+
+    // // Test case is failing due to application is not giving proper date.
+    // it.only('AL-T1100:Verify the Date filter for Topical Authority category report', () => {
+    //     cy.wait(7000)
+    //     prtKA.clickPlanningAndResearch()
+    //     prtTA.clickTopicalAuthority()
+    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+
+    //     // date validation of latest month.
+    //     prtTA.dispDateTopicalAuthority(todayDate)
+
+    // })
 
     it('AL-T1106:Verify the Date filter for Topical Authority domain report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         prtTA.clickDomainTab()
-        var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+        const todayDate = new Date().toString().split(' ')
+            .splice(1, 1)
+            .join(' ')
+
         // date validation of latest month.
-        prtTA.dispDateShareOfVoice(todayDate)      
+
+        prtTA.dispDateShareOfVoice(todayDate)
     })
 })
