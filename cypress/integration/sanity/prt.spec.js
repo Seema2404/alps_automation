@@ -65,16 +65,16 @@ describe('As a PRT user', () => {
     })
 
     // Test case is failing due to application is not giving proper date.
-    // it('AL-T1080:Verify the Date filter for Keyword explorer report', () => {
-    //     cy.wait(7000)
-    //     prtKA.clickPlanningAndResearch()
-    //     prtKA.clickKeywordExplorer()
-    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+    it('AL-T1080:Verify the Date filter for Keyword explorer report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtKA.clickKeywordExplorer()
+        var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
 
-    //     // date validation of latest month.
-    //     prtKA.dispDateKWExplorer(todayDate)
+        // date validation of latest month.
+        prtKA.dispDateKWExplorer(todayDate)
 
-    // })
+    })
 
     it('AL-T1081:Verify the table hader for Keyword explorer report', () => {
         cy.wait(7000)
@@ -131,17 +131,17 @@ describe('As a PRT user', () => {
         })
     })
 
-    // // Test case is failing due to application is not giving proper date.
-    // it('AL-T1085:Verify the Date filter for SOV overview report', () => {
-    //     cy.wait(7000)
-    //     prtKA.clickPlanningAndResearch()
-    //     prtSOF.clickShareOfVoice()
-    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+    // Test case is failing due to application is not giving proper date.
+    it('AL-T1085:Verify the Date filter for SOV overview report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
 
-    //     // date validation of latest month.
-    //     prtSOF.dispDateShareOfVoice(todayDate)
+        // date validation of latest month.
+        prtSOF.dispDateShareOfVoice(todayDate)
 
-    // })
+    })
 
     it('AL-T1086:Verify the table hader for SOV overview by domain', () => {
         cy.wait(7000)
@@ -383,17 +383,17 @@ describe('As a PRT user', () => {
         })
     })
 
-    // // Test case is failing due to application is not giving proper date.
-    // it.only('AL-T1100:Verify the Date filter for Topical Authority category report', () => {
-    //     cy.wait(7000)
-    //     prtKA.clickPlanningAndResearch()
-    //     prtTA.clickTopicalAuthority()
-    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+    // Test case is failing due to application is not giving proper date.
+    it('AL-T1100:Verify the Date filter for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
 
-    //     // date validation of latest month.
-    //     prtTA.dispDateTopicalAuthority(todayDate)
+        // date validation of latest month.
+        prtTA.dispDateTopicalAuthority(todayDate)
 
-    // })
+    })
 
     it('AL-T1106:Verify the Date filter for Topical Authority domain report', () => {
         cy.wait(7000)
@@ -407,5 +407,21 @@ describe('As a PRT user', () => {
         // date validation of latest month.
 
         prtTA.dispDateShareOfVoice(todayDate)
+    })
+
+    it.only('AL-T1093:Verify the search box is working for SOV category report', () => {
+        cy.wait(7000)
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.waitForIframeLoad()
+        prtSOF.clickToCategory()
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtSOF.enterKeywordInSearchBoxIframeAndClick(data.categorySearchKeyword)
+
+            // validate search box result is working
+            prtSOF.validateSearchBoxResult(getBody, data.categorySearchKeyword)
+        
+    })
     })
 })
