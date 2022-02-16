@@ -329,6 +329,20 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1102: Verify the default category for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.waitForIframeLoad()
+
+        cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            //validate default keyword category for the product
+            prtTA.validateDefaultCategoryReport(getBody,data.product,data.defKwForCreditCard)
+            
+        })
+    })
+
     it('AL-T1103: Verify the search box is working for Topical Authority category report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
@@ -356,6 +370,21 @@ describe('As a PRT user', () => {
             // validate search box result is working
             prtTA.validateSearchBoxResult(getBody, data.searchTopicalDomain)
         })
+    })
+
+    it('AL-T1108: Verify the default target domain for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        prtTA.waitForIframeLoad()
+
+        //verify default Target Domain for credit card
+        prtTA.validateTargetDomainFilter(data.product,data.productDomain)
+        prtTA.clickProductFreshworkCRM()
+        prtTA.waitForIframeLoad()
+        //verify default Target Domain for Freshwork CRM
+        prtTA.validateTargetDomainFilter(data.product2,data.product2Domain)
     })
 
     it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
