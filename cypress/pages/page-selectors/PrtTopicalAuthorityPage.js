@@ -38,8 +38,12 @@ export class PrtTopicalAuthorityPage {
             domainTableData : (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1) div[class*="pivotTableCellWrap"]'),
             productTextboxInDomain: () => cy.xpath('//span[text()="Product"]/parent::div/child::div/div/div/div'),
             domainTextboxInDomain: () => cy.xpath('//span[text()="Domain"]/parent::div/child::div/div/div/div'),
-            RecentDateCategory : (getBody) => getBody().contains('Topical Authority report for'),
+            productCategoryTextbox: () => cy.xpath('//span[text()="Product"]/parent::div/child::div/div/div/div'),
+            keywordCategoriesFilter :(getBody) => getBody().find('div.slicerItemContainer'),
+            keywordCategoriesFilterCheckbox: (getBody) => getBody().find('div.slicerItemContainer div[class*="slicerCheckbox"]'),
             productFreshworksCRM : () => cy.contains('Freshworks CRM'),
+            productHousehold : () => cy.contains('Household'),
+            RecentDateCategory : (getBody) => getBody().contains('Topical Authority report for'),
         }
     }
 }
