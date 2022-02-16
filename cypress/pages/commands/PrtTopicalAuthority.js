@@ -202,7 +202,3 @@ export const dispDateShareOfVoice = (systemdate) => {
     })
 }
 
-export const clickProductFreshworkCRM = () => {
-    prtTopicalAuthority.elements.shareOfVoiceTopFilter().eq(1).click({ force: true })
-    prtTopicalAuthority.elements.productFreshworksCRM().click({ force : true })
-}
