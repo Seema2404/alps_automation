@@ -10,5 +10,7 @@
 	"searchKeyword" : "bank",
 	"product" : "Credit Cards",
 	"defKwForCreditCard" : "Balance Transfer",
+	"sovProduct":"Credit Cards",
+	"sovDomain":"card.discover.com",
 	"searchTopicalDomain" : "Student"
 }

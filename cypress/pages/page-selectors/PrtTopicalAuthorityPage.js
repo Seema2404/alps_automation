@@ -40,7 +40,8 @@ export class PrtTopicalAuthorityPage {
             keywordCategoriesFilter :(getBody) => getBody().find('div.slicerItemContainer'),
             keywordCategoriesFilterCheckbox: (getBody) => getBody().find('div.slicerItemContainer div[class*="slicerCheckbox"]'),
             productFreshworksCRM : () => cy.contains('Freshworks CRM'),
-            productHousehold : () => cy.contains('Household')
+            productHousehold : () => cy.contains('Household'),
+            RecentDateCategory : (getBody) => getBody().contains('Topical Authority report for'),
         }
     }
 }
