@@ -8,9 +8,12 @@
 	"attr" : "aria-current",
 	"attrValue" : "page",
 	"searchKeyword" : "bank",
+	"searchTopicalDomain" : "Student",
 	"product" : "Credit Cards",
+	"productDomain" : "card.discover.com",
+	"product2" : "Freshworks CRM",
+	"product2Domain" : "freshworks.com",
 	"defKwForCreditCard" : "Balance Transfer",
 	"sovProduct":"Credit Cards",
-	"sovDomain":"card.discover.com",
-	"searchTopicalDomain" : "Student"
+	"sovDomain":"card.discover.com"
 }

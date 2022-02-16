@@ -372,6 +372,21 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1108: Verify the default target domain for Topical Authority domain report', () => {
+        cy.wait(7000)
+        prtTA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        prtTA.clickDomainTab()
+        prtTA.waitForIframeLoad()
+
+        //verify default Target Domain for credit card
+        prtTA.validateTargetDomainFilter(data.product,data.productDomain)
+        prtTA.clickProductFreshworkCRM()
+        prtTA.waitForIframeLoad()
+        //verify default Target Domain for Freshwork CRM
+        prtTA.validateTargetDomainFilter(data.product2,data.product2Domain)
+    })
+
     it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()

@@ -185,7 +185,11 @@ export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
     .type('{enter}',{ force: true })
     .wait(5000)
     
+}
 
+export const validateTargetDomainFilter = (product, domain) => {
+    prtTopicalAuthority.elements.productTextboxInDomain().should('have.text',product )
+    prtTopicalAuthority.elements.domainTextboxInDomain().should('have.text', domain)
 }
 
 export const dispDateShareOfVoice = (systemdate) => {
@@ -197,3 +201,4 @@ export const dispDateShareOfVoice = (systemdate) => {
         })
     })
 }
+
