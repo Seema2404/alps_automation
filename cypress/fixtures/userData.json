@@ -10,7 +10,9 @@
 	"searchKeyword" : "bank",
 	"searchTopicalDomain" : "Student",
 	"product" : "Credit Cards",
-	"creditCardDomain" : "card.discover.com",
+	"productDomain" : "card.discover.com",
+	"product2" : "Freshworks CRM",
+	"product2Domain" : "freshworks.com",
 	"sovProduct":"Credit Cards",
 	"sovDomain":"card.discover.com"
 }

@@ -174,6 +174,7 @@ export const validateTargetDomainFilter = (product, domain) => {
     prtTopicalAuthority.elements.productTextboxInDomain().should('have.text',product )
     prtTopicalAuthority.elements.domainTextboxInDomain().should('have.text', domain)
 }
+
 export const dispDateShareOfVoice = (systemdate) => {
     cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
         prtTopicalAuthority.elements.RecentDateCategory(getBody).then((visibleText) => {
@@ -182,4 +183,9 @@ export const dispDateShareOfVoice = (systemdate) => {
             expect(dispVisibleText).to.contains(systemdate)
         })
     })
+}
+
+export const clickProductFreshworkCRM = () => {
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().eq(1).click({ force: true })
+    prtTopicalAuthority.elements.productFreshworksCRM().click({ force : true })
 }

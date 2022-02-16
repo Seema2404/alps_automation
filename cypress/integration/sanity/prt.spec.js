@@ -365,10 +365,14 @@ describe('As a PRT user', () => {
         prtTA.clickDomainTab()
         prtTA.waitForIframeLoad()
 
-         //verify default Target Domain
-        prtTA.validateTargetDomainFilter(data.product,data.creditCardDomain)
+        //verify default Target Domain for credit card
+        prtTA.validateTargetDomainFilter(data.product,data.productDomain)
+        prtTA.clickProductFreshworkCRM()
+        prtTA.waitForIframeLoad()
+        //verify default Target Domain for Freshwork CRM
+        prtTA.validateTargetDomainFilter(data.product2,data.product2Domain)
     })
-    
+
     it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()

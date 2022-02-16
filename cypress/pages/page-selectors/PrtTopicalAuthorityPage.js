@@ -39,6 +39,7 @@ export class PrtTopicalAuthorityPage {
             productTextboxInDomain: () => cy.xpath('//span[text()="Product"]/parent::div/child::div/div/div/div'),
             domainTextboxInDomain: () => cy.xpath('//span[text()="Domain"]/parent::div/child::div/div/div/div'),
             RecentDateCategory : (getBody) => getBody().contains('Topical Authority report for'),
+            productFreshworksCRM : () => cy.contains('Freshworks CRM'),
         }
     }
 }
