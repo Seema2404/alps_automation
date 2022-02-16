@@ -146,6 +146,23 @@ export const validateTableHeaderDomainKwsBeyondPage2 = (getBody) => {
     prtTopicalAuthority.elements.tableHeaderDomainKwsBeyondPage2(getBody).should('be.visible')
 }
 
+export const validateDefaultCategoryReport = (getBody,product,keywrd) => {
+    prtTopicalAuthority.elements.productCategoryTextbox().should('contain.text',product)
+    prtTopicalAuthority.elements.keywordCategoriesFilter(getBody).eq(0).should('contains.text',keywrd)
+    prtTopicalAuthority.elements.keywordCategoriesFilterCheckbox(getBody).eq(0).should('have.class','selected')
+}
+
+export const clickProductFreshworkCRM = () => {
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().eq(1).click({ force: true })
+    prtTopicalAuthority.elements.productFreshworksCRM().click({ force : true })
+}
+
+export const clickProductHousehold = () => {
+    prtTopicalAuthority.elements.shareOfVoiceTopFilter().eq(1).click({ force: true })
+    prtTopicalAuthority.elements.productHousehold().click({ force : true })
+
+}
+    
 export const dispDateTopicalAuthority = (systemdate) => {
     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
         getBody().find('h3.preTextWithEllipsis').contains("Topical Authority report for category 'Balance Transfer' for")
@@ -160,15 +177,17 @@ export const dispDateTopicalAuthority = (systemdate) => {
 export const enterKeywordInSearchBoxIframeDomain = (keyword) => {
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.frameLoaded(prtTopicalAuthority.elements.iFrame).iframeCustom()
-        .find(prtTopicalAuthority.elements.iFrameSearchBox)
-        .iframeCustom()
-        .find('#sandbox-host div input')
-        .should('be.visible')
-        .wait(2000)
-        .type(keyword, { force: true })
-        .type('{enter}', { force: true })
-        .wait(5000)
+    .find(prtTopicalAuthority.elements.iFrameSearchBox)
+    .iframeCustom()
+    .find('#sandbox-host div input').should('be.visible')
+    .wait(2000)
+    .type(keyword,{ force: true },)
+    .type('{enter}',{ force: true })
+    .wait(5000)
+    
+
 }
+
 export const dispDateShareOfVoice = (systemdate) => {
     cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
         prtTopicalAuthority.elements.RecentDateCategory(getBody).then((visibleText) => {
