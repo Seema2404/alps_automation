@@ -347,7 +347,7 @@ describe('As a PRT user', () => {
         cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
             //validate default keyword category for the product
-            prtTA.validateDefaultCategoryReport(getBody,data.product1,data.defKwForCreditCard)
+            prtTA.validateDefaultCategoryReport(getBody,data.product,data.defKwForCreditCard)
             
         })
     })
