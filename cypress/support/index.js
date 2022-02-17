@@ -1,6 +1,7 @@
 import addContext from 'mochawesome/addContext'
 
 import * as commands from './commands'
+require('cypress-xpath')
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
@@ -98,6 +99,7 @@ Cypress.Commands.add('restoreLocalStorage', () => {
         localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key])
     })
 })
+require('cy-verify-downloads').addCustomCommand();
 
 Cypress.Commands.add(
     'loginUser',
@@ -108,19 +110,9 @@ Cypress.Commands.add(
         cy.get('input[type="password"]').clear()
         cy.get('input[type="password"]').type(Cypress.env('password'))
         cy.get('.btn-primary').click()
-        cy.get('body').then((body)=>{
-            if (body.find('#menu').length > 0){
-                cy.get('#menu1').click()
-                cy.get('li').contains(Cypress.env('tenant')).click()
-                cy.get('.multiple_bttn').click()
-            }
-            else{
-                cy.log('Demo tenant user')
-            }
-        })
-
-                
-        
+        cy.get('#menu1').click()
+        cy.get('li').contains(Cypress.env('tenant')).click()
+        cy.get('.multiple_bttn').click()
     }
 )
 
@@ -129,3 +121,4 @@ Cypress.Commands.add('logout',()=>{
     cy.get('#profile-logout-nav').click()
 
 })
+
