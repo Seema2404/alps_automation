@@ -14,4 +14,11 @@ module.exports = (on, config) => {
     on('file:preprocessor', selectTestsWithGrep(config))
 }
 
+const { isFileExist } = require('cy-verify-downloads');
+module.exports = (on, config) => {
+    on('task', {
+        isFileExist
+    })
+}
+
 export default plugins
