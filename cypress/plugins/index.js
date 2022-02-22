@@ -1,13 +1,17 @@
-module.exports = (on, config) => {
-    const plugins = (on) => {
-        on('task', {
-            log (message) {
-                console.log(message)
+import selectTestsWithGrep from 'cypress-select-tests/grep'
 
-                return null
-            }
-        })
-    }
+const plugins = (on) => {
+    on('task', {
+        log (message) {
+            console.log(message)
+
+            return null
+        }
+    })
+}
+
+module.exports = (on, config) => {
+    on('file:preprocessor', selectTestsWithGrep(config))
 }
 
 const { isFileExist } = require('cy-verify-downloads');
@@ -16,3 +20,5 @@ module.exports = (on, config) => {
         isFileExist
     })
 }
+
+export default plugins

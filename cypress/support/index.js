@@ -1,15 +1,15 @@
 import addContext from 'mochawesome/addContext'
 
-import * as commands from './commands'
-require('cypress-xpath')
-
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-Object.keys(commands).forEach(command => {
-    Cypress.Commands.add(command, commands[command])
-})
+Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('alpsUrl'), {
+    auth: {
+        username: Cypress.env('basicAuthLogin'),
+        password: Cypress.env('basicAuthPassword')
+    }
+}))
 
 Cypress.Commands.add(
     'iframeLoaded',
