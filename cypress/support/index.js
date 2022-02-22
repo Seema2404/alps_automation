@@ -118,6 +118,7 @@ Cypress.Commands.add('restoreLocalStorage', () => {
         localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key])
     })
 })
+require('cy-verify-downloads').addCustomCommand();
 
 Cypress.Commands.add(
     'loginUser',
@@ -134,3 +135,10 @@ Cypress.Commands.add(
         cy.get('.multiple_bttn').click()
     }
 )
+
+Cypress.Commands.add('logout',()=>{
+    cy.get('#profile-nav').click()
+    cy.get('#profile-logout-nav').click()
+
+})
+
