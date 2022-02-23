@@ -28,6 +28,10 @@ export const validateSearchBoxResult = (getBody,keyword) => {
     prtShareOfVoice.elements.domainTableData(getBody).should('contains.text',keyword)
 }
 
+export const validateCategoryDataSearchBoxResult = (getBody,keyword) => {
+    prtShareOfVoice.elements.domainTableCategoryData(getBody).should('contains.text',keyword)
+}
+
 
 export const dispDateShareOfVoice = (systemdate) => {
     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {

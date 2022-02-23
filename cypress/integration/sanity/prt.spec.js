@@ -449,7 +449,7 @@ describe('As a PRT user', () => {
             prtSOF.enterKeywordInSearchBoxIframeAndClick(data.categorySearchKeyword)
 
             // validate search box result is working
-            prtSOF.validateSearchBoxResult(getBody, data.categorySearchKeyword)
+            prtSOF.validateCategoryDataSearchBoxResult(getBody, data.categorySearchKeyword)
         
     })
     })
