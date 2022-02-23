@@ -4,7 +4,7 @@
   "dependencies": {
     "@types/cypress": "^1.1.3",
     "axios": "^0.21.1",
-    "cypress": "^9.2.0",
+    "browserstack-cypress-cli": "^1.11.0",
     "cypress-file-upload": "^5.0.5",
     "cypress-iframe": "^1.0.1",
     "faker": "^4.1.0",
@@ -30,6 +30,7 @@
     "cy-verify-downloads": "0.0.5",
     "cypress-multi-reporters": "^1.5.0",
     "cypress-xpath": "^1.6.2",
+    "cypress-select-tests": "^1.7.1",
     "eslint": "^7.2.0",
     "eslint-plugin-chai-friendly": "^0.6.0",
     "eslint-plugin-cypress": "^2.11.1",
@@ -49,25 +50,26 @@
     "lint": "eslint --ext ts .",
     "lint:fix": "npm run lint -- --fix"
   },
-  "scripts_old": {
+  "scripts": {
     "clean:reports": "rmdir /S /Q cypress\\reports && mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
-    "scripts": "cypress run --spec cypress/integration/regression/**/*",
+    "scripts": "cypress run",
     "script-sanity": "cypress run --spec cypress/integration/sanity/*",
     "combine-reports": "mochawesome-merge cypress\\reports\\mocha\\*.json > output.json",
     "generate-report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
     "report:copyScreenshots": "xcopy cypress\\screenshots cypress\\reports\\mochareports\\screenshots /E /H /C /I /Y",
     "report:copyVideos": "xcopy cypress\\videos cypress\\reports\\mochareports\\videos /E /H /C /I /Y",
-    "test": "npm-run-all clean:reports scripts --continue-on-error",
+    "test": "npm-run-all clean:reports scripts combine-reports generate-report report:copyScreenshots --continue-on-error",
     "post-run": "npm-run-all combine-reports generate-report report:copyScreenshots --continue-on-error",
     "sanity": "npm-run-all clean:reports script-sanity combine-reports generate-report report:copyScreenshots --continue-on-error",
     "lint": "eslint --ext ts .",
     "lint:fix": "npm run lint -- --fix"
   },
-  "scripts": {
+  "scripts_old": {
+    "scripts": "cypress run",
     "cleanup": "rmdir /S /Q cypress\\reports",
     "merge_reports": "mochawesome-merge cypress\\reports\\mocha\\*.json > output.json",
     "mochawesome_report": "marge --reportDir cypress\\reports\\mochareports -t Cypress_Test_Report -p Cypress_HTML_Report -f Cypress_HTML_Report --charts true output.json",
-    "test": "cypress run && npm run merge_reports && npm run mochawesome_report"
+    "test": "npm-run-all cleanup scripts merge_reports mochawesome_report --continue-on-error"
   },
   "name": "ui",
   "version": "1.0.0",
