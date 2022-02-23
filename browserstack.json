@@ -46,7 +46,7 @@
             "cypress-xpath": "^1.6.2"
         },
         "project_name": "ALPS",
-        "build_name": "Prod Health Check",
+        "build_name": "Browserstack_Build",
         "headless": true
     },
     "connection_settings": {
