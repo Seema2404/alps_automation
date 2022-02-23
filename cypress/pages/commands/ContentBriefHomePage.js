@@ -52,7 +52,7 @@ export const selectLocale = (locale) => {
     cb.elements.searchtextbox().clear()
  }
  export const download_btn_isdisabled=()=>{
-     cb.elements.searchtextbox().type("Rolex")
+     cb.elements.searchtextbox().type("sunglasses brief")
      cy.wait(4000)
      cb.elements.downloadbtnlink().should('have.attr','disabled')
      cb.elements.searchtextbox().clear()
