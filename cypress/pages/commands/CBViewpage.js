@@ -56,8 +56,9 @@ export const Validate_AvgArticleLength=()=>{
             for (let index = 0; index < $el.length; index++) {
                 let eletext = $el[index].textContent.trim()
                 scoresum=scoresum+parseFloat(eletext)
+                cy.log(scoresum)
             }
-            actualscoresum = Math.round((scoresum/10) * 100) / 100 
+            actualscoresum = Math.round((scoresum/10) * 10) / 10
             expect(actualscoresum).to.equal(expectedscore)
         })
     })

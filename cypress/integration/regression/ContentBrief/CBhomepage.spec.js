@@ -29,7 +29,7 @@ describe('Content brief test',()=>{
     })
     
     it('verify user is able to search brief with user created the brief',()=>{
-        cbaction.Validate_Search_Brief_byuser(cbdata.Username)
+        cbaction.Validate_Search_Brief_byuser(Cypress.env('username'))
     })
     it('verify that user is able to search the brief by topic',()=>{
         cbaction.validate_Search_bytopic(cbdata.topic)
