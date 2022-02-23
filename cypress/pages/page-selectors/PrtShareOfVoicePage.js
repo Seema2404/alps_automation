@@ -42,7 +42,7 @@ export class PrtShareOfVoicePage {
             categoryBreadcrumb: () =>cy.get('#shareOfVoiceOverviewBr'),
             trendGraph: (getBody) => getBody().find('.tooltip-overlay'),
             RecentDateCategory : (getBody) => getBody().contains('Share of Voice by Category'),
-            domainTableCategoryData : (getBody) => getBody().find('div.rowHeaders div')
+            domainTableCategoryData : (getBody) => getBody().find('div.rowHeaders div div')
         }
     }
 }

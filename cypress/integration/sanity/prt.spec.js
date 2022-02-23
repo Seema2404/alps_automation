@@ -438,7 +438,7 @@ describe('As a PRT user', () => {
         prtTA.dispDateShareOfVoice(todayDate)
     })
 
-    it('AL-T1093:Verify the search box is working for SOV category report', () => {
+    it.only('AL-T1093:Verify the search box is working for SOV category report', () => {
         cy.wait(7000)
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
