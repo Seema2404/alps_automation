@@ -20,6 +20,6 @@
         "tenant": "Iquanti Training"
     },
     "testFiles": [
-        "sanity/user-flows/*"
+        "sanity/**/*"
     ]
 }
