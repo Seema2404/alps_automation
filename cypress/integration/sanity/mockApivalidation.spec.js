@@ -100,7 +100,7 @@ describe('As an ALPS user', () => {
         simulationAction.clickGoButton()
 
         //Notification for Initiate API failure
-        simulationAction.dispNotificationMsgInitiateApiFails(data.NotificationMsgInitiateApiFails) 
+        simulationAction.dispNotificationMsgInitiateApiFails(data.TrackRequestAPIfailNotification) 
 
     })
 

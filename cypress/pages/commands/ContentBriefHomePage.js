@@ -1,3 +1,4 @@
+import { clear } from "console"
 import { cb } from "../page-selectors/CBHomepage"
 
 // import cb from '../page-selectors/CBHomepage'
@@ -26,7 +27,7 @@ export const selectLocale = (locale) => {
      cb.elements.gobutton().should('be.disabled')
  }
  export const validate_Search_Brief_byname=(briefname)=>{
-     cb.elements.searchtextbox().type(briefname)
+     cb.elements.searchtextbox().clear().type(briefname)
      cy.wait(4000)
      cb.elements.briefnametext().then((name)=>{
         expect(name.text()).to.contain(briefname)
@@ -34,7 +35,7 @@ export const selectLocale = (locale) => {
      cb.elements.searchtextbox().clear()
  }
  export const validate_Search_bytopic=(topicname)=>{
-    cb.elements.searchtextbox().type(topicname)
+    cb.elements.searchtextbox().clear().type(topicname)
     cy.wait(4000)
     cb.elements.topicnametext().then(($el)=>{
         for (let index = 0; index < $el.length; index++) {
@@ -61,7 +62,7 @@ export const searchtopic=(topicname)=>{
     cb.elements.searchtextbox().type(topicname)
 }
  export const Validate_Search_Brief_byuser=(Username)=>{
-     cb.elements.searchtextbox().type(Username)
+     cb.elements.searchtextbox().clear().type(Username)
      cy.wait(4000)
      cb.elements.Usernametext().then(($el)=>{
          for (let index = 0; index < $el.length; index++) {
