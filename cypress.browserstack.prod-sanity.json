@@ -17,7 +17,8 @@
         "basicAuthPassword": "",
         "username": "alps-qa@iquanti.com",
         "password": "Test@12345",
-        "tenant": "Iquanti Training"
+        "tenant": "Iquanti Training",
+        "project": "Allstate Demo - Internal"
     },
     "testFiles": [
         "sanity/*",
