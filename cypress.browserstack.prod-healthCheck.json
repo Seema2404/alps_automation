@@ -20,7 +20,6 @@
         "tenant": "Iquanti Training"
     },
     "testFiles": [
-        "sanity/*",
-        "regression/ContentBrief/*"
+        "sanity/user-flows/**/*"
     ]
 }

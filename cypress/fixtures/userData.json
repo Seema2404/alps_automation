@@ -48,5 +48,12 @@
 	"NonLiveInitiatefailNotifcation":"There is a problem with the page you are trying to reach and it cannot be reached at this point",
 	"KeywordRelated":"allstate insurance",
 	"FetchKwSuggestion" : "As there is change in topic or  locale click on the “Fetch keywords” to get the updated keyword suggestions.",
-	"ErrMsgSimulationUrl" : "Please enter a valid URL"
+	"ErrMsgSimulationUrl" : "Please enter a valid URL",
+	"topic": "health insurance",
+	"longtopic": "Credit cards the most flexible payment mode in this era",
+	"briefname": "health insurance",
+	"Username": "rishabh.tripathi@iquanti.com",
+	"noKWvalidationtext": "Please enter the valid keyword",
+	"morethan20kwvalidationtext": "Unable to add keyword. You can only add upto 20 keywords.",
+	"currentpagenum": 1
 }
