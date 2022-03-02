@@ -6,6 +6,7 @@ import * as prtTA from '../../pages/commands/PrtTopicalAuthority'
 import { prtKeywordExplorer } from '../../pages/page-selectors/PrtKeywordExplorerPage'
 import { prtShareOfVoice } from '../../pages/page-selectors/PrtShareOfVoicePage'
 import { prtTopicalAuthority } from '../../pages/page-selectors/PrtTopicalAuthorityPage'
+import * as loginAction from '../../pages/commands/login'
 
 describe('As a PRT user', () => {
     let data
@@ -38,6 +39,7 @@ describe('As a PRT user', () => {
     })
 
     it('AL-T:1078:Verify top level filters of Keyword explorer report', () => {
+        loginAction.clickAlpsLogo()
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
         prtKA.clickKeywordExplorer()
@@ -50,6 +52,7 @@ describe('As a PRT user', () => {
     })
 
     it('AL-T1079:Verify Keyword Count and Search Volume is displayed for Keyword explorer report', () => {
+        
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
         prtKA.clickKeywordExplorer()
@@ -389,6 +392,7 @@ describe('As a PRT user', () => {
 
     it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
         cy.wait(7000)
+        loginAction.clickAlpsLogo()
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
@@ -402,6 +406,7 @@ describe('As a PRT user', () => {
 
     it('AL-T1091:Verify the Target Domain filter for SOV category report', () => {
         cy.wait(7000)
+        loginAction.clickAlpsLogo()
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
@@ -426,6 +431,7 @@ describe('As a PRT user', () => {
 
     it('AL-T1106:Verify the Date filter for Topical Authority domain report', () => {
         cy.wait(7000)
+        loginAction.clickAlpsLogo()
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         prtTA.clickDomainTab()
@@ -440,6 +446,7 @@ describe('As a PRT user', () => {
 
     it('AL-T1093:Verify the search box is working for SOV category report', () => {
         cy.wait(7000)
+        loginAction.clickAlpsLogo()
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
