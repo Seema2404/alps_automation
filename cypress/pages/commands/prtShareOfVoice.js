@@ -3,7 +3,7 @@ import * as iframe from 'cypress-iframe'
 import { prtShareOfVoice } from '../page-selectors/PrtShareOfVoicePage'
 
 export const clickPlanningAndResearch = () => {
-    prtShareOfVoice.elements.planningAndResearch().click({ force : true } )
+    prtShareOfVoice.elements.planningAndResearch().click({ force: true })
 }
 
 export const clickShareOfVoice = () => {
@@ -16,33 +16,32 @@ export const waitForIframeLoad = () => {
 
 export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
     cy.frameLoaded(prtShareOfVoice.elements.iFrame).iframeCustom()
-    .find(prtShareOfVoice.elements.iFrameSearchBox)
-    .iframeCustom()
-    .find('#sandbox-host div input').should('be.visible')
-    .wait(2000)
-    .type(keyword)
-    .type('{enter}')
+        .find(prtShareOfVoice.elements.iFrameSearchBox)
+        .iframeCustom()
+        .wait(5000)
+        .find('#sandbox-host div input')
+        .should('be.visible')
+        .wait(2000)
+        .type(keyword)
+        .type('{enter}')
 }
 
-export const validateSearchBoxResult = (getBody,keyword) => {
-    prtShareOfVoice.elements.domainTableData(getBody).should('contains.text',keyword)
+export const validateSearchBoxResult = (getBody, keyword) => {
+    prtShareOfVoice.elements.domainTableData(getBody).should('contains.text', keyword)
 }
 
-export const validateCategoryDataSearchBoxResult = (getBody,keyword) => {
-    prtShareOfVoice.elements.domainTableCategoryData(getBody).should('contains.text',keyword)
+export const validateCategoryDataSearchBoxResult = (getBody, keyword) => {
+    prtShareOfVoice.elements.domainTableCategoryData(getBody).should('contains.text', keyword)
 }
-
 
 export const dispDateShareOfVoice = (systemdate) => {
     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-        getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Domain for').then((visibletext) => {
-        
-            const dispvisibletext=visibletext.text()
-            expect(dispvisibletext).to.contain(systemdate)
-            
-        
-        })
-            
+        getBody().find('h3.preTextWithEllipsis').contains('Share of Voice by Domain for')
+            .then((visibletext) => {
+                const dispvisibletext = visibletext.text()
+
+                expect(dispvisibletext).to.contain(systemdate)
+            })
     })
 }
 
@@ -50,9 +49,10 @@ export const dispDateShareOfVoiceByCategory = (systemdate) => {
     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
         cy.wait(6000)
         prtShareOfVoice.elements.RecentDateCategory(getBody).then((visibleText) => {
-            const dispVisibleText=visibleText.text()
+            const dispVisibleText = visibleText.text()
+
             expect(dispVisibleText).to.contains(systemdate)
-        })        
+        })
     })
 }
 
@@ -108,21 +108,21 @@ export const validateTableHeaderSOVKWRank11to20 = (getBody) => {
     prtShareOfVoice.elements.tableHeaderSOVKWRank11to20(getBody).should('be.visible')
 }
 
-export const validateShareOfVoiceOverview = (attr,value) => {
-    prtShareOfVoice.elements.shareOfVoiceOverview().should('have.attr',attr,value)
+export const validateShareOfVoiceOverview = (attr, value) => {
+    prtShareOfVoice.elements.shareOfVoiceOverview().should('have.attr', attr, value)
 }
 
 export const clickToCategory = () => {
-    prtShareOfVoice.elements.shareOfVoiceCategory().click({ force : true})
+    prtShareOfVoice.elements.shareOfVoiceCategory().click({ force: true })
 }
 
-export const validateShareOfVoiceCategory = (attr,value) => {
-    prtShareOfVoice.elements.shareOfVoiceCategory().should('have.attr',attr,value)
+export const validateShareOfVoiceCategory = (attr, value) => {
+    prtShareOfVoice.elements.shareOfVoiceCategory().should('have.attr', attr, value)
 }
 
 export const validateSearchEngineFilter = () => {
     prtShareOfVoice.elements.searchEngine().should('be.visible')
-    prtShareOfVoice.elements.shareOfVoiceTopFilter().first().should('be.visible')   
+    prtShareOfVoice.elements.shareOfVoiceTopFilter().first().should('be.visible')
 }
 
 export const validateProductFilter = () => {
@@ -146,23 +146,23 @@ export const validateDomainFilter = () => {
 }
 
 export const clickTrendsSOV = () => {
-    prtShareOfVoice.elements.trendsSOV().click({ force : true })
+    prtShareOfVoice.elements.trendsSOV().click({ force: true })
 }
 export const validateSearchVolume = (getBody) => {
     prtShareOfVoice.elements.searchVolume(getBody).should('be.visible')
-} 
+}
 
 export const validateKeywordCount = (getBody) => {
     prtShareOfVoice.elements.keywordCount(getBody).should('be.visible')
-} 
+}
 
 export const validateTraffic = (getBody) => {
     prtShareOfVoice.elements.traffic(getBody).should('be.visible')
-} 
+}
 
 export const validateShareOfVoice = (getBody) => {
     prtShareOfVoice.elements.shareOfVoiceInCategory(getBody).should('be.visible')
-} 
+}
 
 export const validateTableHeaderSOVCategory = (getBody) => {
     prtShareOfVoice.elements.tableHeaderSOVCategory(getBody).should('be.visible')
@@ -192,37 +192,27 @@ export const dispcategoryBreadcrumb = () => {
     prtShareOfVoice.elements.categoryBreadcrumb().should('be.visible')
 }
 
-
 export const distrendGraph = (getBody) => {
     prtShareOfVoice.elements.trendGraph(getBody).should('be.visible')
-
 }
 
-export const enterDataToSearchBox =(kw) => {
+export const enterDataToSearchBox = (kw) => {
     prtShareOfVoice.elements.searchBox().clear()
     prtShareOfVoice.elements.searchBox().type(kw)
 }
 
-export const dispDomainFortargetSelected = (product,domain) => {
+export const dispDomainFortargetSelected = (product, domain) => {
     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
         cy.xpath('//span[text()="Product"]/following-sibling::div[1]/div/div/div').then((visibletext) => {
-        
-            const dispProductText=visibletext.text()
-            
-            if (dispProductText==product)
-            {
+            const dispProductText = visibletext.text()
+
+            if (dispProductText == product) {
                 cy.xpath('//span[text()="Domain"]/following-sibling::div[1]/div/div/div').then((visibletext) => {
-                
-                    const dispDomainText=visibletext.text()
+                    const dispDomainText = visibletext.text()
 
                     expect(dispDomainText).to.contain(domain)
-
                 })
-
             }
-            
-            
         })
-            
     })
 }
