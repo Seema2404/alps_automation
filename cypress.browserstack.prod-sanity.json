@@ -21,7 +21,11 @@
         "project": "Allstate Demo - Internal"
     },
     "testFiles": [
-        "sanity/*",
-        "regression/ContentBrief/*"
+        "sanity/kga.spec.js",
+        "sanity/pagesimulator.spec.js",
+        "sanity/mockApivalidation.spec.js",
+        "regression/ContentBrief/NewCBpage.spec.js",
+        "regression/ContentBrief/CBhomepage.spec.js",
+        "regression/ContentBrief/CBViewpage.spec.js"
     ]
 }
