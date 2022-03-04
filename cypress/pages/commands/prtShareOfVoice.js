@@ -1,3 +1,4 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
 import * as iframe from 'cypress-iframe'
 
 import { prtShareOfVoice } from '../page-selectors/PrtShareOfVoicePage'
@@ -18,8 +19,7 @@ export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
     cy.frameLoaded(prtShareOfVoice.elements.iFrame).iframeCustom()
         .find(prtShareOfVoice.elements.iFrameSearchBox)
         .iframeCustom()
-        .wait(5000)
-        .find('#sandbox-host div input')
+        .find('#sandbox-host div input', { timeout: 60000 })
         .should('be.visible')
         .wait(2000)
         .type(keyword)
