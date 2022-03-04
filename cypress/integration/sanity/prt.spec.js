@@ -376,6 +376,22 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1093:Verify the search box is working for SOV category report', () => {
+        cy.wait(7000)
+        // loginAction.clickAlpsLogo()
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+        cy.wait(10000)
+        prtSOF.waitForIframeLoad()
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtSOF.enterKeywordInSearchBoxIframeAndClick(data.categorySearchKeyword)
+            // validate search box result is working
+            prtSOF.validateCategoryDataSearchBoxResult(getBody, data.categorySearchKeyword)
+        })
+    })
+
     it('AL-T1108: Verify the default target domain for Topical Authority domain report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
@@ -446,19 +462,19 @@ describe('As a PRT user', () => {
         prtTA.dispDateShareOfVoice(todayDate)
     })
 
-    it('AL-T1093:Verify the search box is working for SOV category report', () => {
-        cy.wait(7000)
-        loginAction.clickAlpsLogo()
-        prtSOF.clickPlanningAndResearch()
-        prtSOF.clickShareOfVoice()
-        prtSOF.clickToCategory()
-        cy.wait(10000)
-        prtSOF.waitForIframeLoad()
-        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-            cy.wait(7000)
-            prtSOF.enterKeywordInSearchBoxIframeAndClick(data.categorySearchKeyword)
-            // validate search box result is working
-            prtSOF.validateCategoryDataSearchBoxResult(getBody, data.categorySearchKeyword)
-        })
-    })
+    // it('AL-T1093:Verify the search box is working for SOV category report', () => {
+    //     cy.wait(7000)
+    //     loginAction.clickAlpsLogo()
+    //     prtSOF.clickPlanningAndResearch()
+    //     prtSOF.clickShareOfVoice()
+    //     prtSOF.clickToCategory()
+    //     cy.wait(10000)
+    //     prtSOF.waitForIframeLoad()
+    //     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+    //         cy.wait(7000)
+    //         prtSOF.enterKeywordInSearchBoxIframeAndClick(data.categorySearchKeyword)
+    //         // validate search box result is working
+    //         prtSOF.validateCategoryDataSearchBoxResult(getBody, data.categorySearchKeyword)
+    //     })
+    // })
 })
