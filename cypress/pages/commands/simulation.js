@@ -69,11 +69,16 @@ export const validateViewOriginalButton = () => {
 }
 
 export const editTitle = () => {
+    cy.wait(5000)
     simulation.elements.editorTitleInput().type('edited')
 }
 
 export const clickRunSimulationButton = () => {
     simulation.elements.runSimulationButton().click()
+}
+
+export const validateSuccessfulSimulation = () => {
+    simulation.elements.successSimulationNotification().should('be.visible')
 }
 
 export const validateEnterUrlInput = () => {
@@ -85,6 +90,7 @@ export const validateSimulationHistoryHeading = () => {
 }
 
 export const enterUrlInput = (url) => {
+    simulation.elements.enterUrlInput().clear()
     simulation.elements.enterUrlInput().type(url)
 }
 

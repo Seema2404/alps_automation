@@ -44,6 +44,7 @@ describe('As a Simulation user', () => {
         simAction.clickZoomModeButton()
         simAction.editTitle()
         simAction.clickRunSimulationButton()
+        simAction.validateSuccessfulSimulation()
         simAction.validateEditorContainer()
         simAction.validateScoresContainer()
         simAction.validateRunSimulationButton()

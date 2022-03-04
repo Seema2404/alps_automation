@@ -4,6 +4,7 @@
     "requestTimeout" :	5000,
     "pageLoadTimeout": 60000,
     "responseTimeout" : 60000,
+    "trashAssetsBeforeRuns" : true,
     "defaultCommandTimeout" : 30000,
     "pluginsFile": "cypress/plugins/index.js",
     "supportFile": "cypress/support/index.js",
@@ -23,6 +24,10 @@
       }
   },
     "testFiles": [
-        "sanity/prt.spec.js"
+        "sanity/*",
+        "regression/ContentBrief/CBhomepage.spec.js",
+        "regression/ContentBrief/NewCBpage.spec.js",
+        "regression/ContentBrief/CBViewpage.spec.js",
+        "regression/ContentBrief/ModifyPage.spec.js"
     ]
 }

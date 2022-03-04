@@ -43,7 +43,7 @@ describe('As a KGA user', () => {
     it('verify Simulation page from SERP page', () => {
         kgaAction.navigateBack()
         kgaAction.clickSerpSimulationButton()
-        simAction.validateSimulationTitle()
+        // simAction.validateSimulationTitle()
         simAction.clickProceedToSimulationButton()
         simAction.validateSimulationUrlLabel()
         simAction.validateKeywordLevelImpactLink()
@@ -64,6 +64,7 @@ describe('As a KGA user', () => {
         simAction.clickZoomModeButton()
         simAction.editTitle()
         simAction.clickRunSimulationButton()
+        simAction.validateSuccessfulSimulation()
         simAction.validateEditorContainer()
         simAction.validateScoresContainer()
         simAction.validateRunSimulationButton()

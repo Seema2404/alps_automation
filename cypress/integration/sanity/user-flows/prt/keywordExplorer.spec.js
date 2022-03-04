@@ -6,7 +6,7 @@ import { prtKeywordExplorer } from '../../../../pages/page-selectors/PrtKeywordE
 
 describe('As a PRT user', () => {
     before(() => {
-        cy.loginUser('Iquanti Inc', 2)
+        cy.loginUser()
     })
     beforeEach(() => {
         cy.restoreLocalStorage()

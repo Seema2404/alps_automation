@@ -2,7 +2,11 @@ cypress/examples
 cypress/videos
 cypress/screenshots
 cypress/reports
+cypress/downloads
 node_modules
 .editorconfig
 cypress.env.json
 output.json
+log
+results
+cypress.env.*.json

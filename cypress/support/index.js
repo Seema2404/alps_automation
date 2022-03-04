@@ -1,6 +1,14 @@
 // / <reference types="cypress-xpath" />
-
+import 'cypress-real-events/support'
 import addContext from 'mochawesome/addContext'
+import 'cypress-file-upload'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('cy-verify-downloads').addCustomCommand()
+
+// import * as commands from './commands'
+
+// eslint-disable-next-line import/no-unassigned-import
+require('cypress-xpath')
 
 require('cypress-xpath')
 
@@ -8,12 +16,19 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-Cypress.Commands.add('visitWithBaseAuth', () => cy.visit(Cypress.env('alpsUrl'), {
-    auth: {
-        username: Cypress.env('basicAuthLogin'),
-        password: Cypress.env('basicAuthPassword')
+Cypress.Commands.add('visitWithBaseAuth', () => {
+    if (Cypress.env('alpsUrl').includes('alps.iquanti.com')) {
+        cy.visit(Cypress.env('alpsUrl'))
     }
-}))
+    else {
+        cy.visit(Cypress.env('alpsUrl'), {
+            auth: {
+                username: Cypress.env('basicAuthLogin'),
+                password: Cypress.env('basicAuthPassword')
+            }
+        })
+    }
+})
 
 Cypress.Commands.add(
     'iframeLoaded',
@@ -123,6 +138,7 @@ Cypress.Commands.add('restoreLocalStorage', () => {
         localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key])
     })
 })
+require('cy-verify-downloads').addCustomCommand()
 
 Cypress.Commands.add(
     'loginUser',
@@ -139,3 +155,8 @@ Cypress.Commands.add(
         cy.get('.multiple_bttn').click()
     }
 )
+
+Cypress.Commands.add('logout', () => {
+    cy.get('#profile-nav').click()
+    cy.get('#profile-logout-nav').click()
+})
