@@ -1,3 +1,4 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
 import * as iframe from 'cypress-iframe'
 
 import * as prtKA from '../../pages/commands/prtKeywordExplorer'
@@ -6,6 +7,7 @@ import * as prtTA from '../../pages/commands/PrtTopicalAuthority'
 import { prtKeywordExplorer } from '../../pages/page-selectors/PrtKeywordExplorerPage'
 import { prtShareOfVoice } from '../../pages/page-selectors/PrtShareOfVoicePage'
 import { prtTopicalAuthority } from '../../pages/page-selectors/PrtTopicalAuthorityPage'
+import * as loginAction from '../../pages/commands/login'
 
 describe('As a PRT user', () => {
     let data
@@ -38,6 +40,7 @@ describe('As a PRT user', () => {
     })
 
     it('AL-T:1078:Verify top level filters of Keyword explorer report', () => {
+        loginAction.clickAlpsLogo()
         cy.wait(7000)
         prtKA.clickPlanningAndResearch()
         prtKA.clickKeywordExplorer()
@@ -65,16 +68,17 @@ describe('As a PRT user', () => {
     })
 
     // Test case is failing due to application is not giving proper date.
-    // it('AL-T1080:Verify the Date filter for Keyword explorer report', () => {
-    //     cy.wait(7000)
-    //     prtKA.clickPlanningAndResearch()
-    //     prtKA.clickKeywordExplorer()
-    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+    it('AL-T1080:Verify the Date filter for Keyword explorer report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtKA.clickKeywordExplorer()
+        const todayDate = new Date().toString().split(' ')
+            .splice(1, 1)
+            .join(' ')
 
-    //     // date validation of latest month.
-    //     prtKA.dispDateKWExplorer(todayDate)
-
-    // })
+        // date validation of latest month.
+        prtKA.dispDateKWExplorer(todayDate)
+    })
 
     it('AL-T1081:Verify the table hader for Keyword explorer report', () => {
         cy.wait(7000)
@@ -131,17 +135,18 @@ describe('As a PRT user', () => {
         })
     })
 
-    // // Test case is failing due to application is not giving proper date.
-    // it('AL-T1085:Verify the Date filter for SOV overview report', () => {
-    //     cy.wait(7000)
-    //     prtKA.clickPlanningAndResearch()
-    //     prtSOF.clickShareOfVoice()
-    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+    // Test case is failing due to application is not giving proper date.
+    it('AL-T1085:Verify the Date filter for SOV overview report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        const todayDate = new Date().toString().split(' ')
+            .splice(1, 1)
+            .join(' ')
 
-    //     // date validation of latest month.
-    //     prtSOF.dispDateShareOfVoice(todayDate)
-
-    // })
+        // date validation of latest month.
+        prtSOF.dispDateShareOfVoice(todayDate)
+    })
 
     it('AL-T1086:Verify the table hader for SOV overview by domain', () => {
         cy.wait(7000)
@@ -337,9 +342,8 @@ describe('As a PRT user', () => {
 
         cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
-            //validate default keyword category for the product
-            prtTA.validateDefaultCategoryReport(getBody,data.product,data.defKwForCreditCard)
-            
+            // validate default keyword category for the product
+            prtTA.validateDefaultCategoryReport(getBody, data.product, data.defKwForCreditCard)
         })
     })
 
@@ -372,6 +376,22 @@ describe('As a PRT user', () => {
         })
     })
 
+    it('AL-T1093:Verify the search box is working for SOV category report', () => {
+        cy.wait(7000)
+        // loginAction.clickAlpsLogo()
+        prtSOF.clickPlanningAndResearch()
+        prtSOF.clickShareOfVoice()
+        prtSOF.clickToCategory()
+        cy.wait(10000)
+        prtSOF.waitForIframeLoad()
+        cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+            cy.wait(7000)
+            prtSOF.enterKeywordInSearchBoxIframeAndClick(data.categorySearchKeyword)
+            // validate search box result is working
+            prtSOF.validateCategoryDataSearchBoxResult(getBody, data.categorySearchKeyword)
+        })
+    })
+
     it('AL-T1108: Verify the default target domain for Topical Authority domain report', () => {
         cy.wait(7000)
         prtTA.clickPlanningAndResearch()
@@ -379,16 +399,17 @@ describe('As a PRT user', () => {
         prtTA.clickDomainTab()
         prtTA.waitForIframeLoad()
 
-        //verify default Target Domain for credit card
-        prtTA.validateTargetDomainFilter(data.product,data.productDomain)
+        // verify default Target Domain for credit card
+        prtTA.validateTargetDomainFilter(data.product, data.productDomain)
         prtTA.clickProductFreshworkCRM()
         prtTA.waitForIframeLoad()
-        //verify default Target Domain for Freshwork CRM
-        prtTA.validateTargetDomainFilter(data.product2,data.product2Domain)
+        // verify default Target Domain for Freshwork CRM
+        prtTA.validateTargetDomainFilter(data.product2, data.product2Domain)
     })
 
     it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
         cy.wait(7000)
+        loginAction.clickAlpsLogo()
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
@@ -402,6 +423,7 @@ describe('As a PRT user', () => {
 
     it('AL-T1091:Verify the Target Domain filter for SOV category report', () => {
         cy.wait(7000)
+        loginAction.clickAlpsLogo()
         prtSOF.clickPlanningAndResearch()
         prtSOF.clickShareOfVoice()
         prtSOF.waitForIframeLoad()
@@ -412,20 +434,22 @@ describe('As a PRT user', () => {
         })
     })
 
-    // // Test case is failing due to application is not giving proper date.
-    // it.only('AL-T1100:Verify the Date filter for Topical Authority category report', () => {
-    //     cy.wait(7000)
-    //     prtKA.clickPlanningAndResearch()
-    //     prtTA.clickTopicalAuthority()
-    //     var todayDate = (new Date()).toString().split(' ').splice(1,1).join(' ')
+    // Test case is failing due to application is not giving proper date.
+    it('AL-T1100:Verify the Date filter for Topical Authority category report', () => {
+        cy.wait(7000)
+        prtKA.clickPlanningAndResearch()
+        prtTA.clickTopicalAuthority()
+        const todayDate = new Date().toString().split(' ')
+            .splice(1, 1)
+            .join(' ')
 
-    //     // date validation of latest month.
-    //     prtTA.dispDateTopicalAuthority(todayDate)
-
-    // })
+        // date validation of latest month.
+        prtTA.dispDateTopicalAuthority(todayDate)
+    })
 
     it('AL-T1106:Verify the Date filter for Topical Authority domain report', () => {
         cy.wait(7000)
+        loginAction.clickAlpsLogo()
         prtTA.clickPlanningAndResearch()
         prtTA.clickTopicalAuthority()
         prtTA.clickDomainTab()
@@ -437,4 +461,20 @@ describe('As a PRT user', () => {
 
         prtTA.dispDateShareOfVoice(todayDate)
     })
+
+    // it('AL-T1093:Verify the search box is working for SOV category report', () => {
+    //     cy.wait(7000)
+    //     loginAction.clickAlpsLogo()
+    //     prtSOF.clickPlanningAndResearch()
+    //     prtSOF.clickShareOfVoice()
+    //     prtSOF.clickToCategory()
+    //     cy.wait(10000)
+    //     prtSOF.waitForIframeLoad()
+    //     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
+    //         cy.wait(7000)
+    //         prtSOF.enterKeywordInSearchBoxIframeAndClick(data.categorySearchKeyword)
+    //         // validate search box result is working
+    //         prtSOF.validateCategoryDataSearchBoxResult(getBody, data.categorySearchKeyword)
+    //     })
+    // })
 })

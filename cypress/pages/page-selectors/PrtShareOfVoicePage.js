@@ -41,9 +41,8 @@ export class PrtShareOfVoicePage {
             trendBreadcrumb: () => cy.get('#shareOfVoiceTrendsBr'),
             categoryBreadcrumb: () =>cy.get('#shareOfVoiceOverviewBr'),
             trendGraph: (getBody) => getBody().find('.tooltip-overlay'),
-            // searchBox : () =>cy.xpath("//div[@id='sandbox-host']/div/input")
-
-            RecentDateCategory : (getBody) => getBody().contains('Share of Voice by Category')
+            RecentDateCategory : (getBody) => getBody().contains('Share of Voice by Category'),
+            domainTableCategoryData : (getBody) => getBody().find('div.rowHeaders div div')
         }
     }
 }

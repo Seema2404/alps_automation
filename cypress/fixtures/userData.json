@@ -15,5 +15,6 @@
 	"product2Domain" : "freshworks.com",
 	"defKwForCreditCard" : "Balance Transfer",
 	"sovProduct":"Credit Cards",
-	"sovDomain":"card.discover.com"
+	"sovDomain":"card.discover.com",
+	"categorySearchKeyword" : "Credit"
 }
