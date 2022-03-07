@@ -1,5 +1,5 @@
 // / <reference types="cypress-xpath" />
-import "cypress-real-events/support";
+import 'cypress-real-events/support'
 import addContext from 'mochawesome/addContext'
 import 'cypress-file-upload'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -63,6 +63,26 @@ Cypress.Commands.add(
         .getInDocument(targetElement)
 )
 
+Cypress.Commands.add('getIframeBody', (iframeLoc) => {
+    // get the iframe > document > body
+    // and retry until the body element is not empty
+    return cy
+        .get(iframeLoc)
+        .its('0.contentDocument.body').should('not.be.empty')
+    // wraps "body" DOM element to allow
+    // chaining more Cypress commands, like ".find(...)"
+    // https://on.cypress.io/wrap
+        .then(cy.wrap)
+})
+
+Cypress.Commands.add('iframeCustom', { prevSubject: 'element' }, ($iframe) => {
+    return new Cypress.Promise((resolve) => {
+        $iframe.ready(function () {
+            resolve($iframe.contents().find('body'))
+        })
+    })
+})
+
 Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {
     Cypress.log({
         name: 'iframe',
@@ -118,7 +138,7 @@ Cypress.Commands.add('restoreLocalStorage', () => {
         localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key])
     })
 })
-require('cy-verify-downloads').addCustomCommand();
+require('cy-verify-downloads').addCustomCommand()
 
 Cypress.Commands.add(
     'loginUser',
@@ -136,9 +156,7 @@ Cypress.Commands.add(
     }
 )
 
-Cypress.Commands.add('logout',()=>{
+Cypress.Commands.add('logout', () => {
     cy.get('#profile-nav').click()
     cy.get('#profile-logout-nav').click()
-
 })
-
