@@ -44,7 +44,7 @@ export const validateFiltersContainer = (getBody) => {
 }
 
 export const validateKeywordExplorerSection = (getBody) => {
-    prtKeywordExplorer.elements.keywordExplorerSection(getBody).should('be.visible')
+    prtKeywordExplorer.elements.keywordExplorerText(getBody).should('be.visible')
 }
 
 export const dispValidateKeywordExplorerSection = () => {

@@ -181,8 +181,8 @@ export const validateTableHeaderSOVCatKWRank11to20 = (getBody) => {
 }
 
 export const validateTargetDomainFilter = () => {
-    prtShareOfVoice.elements.txtboxSOVCategoryProduct().should('have.text', 'Credit Cards')
-    prtShareOfVoice.elements.txtboxSOVCategoryDomain().should('have.text', 'card.discover.com')
+    prtShareOfVoice.elements.txtboxSOVCategoryProduct().should('have.text', 'Mortgage')
+    prtShareOfVoice.elements.txtboxSOVCategoryDomain().should('have.text', 'nerdwallet.com')
 }
 
 export const disptrendBreadcrumb = () => {

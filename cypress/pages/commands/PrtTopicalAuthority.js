@@ -165,7 +165,7 @@ export const clickProductHousehold = () => {
     
 export const dispDateTopicalAuthority = (systemdate) => {
     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-        getBody().find('h3.preTextWithEllipsis').contains("Topical Authority report for category 'Balance Transfer' for")
+        getBody().find('h3.preTextWithEllipsis').contains('Topical Authority report for category')
             .then((visibletext) => {
                 const dispvisibletext = visibletext.text()
 
@@ -194,7 +194,8 @@ export const validateTargetDomainFilter = (product, domain) => {
 
 export const dispDateShareOfVoice = (systemdate) => {
     cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
-        prtTopicalAuthority.elements.RecentDateCategory(getBody).then((visibleText) => {
+        prtTopicalAuthority.elements.tableTitleCategory(getBody).should('be.visible')
+        prtTopicalAuthority.elements.tableTitleCategory(getBody).then((visibleText) => {
             const dispVisibleText = visibleText.text()
 
             expect(dispVisibleText).to.contains(systemdate)

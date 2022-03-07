@@ -15,6 +15,7 @@ export class PrtKeywordExplorerPage {
             searchVolumeSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Search Volume'),
             keywordCountSection: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Keyword Count'),
             keywordExplorerSection: ()=>cy.contains('KEYWORD EXPLORER'),
+            keywordExplorerText: () => cy.get('span.textRun'),
             searchEngine : () => cy.contains('Search Engine'),
             product : () => cy.contains('Product'),
             locale : () => cy.contains('Locale'),

@@ -13,7 +13,7 @@ describe('As a PRT user', () => {
     let data
 
     before(() => {
-        cy.loginUser('Iquanti Inc', 1)
+        cy.loginUser()
         cy.fixture('userData').then((userData) => {
             data = userData
         })
@@ -105,7 +105,7 @@ describe('As a PRT user', () => {
             prtKA.enterKeywordInSearchBoxIframeAndClick(data.searchKeyword)
 
             // validate search box result is working
-            prtKA.validateSearchBoxResult(getBody, data.searchKeyword)
+            prtKA.validateSearchBoxResult(getBody, data.searchKeywordMortgage)
         })
     })
 
@@ -343,7 +343,7 @@ describe('As a PRT user', () => {
         cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
             // validate default keyword category for the product
-            prtTA.validateDefaultCategoryReport(getBody, data.product, data.defKwForCreditCard)
+            prtTA.validateDefaultCategoryReport(getBody, data.productMortgage, data.defKwForMortgage)
         })
     })
 
@@ -369,10 +369,10 @@ describe('As a PRT user', () => {
         prtTA.waitForIframeLoad()
         cy.enter(prtTopicalAuthority.elements.iFrame, prtTopicalAuthority.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
-            prtTA.enterKeywordInSearchBoxIframeDomain(data.searchTopicalDomain)
+            prtTA.enterKeywordInSearchBoxIframeDomain(data.searchKeywordMortgage)
 
             // validate search box result is working
-            prtTA.validateSearchBoxResult(getBody, data.searchTopicalDomain)
+            prtTA.validateSearchBoxResult(getBody, data.searchKeywordMortgage)
         })
     })
 
@@ -386,9 +386,9 @@ describe('As a PRT user', () => {
         prtSOF.waitForIframeLoad()
         cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
             cy.wait(7000)
-            prtSOF.enterKeywordInSearchBoxIframeAndClick(data.categorySearchKeyword)
+            prtSOF.enterKeywordInSearchBoxIframeAndClick(data.searchKeywordMortgage)
             // validate search box result is working
-            prtSOF.validateCategoryDataSearchBoxResult(getBody, data.categorySearchKeyword)
+            prtSOF.validateCategoryDataSearchBoxResult(getBody, data.searchKeywordMortgage)
         })
     })
 
@@ -400,11 +400,7 @@ describe('As a PRT user', () => {
         prtTA.waitForIframeLoad()
 
         // verify default Target Domain for credit card
-        prtTA.validateTargetDomainFilter(data.product, data.productDomain)
-        prtTA.clickProductFreshworkCRM()
-        prtTA.waitForIframeLoad()
-        // verify default Target Domain for Freshwork CRM
-        prtTA.validateTargetDomainFilter(data.product2, data.product2Domain)
+        prtTA.validateTargetDomainFilter(data.productMortgage, data.productDomainNerdwallet)
     })
 
     it('AL-T1090:Verify Share of voice and Traffic trends is displayed for SOV trends report', () => {
