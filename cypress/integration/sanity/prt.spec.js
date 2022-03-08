@@ -454,7 +454,8 @@ describe('As a PRT user', () => {
             .join(' ')
 
         // date validation of latest month.
-
+        cy.wait(5000)
+        prtSOF.waitForIframeLoad()
         prtTA.dispDateShareOfVoice(todayDate)
     })
 

@@ -25,9 +25,6 @@
   },
     "testFiles": [
         "sanity/*",
-        "regression/ContentBrief/CBhomepage.spec.js",
-        "regression/ContentBrief/NewCBpage.spec.js",
-        "regression/ContentBrief/CBViewpage.spec.js",
-        "regression/ContentBrief/ModifyPage.spec.js"
+        "regression/ContentBrief/*"
     ]
 }

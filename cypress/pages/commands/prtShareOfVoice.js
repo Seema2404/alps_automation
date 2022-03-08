@@ -12,7 +12,7 @@ export const clickShareOfVoice = () => {
 }
 
 export const waitForIframeLoad = () => {
-    cy.frameLoaded(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl)
+    cy.frameLoaded(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl, { timeout: 60000 })
 }
 
 export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {

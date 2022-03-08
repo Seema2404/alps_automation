@@ -42,6 +42,7 @@ export class PrtTopicalAuthorityPage {
             productFreshworksCRM: () => cy.contains('Freshworks CRM'),
             productHousehold: () => cy.contains('Household'),
             RecentDateCategory: (getBody) => getBody().contains('Topical Authority report for'),
+            // RecentDateCategory: (getBody) => getBody().find('div[data-subselectable-region=title]>div>div>h3').eq(2),
             tableTitleCategory: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Topical Authority report'),
             tableTitleDomain: (getBody) => getBody().contains('Topical Authority report')
         }
