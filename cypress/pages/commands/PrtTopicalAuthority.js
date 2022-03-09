@@ -165,7 +165,7 @@ export const clickProductHousehold = () => {
     
 export const dispDateTopicalAuthority = (systemdate) => {
     cy.enter(prtShareOfVoice.elements.iFrame, prtShareOfVoice.elements.iFrameUrl).then(getBody => {
-        getBody().find('h3.preTextWithEllipsis').contains('Topical Authority report for category')
+        getBody().contains('Topical Authority report for category')
             .then((visibletext) => {
                 const dispvisibletext = visibletext.text()
 
