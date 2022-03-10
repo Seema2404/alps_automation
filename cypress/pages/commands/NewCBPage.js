@@ -22,13 +22,13 @@ export const Addkeyword = (keyword) => {
 }
 const typekeyword = (keyword) => {
     for (let index = 0; index < keyword.length; index++) {
-        newcb.elements.AddKWField().type(keyword[index])
-        newcb.elements.AddKWField().type(',')
+        newcb.elements.AddKWField().clear().type(keyword[index])
+        newcb.elements.AddKWField().clear().type(',')
     }
 }
 
 export const Addemptyspaces = () => {
-    newcb.elements.AddKWField().type('  ')
+    newcb.elements.AddKWField().clear().type('  ')
     newcb.elements.AddkeywordBtn().click()
 }
 export const removekeyword = () => {
@@ -71,7 +71,7 @@ export const Validate_repeat_KWvalidationtext = () => {
 }
 export const Add_single_KW = (keyword) => {
     for (let index = 0; index < keyword.length; index++) {
-        newcb.elements.AddKWField().type(keyword[index])
+        newcb.elements.AddKWField().clear().type(keyword[index])
         newcb.elements.AddkeywordBtn().click()
     }
 }
@@ -158,7 +158,7 @@ export const validate_fivetosevenfilter = () => {
     newcb.elements.fivetosevenrelevancescore().click({ force: true })
 }
 export const search_kw_onsuggestedtab = () => {
-    newcb.elements.SuggestedKWsearchbar().type('medical insurance')
+    newcb.elements.SuggestedKWsearchbar().clear().type('medical insurance')
     newcb.elements.SuggestedKWnames().each(($el) => {
         let searchedele
 

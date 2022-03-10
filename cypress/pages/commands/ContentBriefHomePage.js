@@ -47,19 +47,19 @@ export const selectLocale = (locale) => {
     
  }
  export const validate_retrybtn_isenabled=()=>{
-    cb.elements.searchtextbox().type("sunglasses brief")
+    cb.elements.searchtextbox().clear().type("sunglasses brief")
     cy.wait(4000)
     cb.elements.retrybtn().should('be.enabled')
     cb.elements.searchtextbox().clear()
  }
  export const download_btn_isdisabled=()=>{
-     cb.elements.searchtextbox().type("sunglasses brief")
+     cb.elements.searchtextbox().clear().type("sunglasses brief")
      cy.wait(4000)
      cb.elements.downloadbtnlink().should('have.attr','disabled')
      cb.elements.searchtextbox().clear()
  }
 export const searchtopic=(topicname)=>{
-    cb.elements.searchtextbox().type(topicname)
+    cb.elements.searchtextbox().clear().type(topicname)
 }
  export const Validate_Search_Brief_byuser=(Username)=>{
      cb.elements.searchtextbox().clear().type(Username)
@@ -97,7 +97,7 @@ export const searchtopic=(topicname)=>{
     cy.url().should('include','/content-brief-view')
 } 
 // export const validate_brief_download=(briefname)=>{
-//     cb.elements.searchtextbox().type(briefname)
+//     cb.elements.searchtextbox().clear().type(briefname)
 //     cy.wait(5000)
 //     cy.window().document().then(function (doc) {
 //         doc.addEventListener('click', () => {

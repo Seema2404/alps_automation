@@ -70,7 +70,7 @@ export const validateViewOriginalButton = () => {
 
 export const editTitle = () => {
     cy.wait(5000)
-    simulation.elements.editorTitleInput().type('edited')
+    simulation.elements.editorTitleInput().clear().type('edited')
 }
 
 export const clickRunSimulationButton = () => {
@@ -103,7 +103,7 @@ export const clickInputKeywordTab = () => {
 }
 
 export const enterAddKeywordInput = (kw) => {
-    simulation.elements.addKeywordInput().type(kw)
+    simulation.elements.addKeywordInput().clear().type(kw)
 }
 
 export const clickAddKeywordButton = () => {

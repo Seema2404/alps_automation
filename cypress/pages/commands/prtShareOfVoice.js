@@ -22,6 +22,7 @@ export const enterKeywordInSearchBoxIframeAndClick = (keyword) => {
         .find('#sandbox-host div input', { timeout: 60000 })
         .should('be.visible')
         .wait(2000)
+        .clear()
         .type(keyword, { force: true })
         .type('{enter}', { force: true })
         .wait(5000)
