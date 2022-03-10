@@ -5,10 +5,6 @@ import selectTestsWithGrep from 'cypress-select-tests/grep'
 const { isFileExist } = require('cy-verify-downloads')
 const fs = require('fs')
 
-// const renameFile = {
-
-// }
-
 const plugins = (on) => {
     on('task', {
         log (message) {
@@ -19,23 +15,19 @@ const plugins = (on) => {
     })
 }
 
-// module.exports = (on, config) => {
-//     on('file:preprocessor', selectTestsWithGrep(config))
-// }
-
 module.exports = (on, config) => {
     on('task', {
         isFileExist,
         renameFile ({ filename1, filename2 }) {
-            fs.rename(filename1, filename2)
+            fs.rename(filename1, filename2, (err) => {
+                if (err) {
+                    console.log(err)
+                }
+            })
 
             return null
         }
     })
 }
-
-// module.exports = (on, config) => {
-//     on('task', renameFile)
-// }
 
 export default plugins

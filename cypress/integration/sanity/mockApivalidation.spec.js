@@ -11,6 +11,12 @@ describe('As an ALPS user', () => {
     let alpsapiendpoints
 
     before(() => {
+        // rename fixture HTML files
+        cy.task('renameFile', { filename1: 'cypress\\HTMLFiles\\sample1.json', filename2: 'cypress\\fixtures\\sample1.html' })
+        cy.task('renameFile', { filename1: 'cypress\\HTMLFiles\\Screenshot from 2022-01-12 19-53-10.json', filename2: 'cypress\\fixtures\\Screenshot from 2022-01-12 19-53-10.html' })
+        cy.task('renameFile', { filename1: 'cypress\\HTMLFiles\\Screenshot.json', filename2: 'cypress\\fixtures\\Screenshot.html' })
+
+
         // Clear downloads folder
         cy.exec('del /q "cypress\\downloads\\*.*"', { log: true, failOnNonZeroExit: false })
         cy.exec('rm cypress/downloads/*', { log: true, failOnNonZeroExit: false })
@@ -23,6 +29,11 @@ describe('As an ALPS user', () => {
         cy.fixture('apiEndPoints').then((apiEndPoints) => {
             alpsapiendpoints = apiEndPoints
         })
+    })
+    after(() => {
+        cy.task('renameFile', { filename1: 'cypress\\fixtures\\sample1.html', filename2: 'cypress\\HTMLFiles\\sample1.json' })
+        cy.task('renameFile', { filename1: 'cypress\\fixtures\\Screenshot from 2022-01-12 19-53-10.html', filename2: 'cypress\\HTMLFiles\\Screenshot from 2022-01-12 19-53-10.json' })
+        cy.task('renameFile', { filename1: 'cypress\\fixtures\\Screenshot.html', filename2: 'cypress\\HTMLFiles\\Screenshot.json' })
     })
     beforeEach(() => {
         cy.restoreLocalStorage()
