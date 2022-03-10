@@ -101,7 +101,8 @@ export const validate_brokenlinks_onCompetitorURL = () => {
 
             cy.request({
                 method: 'GET',
-                url: URL
+                url: URL,
+                headers: { 'User-Agent': 'PostmanRuntime/7.28.4' }
             }).then((res) => {
                 expect(res.status).to.eq(200)
             })
