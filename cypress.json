@@ -22,7 +22,7 @@
           "json": true
       }
   },
-    "testFiles": [
-        "regression/*"
-    ]
+  "testFiles": [
+      "regression/*"
+  ]
 }

@@ -5,6 +5,9 @@
 	"keyword": "credit card",
 	"url": "hdfcbank.com",
 	"searchVolume": "35.1M",
-	"kgaURL": "https://www.amazon.com/",
-	"kgaKeyword": "online shopping"
+	"kgaKeyword": "allstate",
+	"kgaUrl": "www.allstate.com",
+	"kgaUrlSpecChar": "www.allstate.com##",
+	"kgaKeywordSpecChar": "credit c@rd",
+	"urlPath": "/serp-result"
 }

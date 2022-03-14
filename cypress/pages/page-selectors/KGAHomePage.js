@@ -22,6 +22,11 @@ export class KGAHomePage {
             rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]'),
             serpKgaButton: () => cy.get('#serpResult_progress_keywordGapAnalysis_button'),
             kgaDownload: () => cy.get('.fright.download_right_container>i',{ timeout: 60000 }),
+            pageUrl: () => cy.url(),
+            RankingNumber: () => cy.get('td div div [alt="rank"] +div'),
+            RankingDomain: () => cy.xpath('//img[@alt="rank"]/ancestor::tr/descendant::a'),
+            serpResultUrl: () => cy.get('#serpResult_metaInfo_url_text'),
+            serpResultRows: () => cy.get('table tbody tr[class*="serpResult"]')
         }
     }
 }
