@@ -4,6 +4,7 @@
     "requestTimeout" :	5000,
     "pageLoadTimeout": 60000,
     "responseTimeout" : 60000,
+    "trashAssetsBeforeRuns" : true,
     "defaultCommandTimeout" : 30000,
     "pluginsFile": "cypress/plugins/index.js",
     "supportFile": "cypress/support/index.js",

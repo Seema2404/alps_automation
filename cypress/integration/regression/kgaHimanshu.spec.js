@@ -23,8 +23,8 @@ describe('As a KGA user', () => {
     })
     it('AL-T412: Verify the behavior of download button when Keyword Crawl status is not 100 percent', () => {
         loginAction.clickAlpsLogo()
-        kgaAction.enterURL(data.kgaUrl)
-        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterURL(data.crwalUrl)
+        kgaAction.enterKeyword(data.crwalKeyword)
         kgaAction.clickGo()
         cy.wait(2000)
         kgaAction.clickSerpKgaButton()
