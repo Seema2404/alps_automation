@@ -77,9 +77,8 @@ describe('As a KGA user', () => {
         //verify url without # in it
         kgaAction.verifyKgaUrlHeader(data.kgaUrlSplCharAtMiddle)
         //verify null Search Volume 
-        kgaAction.verifyNullSV()
-        
+        kgaAction.verifyNullSV()     
     })
-    
+
 })
 
