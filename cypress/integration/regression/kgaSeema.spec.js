@@ -49,5 +49,6 @@ describe('As a KGA user', () => {
         //verify the domain in Top 10 rank
         kgaAction.verifyDomainInTopRanking()
     })
+    
 })
 
