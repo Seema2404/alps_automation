@@ -4,10 +4,11 @@
     "requestTimeout" :	5000,
     "pageLoadTimeout": 60000,
     "responseTimeout" : 60000,
+    "trashAssetsBeforeRuns" : true,
     "defaultCommandTimeout" : 30000,
     "pluginsFile": "cypress/plugins/index.js",
     "supportFile": "cypress/support/index.js",
-    "retries": 0,
+    "retries": 1,
     "video": false,
     "viewportWidth": 1366,
     "viewportHeight": 768,
@@ -22,7 +23,15 @@
           "json": true
       }
   },
+<<<<<<< HEAD
+    "testFiles": [
+        "sanity/*",
+        "regression/ContentBrief/CBhomepage.spec.js",
+        "regression/ContentBrief/CBViewpage.spec.js"
+    ]
+=======
   "testFiles": [
       "regression/*"
   ]
+>>>>>>> ed7693d93bfe3c23e67374f10eacbf20b099e05c
 }

@@ -1,0 +1,52 @@
+export class PrtTopicalAuthorityPage {
+    constructor () {
+        this.elements = {
+            planningAndResearch: () => cy.get('div').contains('PLANNING & RESEARCH'),
+            topicalAuthority: () => cy.get('a').contains('TOPICAL AUTHORITY'),
+            iFrame: '.report-style-class iframe',
+            iFrameUrl: { url: 'https://app.powerbi.com' },
+            iFrameSearchBox: 'div[class*="visual-textFilter"] iframe',
+            searchEngineLabel: () => cy.get('#breadcrumb + div + div div div div:nth-child(1) span'),
+            filtersContainer: (getBody) => getBody().find('.scrollWrapper div p span').contains('FILTERS'),
+            domainTab: () => cy.get('#topical-authority-domain-tab'),
+            tableContainer: (getBody) => getBody().find('div.tableExContainer'),
+            searchEngine: () => cy.contains('Search Engine'),
+            product: () => cy.contains('Product'),
+            locale: () => cy.contains('Locale'),
+            domain: () => cy.get('span').contains('Domain'),
+            shareOfVoiceTopFilter: () => cy.get('div[class*="sc-ikTlrC doSEgz"] > span + div > div > div + div'),
+            tableHeaderDomain: (getBody) => getBody().find('div').contains('Domain'),
+            tableHeaderTopicalAuthority: (getBody) => getBody().contains('#Topical Authority'),
+            tableHeaderUrlCount: (getBody) => getBody().contains('#URL Count'),
+            tableHeaderUrlRating20: (getBody) => getBody().contains('#URL Rating <20'),
+            tableHeaderUrlRating20to40: (getBody) => getBody().contains('#URL Rating 20-40'),
+            tableHeaderUrlRating40: (getBody) => getBody().contains('#URL Rating >40'),
+            tableHeaderUrlRatingNA: (getBody) => getBody().contains('#URL Rating NA'),
+            tableHeaderKwsOnPage1: (getBody) => getBody().contains('#KWs on Page 1 '),
+            tableHeaderKwsOnPag2: (getBody) => getBody().contains('#KWs on Page 2'),
+            tableHeaderKwsBeyondPage2: (getBody) => getBody().contains('#Kws beyond Page 2'),
+            tableHeaderCategory: (getBody) => getBody().contains('Category'),
+            tableHeaderSubCategory: (getBody) => getBody().contains('Sub Category'),
+            tableHeaderDomainTopicalAuthority: (getBody) => getBody().contains('Topical Authority'),
+            tableHeaderDomainHighestTopicalAuthority: (getBody) => getBody().contains('Highest Topical Authority'),
+            tableHeaderDomainUrl: (getBody) => getBody().contains('#URL'),
+            tableHeaderDomainUrlRating40: (getBody) => getBody().contains('#URL Rating <40'),
+            tableHeaderDomainKeywordCount: (getBody) => getBody().contains('#Keyword Count'),
+            tableHeaderDomainKwsBeyondPage2: (getBody) => getBody().contains('#KWs Beyond Page 2'),
+            domainTableData: (getBody) => getBody().find('div.bodyCells div div div:nth-of-type(1) div[class*="pivotTableCellWrap"]'),
+            productTextboxInDomain: () => cy.xpath('//span[text()="Product"]/parent::div/child::div/div/div/div'),
+            domainTextboxInDomain: () => cy.xpath('//span[text()="Domain"]/parent::div/child::div/div/div/div'),
+            productCategoryTextbox: () => cy.xpath('//span[text()="Product"]/parent::div/child::div/div/div/div'),
+            keywordCategoriesFilter: (getBody) => getBody().find('div.slicerItemContainer'),
+            keywordCategoriesFilterCheckbox: (getBody) => getBody().find('div.slicerItemContainer div[class*="slicerCheckbox"]'),
+            productFreshworksCRM: () => cy.contains('Freshworks CRM'),
+            productHousehold: () => cy.contains('Household'),
+            RecentDateCategory: (getBody) => getBody().contains('Topical Authority report for'),
+            // RecentDateCategory: (getBody) => getBody().find('div[data-subselectable-region=title]>div>div>h3').eq(2),
+            tableTitleCategory: (getBody) => getBody().find('h3.preTextWithEllipsis').contains('Topical Authority report'),
+            tableTitleDomain: (getBody) => getBody().contains('Topical Authority report')
+        }
+    }
+}
+
+export const prtTopicalAuthority = new PrtTopicalAuthorityPage()
