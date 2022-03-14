@@ -19,7 +19,10 @@ export class KGAHomePage {
             sampleReportssnypidpopup: () => cy.get('#reports-grid-modal-head-title'),
             keyworderror: () => cy.get('home_keywordSearch_keyword_inputError'),
             urlerror: () => cy.get('#home_keywordSearch_domain_inputError'),
-            rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]')
+            rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]'),
+            pageUrl: () => cy.url(),
+            RankingNumber: () => cy.get('tr td div div [alt="rank"] +div'),
+
         }
     }
 }

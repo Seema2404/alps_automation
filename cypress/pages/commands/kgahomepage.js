@@ -26,3 +26,21 @@ export const validateResultsPage = () => {
 export const validateRankingURLs = (rank) => {
     kga.elements.rankingURLs().should('have.length.greaterThan', 9)
 }
+
+export const verifySerpResultURL = (path) => {
+    kga.elements.pageUrl().should('include', path )
+}
+
+export const verifyURLInTopRanking = () => {
+    kga.elements.RankingNumber().then((txt) => {
+        const RankNumber = txt.text()
+        let flag=false
+
+        if(RankNumber>0 && RankNumber<=10) {
+            flag=true;
+            expect(flag).to.be.true;
+        }else {
+            expect(flag).to.be.true;
+        }    
+    })
+}
