@@ -83,6 +83,11 @@ export class KGAHomePage {
             kgaKeywordPerformanceTrafficValue: () => cy.get('#traffic-value'),
             kgaKeywordPerformanceCrtValue: () => cy.get('#ctr-value'),
             kgaSimulationPage: () => cy.get('#contentSimulation_multiKeyword_accordionToggle_button > div > h3 > span:nth-child(1)'),            
+            pageUrl: () => cy.url(),
+            RankingNumber: () => cy.get('td div div [alt="rank"] +div'),
+            RankingDomain: () => cy.xpath('//img[@alt="rank"]/ancestor::tr/descendant::a'),
+            serpResultUrl: () => cy.get('#serpResult_metaInfo_url_text'),
+            serpResultRows: () => cy.get('table tbody tr[class*="serpResult"]')
         }
     }
 }

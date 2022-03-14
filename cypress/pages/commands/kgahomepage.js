@@ -346,3 +346,47 @@ export const validateSimulationPage = () => {
     kga.elements.kgaSimulationPage().should('contains.text', 'Simulation URL - ')
 }
 
+export const verifySerpResultURL = (path) => {
+    kga.elements.pageUrl().should('include', path )
+}
+
+export const verifyURLInTopRanking = () => {
+    kga.elements.RankingNumber().then((txt) => {
+        const RankNumber = txt.text()
+        let flag=false
+
+        if(RankNumber>0 && RankNumber<=10) {
+            flag=true;
+            expect(flag).to.be.true;
+        }else {
+            expect(flag).to.be.true;
+        }    
+    })
+}
+
+export const verifyDomainInTopRanking = () => {
+    kga.elements.serpResultUrl().then((headerUrl) => {
+        let HeaderURL = headerUrl.text().replace('‘', '').replace('’', '')
+
+        kga.elements.serpResultRows().within(() => {
+            kga.elements.RankingDomain().then((rankUrl) => {
+                let rankURL= rankUrl.text()
+
+                expect(rankURL).to.include(HeaderURL)
+            })
+        
+            kga.elements.RankingNumber().then((txt) => {
+                const RankNumber = txt.text()
+        
+                let flag=false
+        
+                if(RankNumber>0 && RankNumber<=10) {
+                    flag=true;
+                    expect(flag).to.be.true;
+                }else {
+                    expect(flag).to.be.true;
+                }    
+            })
+        })
+    })
+}

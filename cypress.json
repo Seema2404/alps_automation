@@ -23,9 +23,15 @@
           "json": true
       }
   },
+<<<<<<< HEAD
     "testFiles": [
         "sanity/*",
         "regression/ContentBrief/CBhomepage.spec.js",
         "regression/ContentBrief/CBViewpage.spec.js"
     ]
+=======
+  "testFiles": [
+      "regression/*"
+  ]
+>>>>>>> ed7693d93bfe3c23e67374f10eacbf20b099e05c
 }
