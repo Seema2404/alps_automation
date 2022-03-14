@@ -1,5 +1,7 @@
 import addContext from 'mochawesome/addContext'
 
+require('cypress-xpath')
+
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })

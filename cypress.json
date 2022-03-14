@@ -22,9 +22,7 @@
           "json": true
       }
   },
-    "testFiles": [
-        "regression/login/login.spec.js",
-        "regression/kga/kgahomepage.spec.js",
-        "sanity/*"
-    ]
+  "testFiles": [
+      "regression/*"
+  ]
 }
