@@ -26,3 +26,9 @@ export const validateResultsPage = () => {
 export const validateRankingURLs = (rank) => {
     kga.elements.rankingURLs().should('have.length.greaterThan', 9)
 }
+export const clickSerpKgaButton = () => {
+    kga.elements.serpKgaButton().click()
+}
+export const verifyDownloadButton = () => {
+    kga.elements.kgaDownload().should('not.exist')
+}
