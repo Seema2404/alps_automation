@@ -363,7 +363,7 @@ describe('As an ALPS user', () => {
         simulationAction.dispDisabledFileUpload()
     })
 
-    it.only('AL-T215:Verify the functionality of the ‘Browse’ button in the URL & KEYWORDS Editor section’ in the non-live url flow of page simulation', () => {
+    it('AL-T215:Verify the functionality of the ‘Browse’ button in the URL & KEYWORDS Editor section’ in the non-live url flow of page simulation', () => {
         loginAction.clickAlpsLogo()
         simulationAction.clickTabOptimization()
         simulationAction.clickTabPageSimulation()
