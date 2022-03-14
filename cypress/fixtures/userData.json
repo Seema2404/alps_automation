@@ -75,7 +75,5 @@
 	"kgaUrl": "www.allstate.com",
 	"kgaUrlSpecChar": "www.allstate.com##",
 	"kgaKeywordSpecChar": "credit c@rd",
-	"urlPath": "/serp-result",
-	"crwalUrl": "https://www.amazon.com/",
-	"crwalKeyword": "Online Delivery"
+	"urlPath": "/serp-result"
 }
