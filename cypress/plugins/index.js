@@ -1,5 +1,3 @@
-import selectTestsWithGrep from 'cypress-select-tests/grep'
-
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 
 const { isFileExist } = require('cy-verify-downloads')
