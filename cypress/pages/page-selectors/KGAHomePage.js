@@ -21,8 +21,10 @@ export class KGAHomePage {
             urlerror: () => cy.get('#home_keywordSearch_domain_inputError'),
             rankingURLs: () => cy.get('tr[class*="serpResult_rankTable"]'),
             pageUrl: () => cy.url(),
-            RankingNumber: () => cy.get('tr td div div [alt="rank"] +div'),
-
+            RankingNumber: () => cy.get('td div div [alt="rank"] +div'),
+            RankingDomain: () => cy.xpath('//img[@alt="rank"]/ancestor::tr/descendant::a'),
+            serpResultUrl: () => cy.get('#serpResult_metaInfo_url_text'),
+            serpResultRows: () => cy.get('table tbody tr[class*="serpResult"]')
         }
     }
 }

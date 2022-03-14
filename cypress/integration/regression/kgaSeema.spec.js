@@ -46,7 +46,8 @@ describe('As a KGA user', () => {
         kgaAction.enterKeyword(data.kgaKeyword)
         kgaAction.clickGo()
         cy.wait(2000)
-        kgaAction.verifyURLInTopRanking()
+        //verify the domain in Top 10 rank
+        kgaAction.verifyDomainInTopRanking()
     })
 })
 
