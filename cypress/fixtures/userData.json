@@ -9,5 +9,8 @@
 	"kgaUrl": "www.allstate.com",
 	"kgaUrlSpecChar": "www.allstate.com##",
 	"kgaKeywordSpecChar": "credit c@rd",
-	"urlPath": "/serp-result"
+	"urlPath": "/serp-result",
+	"kgaUrlSpecCharAtStart": "#www.allstate.com",
+	"kgaUrlSplCharAtMiddle": "https://egghead.io/blog/##handling-copy-and-paste-in-cypress",
+	"invalidKgaKw": "abcdfxyz"
 }

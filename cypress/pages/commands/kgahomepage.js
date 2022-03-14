@@ -71,3 +71,32 @@ export const verifyDomainInTopRanking = () => {
         })
     })
 }
+
+export const VerifyErrorMsg = () => {
+    kga.elements.urlerror().should('be.visible')
+}
+
+export const verifyNullSV = () => {
+    kga.elements.NoSearchVol().should('be.visible')
+}
+
+export const verifyErrorMsgWhenChangeLocale = () => {
+    kga.elements.localeDropdown().click()
+    kga.elements.selectDifferentLocal().first().click()
+    VerifyErrorMsg()
+    kga.elements.localeDropdown().click()
+    kga.elements.selectDifferentLocal().eq(4).click()
+    VerifyErrorMsg()
+    kga.elements.localeDropdown().click()
+    kga.elements.selectDifferentLocal().last().click()
+    VerifyErrorMsg()
+}
+
+export const verifyKgaUrlHeader = (url) => {
+    kga.elements.serpResultUrl().then((headerUrl) => {
+        let HeaderURL = headerUrl.text().replace('‘', '').replace('’', '')
+        
+        let UrlArray=url.split('#')
+        expect(UrlArray[0]).to.equal(HeaderURL)
+    })
+}
