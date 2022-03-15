@@ -11,8 +11,6 @@ require('cy-verify-downloads').addCustomCommand()
 // eslint-disable-next-line import/no-unassigned-import
 require('cypress-xpath')
 
-require('cypress-xpath')
-
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
@@ -64,20 +62,6 @@ Cypress.Commands.add(
         .getInDocument(targetElement)
 )
 
-Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {
-    Cypress.log({
-        name: 'iframe',
-        consoleProps () {
-            return {
-                iframe: $iframe
-            }
-        }
-    })
-
-    return new Cypress.Promise(resolve => {
-        resolve($iframe.contents().find(selector))
-    })
-})
 Cypress.Commands.add('getIframeBody', (iframeLoc) => {
     // get the iframe > document > body
     // and retry until the body element is not empty
@@ -95,6 +79,21 @@ Cypress.Commands.add('iframeCustom', { prevSubject: 'element' }, ($iframe) => {
         $iframe.ready(function () {
             resolve($iframe.contents().find('body'))
         })
+    })
+})
+
+Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {
+    Cypress.log({
+        name: 'iframe',
+        consoleProps () {
+            return {
+                iframe: $iframe
+            }
+        }
+    })
+
+    return new Cypress.Promise(resolve => {
+        resolve($iframe.contents().find(selector))
     })
 })
 
@@ -138,7 +137,6 @@ Cypress.Commands.add('restoreLocalStorage', () => {
         localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key])
     })
 })
-
 require('cy-verify-downloads').addCustomCommand()
 
 Cypress.Commands.add(
