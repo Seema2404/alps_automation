@@ -11,8 +11,6 @@ require('cy-verify-downloads').addCustomCommand()
 // eslint-disable-next-line import/no-unassigned-import
 require('cypress-xpath')
 
-require('cypress-xpath')
-
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })

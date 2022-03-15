@@ -33,7 +33,7 @@ describe('As a KGA user', () => {
     it('AL-T1211 : Verify the scenario when user paste url with # and goes to serp page', () => {
         loginAction.clickAlpsLogo()
         kgaAction.enterURL(data.kgaUrlSpecChar)
-        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterKeyword(data.NonLiveKW)
         kgaAction.clickGo()
         cy.wait(2000)
         //verify the url in Top 10 rank
@@ -43,7 +43,7 @@ describe('As a KGA user', () => {
     it('AL-T1212 : Verify the scenario when user paste url with # and matching domain ranks in top 10', () => {
         loginAction.clickAlpsLogo()
         kgaAction.enterURL(data.kgaUrlSpecChar)
-        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.enterKeyword(data.NonLiveKW)
         kgaAction.clickGo()
         cy.wait(2000)
         //verify the domain in Top 10 rank
