@@ -1,7 +1,8 @@
 // / <reference types="cypress-xpath" />
-
+import 'cypress-real-events/support'
 import addContext from 'mochawesome/addContext'
 import 'cypress-file-upload'
+import 'fs'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('cy-verify-downloads').addCustomCommand()
 
@@ -77,6 +78,25 @@ Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) =
         resolve($iframe.contents().find(selector))
     })
 })
+Cypress.Commands.add('getIframeBody', (iframeLoc) => {
+    // get the iframe > document > body
+    // and retry until the body element is not empty
+    return cy
+        .get(iframeLoc)
+        .its('0.contentDocument.body').should('not.be.empty')
+    // wraps "body" DOM element to allow
+    // chaining more Cypress commands, like ".find(...)"
+    // https://on.cypress.io/wrap
+        .then(cy.wrap)
+})
+
+Cypress.Commands.add('iframeCustom', { prevSubject: 'element' }, ($iframe) => {
+    return new Cypress.Promise((resolve) => {
+        $iframe.ready(function () {
+            resolve($iframe.contents().find('body'))
+        })
+    })
+})
 
 Cypress.on('test:after:run', (test, runnable) => {
     if (test.state === 'failed') {
@@ -119,6 +139,8 @@ Cypress.Commands.add('restoreLocalStorage', () => {
     })
 })
 
+require('cy-verify-downloads').addCustomCommand()
+
 Cypress.Commands.add(
     'loginUser',
     (tenant = Cypress.env('tenant'), index = 1) => {
@@ -134,3 +156,8 @@ Cypress.Commands.add(
         cy.get('.multiple_bttn').click()
     }
 )
+
+Cypress.Commands.add('logout', () => {
+    cy.get('#profile-nav').click()
+    cy.get('#profile-logout-nav').click()
+})
