@@ -74,6 +74,7 @@
 	"currentpagenum": 1,
 	"kgaKeywordSpecChar": "credit c@rd",
 	"urlPath": "/serp-result",
+	"krtUrlpath": "/keyword-research-tool",
 	"kgaUrlSplChar": "https://egghead.io/blog/##handling-copy-and-paste-in-cypress",
 	"invalidKgaKw": "abcdfxyz"
 }

@@ -16,3 +16,11 @@ export const enterRelatedKeyword = (kw) => {
 export const clickSearch = () => {
     krtHomePg.elements.searchBtn().click()
 }
+
+export const clickSelectorLocaleDdn = () => {
+    krtHomePg.elements.localeDdn().click()
+}
+
+export const enterLocale = (loc) => { 
+    krtHomePg.elements.enterLocale().type(loc).type('{enter}')
+}
