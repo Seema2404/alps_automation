@@ -67,6 +67,16 @@ describe('As a KGA user', () => {
         //verify the domain in Top 10 rank
         kgaAction.verifyDomainInTopRanking()
     })
+
+    it('AL-T1213 : Verify the scenario when user paste url with # and goes to serp page (ranks beyond 10)', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.enterKeyword(data.SimulationKeyword)
+        kgaAction.clickGo()
+        cy.wait(6000)
+        //verify rank beyond 10
+        kgaAction.verifyBelowRanking()     
+    })
     
     it('AL-T1215 : Verify the scenario when user enter the url with SV as null', () => {
         loginAction.clickAlpsLogo()

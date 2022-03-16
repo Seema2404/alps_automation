@@ -364,6 +364,20 @@ export const verifyURLInTopRanking = () => {
     })
 }
 
+export const verifyBelowRanking = () => {
+    kga.elements.RankingNumber().first().then((txt) => {
+        let RankNumber = txt.text();
+        let flag=false
+        
+        if(RankNumber > 10) {
+            flag=true;
+            expect(flag).to.be.true;
+        }else {
+            expect(flag).to.be.true;
+        }    
+    })
+}
+
 export const verifyDomainInTopRanking = () => {
     kga.elements.serpResultUrl().then((headerUrl) => {
         let HeaderURL = headerUrl.text().replace('‘', '').replace('’', '')
