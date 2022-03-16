@@ -26,6 +26,12 @@ export const validateResultsPage = () => {
 export const validateRankingURLs = (rank) => {
     kga.elements.rankingURLs().should('have.length.greaterThan', 9)
 }
+export const clickSerpKgaButton = () => {
+    kga.elements.serpKgaButton().click()
+}
+export const verifyDownloadButton = () => {
+    kga.elements.kgaDownload().should('not.exist')
+}
 
 export const clickKgaButton = () => {
     kga.elements.kgabutton().click()
@@ -66,9 +72,6 @@ export const validateSerpSimulationButton = () => {
     kga.elements.serpSimulationButton().should('be.visible')
 }
 
-export const clickSerpKgaButton = () => {
-    kga.elements.serpKgaButton().click()
-}
 
 export const validateKgaPage = () => {
     kga.elements.kgaTitle().should('have.text', 'Keyword Gap Analysis')
