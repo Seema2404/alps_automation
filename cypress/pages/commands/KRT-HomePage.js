@@ -1,9 +1,18 @@
-import { krtHomePage } from "../page-selectors/krtHomePage"
+import { krtHomePg } from "../page-selectors/krtHomePage"
 
 export const clickPlanningAndResearch = () => {
-    PrtKeywordResearchPage.elements.planningAndResearch().click()
+    krtHomePg.elements.planningAndResearch().click()
 }
 
-export const clickKeywordExplorer = () => {
-    PrtKeywordResearchPage.elements.keywordExplorer().click({ force: true })
+export const clickKeywordResearch = () => {
+    krtHomePg.elements.keywordExplorer().click({ force: true })
+}
+
+export const enterRelatedKeyword = (kw) => {
+    krtHomePg.elements.searchBox().clear()
+    krtHomePg.elements.searchBox().type(kw)
+}
+
+export const clickSearch = () => {
+    kga.elements.searchBtn().click()
 }

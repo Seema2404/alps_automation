@@ -17,5 +17,11 @@ describe ('As KRT user', () => {
         cy.saveLocalStorage()
     })
 
-    it('AL-T')
+    it('AL-T1288 :  Verify user is able to search related Keywords for a URL', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.url)
+        krtHome.clickSearch()
+    })
 })
