@@ -11,6 +11,14 @@
     "video": true,
     "viewportWidth": 1366,
     "viewportHeight": 768,
+    "env": {
+        "alpsUrl": "https://alps.iquanti.com/",
+        "basicAuthLogin": "",
+        "basicAuthPassword": "",
+        "username": "alps-qa@iquanti.com",
+        "password": "Test@12345",
+        "tenant": "Iquanti Training"
+    },
     "testFiles": [
         "sanity/user-flows/**/*"
     ]

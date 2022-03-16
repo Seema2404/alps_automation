@@ -35,3 +35,12 @@ export const clickContinue = () => {
 export const validateHomepage = () => {
     login.elements.logo().should('be.visible')
 }
+
+export const clickAlpsLogo = () => {
+    login.elements.logo().click({ force: true })
+}
+
+export const TxtBoxKeywordLandingPage = (Keyword) => {
+    login.elements.kwLandingPage().clear()
+    login.elements.kwLandingPage().type(Keyword)
+}

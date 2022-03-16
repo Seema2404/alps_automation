@@ -1,0 +1,11 @@
+{
+    "MethodPost":"POST",
+    "MetodGet" :"GET",
+    "MethodPut" : "PUT",
+    "RefreshMultipleKeywordInitiateAPi" : "**/alps/smb-api/refresh_multiple_keyword/initiate-request",
+    "RefreshKeywordInitiateApi":"**/alps/smb-api/refresh_keyword/initiate-request",
+    "RefreshMultipleKeywordTrackApi": "**/alps/smb-api/refresh_multiple_keyword/track-request",
+    "RunScenarioOverall" : "**/alps/real_time/simulation/allstate/run-scenario-overall",
+    "RefreshRelatedKeywordInitiateApi" : "http://alpsqaapi.smallbizvoices.com/alps/smb-api/related_kwd/v1/keyword/initiate"
+
+}

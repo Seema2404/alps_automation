@@ -12,7 +12,10 @@
         ],
         "types": [
             "cypress",
-            "node"
+            "node",
+            "cypress-real-events",
+            "cy-verify-downloads",
+            "cypress-file-upload"
         ],
         "allowJs": true,
         "skipLibCheck": true,
