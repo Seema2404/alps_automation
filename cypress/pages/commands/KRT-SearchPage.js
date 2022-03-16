@@ -1,0 +1,1 @@
+import { krtSearch } from "../page-selectors/krtSearchPage";
