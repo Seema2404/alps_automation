@@ -6,7 +6,9 @@ export class krtHomePage {
             searchBox: () => cy.get('#locale_dropdown2'),
             searchBtn: () => cy.contains('Search'),
             localeDdn: () => cy.get('[id*="locale_dropdown_button"]'),
-            enterLocale: () => cy.get('#react-select-protocol-input')
+            enterLocale: () => cy.get('#react-select-protocol-input'),
+            exportIcon:() =>cy.xpath("//p[contains(text(),'Related Keywords')]//following-sibling::div"),
+            versionNotification:()=>cy.xpath("//div[@id='version_notification_message']")
 
         }
     }
