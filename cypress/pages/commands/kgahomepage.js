@@ -1,5 +1,6 @@
 import { kga } from '../page-selectors/KGAHomePage'
 
+let contentScore, authorityScore, technicalScore
 export const selectLocale = (locale) => {
     kga.elements.localeDropdown().click()
     cy.get('div').contains(locale).click()
@@ -391,5 +392,40 @@ export const verifyDomainInTopRanking = () => {
                 }    
             })
         })
+    })
+}
+export const validateKgaAuthorityScoreLabel = () => {
+    kga.elements.kgaAuthorityScoreLabel().should('be.visible')
+}
+export const validateKgaTechnicalScoreLabel = () => {
+    kga.elements.kgaTechnicalScoreLabel().should('be.visible')
+}
+export const retriveScoreCompetitorFromKga = () =>{
+    kga.elements.competitorContentScores().then(txt => {
+        contentScore = txt.text()
+    })
+    kga.elements.competitorAuthorityScores().then(txt => {
+        authorityScore = txt.text()
+    })
+    kga.elements.competitorTechnicalScores().then(txt => {
+        technicalScore = txt.text()
+    })
+}
+export const changeCompetitorUrlFromKga = () => {
+    kga.elements.competitorURL().click()
+    kga.elements.competitorURL().type('{downArrow}{downArrow}{downArrow}{enter}').wait(2000)
+}
+export const verifyRetriveScoreCompetitorFromKga = () =>{
+    kga.elements.competitorContentScores().then(txt => {
+        let contentScoreChange = txt.text()
+        expect(contentScore).to.not.equal(contentScoreChange)
+    })
+    kga.elements.competitorAuthorityScores().then(txt => {
+        let authorityScoreChange = txt.text()
+        expect(authorityScore).to.not.equal(authorityScoreChange)
+    })
+    kga.elements.competitorTechnicalScores().then(txt => {
+        let technicalScoreChange = txt.text()
+        expect(technicalScore).to.not.equal(technicalScoreChange)
     })
 }

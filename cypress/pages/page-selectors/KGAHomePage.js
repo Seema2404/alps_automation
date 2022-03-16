@@ -87,7 +87,13 @@ export class KGAHomePage {
             RankingNumber: () => cy.get('td div div [alt="rank"] +div'),
             RankingDomain: () => cy.xpath('//img[@alt="rank"]/ancestor::tr/descendant::a'),
             serpResultUrl: () => cy.get('#serpResult_metaInfo_url_text'),
-            serpResultRows: () => cy.get('table tbody tr[class*="serpResult"]')
+            serpResultRows: () => cy.get('table tbody tr[class*="serpResult"]'),
+            kgaAuthorityScoreLabel: () => cy.get('#authority-score-label'),
+            kgaTechnicalScoreLabel: () => cy.get('#technical-score-label'),
+            competitorContentScores: () => cy.xpath("//*[@id='root']/div[2]/section/section/div/section/div[2]/div/div[1]/div[1]/div[3]/div[1]", {timeout: 20000}),
+            competitorAuthorityScores: () => cy.xpath("//*[@id='root']/div[2]/section/section/div/section/div[2]/div/div[1]/div[2]/div[3]/div[1]"),
+            competitorTechnicalScores: () => cy.xpath("//*[@id='root']/div[2]/section/section/div/section/div[2]/div/div[1]/div[3]/div[3]/div[1]"),
+            competitorURL: () => cy.get('#kwAnalysis_comparision_competitorUrl_dropdown')
         }
     }
 }
