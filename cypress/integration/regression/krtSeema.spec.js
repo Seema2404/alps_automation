@@ -5,7 +5,7 @@ import * as krtSearch from '../../pages/commands/KRT-SearchPage'
 describe ('As KRT user', () => {
     let data
     before(() => {
-        cy.loginUser()
+        cy.loginUser('Iquanti Inc', 1)
         cy.fixture('userData').then((userData) => {
             data = userData
         })

@@ -14,5 +14,5 @@ export const enterRelatedKeyword = (kw) => {
 }
 
 export const clickSearch = () => {
-    kga.elements.searchBtn().click()
+    krtHomePg.elements.searchBtn().click()
 }
