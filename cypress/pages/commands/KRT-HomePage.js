@@ -15,6 +15,7 @@ export const enterRelatedKeyword = (kw) => {
 
 export const clickSearch = () => {
     krtHomePg.elements.searchBtn().click()
+    cy.wait(2000)
 }
 
 export const clickSelectorLocaleDdn = () => {
@@ -23,4 +24,8 @@ export const clickSelectorLocaleDdn = () => {
 
 export const enterLocale = (loc) => { 
     krtHomePg.elements.enterLocale().type(loc).type('{enter}')
+}
+
+export const selectUrlDropdown = () => {
+    krtHomePg.elements.keywordUrlDdn().click().last().click()
 }
