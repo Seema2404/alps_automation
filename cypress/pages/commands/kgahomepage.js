@@ -1,6 +1,5 @@
 import { kga } from '../page-selectors/KGAHomePage'
 
-let contentScore, authorityScore, technicalScore
 export const selectLocale = (locale) => {
     kga.elements.localeDropdown().click()
     cy.get('div').contains(locale).click()
@@ -355,11 +354,25 @@ export const verifySerpResultURL = (path) => {
 }
 
 export const verifyURLInTopRanking = () => {
-    kga.elements.RankingNumber().then((txt) => {
-        const RankNumber = txt.text()
+    kga.elements.RankingNumber().first().then((txt) => {
+        let RankNumber = txt.text();
         let flag=false
-
+        
         if(RankNumber>0 && RankNumber<=10) {
+            flag=true;
+            expect(flag).to.be.true;
+        }else {
+            expect(flag).to.be.true;
+        }    
+    })
+}
+
+export const verifyBelowRanking = () => {
+    kga.elements.RankingNumber().first().then((txt) => {
+        let RankNumber = txt.text();
+        let flag=false
+        
+        if(RankNumber > 10) {
             flag=true;
             expect(flag).to.be.true;
         }else {
@@ -379,7 +392,7 @@ export const verifyDomainInTopRanking = () => {
                 expect(rankURL).to.include(HeaderURL)
             })
         
-            kga.elements.RankingNumber().then((txt) => {
+            kga.elements.RankingNumber().first().then((txt) => {
                 const RankNumber = txt.text()
         
                 let flag=false
@@ -394,38 +407,32 @@ export const verifyDomainInTopRanking = () => {
         })
     })
 }
-export const validateKgaAuthorityScoreLabel = () => {
-    kga.elements.kgaAuthorityScoreLabel().should('be.visible')
+
+export const VerifyErrorMsg = () => {
+    kga.elements.urlerror().should('be.visible')
 }
-export const validateKgaTechnicalScoreLabel = () => {
-    kga.elements.kgaTechnicalScoreLabel().should('be.visible')
+
+export const verifyNullSV = () => {
+    kga.elements.NoSearchVol().should('be.visible')
 }
-export const retriveScoreCompetitorFromKga = () =>{
-    kga.elements.competitorContentScores().then(txt => {
-        contentScore = txt.text()
-    })
-    kga.elements.competitorAuthorityScores().then(txt => {
-        authorityScore = txt.text()
-    })
-    kga.elements.competitorTechnicalScores().then(txt => {
-        technicalScore = txt.text()
-    })
+
+export const verifyErrorMsgWhenChangeLocale = () => {
+    kga.elements.localeDropdown().click()
+    kga.elements.selectDifferentLocal().first().click()
+    VerifyErrorMsg()
+    kga.elements.localeDropdown().click()
+    kga.elements.selectDifferentLocal().eq(4).click()
+    VerifyErrorMsg()
+    kga.elements.localeDropdown().click()
+    kga.elements.selectDifferentLocal().last().click()
+    VerifyErrorMsg()
 }
-export const changeCompetitorUrlFromKga = () => {
-    kga.elements.competitorURL().click()
-    kga.elements.competitorURL().type('{downArrow}{downArrow}{downArrow}{enter}').wait(2000)
-}
-export const verifyRetriveScoreCompetitorFromKga = () =>{
-    kga.elements.competitorContentScores().then(txt => {
-        let contentScoreChange = txt.text()
-        expect(contentScore).to.not.equal(contentScoreChange)
-    })
-    kga.elements.competitorAuthorityScores().then(txt => {
-        let authorityScoreChange = txt.text()
-        expect(authorityScore).to.not.equal(authorityScoreChange)
-    })
-    kga.elements.competitorTechnicalScores().then(txt => {
-        let technicalScoreChange = txt.text()
-        expect(technicalScore).to.not.equal(technicalScoreChange)
+
+export const verifyKgaUrlHeader = (url) => {
+    kga.elements.serpResultUrl().then((headerUrl) => {
+        let HeaderURL = headerUrl.text().replace('‘', '').replace('’', '')
+        
+        let UrlArray=url.split('#')
+        expect(UrlArray[0]).to.equal(HeaderURL)
     })
 }

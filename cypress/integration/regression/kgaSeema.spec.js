@@ -22,7 +22,7 @@ describe('As a KGA user', () => {
 
     it('AL-T1206 : Verify the scenario when user enter keyword with special character and url without # special character', () => {
         loginAction.clickAlpsLogo()
-        kgaAction.enterURL(data.kgaUrl)
+        kgaAction.enterURL(data.kgaURL)
         kgaAction.enterKeyword(data.kgaKeywordSpecChar)
         kgaAction.clickGo()
         cy.wait(2000)
@@ -30,10 +30,28 @@ describe('As a KGA user', () => {
         kgaAction.verifySerpResultURL(data.urlPath)
     })
 
+    it('AL-T1207 : Verify the scenario when user start typing the url with # character', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterURL(data.kgaInvalidUrl)
+        kgaAction.enterKeyword(data.kgaKeyword)
+        kgaAction.clickGo()
+        cy.wait(2000)
+        //verify error message while enter # 
+        kgaAction.VerifyErrorMsg()
+    })
+
+    it('AL-T1210 : Verify the scenario for different multiple loacales and url with #', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterURL(data.kgaInvalidUrl)
+        kgaAction.enterKeyword(data.kgaKeyword)
+        //verify url error message dispay while different locale change
+        kgaAction.verifyErrorMsgWhenChangeLocale()
+    })
+
     it('AL-T1211 : Verify the scenario when user paste url with # and goes to serp page', () => {
         loginAction.clickAlpsLogo()
-        kgaAction.enterURL(data.kgaUrlSpecChar)
-        kgaAction.enterKeyword(data.NonLiveKW)
+        kgaAction.enterURL(data.kgaUrlSpecialChar)
+        kgaAction.enterKeyword(data.kgaKeyword)
         kgaAction.clickGo()
         cy.wait(2000)
         //verify the url in Top 10 rank
@@ -42,13 +60,35 @@ describe('As a KGA user', () => {
 
     it('AL-T1212 : Verify the scenario when user paste url with # and matching domain ranks in top 10', () => {
         loginAction.clickAlpsLogo()
-        kgaAction.enterURL(data.kgaUrlSpecChar)
-        kgaAction.enterKeyword(data.NonLiveKW)
+        kgaAction.enterURL(data.kgaUrlSpecialChar)
+        kgaAction.enterKeyword(data.kgaKeyword)
         kgaAction.clickGo()
         cy.wait(2000)
         //verify the domain in Top 10 rank
         kgaAction.verifyDomainInTopRanking()
     })
+
+    it('AL-T1213 : Verify the scenario when user paste url with # and goes to serp page (ranks beyond 10)', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterURL(data.kgaURL)
+        kgaAction.enterKeyword(data.SimulationKeyword)
+        kgaAction.clickGo()
+        cy.wait(6000)
+        //verify rank beyond 10
+        kgaAction.verifyBelowRanking()     
+    })
     
+    it('AL-T1215 : Verify the scenario when user enter the url with SV as null', () => {
+        loginAction.clickAlpsLogo()
+        kgaAction.enterURL(data.kgaUrlSplChar)
+        kgaAction.enterKeyword(data.invalidKgaKw)
+        kgaAction.clickGo()
+        cy.wait(6000)
+        //verify url without # in it
+        kgaAction.verifyKgaUrlHeader(data.kgaUrlSplChar)
+        //verify null Search Volume 
+        kgaAction.verifyNullSV()     
+    })
+
 })
 

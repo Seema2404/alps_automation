@@ -72,8 +72,8 @@
 	"noKWvalidationtext": "Please enter the valid keyword",
 	"morethan20kwvalidationtext": "Unable to add keyword. You can only add upto 20 keywords.",
 	"currentpagenum": 1,
-	"kgaUrl": "www.allstate.com",
-	"kgaUrlSpecChar": "www.allstate.com##",
 	"kgaKeywordSpecChar": "credit c@rd",
-	"urlPath": "/serp-result"
+	"urlPath": "/serp-result",
+	"kgaUrlSplChar": "https://egghead.io/blog/##handling-copy-and-paste-in-cypress",
+	"invalidKgaKw": "abcdfxyz"
 }
