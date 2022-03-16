@@ -50,14 +50,15 @@ describe('As a KRT user', () => {
         loginAction.clickAlpsLogo()
         krtHome.clickPlanningAndResearch()
         krtHome.clickKeywordResearch()
-        krtHome.changeLocaleButton()
-        krtHome.selectLocaleFromList()
-        krtHome.clickKeywordAndURLTextBox(data.NonLiveKW)
-        krtHome.clickSearchButton()
+        krtHome.clickSelectorLocaleDdn()
+        krtHome.enterLocale(data.locale)
+        krtHome.enterRelatedKeyword(data.NonLiveKW)
+        krtHome.clickSearch()
+
         //verify navigate to search page
         krtSearch.verifyKrtSearchPage(data.krtUrlpath)
         //verify same url in search page 
-        krtSearch.verifySearchBoxKeyword(data.url)
+        krtSearch.verifySearchBoxKeyword(data.NonLiveKW)
         //verify same locale in search page
         krtSearch.verifyLocaleText(data.locale)
     })

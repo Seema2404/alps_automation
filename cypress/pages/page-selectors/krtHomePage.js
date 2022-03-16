@@ -11,7 +11,10 @@ export class krtHomePage {
             searchButton: () => cy.get('#locale_dropdown3'),
             validationMsgKw_Url: () => cy.contains('Please enter a valid Keyword or URL'),
             krtHomePageTxtBox: () => cy.get('#locale_dropdown2'),
-            keyword_UrlFilterTxt: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown>div>div')
+            keyword_UrlFilterTxt: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown>div>div'),
+            localeDdn: () => cy.get('[id*="locale_dropdown_button"]'),
+            enterLocale: () => cy.get('#react-select-protocol-input')
+
         }
     }
 }

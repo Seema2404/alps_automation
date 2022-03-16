@@ -8,4 +8,4 @@ export class krtSearchPage {
     }
 }
 
-export const krtSearch = new krtSearchPage()
+export const krtSearchPg = new krtSearchPage()
