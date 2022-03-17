@@ -8,6 +8,7 @@ export class krtHomePage {
             localeDdn: () => cy.get('[id*="locale_dropdown_button"]'),
             enterLocale: () => cy.get('#react-select-protocol-input'),
             keywordUrlDdn: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown'),
+            keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div')
             
         }
     }

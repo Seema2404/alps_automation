@@ -76,5 +76,6 @@
 	"urlPath": "/serp-result",
 	"krtUrlPath": "/keyword-research-tool",
 	"kgaUrlSplChar": "https://egghead.io/blog/##handling-copy-and-paste-in-cypress",
-	"invalidKgaKw": "abcdfxyz"
+	"invalidKgaKw": "abcdfxyz",
+	"Url": "https://www.hdfcbank.com"
 }
