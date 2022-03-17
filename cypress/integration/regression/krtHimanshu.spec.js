@@ -3,7 +3,7 @@ import * as krtHome from '../../pages/commands/KRT-HomePage'
 import * as krtSearch from '../../pages/commands/KRT-SearchPage'
 
 describe('As a KRT user', () => {
-    let kgaData, data
+    let data
     before(() => {
         cy.loginUser('Iquanti Inc', 1)
         cy.fixture('userData').then((userData) => {
@@ -52,7 +52,7 @@ describe('As a KRT user', () => {
         krtHome.clickSearch()
 
         //verify navigate to search page
-        krtSearch.verifyKrtSearchPage(data.krtUrlpath)
+        krtSearch.verifyKrtSearchPage(data.krtUrlPath)
         //verify same url in search page 
         krtSearch.verifySearchBoxKeyword(data.NonLiveKW)
         //verify same locale in search page
