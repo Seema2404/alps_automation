@@ -30,7 +30,7 @@ describe ('As KRT user', () => {
         // validate the disable of the search button
 
         krtHome.dispsearchBtn()
-        krtHome.dispexportIcon()
+        // krtHome.dispexportIcon()
        
     })
 

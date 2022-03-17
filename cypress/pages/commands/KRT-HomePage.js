@@ -34,7 +34,7 @@ export const dispexportIcon = () => {
 }
 
 export const dispnotificationversion = (verNotification) => {
-    Simulation.elements.versionNotification().then(function (fetchDispText) {
+    krtHomePg.elements.versionNotification().then(function (fetchDispText) {
         const notificationversion = fetchDispText.text()
 
         expect(notificationversion).to.include(verNotification)
