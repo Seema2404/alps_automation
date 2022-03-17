@@ -17,3 +17,23 @@ export const verifyLocaleText = (txt) => {
         expect(locale).to.equals(txt)
     })
 }
+
+export const clickSelectorLocaleDdn = () => {
+    krtSearchPg.elements.localeDdn().click()
+}
+
+export const updateLocale = (loc) => { 
+    krtSearchPg.elements.enterLocale().type(loc).type('{enter}')
+}
+
+export const updateKeywordOrURL = (txt) => {
+    krtSearchPg.elements.searchBox().clear()
+    krtSearchPg.elements.searchBox().type(txt)
+}
+
+export const verifyUpdateKeywordOrURL = (txt) => {
+    krtSearchPg.elements.searchBox().invoke('val').then((KeywordTxt) => {
+        
+        expect(KeywordTxt).to.equals(txt)
+    })
+}

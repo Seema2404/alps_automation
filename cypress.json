@@ -23,7 +23,7 @@
           "json": true
       }
   },
-    "testFiles": [
-        "regression/krt*"
-    ]
+  "testFiles": [
+      "regression/krt*.spec.js"
+  ]
 }

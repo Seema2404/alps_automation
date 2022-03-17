@@ -15,6 +15,7 @@ export const enterRelatedKeyword = (kw) => {
 
 export const clickSearch = () => {
     krtHomePg.elements.searchBtn().click()
+    cy.wait(2000)
 }
 
 export const clickSelectorLocaleDdn = () => {
@@ -49,4 +50,8 @@ export const verifyAutoSelectedKeywordUrlFilter = (url, filter) => {
 }
 export const PlanningAndResearch = () => {
     krtHomePg.elements.krtPlanningAndResearch().click()
+}
+
+export const selectUrlDropdown = () => {
+    krtHomePg.elements.keywordUrlDdn().click().last().click()
 }
