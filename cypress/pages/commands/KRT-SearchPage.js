@@ -37,3 +37,15 @@ export const verifyUpdateKeywordOrURL = (txt) => {
         expect(KeywordTxt).to.equals(txt)
     })
 }
+
+export const verifyKeywordUrlDdnText = (text) => {
+    krtSearchPg.elements.keywordUrlDdnText().then((txt) => {
+       const DdnText = txt.text()
+
+       if(text.includes('https://')) {
+           expect(DdnText).to.equals('URL')
+       } else {
+            expect(DdnText).to.equals('Keyword')
+       }
+    })
+}

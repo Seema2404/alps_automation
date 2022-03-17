@@ -17,6 +17,7 @@ export class krtHomePage {
             exportIcon:() =>cy.xpath("//p[contains(text(),'Related Keywords')]//following-sibling::div"),
             versionNotification:()=>cy.xpath("//div[@id='version_notification_message']"),
             keywordUrlDdn: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown'),
+            keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div')
             
         }
     }

@@ -6,6 +6,7 @@ export class krtSearchPage {
             searchBox: () => cy.get('#locale_dropdown2'),
             localeDdn: () => cy.get('[id*="locale_dropdown_button"]'),
             enterLocale: () => cy.get('#react-select-protocol-input'),
+            keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div')
         }
     }
 }
