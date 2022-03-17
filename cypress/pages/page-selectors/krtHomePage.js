@@ -6,8 +6,9 @@ export class krtHomePage {
             searchBox: () => cy.get('#locale_dropdown2'),
             searchBtn: () => cy.contains('Search'),
             localeDdn: () => cy.get('[id*="locale_dropdown_button"]'),
-            enterLocale: () => cy.get('#react-select-protocol-input')
-
+            enterLocale: () => cy.get('#react-select-protocol-input'),
+            keywordUrlDdn: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown'),
+            
         }
     }
 }

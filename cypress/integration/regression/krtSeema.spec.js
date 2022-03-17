@@ -24,13 +24,37 @@ describe ('As KRT user', () => {
         krtHome.clickSelectorLocaleDdn()
         krtHome.enterLocale(data.locale)
         krtHome.enterRelatedKeyword(data.url)
+        krtHome.selectUrlDropdown()
         krtHome.clickSearch()
 
         //verify navigate to search page
-        krtSearch.verifyKrtSearchPage(data.krtUrlpath)
+        krtSearch.verifyKrtSearchPage(data.krtUrlPath)
         //verify same url in search page 
         krtSearch.verifySearchBoxKeyword(data.url)
         //verify same locale in search page
         krtSearch.verifyLocaleText(data.locale)
+    })
+
+    it('AL-T1289 : Verify user is able to change the locale on KRT search page', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.keyword)
+        krtHome.clickSearch()
+        krtSearch.clickSelectorLocaleDdn()
+        krtSearch.updateLocale(data.locale)
+        //verify updated Locale in search page
+        krtSearch.verifyLocaleText(data.locale)
+    })
+
+    it('AL-T1290 : Verify user is able to change the URL on the KRT search page', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.keyword)
+        krtHome.clickSearch()
+        krtSearch.updateKeywordOrURL(data.newURL)
+        //verify updated URL in search page
+        krtSearch.verifyUpdateKeywordOrURL(data.newURL)
     })
 })
