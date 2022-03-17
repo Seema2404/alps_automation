@@ -1,3 +1,4 @@
+import { count } from "console";
 import { krtSearchPg } from "../page-selectors/krtSearchPage";
 
 export const verifyKrtSearchPage = (path) => {
@@ -35,5 +36,17 @@ export const verifyUpdateKeywordOrURL = (txt) => {
     krtSearchPg.elements.searchBox().invoke('val').then((KeywordTxt) => {
         
         expect(KeywordTxt).to.equals(txt)
+    })
+}
+export const countResearchTableData = () => {
+    // krtSearchPg.elements.resarchTableBody().scrollTo('bottom')
+    cy.wait(2000)
+    krtSearchPg.elements.resarchTableData().then(($rows) => {
+        let countData=0
+        for (let index = 0; index < $rows.length; index++) {
+            krtSearchPg.elements.resarchTableBody().scrollTo('bottom')
+            countData++           
+        }
+        cy.log(countData)
     })
 }
