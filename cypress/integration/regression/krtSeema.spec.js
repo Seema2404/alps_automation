@@ -51,7 +51,7 @@ describe ('As KRT user', () => {
         loginAction.clickAlpsLogo()
         krtHome.clickPlanningAndResearch()
         krtHome.clickKeywordResearch()
-        krtHome.enterRelatedKeyword(data.keyword)
+        krtHome.enterRelatedKeyword(data.Url)
         krtHome.clickSearch()
         krtSearch.updateKeywordOrURL(data.SimURL)
 
@@ -64,7 +64,6 @@ describe ('As KRT user', () => {
         krtHome.clickPlanningAndResearch()
         krtHome.clickKeywordResearch()
         krtHome.enterRelatedKeyword(data.Url)
-        cy.wait(1000)
 
         //verify autoselected URL dropdown when enter complete URL
         krtHome.verifyKeywordUrlDdnText(data.Url)
@@ -84,4 +83,29 @@ describe ('As KRT user', () => {
         krtHome.clickSearch()
         krtSearch.verifyKeywordUrlDdnText(data.keyword)
     })
+
+    it('AL-T1293 : Verify user is able to search related keywords after changing the already existing Keyword on the input URL/Keyword field', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.keyword)
+        krtHome.clickSearch()
+        krtSearch.updateKeywordOrURL(data.searchKeyword)
+        krtSearch.clickSearch()
+        //verify fetch result for given keyword
+        krtSearch.verifySearchResultByKeyword(data.searchKeyword)
+    })
+
+    it('AL-T1294 : Verify user is able to search related keywords after changing the already existing URL on the input URL/Keyword field', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.Url)
+        krtHome.clickSearch()
+        krtSearch.updateKeywordOrURL(data.SimURL)
+        krtSearch.clickSearch()
+        cy.wait(2000)
+        krtSearch.verifySearchResultByURL(data.SimURL)
+    })
+
 })

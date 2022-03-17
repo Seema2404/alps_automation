@@ -11,6 +11,7 @@ export const clickKeywordResearch = () => {
 export const enterRelatedKeyword = (kw) => {
     krtHomePg.elements.searchBox().clear()
     krtHomePg.elements.searchBox().type(kw)
+    cy.wait(1000)
 }
 
 export const clickSearch = () => {
