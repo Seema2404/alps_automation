@@ -5,11 +5,7 @@ import * as krtSearch from '../../pages/commands/KRT-SearchPage'
 describe('As a KRT user', () => {
     let kgaData, data
     before(() => {
-        // Clear downloads folder
-        cy.exec('del /q "cypress\\downloads\\*.*"', { log: true, failOnNonZeroExit: false })
-        cy.exec('rm cypress/downloads/*', { log: true, failOnNonZeroExit: false })
-
-        cy.loginUser()
+        cy.loginUser('Iquanti Inc', 1)
         cy.fixture('userData').then((userData) => {
             data = userData
         })
