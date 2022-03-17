@@ -24,7 +24,6 @@
       }
   },
   "testFiles": [
-    "regression/krt*.spec.js",
-    "regression/krtharish.spc.js"
+    "regression/krt*.spec.js"
   ]
 }

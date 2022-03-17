@@ -7,7 +7,8 @@ export class krtSearchPage {
             localeDdn: () => cy.get('[id*="locale_dropdown_button"]'),
             enterLocale: () => cy.get('#react-select-protocol-input'),
             resarchTableBody: () => cy.get('#KW_research_table_body'),
-            resarchTableData: () => cy.get('#KW_research_table_body>div')
+            resarchTableData: () => cy.get('#KW_research_table_body>div'),
+            keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div')
         }
     }
 }

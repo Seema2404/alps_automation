@@ -48,7 +48,7 @@
 	"duplicateKWNotificationMsg": "One or more keyword(s) is already present",
 	"WarningMSgFoxMaxLimitKWAdd": "Unable to add keyword as the limit is 20 keyword. Please try again by reducing the keyword(s)",
 	"NotificationForProjectKWSelection": "You can add only up to 20 keywords for simulation. Please try again after deselecting some keywords.",
-	"SimURL": "https://www.allstate.com",
+	"SimURL": "https://www.allstate.com/",
 	"NonLiveKW": "allstate",
 	"NotificationInvalidFileUpload": "As this is not a HTML file content, please upload a valid file to proceed",
 	"NoOfCheckbox": "5",
@@ -77,6 +77,9 @@
 	"krtUrlPath": "/keyword-research-tool",
 	"kgaUrlSplChar": "https://egghead.io/blog/##handling-copy-and-paste-in-cypress",
 	"invalidKgaKw": "abcdfxyz",
+	"Url": "https://www.hdfcbank.com",
+	"krtUrlDropDwon": "URL",
+	"krtKeywordDropDwon": "Keyword",
 	"NoKWSuggestionNotification":"No keyword suggestions found for the given Keyword/URL. Please retry after adding another Keyword/URL.",
 	"invalidKWKrt":"abcdfets"
 }
