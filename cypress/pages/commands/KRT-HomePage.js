@@ -52,6 +52,22 @@ export const PlanningAndResearch = () => {
     krtHomePg.elements.krtPlanningAndResearch().click()
 }
 
+export const dispsearchBtn = () => {
+    krtHomePg.elements.searchBtn().should('be.disabled')
+}
+
+export const dispexportIcon = () => {
+    krtHomePg.elements.exportIcon().should('be.disabled')
+}
+
+export const dispnotificationversion = (verNotification) => {
+    krtHomePg.elements.versionNotification().then(function (fetchDispText) {
+        const notificationversion = fetchDispText.text()
+
+        expect(notificationversion).to.include(verNotification)
+        expect(notificationversion).to.contains(verNotification)
+    })
+}
 export const selectUrlDropdown = () => {
     krtHomePg.elements.keywordUrlDdn().click().last().click()
 }

@@ -18,7 +18,7 @@ describe('As a KRT user', () => {
     })
     it('AL-T1283: Verify user is able to change the Locale on KRT homepage', () => {
         loginAction.clickAlpsLogo()
-        krtHome.PlanningAndResearch()
+        krtHome.clickPlanningAndResearch()
         krtHome.clickKeywordResearch()
         krtHome.changeLocaleButton()
         krtHome.selectLocaleFromList()
@@ -26,14 +26,14 @@ describe('As a KRT user', () => {
     })
     it('AL-T1284: Verify a validation message is displayed when user give blank spaces on the Keyword/URL field.', () => {
         loginAction.clickAlpsLogo()
-        krtHome.PlanningAndResearch()
+        krtHome.clickPlanningAndResearch()
         krtHome.clickKeywordResearch()
         krtHome.clickSearchButton()
         krtHome.VerifyValidationMessage()
     })
     it('AL-T1285, 86: Verify when user enter a URL/Keyword then selected on the Autoselect Keyword/URL dropdown', () => {
         loginAction.clickAlpsLogo()
-        krtHome.PlanningAndResearch()
+        krtHome.clickPlanningAndResearch()
         krtHome.clickKeywordResearch()
         krtHome.clickKeywordAndURLTextBox(data.SimURL)
         krtHome.verifyAutoSelectedKeywordUrlFilter(data.SimURL, data.krtUrlDropDwon)
@@ -44,7 +44,7 @@ describe('As a KRT user', () => {
     })
     it('AL-T1287: Verfiy user is able to search related Keywords for a Keyword', () => {
         loginAction.clickAlpsLogo()
-        krtHome.PlanningAndResearch()
+        krtHome.clickPlanningAndResearch()
         krtHome.clickKeywordResearch()
         krtHome.clickSelectorLocaleDdn()
         krtHome.enterLocale(data.locale)

@@ -78,5 +78,7 @@
 	"kgaUrlSplChar": "https://egghead.io/blog/##handling-copy-and-paste-in-cypress",
 	"invalidKgaKw": "abcdfxyz",
 	"krtUrlDropDwon": "URL",
-	"krtKeywordDropDwon": "Keyword"
+	"krtKeywordDropDwon": "Keyword",
+	"NoKWSuggestionNotification":"No keyword suggestions found for the given Keyword/URL. Please retry after adding another Keyword/URL.",
+	"invalidKWKrt":"abcdfets"
 }
