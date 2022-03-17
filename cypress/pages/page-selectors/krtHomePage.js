@@ -8,8 +8,9 @@ export class krtHomePage {
             localeDdn: () => cy.get('[id*="locale_dropdown_button"]'),
             enterLocale: () => cy.get('#react-select-protocol-input'),
             exportIcon:() =>cy.xpath("//p[contains(text(),'Related Keywords')]//following-sibling::div"),
-            versionNotification:()=>cy.xpath("//div[@id='version_notification_message']")
-
+            versionNotification:()=>cy.xpath("//div[@id='version_notification_message']"),
+            keywordUrlDdn: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown'),
+            
         }
     }
 }

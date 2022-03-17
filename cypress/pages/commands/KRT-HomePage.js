@@ -15,6 +15,7 @@ export const enterRelatedKeyword = (kw) => {
 
 export const clickSearch = () => {
     krtHomePg.elements.searchBtn().click()
+    cy.wait(2000)
 }
 
 export const clickSelectorLocaleDdn = () => {
@@ -40,4 +41,7 @@ export const dispnotificationversion = (verNotification) => {
         expect(notificationversion).to.include(verNotification)
         expect(notificationversion).to.contains(verNotification)
     })
+export const selectUrlDropdown = () => {
+    krtHomePg.elements.keywordUrlDdn().click().last().click()
+}
 }
