@@ -41,7 +41,7 @@ export const dispnotificationversion = (verNotification) => {
         expect(notificationversion).to.include(verNotification)
         expect(notificationversion).to.contains(verNotification)
     })
+}
 export const selectUrlDropdown = () => {
     krtHomePg.elements.keywordUrlDdn().click().last().click()
-}
 }
