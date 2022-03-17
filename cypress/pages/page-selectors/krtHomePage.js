@@ -13,7 +13,8 @@ export class krtHomePage {
             krtHomePageTxtBox: () => cy.get('#locale_dropdown2'),
             keyword_UrlFilterTxt: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown>div>div'),
             localeDdn: () => cy.get('[id*="locale_dropdown_button"]'),
-            enterLocale: () => cy.get('#react-select-protocol-input')
+            enterLocale: () => cy.get('#react-select-protocol-input'),
+            krtPlanningAndResearch: () => cy.contains('PLANNING & RESEARCH')
 
         }
     }

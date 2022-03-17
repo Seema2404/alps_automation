@@ -47,3 +47,6 @@ export const verifyAutoSelectedKeywordUrlFilter = (url, filter) => {
     krtHomePg.elements.krtHomePageTxtBox().should('have.value', url)
     krtHomePg.elements.keyword_UrlFilterTxt().should('have.text', filter)
 }
+export const PlanningAndResearch = () => {
+    krtHomePg.elements.krtPlanningAndResearch().click()
+}
