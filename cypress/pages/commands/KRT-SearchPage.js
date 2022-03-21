@@ -142,3 +142,27 @@ export const verifyAllFilter = (kw) => {
 export const clickAnyFilter = () => {
     krtSearchPg.elements.includeKeywordFilters().eq(1).click()
 }
+export const clickExcludeKeywordTitle = () => {
+    krtSearchPg.elements.includeKeywordTitle().click()
+    krtSearchPg.elements.excludeKeywordTitle().click()
+}
+export const verifyNoKeywordsFound = () => {
+    krtSearchPg.elements.noKeywordTxt().contains('No Keywords Found')
+}
+export const verifyExcludeFilterWithAnyFilter = (kw) => {
+    krtSearchPg.elements.relatedKeywords().each((items,index,list) =>{
+        krtSearchPg.elements.relatedKeywords().eq(index).should('not.contain.text', kw)
+    })
+}
+export const validationMsgKRTAddingKWFilter = (msg) => {
+    krtSearchPg.elements.filterErrorMsg().should('contain.text', msg)
+}
+export const clickClearAllInIncludeFilter = () => {
+    krtSearchPg.elements.clearAll().click()
+}
+export const validateClearAllKeywords = (kw) => {
+    // krtSearchPg.elements.includeKeywordsContainer().each((items,index,list) => {
+    //     krtSearchPg.elements.includeKeywordsContainer().eq(index).should('not.exist')
+    // })
+    krtSearchPg.elements.includeKeywordsContainer().should('not.contain.text', kw)
+}

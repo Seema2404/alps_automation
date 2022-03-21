@@ -84,5 +84,9 @@
 	"invalidKWKrt":"abcdfets",
 	"testDataURLKRT": "https://www.iquanti.com/",
 	"testDataKeywordKRT": "ettimes",
-	"addKeywordInFilter": "today"
+	"addKeywordInFilter": "today",
+	"addIncludeKeywordInFilter": "alps,the",
+	"addExcudeKeywordInFilter": "the",
+	"keywordForFilterKRT": "ALPS",
+	"validationMessageKRT": "Unable to add keyword. You can only add upto 20 keywords."
 }
