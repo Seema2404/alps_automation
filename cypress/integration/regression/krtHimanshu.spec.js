@@ -58,4 +58,28 @@ describe('As a KRT user', () => {
         //verify same locale in search page
         krtSearch.verifyLocaleText(data.locale)
     })
+    it('AL-T1316: Verify the calculation for Total Keyword count on keyword research page with URL as an input', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.testDataURLKRT)
+        krtHome.clickSearch()
+        krtSearch.countResearchTableData()
+    })
+    it('AL-T1317: Verify the calculation for Total Search Volume count on keyword Research page with Keyword as a input', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.testDataKeywordKRT)
+        krtHome.clickSearch()
+        krtSearch.krtTableSearchVolumeTotalCount()
+    })
+    it('AL-T1318: Verify the calculation for Total Search Volume count on keyword Research page with URL as a input', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.testDataURLKRT)
+        krtHome.clickSearch()
+        krtSearch.krtTableSearchVolumeTotalCountForUrl()
+    })
 })
