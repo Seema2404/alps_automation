@@ -29,6 +29,7 @@ export const updateLocale = (loc) => {
 export const updateKeywordOrURL = (txt) => {
     krtSearchPg.elements.searchBox().clear()
     krtSearchPg.elements.searchBox().type(txt)
+    cy.wait(1000)
 }
 
 export const verifyUpdateKeywordOrURL = (txt) => {
@@ -48,4 +49,27 @@ export const verifyKeywordUrlDdnText = (text) => {
             expect(DdnText).to.equals('Keyword')
        }
     })
+}
+
+export const clickSearch = () => {
+    krtSearchPg.elements.searchBtn().click()
+}
+
+export const verifySearchResultByKeyword = (searchKW) => {
+    krtSearchPg.elements.keywordText().should('contain.text', searchKW)
+}
+
+export const verifySearchResultByURL = (url) => {
+    let searchKW
+    const urlLength = url.split(".").length;
+    
+    if(urlLength == 2) {
+        searchKW = url.split(".").splice(0,1).join('')
+    } else if(urlLength == 3) {
+        searchKW = url.split(".").splice(1,1).join(' ')
+    } else {
+        searchKW = url 
+    }
+
+    krtSearchPg.elements.keywordText().should('contains.text', searchKW)
 }
