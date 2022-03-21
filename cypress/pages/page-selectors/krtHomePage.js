@@ -17,8 +17,15 @@ export class krtHomePage {
             exportIcon:() =>cy.xpath("//p[contains(text(),'Related Keywords')]//following-sibling::div"),
             versionNotification:()=>cy.xpath("//div[@id='version_notification_message']"),
             keywordUrlDdn: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown'),
-            keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div')
-            
+            keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div'),
+            closeNotificationVersion : () => cy.get('#notification_close_icon'),
+            relatedKWvalues:() =>cy.xpath("//div[contains(@id,'body_row')]/p"),
+            keywordSortingIcon:()=> cy.get('#keyword_column div div'),
+            searchVolumeIcon : () => cy.get('#keyword_search_volume div div'),
+            searchVolumevalues:()=>cy.xpath("//div[contains(@id,'body_row')]/div/p"),
+            keywordRelevanceIcon : () => cy.get('#kw_keyword_relevance div div'),
+            keywordRelevanceValue : () =>cy.xpath("//div[contains(@id,'body_row')]/div[2]/p")
+             
         }
     }
 }
