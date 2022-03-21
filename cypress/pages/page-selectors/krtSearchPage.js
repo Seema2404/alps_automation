@@ -15,7 +15,7 @@ export class krtSearchPage {
             keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div'),
             searchBtn: () => cy.contains('Search'),
             keywordText: () => cy.get('[id*="body_row"] > p'),
-            
+            includeKeywordFilters: () => cy.get('#radio_btn_container>div>label')
         }
     }
 }

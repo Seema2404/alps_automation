@@ -117,3 +117,9 @@ export const verifySearchResultByURL = (url) => {
 
     krtSearchPg.elements.keywordText().should('contains.text', searchKW)
 }
+
+export const verifyIncludeFilterVisible = () => {
+    krtSearchPg.elements.includeKeywordFilters().each((items,index,list) =>{
+        krtSearchPg.elements.includeKeywordFilters().eq(index).should('be.visible')
+    })
+}
