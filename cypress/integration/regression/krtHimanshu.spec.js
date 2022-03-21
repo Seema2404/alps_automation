@@ -82,4 +82,12 @@ describe('As a KRT user', () => {
         krtHome.clickSearch()
         krtSearch.krtTableSearchVolumeTotalCountForUrl()
     })
+    it('AL-T1718: Verify user is able to see the ALL and Any filter on the Include Filter', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.enterRelatedKeyword(data.testDataURLKRT)
+        krtHome.clickSearch()
+        krtSearch.verifyIncludeFilterVisible()
+    })
 })
