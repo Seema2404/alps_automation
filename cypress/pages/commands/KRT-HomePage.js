@@ -14,8 +14,8 @@ export const enterRelatedKeyword = (kw) => {
 }
 
 export const clickSearch = () => {
-    krtHomePg.elements.searchBtn().click()
     cy.wait(1000)
+    krtHomePg.elements.searchBtn().click()
 }
 
 export const clickSelectorLocaleDdn = () => {

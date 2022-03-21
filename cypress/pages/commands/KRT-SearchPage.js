@@ -1,4 +1,5 @@
 import { count } from "console";
+import { it } from "mocha";
 import { krtSearchPg } from "../page-selectors/krtSearchPage";
 
 export const verifyKrtSearchPage = (path) => {
@@ -38,18 +39,7 @@ export const verifyUpdateKeywordOrURL = (txt) => {
         expect(KeywordTxt).to.equals(txt)
     })
 }
-export const countResearchTableData = () => {
-    // krtSearchPg.elements.resarchTableBody().scrollTo('bottom')
-    cy.wait(2000)
-    krtSearchPg.elements.resarchTableData().then(($rows) => {
-        let countData=0
-        for (let index = 0; index < $rows.length; index++) {
-            krtSearchPg.elements.resarchTableBody().scrollTo('bottom')
-            countData++           
-        }
-        cy.log(countData)
-    })
-}
+
 export const verifyKeywordUrlDdnText = (text) => {
     krtSearchPg.elements.keywordUrlDdnText().then((txt) => {
        const DdnText = txt.text()
@@ -59,5 +49,47 @@ export const verifyKeywordUrlDdnText = (text) => {
        } else {
             expect(DdnText).to.equals('Keyword')
        }
+    })
+}
+export const countResearchTableData = () => {
+    cy.wait(4000)
+    let countKeywords=[]
+    krtSearchPg.elements.resarchTableData().each((items,index,list) =>{
+        countKeywords.push(index)
+    }).then(() =>{
+        krtSearchPg.elements.totalKeywordCount().then((txt) => {
+            const totalCountKeywords = txt.text()
+            const keywordsInt = parseInt(totalCountKeywords)
+            expect(countKeywords.length).to.eq(keywordsInt)
+        })
+    })
+}
+export const krtTableSearchVolumeTotalCount = () => {
+    cy.wait(4000)
+    let SVsum=0
+    krtSearchPg.elements.krtTableSearchVolume().each((items,index,list) =>{
+        SVsum= SVsum+parseInt(items.text())
+    }).then(()=>{
+        krtSearchPg.elements.expectedserachvolume().then(($el)=>{
+            const expectedSV=parseInt($el.text())
+            if(SVsum==expectedSV){
+                expect(SVsum).to.eq(expectedSV)
+            }
+        })
+    })
+}
+export const krtTableSearchVolumeTotalCountForUrl = () => {
+    cy.wait(4000)
+    let SVsum=0, expectedSVActual=0
+    krtSearchPg.elements.krtTableSearchVolume().each((items,index,list) =>{
+        SVsum= SVsum+parseInt(items.text())
+    }).then(()=>{
+        krtSearchPg.elements.expectedserachvolume().then(($el)=>{
+            const expectedSV=$el.text().split('K')
+            expectedSVActual = expectedSVActual + (parseFloat(expectedSV[0] * 1000))
+            if(SVsum==expectedSVActual){
+                expect(SVsum).to.eq(expectedSVActual)
+            }
+        })
     })
 }
