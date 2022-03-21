@@ -11,7 +11,11 @@ export class krtSearchPage {
             keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div'),
             totalKeywordCount: () => cy.get('#KW_count_column > p'),
             krtTableSearchVolume: () => cy.get('#KW_research_table_body>div>div:nth-child(2)>p'),
-            expectedserachvolume:()=> cy.get('#KW_search_volume_column>p')
+            expectedserachvolume:()=> cy.get('#KW_search_volume_column>p'),
+            keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div'),
+            searchBtn: () => cy.contains('Search'),
+            keywordText: () => cy.get('[id*="body_row"] > p'),
+            
         }
     }
 }
