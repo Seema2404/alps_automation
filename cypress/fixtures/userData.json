@@ -83,5 +83,10 @@
 	"NoKWSuggestionNotification":"No keyword suggestions found for the given Keyword/URL. Please retry after adding another Keyword/URL.",
 	"invalidKWKrt":"abcdfets",
 	"testDataURLKRT": "https://www.iquanti.com/",
-	"testDataKeywordKRT": "ettimes"
+	"testDataKeywordKRT": "ettimes",
+	"addKeywordInFilter": "today",
+	"addIncludeKeywordInFilter": "alps,the",
+	"addExcudeKeywordInFilter": "the",
+	"keywordForFilterKRT": "ALPS",
+	"validationMessageKRT": "Unable to add keyword. You can only add upto 20 keywords."
 }

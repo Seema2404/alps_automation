@@ -123,3 +123,46 @@ export const verifyIncludeFilterVisible = () => {
         krtSearchPg.elements.includeKeywordFilters().eq(index).should('be.visible')
     })
 }
+
+export const clickAllFilter = () => {
+    krtSearchPg.elements.includeKeywordFilters().first().click()
+}
+export const addKeywordFilter = (kw) => {
+    krtSearchPg.elements.addKeywordTxtBox().clear().type(kw)
+}
+export const verifyAddButton = () => {
+    krtSearchPg.elements.applyButton().should('enabled')
+}
+export const clickApplyButthon = () => {
+    krtSearchPg.elements.applyButton().click()
+}
+export const verifyAllFilter = (kw) => {
+    krtSearchPg.elements.relatedKeywords().should('include.text', kw)
+}
+export const clickAnyFilter = () => {
+    krtSearchPg.elements.includeKeywordFilters().eq(1).click()
+}
+export const clickExcludeKeywordTitle = () => {
+    krtSearchPg.elements.includeKeywordTitle().click()
+    krtSearchPg.elements.excludeKeywordTitle().click()
+}
+export const verifyNoKeywordsFound = () => {
+    krtSearchPg.elements.noKeywordTxt().contains('No Keywords Found')
+}
+export const verifyExcludeFilterWithAnyFilter = (kw) => {
+    krtSearchPg.elements.relatedKeywords().each((items,index,list) =>{
+        krtSearchPg.elements.relatedKeywords().eq(index).should('not.contain.text', kw)
+    })
+}
+export const validationMsgKRTAddingKWFilter = (msg) => {
+    krtSearchPg.elements.filterErrorMsg().should('contain.text', msg)
+}
+export const clickClearAllInIncludeFilter = () => {
+    krtSearchPg.elements.clearAll().click()
+}
+export const validateClearAllKeywords = (kw) => {
+    // krtSearchPg.elements.includeKeywordsContainer().each((items,index,list) => {
+    //     krtSearchPg.elements.includeKeywordsContainer().eq(index).should('not.exist')
+    // })
+    krtSearchPg.elements.includeKeywordsContainer().should('not.contain.text', kw)
+}

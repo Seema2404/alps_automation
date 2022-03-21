@@ -15,7 +15,17 @@ export class krtSearchPage {
             keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div'),
             searchBtn: () => cy.contains('Search'),
             keywordText: () => cy.get('[id*="body_row"] > p'),
-            includeKeywordFilters: () => cy.get('#radio_btn_container>div>label')
+            includeKeywordFilters: () => cy.get('#radio_btn_container>div>label'),
+            addKeywordTxtBox: () => cy.get('#main_column>div>input'),
+            applyButton: () => cy.get('#KW_apply_btn'),
+            relatedKeywords: () => cy.get('#KW_research_table_body>div>p'),
+            excludeKeywordTitle: () => cy.get('#kw_url_exclude-keyword_title'),
+            includeKeywordTitle: () => cy.get('#kw_url_include-keyword_title'),
+            addExcludeKeywordTxtBox: () => cy.get('#main_column>div>input'),
+            noKeywordTxt: () => cy.get('#kw_no_record'),
+            filterErrorMsg: () => cy.get('#advance_filter_error'),
+            includeKeywordsContainer: () => cy.xpath('//div[@id="kw_url_include-keyword_title"]/parent::div'),
+            clearAll: () => cy.get('#action_btn>button:nth-child(2)>span')
         }
     }
 }
