@@ -15,7 +15,10 @@ export class krtSearchPage {
             keywordUrlDdnText: () => cy.get('#sim_sub_cat_param_filter_sort_dropdown div div div'),
             searchBtn: () => cy.contains('Search'),
             keywordText: () => cy.get('[id*="body_row"] > p'),
-            includeKeywordFilters: () => cy.get('#radio_btn_container>div>label')
+            includeKeywordFilters: () => cy.get('#radio_btn_container>div>label'),
+            addKeywordTxtBox: () => cy.get('#main_column>div:nth-child(2)>input'),
+            applyButton: () => cy.get('#KW_apply_btn'),
+            relatedKeywords: () => cy.get('#KW_research_table_body>div>p')
         }
     }
 }

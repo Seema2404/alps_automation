@@ -123,3 +123,22 @@ export const verifyIncludeFilterVisible = () => {
         krtSearchPg.elements.includeKeywordFilters().eq(index).should('be.visible')
     })
 }
+
+export const clickAllFilter = () => {
+    krtSearchPg.elements.includeKeywordFilters().first().click()
+}
+export const addKeywordFilter = (kw) => {
+    krtSearchPg.elements.addKeywordTxtBox().clear().type(kw)
+}
+export const verifyAddButton = () => {
+    krtSearchPg.elements.applyButton().should('enabled')
+}
+export const clickApplyButthon = () => {
+    krtSearchPg.elements.applyButton().click()
+}
+export const verifyAllFilter = (kw) => {
+    krtSearchPg.elements.relatedKeywords().should('include.text', kw)
+}
+export const clickAnyFilter = () => {
+    krtSearchPg.elements.includeKeywordFilters().eq(1).click()
+}
