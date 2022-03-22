@@ -48,4 +48,50 @@ describe ('As KRT user', () => {
         krtHome.dispnotificationversion(data.NoKWSuggestionNotification)
        
     })
+
+    it('AL-T1309 :Verify that user is able to close the No Relevance score calculation notification', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.clickSelectorLocaleDdn()
+        krtHome.enterLocale(data.locale)
+        krtHome.enterRelatedKeyword(data.invalidKWKrt)
+        krtHome.clickSearch()
+        krtHome.clickcloseNotificationVersion()
+
+        // validate the disabalement of the search button
+        krtHome.NtificationShouldnotVisibleVersion()
+        
+       
+    })
+
+    
+
+    it('AL-T1310,Al-T1311 :Verify user is able to sort the table with Keyword,Search volume', () => {
+        loginAction.clickAlpsLogo()
+        krtHome.clickPlanningAndResearch()
+        krtHome.clickKeywordResearch()
+        krtHome.clickSelectorLocaleDdn()
+        krtHome.enterLocale(data.locale)
+        krtHome.enterRelatedKeyword(data.sovProduct)
+        krtHome.clickSearch()
+        cy.wait(2000)
+        krtHome.clickKeywordSortingIcon()
+        
+        // Validate the search vlume and keyword sorting order
+        krtHome.validateSortingOfKW() 
+        cy.wait(2000)
+        krtHome.clickSearchVolumeIcon()
+        krtHome.validateSortingOfsearchVolume()
+
+        cy.wait(2000)
+
+        krtHome.clickkeywordRelevanceIconIcon()
+        krtHome.validatekeywordRelevanceValue()
+
+       
+    })
+	
+	
+	
 })

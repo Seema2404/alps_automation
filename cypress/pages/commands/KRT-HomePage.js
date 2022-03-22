@@ -84,3 +84,89 @@ export const verifyKeywordUrlDdnText = (text) => {
        }
     })
 }
+
+export const NtificationShouldnotVisibleVersion =() => {
+    krtHomePg.elements.versionNotification().should('not.exist')
+
+}
+
+export const clickcloseNotificationVersion = () => {
+    krtHomePg.elements.closeNotificationVersion().click()
+}
+
+export const clickKeywordSortingIcon = () => {
+    krtHomePg.elements.keywordSortingIcon().click({ multiple: true })
+}
+
+export const clickSearchVolumeIcon = () => {
+    krtHomePg.elements.searchVolumeIcon().click({ multiple: true })
+}
+
+
+export const clickkeywordRelevanceIconIcon = () => {
+    krtHomePg.elements.keywordRelevanceIcon().click({ multiple: true })
+}
+
+
+export const validateSortingOfKW = () => {
+    krtHomePg.elements.relatedKWvalues().then(($ele) => {
+            const KWvalues = Array.from($ele, el => el.innerText);
+            // texts.forEach(text => cy.log(text));
+            let flag=false
+            for (let i=0; i<KWvalues.length-1;i++)
+            {
+                if(KWvalues[i]>KWvalues[i+1])
+                {
+                    flag=true
+                }
+                else
+                {
+                    flag=false
+                }
+            }
+            expect(flag).to.equal(true)
+
+    })
+}
+
+export const validateSortingOfsearchVolume = () => {
+    krtHomePg.elements.searchVolumevalues().then(($ele) => {
+            const SearchVolumeValues = Array.from($ele, el => el.innerText);
+            // texts.forEach(text => cy.log(text));
+            let flag=false
+            for (let i=0; i<SearchVolumeValues.length-1;i++)
+            {
+                if(SearchVolumeValues[i]>SearchVolumeValues[i+1])
+                {
+                    flag=true
+                }
+                else
+                {
+                    flag=false
+                }
+            }
+            expect(flag).to.equal(true)
+
+    })
+} 
+
+export const validatekeywordRelevanceValue = () => {
+    krtHomePg.elements.keywordRelevanceValue().then(($ele) => {
+            const keywordRelevancescores = Array.from($ele, el => el.innerText);
+            // texts.forEach(text => cy.log(text));
+            let flag=false
+            for (let i=0; i<keywordRelevancescores.length-1;i++)
+            {
+                if(keywordRelevancescores[i]>keywordRelevancescores[i+1])
+                {
+                    flag=true
+                }
+                else
+                {
+                    flag=false
+                }
+            }
+            expect(flag).to.equal(true)
+
+    })
+} 
